@@ -1,0 +1,226 @@
+.bg0{
+	background-image: url(../images/login/bodybg0.jpg);
+}
+.loginmian{
+	position: absolute;
+	width: 600px;
+	height: 690px;
+	left: 50%;
+	top: 50%;
+	margin-top: -348px;
+	margin-left: -300px;
+}
+.decoratebox{
+	width: 100%;
+	height: 18px;
+}
+.blank{
+	width: 150px;
+	height: 100%;
+	background-color: rgba(0,0,0,0.4);
+}
+.triangle_lb{
+	width: 0;
+	height: 0;
+	border-width: 9px;
+	border-style: solid;
+	border-color: transparent transparent rgba(0,0,0,0.4) rgba(0,0,0,0.4) ;
+}
+.triangle_rb{
+	width: 0;
+	height: 0;
+	border-width: 9px;
+	border-style: solid;
+	border-color: transparent rgba(0,0,0,0.4) rgba(0,0,0,0.4) transparent;
+}
+.logincontent{
+	width: 100%;
+	height: 672px;
+	background-color: rgba(0,0,0,0.4);
+	position: relative;
+	z-index: 2;
+}
+.logintitle{
+	font-size: 30px;
+	line-height: 50px;
+	padding-top: 68px;
+	height: 50px;
+	color: #fff;
+	text-align: center;
+	margin-bottom: 79px;
+}
+.inputbox{
+	height: 45px;
+	margin-bottom: 19px;
+}
+.inputbox .inputname{
+	width: 117px;
+	padding-right: 15px;
+	height: 45px;
+	line-height: 45px;
+	font-size: 16px;
+	color: #81d6ff;
+	text-align: right;
+}
+.inputbox .input{
+	background: none;
+	width: 360px;
+	padding-left: 15px;
+	border:1px solid #00baff;
+	font-size: 14px;
+	height: 45px;
+	line-height: 43px;
+	color: #0d9de3;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+.imgtestbox{
+	padding-top: 10px;
+	padding-bottom: 62px;
+}
+.imgtestbox.testing{
+	padding-bottom: 23px;
+}
+.testbox{
+	width: 360px;
+	height: 40px;
+	margin-left: 132px;
+	position: relative;
+}
+.randomimg{
+	width: 64px;
+	height: 50px;
+	position: absolute;
+	left: 200px;
+	top: 13px;
+	background: url(../images/login/imgbar3.png) no-repeat;
+	display: none;
+}
+.testing .testbox{
+	height: 80px;
+	background: url(../images/login/testimg00.jpg) center no-repeat;
+}
+.testcontroll{
+	height: 20px;
+	margin-bottom: 0;
+}
+.testcontroll .inputname{
+	height: 20px;
+	line-height: 20px;
+}
+.testcontroll .barbox{
+	width: 358px;
+	height: 18px;
+	border:1px solid #016797;
+	position: relative;
+	background-color: rgba(0,186,255,0.1);
+}
+.testcontroll .bar{
+	width: 50px;
+	height: 24px;
+	position: absolute;
+	left: 22px;
+	top: -3px;
+	background:url(../images/login/testbar.png) center no-repeat rgba(0,186,255,0.2);
+	box-shadow: 0 0 20px #0084ff inset;
+	cursor: move;
+}
+.testcontroll .bar:hover{
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	border:1px solid #fff;
+	background-color: rgba(63,192,255,0.4);
+}
+.testcontroll .bar:hover:after{
+	content: '';
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	box-shadow: 0 0 10px #0090ff;
+}
+.imgshadow{
+	position: absolute;
+	left: 22px;
+	top: -68px;
+	width: 64px;
+	height: 50px;
+	border-left: 1px solid rgba(0,0,0,0.4);
+	display: none;
+}
+.testcontroll .imgbar{
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 64px;
+	height: 50px;
+	-webkit-mask-image:url(../images/login/imgbar.png);
+	background: url(../images/login/testimg00.jpg) center no-repeat;
+	display: none;
+}
+.testing .imgshadow,.testing .imgbar,.testing .randomimg{
+	display: block;
+}
+.logintip{
+	padding-left: 132px;
+	font-size: 14px;
+	color: #0d9de3;
+	height: 46px;
+	line-height: 46px;
+}
+.pl132{
+	padding-left: 132px;
+}
+.loginbtn{
+	display: inline-block;
+	width: 358px;
+	height: 45px;
+	line-height: 45px;
+	text-align: center;
+	background-color: rgba(3,99,236,0.2);
+	font-size: 18px;
+	color: #fff;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	box-shadow: 0 0 20px #0084ff inset;
+	position: relative;
+	cursor: pointer;
+}
+.loginbtn:hover{
+	border:1px solid #fffc00;
+	color: #fffc00;
+	line-height: 43px;
+	background-color: rgba(154,102,2,0.2);
+	box-shadow:0 0 0;
+}
+
+.resulttip{
+	font-size: 14px;
+	color: #f52424;
+	height: 34px;
+	line-height: 34px;
+}
+.supporttip{
+	width: 100%;
+	font-size: 14px;
+	height: 20px;
+	line-height: 20px;
+	color: #0d9de3;
+	text-align: center;
+	position: absolute;
+	left: 0;
+	bottom: 27px;
+}
+.bottomlight{
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	left: 0;
+	top: 0;
+	background: url(../images/login/loginlight.png) center no-repeat;
+}

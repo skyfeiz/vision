@@ -1,0 +1,273 @@
+.timeaxis{
+	width: 57.4%;
+}
+
+.hotevent{
+	width: 5.3rem;
+	height: 42.96%;
+	position: absolute;
+	left: 0.7rem;
+	top: 52.41%;
+}
+.root .element-title-div {
+    height: 0.37rem;
+}
+.dllist{
+	position: absolute;
+	left: 0;
+	top: 6.466%;
+	width: 100%;	
+	height: 100%;
+}
+.dtlist{
+	font-size: 0.16rem;
+	padding-left: 0.26rem;
+	color: #fff;
+	line-height: 0.3rem;
+	height: 0.3rem;
+	position: relative;
+}
+.dtname,.ddname{
+	width: 2.6rem;
+	padding-left: 0.1rem;
+	margin-right: 0.24rem;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}
+.dttime,.ddtime{
+	width: 1.08rem;
+}
+.textline{
+	width: 5.3rem;
+	position: absolute;
+	left: 0;
+	height: 1px;
+	background-color: #034462;
+}
+.textline:before,.textline:after{
+	content: '';
+	padding: 0;
+	position: absolute;
+	top: 0;
+	width: 3px;
+	height: 1px;
+	background-color: #fff;
+}
+.textline:before{
+	left: 0;
+}
+.textline:after{
+	right: 0;
+}
+.linet{
+	top: 0;
+}
+.lineb{
+	bottom: 0;
+}
+.ddbox{
+	height: 77.59%;
+	padding-left: 0.26rem;
+	overflow: hidden;
+	position: relative;
+}
+.ddlist{
+	width: 4.76rem;
+	color: #5fcbff;
+	font-size: 0.14rem;
+	height: 0.25rem;
+	line-height: 0.25rem;
+	margin-top: 0.05rem;
+}
+.ddlist:hover{
+	color: #fffc00;
+	cursor: pointer;
+}
+.ddlist:nth-child(2n){
+	background-color: rgba(0,138,255,0.1);
+}
+
+
+.barBox {
+    width: 5px;
+    position: absolute;
+    right: 0px;
+    height: 100%;
+    background-color: rgba(0, 198, 255, 0.2);
+    top: 0;
+}
+
+.barItem {
+    width: 5px;
+    position: relative;
+    top: 0px;
+    right: 0;
+    background-color: #00c6ff;
+}
+.chart1div {
+    top: 12.04%;
+    left:0.7rem;
+    width: 5.3rem;
+    height: 35.19%;
+    background-color: rgba(0, 0, 0, 0.2);
+}
+.leaderinfo{
+	height: 56.84%;
+	position: relative;
+}
+.leaderimg{
+	position: absolute;
+	left:0.26rem;
+	top: 20%;
+	width: 1.4rem;
+	height: 80%;
+	background: blue;
+}
+.leaderimg img{
+	width:100%;
+	height: 100%;
+}
+.leadermsg{
+	position: absolute;
+	left:1.9rem;
+	top:17.67%;
+	width: 3.12rem;
+	line-height: 0.24rem;
+	color:#5fcbff;
+	font-size: 0.14rem;
+}
+.chart1div .element-content{
+	height: 43.16%;
+	background: none;
+}
+#left1{
+    width: 1.63rem;
+    height: 50%;
+    position: absolute;
+    left: 0.26rem;
+    top: 8%;
+}
+.left1charttext{
+    position: absolute;
+    left: 0.26rem;
+    top: 62%;
+    width: 1.63rem;
+    height: 0.4rem;
+}
+.left1charttext p{
+    line-height: 1.1;
+    text-align: center;
+    font-size: 0.14rem;
+    color: #fff;
+}
+p.bluenum{
+    font-size: 0.24rem;
+    color: #00c6ff;
+}
+p.bluelight.bluenum{
+    color: #fff;
+}
+.left1text{
+    width: 3.12rem;
+    position: absolute;
+    top: 13.3%;
+    right: 5.3%;
+    height: 68.9%;
+}
+.left1text .left1textitem{
+    width: 100%;
+    height: 27.2%;
+    margin-bottom: 6.2%;
+    position: relative;
+}
+.left1text .left1textitem:last-child{
+    margin-bottom: 0;
+}
+.whitepoint{
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    box-shadow: 0 0 4px #008aff;
+    background-color: #fff;
+}
+.toptriangle{
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 4.5px;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+.b_colorwhite{
+    border-color:  #fff transparent transparent #fff;
+}
+.b_colorgreen{
+    border-color:  #01b057 transparent transparent #01b057;
+}
+.b_coloryellow{
+    border-color:  #fffc00 transparent transparent #fffc00;
+}
+.b_colorred{
+    border-color:  #f9042f transparent transparent #f9042f;
+}
+.pos_rt0{
+    right: 0;
+    top: 0;
+}
+.pos_rb0{
+    right: 0;
+    bottom: 0;
+}
+.z_hide{
+    display: none;
+}
+.left1textitem .totalnum{
+    cursor: pointer;
+    text-indent: 0.7rem;
+    width: 100%;
+    height: 100%;
+    line-height: 1;
+    font-size: 0;
+    color:#84d5ff;
+    background: url(../images/p1/totalnumbg.png);
+}
+.left1textitem .totalnum{
+    font-size: 0.14rem;
+}
+.left1textitem .totalnum .bluenum{
+    font-size: 0.24rem;
+    color: #00c6ff;
+    margin-left: 0.16rem;
+}
+.left1textitem .totalnum .bluenum:hover{
+    color: #fff;
+}
+.left1textitem .shiftNum .bluenum:hover{
+    color: #fff;
+}
+
+
+
+.mapbox{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    -webkit-transform: translate(-50%,-50%);
+    -moz-transform: translate(-50%,-50%);
+    height: 100%;
+    width: 100%;
+}
+.mapbox img{
+    width: 100%;
+    height: 100%;
+}
+#echartsMap{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}

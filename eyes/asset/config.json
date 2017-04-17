@@ -1,0 +1,136 @@
+{
+	"title": "整体展示",
+	"right1": {
+		"url": "",
+		"title": "来源网站分布占比图",
+		"config": {
+			"labelField": "time",
+			"series": [{
+				"valueField": "value1"
+			}, {
+				"valueField": "value2"
+			}]
+		}
+	},
+	"left1":{
+		"url":"",
+		"title":"舆情仪表盘",
+		"config":{
+			"labelField": "name",
+			"valueField": "num"
+		}
+	},
+	"left2":{
+		"url":"",
+		"title":"舆情头条",
+		"config":{
+			
+		}
+	},
+	"left3":{
+		"url":"",
+		"title":"媒体来源分布",
+		"config":{
+			"labelField": "name",
+			"valueField": "num"
+		}
+	},
+	"chart4":{
+		"url":"",
+		"title":"舆情头条",
+		"config":{
+			
+		}
+	},
+	"chart5":{
+		"url":"",
+		"title":"事件省份排名",
+		"config":{
+			
+		}
+	},
+	"chart6":{
+		"url":"",
+		"title":"舆情走势",
+		"config":{
+			
+		}
+	},
+	"chart7":{
+		"url":"",
+		"title":"来源媒体分布",
+		"config":{
+			
+		}
+	},
+	"chart8":{
+		"url":"",
+		"title":"头条正中负面",
+		"config":{
+			
+		}
+	},
+	"chart9":{
+		"url":"",
+		"title":"关键词",
+		"config":{
+			
+		}
+	},
+	"p3Chart5":{
+		"url":"",
+		"title":"关键词",
+		"config":{
+			"labelField": "name",
+			"valueField": "weight"
+		}
+	},
+	"p3Chart1":{
+		"config":{
+			"labelField": "name",
+			"valueField": "num"
+		}
+	},
+	"p4chart1":{
+		"url":"",
+		"title":"battery bar",
+		"config":{
+			
+		}
+	},
+	"p4chart2":{
+		"url":"",
+		"title":"折线图",
+		"config":{
+			
+		}
+	},
+	"p4list":{
+		"url":"",
+		"title":"event list",
+		"config":{
+			
+		}
+	},
+	"tracesChart1":{
+		"url":"",
+		"title":"event list",
+		"config":{
+			
+		}
+	},
+	"chartP6":{
+		"url":"",
+		"title":"",
+		"config":{
+			"title": "seriesTitle",
+			"fromName": "startName",
+			"toName": "endName",
+			"fromCoord": "startCoor",
+			"toCoord": "endCoor",
+			"scatterName": "startName",
+			"scatterCoord": "startCoor",
+			"scatterNum": "startNum"
+		}
+	}
+}

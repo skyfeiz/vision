@@ -1,0 +1,400 @@
+.main {
+    width: 14.8rem;
+    min-width: 1160px;
+    height: 100%;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 0;
+}
+
+.searchbox {
+    position: absolute;
+    left: 50%;
+    margin-left: -3.5rem;
+    top: 11.11%;
+    width: 7rem;
+    height: 0.4rem;
+    font-size: 0;
+}
+
+.searchbox input {
+    font-size: 0.18rem;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    width: 5.8rem;
+    height: 0.4rem;
+    line-height: 0.38rem;
+    background: none;
+    border: 1px solid #3fc0ff;
+    border-right: none;
+    color: #3fc0ff;
+    padding-left: 10px;
+}
+
+.searchbox span {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    color: #fff;
+    font-size: 0.18rem;
+    text-align: center;
+    line-height: 0.38rem;
+    cursor: pointer;
+    height: 100%;
+    width: 1.2rem;
+    min-width: 50px;
+    border: 1px solid #3fc0ff;
+    background-color: rgba(63, 192, 255, 0.3);
+    -webkit-transition: 0.5s all ease;
+    -moz-transition: 0.5s all ease;
+    transition: 0.5s all ease;
+}
+
+.searchbox span:hover,
+.searchbox span:active {
+    background-color: rgba(154, 102, 2, 0.2);
+    color: #fffc00;
+    border-color: #fffc00;
+}
+
+.choosebox {
+    color: #5fcbff;
+    width: 100%;
+    height: 0.3rem;
+    line-height: 0.3rem;
+    font-size: 0.14rem;
+    position: absolute;
+    left: 0;
+    top: 17.5%;
+    z-index: 10;
+}
+
+.choosebox span {
+    float: left;
+}
+.textname{
+    width: 0.8rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.choosetitle {
+    padding: 0 0.1rem 0 0.4rem;
+}
+
+.choosebox .time {
+    width: 1.08rem;
+    height: 0.28rem;
+    line-height: 0.28rem;
+    border: 1px solid #3fc0ff;
+    text-align: center;
+    color: #fff;
+}
+
+.plr10 {
+    padding: 0 0.1rem;
+}
+
+.choosebox .dropbox {
+    float: left;
+    width: 1.1rem;
+    height: 0.3rem;
+    line-height: 0.28rem;
+    border: 1px solid #3fc0ff;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    margin-right: 0.1rem;
+    padding-left: 0.1rem;
+    position: relative;
+    background: url(../images/dropicon.png) 0.8rem center no-repeat;
+    cursor: pointer;
+}
+
+.choosebox .dropbox:last-child {
+    margin: 0;
+}
+
+.choosebox .droplist {
+    position: absolute;
+    left: 0;
+    top: 100%;
+    width: calc(1.1rem - 5px);
+    margin-left: -1px;
+    background-color: rgba(0, 0, 0, 0.8);
+    max-height: 260px;
+    overflow: hidden;
+}
+
+.choosebox .droplist li {
+    padding-left: 0.1rem;
+    line-height: 24px;
+    height: 24px;
+    cursor: pointer;
+    width: calc(100% - 10px);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.choosebox .droplist li:hover,
+.choosebox .droplist li:active {
+    color: #fffc00;
+}
+
+.choosebox .submsg {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    width: 0.9rem;
+    min-width: 70px;
+    height: 0.3rem;
+    line-height: 0.28rem;
+    text-align: center;
+    color: #fff;
+    background-color: rgba(3, 99, 236, 0.2);
+    outline: none;
+    border: 1px solid #3fc0ff;
+    cursor: pointer;
+    margin-left: 0.4rem;
+}
+
+.choosebox .submsg:hover,
+.choosebox .submsg:active {
+    border-color: #fffc00;
+    color: #fffc00;
+    background-color: rgba(154, 102, 2, 0.2);
+}
+
+.barBox {
+    width: 10px;
+    position: absolute;
+    right: 0px;
+    height: 100%;
+    background-color: rgba(0, 198, 255, 0.2);
+    top: 0;
+}
+
+.barItem {
+    width: 10px;
+    position: relative;
+    top: 0px;
+    right: 0;
+    background-color: #00c6ff;
+}
+
+.resulttext {
+    padding-right: 0.4rem;
+}
+
+.ullist {
+    width: 100%;
+    height: 67.13%;
+    position: absolute;
+    left: 0;
+    top: 23.24%;
+}
+
+.ullist li {
+    height: calc( (100% - 40px) / 5);
+    background-color: rgba(0, 138, 255, 0.08);
+    margin-bottom: 10px;
+    position: relative;
+}
+
+.ullist li:nth-child(5n) {
+    margin-bottom: 0;
+}
+
+.textline {
+    position: absolute;
+    width: calc(100% - 0.8rem);
+    left: 0.4rem;
+    top: 53.28%;
+    height: 1px;
+    background-color: #034462;
+}
+
+.textline:before,
+.textline:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    width: 3px;
+    height: 100%;
+    background-color: #fff;
+}
+
+.textline:before {
+    left: 0;
+}
+
+.textline:after {
+    right: 0;
+}
+
+.ullist .textinfo {
+    position: absolute;
+    left: 0.4rem;
+    top: 35.04%;
+    height: 0.14rem;
+    font-size: 0;
+}
+
+.ullist .textinfo a {
+    display: inline-block;
+    color: #1389dc;
+    font-size: 0.14rem;
+    height: 0.14rem;
+    line-height: 1;
+    margin-right: 0.18rem;
+}
+
+.ullist .atitle {
+    position: absolute;
+    left: 0.4rem;
+    top: 14.6%;
+    line-height: 1;
+    color: #fff;
+    font-size: 0.18rem;
+}
+
+.ullist .atitle:hover,
+.ullist .atitle:active {
+    color: #fffc00;
+}
+
+.listcontent {
+    width: calc(100% - 0.8rem);
+    height: 0.4rem;
+    position: absolute;
+    left: 0.4rem;
+    top: 58.4%;
+    font-size: 0.14rem;
+    line-height: 0.2rem;
+    color: #5fcbff;
+}
+
+
+/*----------------------------------------page Panel----------------------------------------------*/
+
+.pagebox {
+    position: absolute;
+    top: 92.96%;
+    width: 100%;
+    height: 0.3rem;
+    text-align: center;
+    font-size: 0;
+}
+
+.prevpage {
+    margin-right: 0.2rem;
+}
+
+.nextpage {
+    margin-left: 0.2rem;
+    margin-right: 0.7rem;
+}
+
+.prevpage,
+.nextpage {
+    display: inline-block;
+    width: 0.88rem;
+    height: 0.3rem;
+    line-height: 0.3rem;
+    border: 1px solid #3fc0ff;
+    font-size: 0.14rem;
+    color: #fff;
+    text-align: center;
+    cursor: pointer;
+    background-color: rgba(3, 99, 236, 0.2);
+    transition: 0.5s all ease;
+    -webkit-transition: 0.5s all ease;
+    -moz-transition: 0.5s all ease;
+}
+
+.prevpage:hover,
+.prevpage:active,
+.nextpage:hover,
+.nextpage:active,
+.gotobtn:hover,
+.gotobtn:active {
+    border-color: #fffc00;
+    color: #fffc00;
+    background-color: rgba(154, 102, 2, 0.2);
+}
+
+.pagelist {
+    display: inline-block;
+    font-size: 0;
+}
+
+.pagelist li {
+    width: 0.33rem;
+    height: 0.3rem;
+    line-height: 0.3rem;
+    border: 1px solid #3fc0ff;
+    color: #5fcbff;
+    font-size: 0.14rem;
+    display: inline-block;
+    margin-right: 0.05rem;
+    cursor: pointer;
+}
+
+.pagelist li:last-child {
+    margin-right: 0;
+}
+
+.pagelist li:hover,
+.pagelist li:active,
+.pagelist li.active {
+    border-color: #fffc00;
+    color: #fffc00;
+}
+
+.totalnum {
+    color: #5fcbff;
+    font-size: 0.14rem;
+    line-height: 0.3rem;
+    display: inline-block;
+    margin-right: 0.2rem;
+}
+
+.gotopage {
+    color: #5fcbff;
+    font-size: 0.14rem;
+    line-height: 0.3rem;
+    display: inline-block;
+    margin-right: 0.2rem;
+}
+
+input.gonum {
+    width: 0.33rem;
+    height: 0.28rem;
+    line-height: 0.28rem;
+    background: none;
+    outline: none;
+    border: 1px solid #3fc0ff;
+    text-align: center;
+    color: #fff;
+    padding: 0;
+    margin: 0 0.1rem;
+}
+
+.gotobtn {
+    width: 0.9rem;
+    height: 0.28rem;
+    line-height: 0.28rem;
+    font-size: 0.14rem;
+    color: #5fcbff;
+    border: 1px solid #3fc0ff;
+    text-align: center;
+    display: inline-block;
+    cursor: pointer;
+    background-color: rgba(3, 99, 236, 0.2);
+    transition: 0.5s all ease;
+    -webkit-transition: 0.5s all ease;
+    -moz-transition: 0.5s all ease;
+}

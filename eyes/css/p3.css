@@ -1,0 +1,478 @@
+/*---------------------------------------- page title ----------------------------------------------*/
+.pagetitle{
+    width: 19.8%;
+    font-size: 0.24rem;
+    line-height: 1;
+    color: #fff;
+    text-shadow: 0 0 10px #0072ff;
+    position: absolute;
+    top: 11.2%;
+    left: 0.7rem;   
+    z-index: 400;
+    height: 0.33rem;
+}
+.pagetitle p{
+    text-indent: 2px;
+}
+.pagetitle .titleline{
+    position: absolute;
+    height: 1px;
+    right: 0;
+    background-color: rgba(63,192,255,0.3);
+}
+.pagetitle .titleline.up{
+    width: 2.6rem;
+    top: 42.424%;
+}
+.pagetitle .titleline.down{
+    width: 100%;
+    bottom: 0;
+}
+.pagetitle .titleline:before,.pagetitle .titleline:after{
+    content: '';
+    position: absolute;
+    top: 0;
+    width: 3px;
+    height: 1px;
+    background-color: #3fc0ff;
+}
+.pagetitle .titleline:before{
+    left: 0;
+}
+.pagetitle .titleline:after{
+    right: 0;
+}
+
+/*---------------------------------------- p3chart1 ----------------------------------------------*/
+.p3chart1{
+    width: 19.8%;
+    position: absolute;
+    left: 0.7rem;
+    top: 16.3%;
+    height: 22.2%;
+    z-index: 300;
+}
+/*------------------- p3chart2 -------------------------*/
+.p3chart2{
+    width: 19.8%;
+    position: absolute;
+    left: 0.7rem;
+    top: 44.4%;
+    height: 50.9%;
+    z-index: 300;
+}
+.p3chart2 .element-title-div{
+    height: 6.7%;
+}
+.p3chart2Box{
+    height: 30.9%;
+    width: 100%;
+    position: relative;
+}
+.p3chart2Text{
+    width: 100%;
+    height: 63.8%;
+    overflow: hidden;
+    position: relative;
+}
+.p3chart2Text ul{
+    width: 86%;
+    margin: auto;
+    position: relative;
+}
+.p3chart2Text li{
+    list-style-type: square;
+    color: #fffc00;
+    
+}
+.p3chart2Text h6{
+    font-size: 0.14rem;
+    color: #feffff;
+    overflow: hidden;
+    text-overflow:ellipsis;
+    white-space: nowrap;
+    margin: 0;
+    padding: 0;
+    margin-bottom: .07rem;
+}
+.p3chart2Text h6:hover{
+    color: #fffc00;
+}
+.p3chart2Text .tips{
+    font-size: 0.12rem;
+    color: #84d5ff;
+    line-height: .2rem;
+}
+.p3chart2Text .tips span{
+    margin-right: .22rem;
+}
+.p3chart2Text div.abstract{
+    width: 100%;
+    height: .5rem;
+    border-top: 1px solid rgba(132,213,255,0.3);
+    color:#84d5ff;
+    font-size: 0.14rem;
+    text-align: justify;
+    line-height: .2rem;
+    position: relative;
+    margin-top: 0.06rem;
+    padding-top: 0.06rem;
+}
+.p3chart2Text div button{
+    background-color: transparent;
+    border: 0;
+    position: absolute;
+    right: 0;
+    bottom: 0.03rem;
+    color: #fffc00;
+    font-size: .14rem;
+    cursor: pointer;
+}
+.p3chart2Text .barBox{
+    width: 0.05rem;
+    height: 100%;
+    position: absolute;
+    right: 0.025rem;
+    top: 0;
+    background-color: rgba(0,198,255,0.2);
+}
+.p3chart2Text .barBox .barItem{
+    background-color: #00c6ff;
+    position: relative;
+}
+/*------------------- p3chart3 -------------------------*/
+.p3chart3{
+    width: 3.8rem;
+    position: absolute;
+    right: 0.7rem;
+    top: 18.1%;
+    height: 18.5%;
+    z-index: 300;
+}
+.p3chart3 .element-title-div{
+    height: 19%;
+}
+.p3chart3 .element-content{
+    position: relative;
+}
+.p3chart3 .element-content p{
+    width: 3.3rem;
+    font-size: 0.14rem;
+    color: #84d5ff;
+    text-align: justify;
+    margin: auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+}
+/*------------------- p3chart4 -------------------------*/
+.p3chart4{
+    width: 3.8rem;
+    position: absolute;
+    right: 0.7rem;
+    top: 41.9%;
+    height: 23.1%;
+    z-index: 300;
+}
+.p3chart4 .element-title-div{
+    height: 15.2%;
+}
+/*------------------- p3chart5 -------------------------*/
+.p3chart5{
+    width: 3.8rem;
+    position: absolute;
+    right: 0.7rem;
+    top: 70.5%;
+    height: 25%;
+    z-index: 300;
+}
+.p3chart5 .element-title-div{
+    height: 14.1%;
+}
+#p3Chart1,#p3Chart3,#p3Chart4,#p3Chart5{
+    width: 100%;
+    height: 100%;
+}
+#p3Chart2{
+    height: 49.4%;
+    width: .9rem;
+    position: absolute;
+    left: .35rem;
+    top: 11.4%;
+}
+/*----------------------------------------map Panel----------------------------------------------*/
+
+#china{ 
+    margin: auto; 
+    width: 100%;
+    height: 102%;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    background-color: #081732;
+    /*overflow: hidden;*/
+}
+#china canvas{
+    transform-origin: 50% 80%;          
+    position: absolute;
+    height: 100%;
+    left: 50%;
+    transform: translate(-50%,0%);
+    -webkit-transform: translate(-50%,0%);
+    -moz-transform: translate(-50%,0%);
+}
+#ChinaMap{
+    top: 0px;
+    opacity: 1;
+    z-index: 100;
+}
+#ProvinceMap,#CityMap{
+    opacity: 0;
+    z-index: 0;
+}
+#china .btn{
+    position: absolute;
+    top: 20px;
+    left: 30px;
+    color: #fff;
+    font-size: 18px;
+    cursor: pointer;
+    z-index: 999;
+}
+.toolTip{
+    position: absolute;
+    bottom: 100px;
+    left: 500px;
+    height: 0rem;
+    width: 0rem;
+    padding: 0rem 0.1rem;
+    transition: height 0.3s,width 0.3s;
+    -webkit-transition: height 0.3s,width 0.3s;
+    -moz-transition: height 0.3s,width 0.3s;
+    z-index: 0;
+    overflow: hidden;
+    background-color: rgba(0,0,0,0.75);
+}
+.toolTip:before{
+    display: block;
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 2px;
+    height: 2px;
+    border-top: 1px solid #fff;
+    border-left: 1px solid #fff;
+}
+.toolTip:after{
+    display: block;
+    content: "";
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 2px;
+    height: 2px;
+    border-bottom: 1px solid #fff;
+    border-right: 1px solid #fff;
+}
+.toolTip p
+{
+    line-height: 0.24rem;
+    color: #84d5ff;
+    font-size: .16rem;
+}
+.toolTip p.areaNum{
+    font-size: 0.3rem;
+    color: #fff;
+}
+.toolShow{
+    height: 0.5rem;
+    z-index: 200;
+    width: auto;
+}
+.mapNav{
+    position: absolute;
+    left: 26.7%;
+    top: 14%;
+    width: 3.5rem;
+    font-size: 0.2rem;
+    color: #81d6ff;
+    z-index: 210;
+}
+.mapNav span.subNav:before{
+    display: inline;
+    content: ">";
+    color: #81d6ff;
+}
+.mapNav span:hover{
+    color: #fff;
+    cursor: pointer;
+};
+.mapNav span:hover:before{
+    color: #81d6ff;
+}
+/*-----------------------------------*/
+.tooltip_left3{
+    width: 72px;
+    height: 40px;
+    font-size: 12px;
+}
+.tooltip_left3 .blockyellow{
+    width: 100%;
+    height: 20px;
+    line-height: 20px;
+    text-align: center;
+    position: relative;
+    color: #fff;
+}
+.tooltip_left3 .blockyellow:before{
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 5px;
+    width: 5px;
+    height: 10px;
+    background-color: #fffe00;
+}
+.tooltip_left3 .tooltiptext{
+    font-size: 18px;
+    color: #fff;
+    height: 20px;
+    line-height: 20px;
+    text-align: center;
+    background-color: rgba(27,57,119,0.9);
+    position: relative;
+}
+/*----------------------------------------dashboard Panel----------------------------------------------*/
+#left1{
+    width: 1.63rem;
+    height: 50%;
+    position: absolute;
+    left: 0;
+    top: 8%;
+}
+.left1charttext{
+    position: absolute;
+    left: 0;
+    top: 62%;
+    width: 1.63rem;
+    height: 0.4rem;
+}
+.left1charttext p{
+    line-height: 1.1;
+    text-align: center;
+    font-size: 0.14rem;
+    color: #fff;
+}
+p.bluenum{
+    font-size: 0.24rem;
+    color: #00c6ff;
+}
+p.bluelight.bluenum{
+    color: #fff;
+    text-shadow: 0 0 5px #0072ff;
+}
+.left1text{
+    width: 52%;
+    position: absolute;
+    top: 13.3%;
+    right: 5.3%;
+    height: 73.4%;
+}
+.left1text .left1textitem{
+    width: 100%;
+    height: 27.2%;
+    margin-bottom: 6.2%;
+    position: relative;
+}
+.left1text .left1textitem:last-child{
+    margin-bottom: 0;
+}
+.whitepoint{
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    box-shadow: 0 0 4px #008aff;
+    background-color: #fff;
+}
+.toptriangle{
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 4.5px;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+.b_colorwhite{
+    border-color:  #fff transparent transparent #fff;
+}
+.b_colorgreen{
+    border-color:  #01b057 transparent transparent #01b057;
+}
+.b_coloryellow{
+    border-color:  #fffc00 transparent transparent #fffc00;
+}
+.b_colorred{
+    border-color:  #f9042f transparent transparent #f9042f;
+}
+.pos_rt0{
+    right: 0;
+    top: 0;
+}
+.pos_rb0{
+    right: 0;
+    bottom: 0;
+}
+.z_hide{
+    display: none;
+}
+.left1textitem .totalnum{
+    cursor: pointer;
+    text-indent: 0.1rem;
+    width: 100%;
+    height: 100%;
+    line-height: 1.3;
+    font-size: 0;
+    color:#84d5ff;
+    background: url(../images/p1/totalnumbg.png);
+}
+.left1textitem .totalnum{
+    font-size: 0.14rem;
+}
+.left1textitem .totalnum .bluenum{
+    font-size: 0.24rem;
+    color: #00c6ff;
+    margin-left: 0.06rem;
+}
+.left1textitem .shiftNum .bluenum:hover{
+    color: #fff;
+}
+
+.tooltiptext{
+    height: 24px;
+    padding: 0 11px;
+    line-height: 24px;
+    text-align: center;
+    background-color: rgba(27,59,119,0.9);
+    position: relative;
+    white-space: nowrap;
+    font-size: 0;
+}
+.tooltiptext .valuename{
+    display: inline-block;
+    vertical-align: middle;
+    height:24px;
+    line-height: 24px;
+    font-size: 12px;
+    color: #84d5ff;
+    margin-right: 4px;
+}
+.valuenum{
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 18px;
+    color: #00c6ff;
+}

@@ -1,0 +1,9 @@
+{
+  "data": {
+    "negative": 100,
+    "neutral": 200,
+    "positive": 50
+  },
+  "reson":"",
+  "success": true
+}

@@ -1,0 +1,86 @@
+{
+    "success": true,
+    "data": [
+        {
+            "seriesTitle": "领导轨迹",
+            "startName": "上海",
+            "startNum": 20,
+            "startCoor": [121.4648,31.2891],
+            "endName": "北京",
+            "endNum": 50,
+            "endCoor": [116.4551,40.2539]
+        },{
+            "seriesTitle": "领导轨迹",
+            "startName": "丹东",
+            "startNum": 10,
+            "startCoor": [124.541,40.4242],
+            "endName": "北京",
+            "endNum": 50,
+            "endCoor": [116.4551,40.2539]
+        },{
+            "seriesTitle": "领导轨迹",
+            "startName": "保定",
+            "startNum": 12,
+            "startCoor": [115.0488,39.0948],
+            "endName": "北京",
+            "endNum": 50,
+            "endCoor": [116.4551,40.2539]
+        },{
+            "seriesTitle": "领导轨迹",
+            "startName": "南昌",
+            "startNum": 10,
+            "startCoor": [116.0046,28.6633],
+            "endName": "北京",
+            "endNum": 50,
+            "endCoor": [116.4551,40.2539]
+        },{
+            "seriesTitle": "领导轨迹",
+            "startName": "厦门",
+            "startNum": 40,
+            "startCoor": [118.1689,24.6478],
+            "endName": "北京",
+            "endNum": 50,
+            "endCoor": [116.4551,40.2539]
+        },{
+            "seriesTitle": "领导轨迹",
+            "startName": "哈尔滨",
+            "startNum": 23,
+            "startCoor": [127.9688,45.368],
+            "endName": "北京",
+            "endNum": 50,
+            "endCoor": [116.4551,40.2539]
+        },{
+            "seriesTitle": "领导轨迹",
+            "startName": "延安",
+            "startNum": 31,
+            "startCoor": [109.1052,36.4252],
+            "endName": "北京",
+            "endNum": 50,
+            "endCoor": [116.4551,40.2539]
+        },{
+            "seriesTitle": "领导轨迹",
+            "startName": "成都",
+            "startNum": 14,
+            "startCoor": [103.9526,30.7617],
+            "endName": "北京",
+            "endNum": 50,
+            "endCoor": [116.4551,40.2539]
+        },{
+            "seriesTitle": "领导轨迹",
+            "startName": "湘潭",
+            "startNum": 8,
+            "startCoor": [112.5439,27.7075],
+            "endName": "北京",
+            "endNum": 50,
+            "endCoor": [116.4551,40.2539]
+        },{
+            "seriesTitle": "领导轨迹",
+            "startName": "西宁",
+            "startNum": 10,
+            "startCoor": [101.4038,36.8207],
+            "endName": "北京",
+            "endNum": 50,
+            "endCoor": [116.4551,40.2539]
+        }
+    ]
+}

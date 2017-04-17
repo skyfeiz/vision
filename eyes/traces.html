@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>舆情地图</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css"></link>
+    <link rel="stylesheet" type="text/css" href="css/traces.css"></link>
+    <script type="text/javascript" src="libs/jquery-3.1.1.min.js"></script>
+    <script type="text/javascript" src="libs/echarts3.0.js"></script>
+    <script type="text/javascript" src="libs/jquery_scrollBar.js"></script>
+    <script type="text/javascript" src="geojson/china.js"></script>
+    <script type="text/javascript" src="chart/chartP6_map.js"></script>
+    <script type="text/javascript" src="js/Controller.js"></script>
+    <script type="text/javascript" src="js/component/timeline.js"></script>
+    <script type="text/javascript" src="js/component/header.js"></script>
+    <script type="text/javascript" src="chart/left1.js"></script>
+    <script type="text/javascript" src="js/traces.js"></script>
+    <script>
+    $(function() {
+        new EE.Header(3);
+        new EE.Traces()
+    })
+    </script>
+</head>
+
+<body>
+    <div class="root">
+        <header class="clearfix" id="header"></header>
+       
+        <div class="mapbox">
+            <img src="images/p6/bg.jpg" />
+            <div id="echartsMap"></div>
+        </div>
+
+        <section class="element-div chart1div">
+            <div class="leaderinfo">
+                <div class="leaderimg">
+                    <img src="images/leader.jpg" alt="" />
+                </div>
+                <p class="leadermsg">习近平，男，汉族，1953年6月生，陕西富平人，1969年1月参加工作，1974年1月加入中国共产党，清华大学人文社会学院马克思主义理论与思想政治教育专业毕业，在职研究生学历，法学博士学位。
+现任中国共产党中央委员会总书记，中共中央军事委员会主席，中华人民共和国主席，中华人民共和国中央军事委员会主席。</p>
+            </div>
+            <div class="element-content">
+                <div class="left1" id="left1"></div>
+                <div class="left1charttext" id="left1charttext"></div>
+                <div class="left1text" id="left1text">
+                    <div class="left1textitem">
+                        <div class="whitepoint pos_rt0"></div>
+                        <div class="whitepoint pos_rb0"></div>
+                        <div class="toptriangle b_colorwhite"></div>
+                        <p class="totalnum"></p>
+                    </div>
+                    <div class="left1textitem">
+                        <div class="whitepoint pos_rt0"></div>
+                        <div class="whitepoint pos_rb0"></div>
+                        <div class="toptriangle b_colorgreen"></div>
+                        <p class="totalnum"></p>
+                    </div>
+                    <div class="left1textitem">
+                        <div class="whitepoint pos_rt0"></div>
+                        <div class="whitepoint pos_rb0"></div>
+                        <div class="toptriangle b_coloryellow"></div>
+                        <p class="totalnum"></p>
+                    </div>
+                    <div class="left1textitem z_hide">
+                        <div class="whitepoint pos_rt0"></div>
+                        <div class="whitepoint pos_rb0"></div>
+                        <div class="toptriangle b_colorred"></div>
+                        <p class="totalnum"></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+            
+        <section class="element-div hotevent">
+            <div class="element-title-div">
+                <p class="element-title-text">重要活动舆情</p>
+                <span class="divleft"></span>
+                <span class="divright"></span>
+            </div>
+            <div class="element-content">
+                <div class="dllist clearfix">
+                    <div class="dtlist clearfix">
+                        <p class="dtname fl">事件名称</p>
+                        <p class="dttime fl">时间</p>
+                        <p class="dtabout fl">相关舆情</p>
+                        <span class="textline linet"></span>
+                        <span class="textline lineb"></span>
+                    </div>
+                    <div class="ddbox" id="ddbox">
+                        <ul>
+                        </ul>
+                    </div>
+                </dl>
+            </div>
+        </section>  
+            
+        
+        <!-- timeline -->
+        <section class="timeaxis" id="timeaxis">
+            <ul class="timebtns clearfix">
+                <li data-type="now">最近七天</li>
+                <li data-type="month">月</li>
+                <li class="active" data-type="year">年</li>
+            </ul>
+            <div class="timelimitbox">
+                <div class="timecontent">
+                    <canvas class="canvastimeline" id="monthcanvas"></canvas>
+                    <canvas class="canvastimeline" id="yearcanvas"></canvas>
+                    <canvas class="canvastimeline" id="nowcanvas"></canvas>
+                    <div class="timeareabox" id="timeareabox">
+                        <div class="startline" id="startline"></div>
+                        <div class="endline" id="endline"></div>
+                    </div>
+                </div>
+            </div>
+            <span class="axisleft" id="axisleft"></span>
+            <span class="axisright" id="axisright"></span>
+        </section>
+    </div>
+    <div id="tooltip">
+        <div class="tooltip_left3">
+            <p class="blockyellow">参考消息</p>
+            <p class="tooltiptext">
+                980000
+                <span class="fffpoint_lt"></span>
+                <span class="fffpoint_rb"></span>
+            </p>
+        </div>
+    </div>
+</body>
+<script>
+$(function() {
+    $(document.documentElement).css({
+        'font-size': (window.innerHeight > 1200 ? 1920 : $(document.documentElement).width()) / 1920 * 100
+    });
+
+    // console.log(window.innerHeight)
+    if (window.innerHeight > 1200) {
+        var scale = window.innerHeight / 1080;
+        console.log(window.innerHeight)
+        $(".root").css({
+            "width": "1920px",
+            "height": "1080px",
+            "transform": "translate(-50%,-50%) scale(" + scale + "," + scale + ")",
+            "-webkit-transform": "translate(-50%,-50%) scale(" + scale + "," + scale + ")"
+        })
+    }
+})
+</script>
+
+</html>

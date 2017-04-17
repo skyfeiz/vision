@@ -1,0 +1,452 @@
+html,
+body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    min-width: 1280px;
+    min-height: 720px;
+    overflow: hidden;
+    font-family: "Microsoft yahei", "微软雅黑", "Tahoma", "Verdana", "Arial", "sans-serif";
+}
+body{
+    font-size: 16px;
+}
+p,
+h1,
+ul,
+li, 
+h1,
+h2,
+dl,
+dt,
+dd{
+    margin: 0;
+    padding: 0
+}
+b{font-weight: normal;}
+ul,
+li {
+    list-style: none;
+}
+a{
+    text-decoration: none;
+}
+input{
+    outline: none;
+}
+.fl {
+    float: left;
+}
+
+.fr {
+    float: right;
+}
+
+.clearfix:after {
+    content: '';
+    display: block;
+    clear: both;
+}
+
+body {
+    background-color: #031e4b;
+}
+
+
+/*----------------------------------------header----------------------------------------------*/
+
+.root {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background: url(../images/bodybg.jpg) center no-repeat;
+    -webkit-background-size: 100% 100%;
+    background-size: 100% 100%;
+    min-width: 1280px;
+    min-height: 720px;
+    /*max-width: 1920px;*/
+    /*max-height: 1080px;*/
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    -webkit-transform: translate(-50%,-50%);
+}
+
+header {
+    width: 100%;
+    height: 7.4%;
+    color: #fff;
+    background-color: rgba(27, 57, 119, 0.75);
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 300;
+}
+
+header h1 {
+    padding-left: 0.7rem;
+    line-height: 0.8rem;
+    font-size: 0.3rem;
+    font-weight: normal;
+}
+
+.headernav {
+    line-height: 0.8rem;
+    padding-left: 0.7rem;
+    position: relative;
+}
+
+.headernav a {
+    color: #3fc0ff;
+    width: 1.2rem;
+    text-align: center;
+    font-size: 0.2rem;
+    vertical-align: middle;
+    float: left;
+    position: relative;
+    cursor: pointer;
+}
+
+.headernav a.active {
+    color: #fff;
+}
+.navlight {
+    position: absolute;
+    bottom: -0.07rem;
+    left: 0.28rem;
+    width: 2.15rem;
+    height: 0.13rem;
+    background: url(../images/navlight.png) no-repeat;
+    -webkit-background-size: 100% 100%;
+    background-size: 100% 100%;
+}
+
+.headernav a:hover {
+    color: #fff;
+}
+
+.headernav a:hover .navlight {
+    display: block;
+}
+
+.pointbg {
+    position: absolute;
+    width: 3px;
+    height: 3px;
+    background-color: #1085ff;
+    left: -1px;
+    top: 50%;
+    margin-top: -1.5px;
+}
+
+.infopanel {
+    font-size: 0.18rem;
+    padding-top: 0.25rem;
+    height: 0.3rem;
+    line-height: 0.3rem;
+    color: #3fc0ff;
+    padding-right: 0.3rem;
+}
+
+.signout {
+    position: relative;
+    cursor: pointer;
+    height: 0.3rem;
+    padding-right: 0.48rem;
+}
+.signout b{
+    width: 0.3rem;
+    height: 0.3rem;
+    position: absolute;
+    right: 0;
+    background: url(../images/signout.png) center no-repeat;
+    -webkit-background-size: 100% 100%;
+    background-size: 100% 100%;
+}
+.signout:hover,.signout:active{
+    color: #fff;
+}
+.signout:hover b,.signout:active b{
+    background-image: url(../images/signout_act.png);
+}
+.datTime {
+    padding: 0 0.34rem;
+}
+
+.welcomeword {
+    padding-left: 0.1rem;
+}
+
+
+.searchinput{
+    width: 166px;
+    height: 30px;
+    line-height: 28px;
+    font-size: 16px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    background: none;
+    border: 1px solid #3fc0ff;
+    border-right:none;
+    color: #3fc0ff;
+    padding-left: 12px;
+}
+.root span.searchbtn{
+    display: inline-block;
+    width: 90px;
+    text-align: center;
+    height: 30px;
+    line-height: 30px;
+    color: #fff;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    border: 1px solid #3fc0ff;
+    position: relative;
+    left: 0;
+    top: 2px;
+    right: 0;
+    bottom: 0;
+    z-index: 3;
+    background-color: rgba(0,166,245,0.2);
+}
+.root span.searchbtn:hover{
+    color: #fffc00;
+    background-color: rgba(154,102,2,0.2);
+    border-color: #fffc00;
+}
+.element-div {
+    position: absolute;
+}
+
+.element-title-div {
+    width: 100%;
+    position: absolute;
+    transform: translate(0%, -100%);
+    -webkit-transform: translate(0%, -100%);
+    -moz-transform: translate(0%, -100%);
+}
+.element-title-text {
+    color: #fff;
+    width: 97%;
+    text-indent: 0.2rem;
+    height: 0.25rem;
+    line-height: 0.25rem;
+    font-size: 0.16rem;
+    position: absolute;
+    top: 50%;
+    margin: 0px 1.5%;
+    transform: translate(0%,-50%);
+    -webkit-transform: translate(0%,-50%);
+    background-color: rgba(0, 138, 255, 0.3);
+}
+.element-content{
+    background-color: rgba(0, 0, 0, 0.2);
+    height: 100%;
+    position: relative;
+}
+
+.divleft,
+.divright {
+    position: absolute;
+    width: 0.16rem;
+    height: 100%;
+    top: 0;
+}
+
+.divleft {
+    left: 0;
+    background: url(../images/p1/divleft.png) no-repeat;
+    -webkit-background-size: 100% 100%;
+    background-size: 100% 100%;
+}
+
+.divright {
+    right: 0;
+    background: url(../images/p1/divright.png) no-repeat;
+    -webkit-background-size: 100% 100%;
+    background-size: 100% 100%;
+}
+/*----------------------------------------timeaxis Panel----------------------------------------------*/
+
+.timeaxis {
+    position: absolute;
+    right: 7.7%;
+    bottom: 5%;
+    width: 63.5%;
+    height: 60px;
+    z-index: 300;
+}
+.timebtns{
+    position: absolute;
+    left: 0;
+    bottom: 70px;
+}
+
+.timebtns li {
+    width: 68px;
+    height: 24px;
+    line-height: 24px;
+    font-size: 14px;
+    color: #3fc0ff;
+    border: 1px solid #00c6ff;
+    text-align: center;
+    float: left;
+    background-color: rgba(63, 192, 255, 0.2);
+    cursor: pointer;
+    margin-right: -1px;
+}
+
+/* .timebtns li:first-child {
+    border-left: 1px solid #00c6ff;
+} */
+
+.timebtns li:hover{
+    position: relative;
+    z-index: 2;
+    color: #fff;
+}
+.timebtns li.active {
+    position: relative;
+    z-index: 2;
+    color: #fffc00;
+    background-color: rgba(154, 102, 2, 0.2);
+    border-color: #fffc00;
+}
+
+.axisleft,
+.axisright {
+    width: 14px;
+    height: 24px;
+    position: absolute;
+    top: 18px;
+    cursor: pointer;
+}
+
+.axisleft {
+    left: -33px;
+    background: url(../images/p1/timeleft.png) no-repeat;
+}
+.axisleft:hover{
+    background-image: url(../images/p1/timeleft_act.png);
+}
+
+.axisright {
+    right: -33px;
+    background: url(../images/p1/timeright.png) no-repeat;
+}
+.axisright:hover{
+    background-image: url(../images/p1/timeright_act.png);
+}
+
+.timelimitbox {
+    width: 100%;
+    height: 60px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    overflow: hidden;
+}
+
+.timeareabox {
+    position: absolute;
+    left: 104px;
+    top: 19px;
+    width: 240px;
+    height: 23px;
+    background-color: rgba(0, 198, 255, 0.5);
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    border: 1px solid #00c6ff;
+    cursor: move;
+}
+
+.timecontent {
+    position: relative;
+}
+
+.startline,
+.endline {
+    position: absolute;
+    top: -11px;
+    width: 3px;
+    height: 43px;
+    background-color: darkgray;
+}
+
+.startline {
+    left: -1px;
+    background: url(../images/p1/startline.png) no-repeat;
+    cursor: w-resize;
+}
+
+.endline {
+    right: -1px;
+    background: url(../images/p1/endline.png) no-repeat;
+    cursor: e-resize;
+}
+
+.canvastimeline {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    display: none;
+}
+
+#yearcanvas {
+    display: block;
+}
+
+
+/*----------------------------------------tooltip----------------------------------------------*/
+#tooltip{
+    position: absolute;
+    left: -100px;
+    top: -100px;
+    z-index: 301;
+}
+.fffpoint_lt,.fffpoint_rb{
+    content: '';
+    position: absolute;
+    width: 5px;
+    height: 5px;
+}
+.fffpoint_lt{
+    left: -1px;
+    top: -1px;
+    background: url(../images/p1/fff_lt.png) no-repeat;
+}
+.fffpoint_rb{
+    right: -1px;
+    bottom: -1px;
+    background: url(../images/p1/fff_rb.png) no-repeat;
+}
+
+.tooltiptext{
+    height: 24px;
+    padding: 0 11px;
+    line-height: 24px;
+    text-align: center;
+    background-color: rgba(27,59,119,0.9);
+    position: relative;
+    white-space: nowrap;
+    font-size: 0;
+}
+.tooltiptext .valuename{
+    display: inline-block;
+    vertical-align: middle;
+    height:24px;
+    line-height: 24px;
+    font-size: 12px;
+    color: #84d5ff;
+    margin-right: 4px;
+}
+.valuenum{
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 18px;
+    color: #fff;
+}

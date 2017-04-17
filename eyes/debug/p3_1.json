@@ -1,0 +1,155 @@
+{
+    "success": true,
+    "data": [
+        {
+            "seriesTitle": "雾霾",
+            "name": "2017-02-21",
+            "num": 6
+        },
+        {
+            "seriesTitle": "雾霾",
+            "name": "2017-02-22",
+            "num": 7
+        },
+        {
+            "seriesTitle": "雾霾",
+            "name": "2017-02-23",
+            "num": 5
+        },
+        {
+            "seriesTitle": "雾霾",
+            "name": "2017-02-24",
+            "num": 7
+        },
+        {
+            "seriesTitle": "雾霾",
+            "name": "2017-02-25",
+            "num": 5
+        },
+        {
+            "seriesTitle": "雾霾",
+            "name": "2017-02-26",
+            "num": 7
+        },
+        {
+            "seriesTitle": "雾霾",
+            "name": "2017-02-27",
+            "num": 5
+        },
+        {
+            "seriesTitle": "雾霾",
+            "name": "2017-02-28",
+            "num": 5
+        },
+        {
+            "seriesTitle": "雾霾",
+            "name": "2017-03-1",
+            "num": 7
+        },
+        {
+            "seriesTitle": "雾霾",
+            "name": "2017-03-2",
+            "num": 6
+        },
+        {
+            "seriesTitle": "雾霾",
+            "name": "2017-03-3",
+            "num": 7
+        },
+        {
+            "seriesTitle": "雾霾",
+            "name": "2017-03-4",
+            "num": 5
+        },
+        {
+            "seriesTitle": "雾霾",
+            "name": "2017-03-5",
+            "num": 7
+        },
+        {
+            "seriesTitle": "雾霾",
+            "name": "2017-03-6",
+            "num": 6
+        },
+        {
+            "seriesTitle": "雾霾",
+            "name": "2017-03-7",
+            "num": 6
+        },
+        {
+            "seriesTitle": "雾霾",
+            "name": "2017-03-8",
+            "num": 6
+        },
+        {
+            "seriesTitle": "雾霾",
+            "name": "2017-03-9",
+            "num": 5
+        },
+        {
+            "seriesTitle": "雾霾",
+            "name": "2017-03-10",
+            "num": 7
+        },
+        {
+            "seriesTitle": "雾霾",
+            "name": "2017-03-11",
+            "num": 7
+        },
+        {
+            "seriesTitle": "雾霾",
+            "name": "2017-03-12",
+            "num": 5
+        },
+        {
+            "seriesTitle": "雾霾",
+            "name": "2017-03-13",
+            "num": 6
+        },
+        {
+            "seriesTitle": "雾霾",
+            "name": "2017-03-14",
+            "num": 7
+        },
+        {
+            "seriesTitle": "雾霾",
+            "name": "2017-03-15",
+            "num": 7
+        },
+        {
+            "seriesTitle": "雾霾",
+            "name": "2017-03-16",
+            "num": 7
+        },
+        {
+            "seriesTitle": "雾霾",
+            "name": "2017-03-17",
+            "num": 6
+        },
+        {
+            "seriesTitle": "雾霾",
+            "name": "2017-03-18",
+            "num": 6
+        },
+        {
+            "seriesTitle": "雾霾",
+            "name": "2017-03-19",
+            "num": 7
+        },
+        {
+            "seriesTitle": "雾霾",
+            "name": "2017-03-20",
+            "num": 7
+        },
+        {
+            "seriesTitle": "雾霾",
+            "name": "2017-03-21",
+            "num": 5
+        },
+        {
+            "seriesTitle": "雾霾",
+            "name": "2017-03-22",
+            "num": 7
+        }
+    ]
+}

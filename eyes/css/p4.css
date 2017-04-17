@@ -1,0 +1,84 @@
+/*---------------------------------------- p4chart1 panel ----------------------------------------------*/
+.p4chart1{
+    position: absolute;
+    left: 1.1rem;
+    top: 10%;
+    width: 8.2rem;
+    height: 61.11%;
+}
+/*---------------------------------------- p4chart2 panel ----------------------------------------------*/
+
+.p4chart2{
+	position: absolute;
+	left: 9.9rem;
+	top: 10%;
+	width: 8.2rem;
+    height: 61.11%;
+    background-color: #ccc;
+}
+/*---------------------------------------- eventlist panel ----------------------------------------------*/
+
+.eventlistpanel{
+    position: absolute;
+    width: 17rem;
+    height: 20.833%;
+    left: 50%;
+    top: 72%;
+    margin-left: -8.5rem;
+}
+.tablediv{
+    width: 8.2rem;
+    height: 100%;
+    position: relative;
+}
+
+.tablediv .titleline{
+    position: absolute;
+    width: 100%;
+    height: 1px;
+    right: 0;
+    background-color: rgba(63,192,255,0.3);
+}
+.tablediv .titleline.up{
+    top: 0;
+}
+.tablediv .titleline.down{
+    top: 0.36rem;
+}
+.tablediv .titleline:before,.tablediv .titleline:after{
+    content: '';
+    position: absolute;
+    top: 0;
+    width: 3px;
+    height: 1px;
+    background-color: #3fc0ff;
+}
+.tablediv .titleline:before{
+    left: 0;
+}
+.tablediv .titleline:after{
+    right: 0;
+}
+
+.tablediv table{
+    font-size: 0.18rem;
+    width: 100%;
+    height: 100%;
+    color: #5fcbff;
+    border-collapse: collapse;
+}
+.tablediv thead tr td{
+    padding-bottom: 0.1rem;
+    height: 0.36rem;
+    color: #fff;
+}
+.tablediv table tr td:first-child{
+    width: 0.3rem;
+    padding-left: 0.2rem;
+}
+.tablediv tbody tr:nth-child(2n-1){
+    background-color: rgba(0,138,255,0.08);
+}
+.tablediv tbody tr:hover{
+    color: #fffc00;
+}

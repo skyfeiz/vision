@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>详情列表</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css"></link>
+    <link rel="stylesheet" type="text/css" href="css/details.css"></link>
+    <script type="text/javascript" src="libs/jquery-3.1.1.min.js"></script>
+    <script type="text/javascript" src="libs/echarts3.0.js"></script>
+    <script type="text/javascript" src="libs/jquery_scrollBar.js"></script>
+    <script type="text/javascript" src="libs/laydate/laydate.js"></script>
+    <script type="text/javascript" src="libs/laydate/laydate.js"></script>
+    <script type="text/javascript" src="debug/city.js"></script>
+    <script type="text/javascript" src="js/Controller.js"></script>
+    <script type="text/javascript" src="js/component/header.js"></script>
+    <script type="text/javascript" src="js/details.js"></script>
+    <script>
+    $(function() {
+        new EE.Header(4);
+        new EE.Details();
+    })
+    </script>
+</head>
+
+<body>
+    <div class="root">
+        <header class="clearfix" id="header"></header>
+        <div class="main">
+            <div class="searchbox clearfix">
+                <input class="fl" type="text" />
+                <span class="fl">搜索</span>
+            </div>
+            <div class="choosebox" id="choosebox">
+                <form class="clearfix" action="http://www.baidu.com">
+                    <div class="timebox fl">
+                        <span class="choosetitle">请选择时间</span>
+                        <span class="time" id="start"></span>
+                        <input type="hidden" name="start" id="startinput" value="" />
+                        <span class="plr10">至</span>
+                        <span class="time" id="end"></span>
+                        <input type="hidden" name="end" id="endinput" value="" />
+                    </div>
+                    <div class="keybox fl">
+                        <span class="choosetitle">按关键词分类</span>
+                        <div class="dropbox" id="keyword1">
+                            <span class="textname">请选择</span>
+                            <div class="droplist">
+                                <ul>
+                                    <li>北京</li>
+                                    <li>天津</li>
+                                    <li>河北</li>
+                                    <li>北京</li>
+                                    <li>天津</li>
+                                    <li>河北</li>
+                                    <li>北京</li>
+                                    <li>天津</li>
+                                    <li>河北</li>
+                                    <li>北京</li>
+                                    <li>天津</li>
+                                    <li>河北</li>
+                                    <li>北京</li>
+                                    <li>天津</li>
+                                    <li>河北</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="dropbox">
+                            <span class="textname">请选择</span>
+                            <div class="droplist">
+                                <ul>
+                                    <li>北京</li>
+                                    <li>天津</li>
+                                    <li>河北</li>
+                                    <li>北京</li>
+                                    <li>天津</li>
+                                    <li>河北</li>
+                                    <li>北京</li>
+                                    <li>天津</li>
+                                    <li>河北</li>
+                                    <li>北京</li>
+                                    <li>天津</li>
+                                    <li>河北</li>
+                                    <li>北京</li>
+                                    <li>天津</li>
+                                    <li>河北</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="areabox fl">
+                        <span class="choosetitle">按地区</span>
+                        <div class="dropbox" id="province">
+                            <span class="textname">全国</span>
+                            <div class="droplist">
+                                <ul>
+                                    <li>北京</li>
+                                    <li>天津</li>
+                                    <li>河北</li>
+                                    <li>北京</li>
+                                    <li>天津</li>
+                                    <li>河北</li>
+                                    <li>北京</li>
+                                    <li>天津</li>
+                                    <li>河北</li>
+                                    <li>北京</li>
+                                    <li>天津</li>
+                                    <li>河北</li>
+                                    <li>北京</li>
+                                    <li>天津</li>
+                                    <li>河北</li>
+                                </ul>
+                            </div>
+                            <input type="hidden" name="province" value="" id="pinput" />
+                        </div>
+                        <div class="dropbox" id="city">
+                            <span class="textname">请选择</span>
+                            <div class="droplist">
+                                <ul>
+                                    <li>北京</li>
+                                    <li>天津</li>
+                                    <li>河北</li>
+                                    <li>北京</li>
+                                    <li>天津</li>
+                                    <li>河北</li>
+                                    <li>北京</li>
+                                    <li>天津</li>
+                                    <li>河北</li>
+                                    <li>北京</li>
+                                    <li>天津</li>
+                                    <li>河北</li>
+                                    <li>北京</li>
+                                    <li>天津</li>
+                                    <li>河北</li>
+                                </ul>
+                            </div>
+                            <input type="hidden" name="city" value="" id="cinput" />
+                        </div>
+                    </div>
+                    <input class="fl submsg" type="submit" value="提交筛选" />
+                    <p class="resulttext fr">找到相关结果约100,000,000个</p>
+                </form>
+            </div>
+            <ul class="ullist" id="ullist">
+                <li>
+                    <a href="javascript:;" class="atitle">哇噻-奇奇奇！环保侠士“格问”</a>
+                    <p class="textinfo">
+                        <a href="javascript:;">来源：百度贴吧</a>
+                        <a href="javascript:;">用户：女儿侠山</a>
+                        <a>发布时间：2016-10-02</a>
+                        <a href="javascript:;">http://tieba.baidu.com/p/4988156669</a>
+                    </p>
+                    <span class="textline"></span>
+                    <p class="listcontent">光明网评论员：环保部对京津冀及周边地区18个城市开展的2017年第一季度空气质量专项督查正在进行。在所发现的问题中，“济南市政府2016年未按照《济南市大气污染防治工作督查考核办法》对各责任单位和区县政府进行大气污染防治工作考核”，相较于应急减排管控标准不统一，燃煤锅炉改造进度滞后等问题而言无疑算是一个“新问题”，尤其值得审视。</p>
+                </li>
+                <li>
+                    <a href="javascript:;" class="atitle">哇噻-奇奇奇！环保侠士“格问”</a>
+                    <p class="textinfo">
+                        <a href="javascript:;">来源：百度贴吧</a>
+                        <a href="javascript:;">用户：女儿侠山</a>
+                        <a>发布时间：2016-10-02</a>
+                        <a href="javascript:;">http://tieba.baidu.com/p/4988156669</a>
+                    </p>
+                    <span class="textline"></span>
+                    <p class="listcontent">光明网评论员：环保部对京津冀及周边地区18个城市开展的2017年第一季度空气质量专项督查正在进行。在所发现的问题中，“济南市政府2016年未按照《济南市大气污染防治工作督查考核办法》对各责任单位和区县政府进行大气污染防治工作考核”，相较于应急减排管控标准不统一，燃煤锅炉改造进度滞后等问题而言无疑算是一个“新问题”，尤其值得审视。</p>
+                </li>
+                <li>
+                    <a href="javascript:;" class="atitle">哇噻-奇奇奇！环保侠士“格问”</a>
+                    <p class="textinfo">
+                        <a href="javascript:;">来源：百度贴吧</a>
+                        <a href="javascript:;">用户：女儿侠山</a>
+                        <a>发布时间：2016-10-02</a>
+                        <a href="javascript:;">http://tieba.baidu.com/p/4988156669</a>
+                    </p>
+                    <span class="textline"></span>
+                    <p class="listcontent">光明网评论员：环保部对京津冀及周边地区18个城市开展的2017年第一季度空气质量专项督查正在进行。在所发现的问题中，“济南市政府2016年未按照《济南市大气污染防治工作督查考核办法》对各责任单位和区县政府进行大气污染防治工作考核”，相较于应急减排管控标准不统一，燃煤锅炉改造进度滞后等问题而言无疑算是一个“新问题”，尤其值得审视。</p>
+                </li>
+                <li>
+                    <a href="javascript:;" class="atitle">哇噻-奇奇奇！环保侠士“格问”</a>
+                    <p class="textinfo">
+                        <a href="javascript:;">来源：百度贴吧</a>
+                        <a href="javascript:;">用户：女儿侠山</a>
+                        <a>发布时间：2016-10-02</a>
+                        <a href="javascript:;">http://tieba.baidu.com/p/4988156669</a>
+                    </p>
+                    <span class="textline"></span>
+                    <p class="listcontent">光明网评论员：环保部对京津冀及周边地区18个城市开展的2017年第一季度空气质量专项督查正在进行。在所发现的问题中，“济南市政府2016年未按照《济南市大气污染防治工作督查考核办法》对各责任单位和区县政府进行大气污染防治工作考核”，相较于应急减排管控标准不统一，燃煤锅炉改造进度滞后等问题而言无疑算是一个“新问题”，尤其值得审视。</p>
+                </li>
+                <li>
+                    <a href="javascript:;" class="atitle">哇噻-奇奇奇！环保侠士“格问”</a>
+                    <p class="textinfo">
+                        <a href="javascript:;">来源：百度贴吧</a>
+                        <a href="javascript:;">用户：女儿侠山</a>
+                        <a>发布时间：2016-10-02</a>
+                        <a href="javascript:;">http://tieba.baidu.com/p/4988156669</a>
+                    </p>
+                    <span class="textline"></span>
+                    <p class="listcontent">光明网评论员：环保部对京津冀及周边地区18个城市开展的2017年第一季度空气质量专项督查正在进行。在所发现的问题中，“济南市政府2016年未按照《济南市大气污染防治工作督查考核办法》对各责任单位和区县政府进行大气污染防治工作考核”，相较于应急减排管控标准不统一，燃煤锅炉改造进度滞后等问题而言无疑算是一个“新问题”，尤其值得审视。</p>
+                </li>
+            </ul>
+            <div class="pagebox">
+                <span class="prevpage" id="prevpage">上一页</span>
+                <ul class="pagelist" id="pagelist">;
+                    <li class="active">1</li>
+                    <li>2</li>
+                    <li>3</li>
+                    <li>4</li>
+                    <li>5</li>
+                    <li>6</li>
+                    <li>7</li>
+                    <li>8</li>
+                    <li>9</li>
+                    <li>10</li>
+                </ul>
+                <span class="nextpage" id="nextpage">下一页</span>
+                <span class="totalnum" id="totalnum">共 100 页</span>
+                <div class="gotopage" id="gotopage">
+                    到第
+                    <input class="gonum" type="text" id="pagenum" oninput="this.value=this.value.replace(/\D/g,'')"/>
+                    页
+                </div>
+                <span class="gotobtn" id="gotobtn">确定</span>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+$(function() {
+    $(document.documentElement).css({
+        'font-size': (window.innerHeight > 1200 ? 1920 : $(document.documentElement).width()) / 1920 * 100
+    });
+
+    // console.log(window.innerHeight)
+    if (window.innerHeight > 1200) {
+        var scale = window.innerHeight / 1080;
+        console.log(window.innerHeight)
+        $(".root").css({
+            "width": "1920px",
+            "height": "1080px",
+            "transform": "translate(-50%,-50%) scale(" + scale + "," + scale + ")",
+            "-webkit-transform": "translate(-50%,-50%) scale(" + scale + "," + scale + ")"
+        })
+    }
+})
+</script>
+
+</html>

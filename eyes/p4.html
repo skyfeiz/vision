@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>舆情地图</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css"></link>
+    <link rel="stylesheet" type="text/css" href="css/p4.css"></link>
+    <script type="text/javascript" src="libs/jquery-3.1.1.min.js"></script>
+    <script type="text/javascript" src="libs/echarts3.0.js"></script>
+    <script type="text/javascript" src="libs/worldcloud.js"></script>
+    <script type="text/javascript" src="libs/jquery_scrollBar.js"></script>
+    <script type="text/javascript" src="libs/easeljs-NEXT.combined.js"></script>
+    <script type="text/javascript" src="libs/TweenMax.min.js"></script>
+    <script type="text/javascript" src="js/Controller.js"></script>
+    <script type="text/javascript" src="js/component/timeline.js"></script>
+    <script type="text/javascript" src="js/component/header.js"></script>
+    <script type="text/javascript" src="chart/p4chart1.js"></script>
+    <script type="text/javascript" src="chart/p4chart2.js"></script>
+    <script type="text/javascript" src="chart/p4list.js"></script>
+    <script type="text/javascript" src="js/p4.js"></script>
+    <script>
+    $(function() {
+        new EE.Header(2);
+        new EE.P4Chart();
+    })
+    </script>
+</head>
+
+<body>
+    <div class="root">
+        <header class="clearfix" id="header"></header>
+
+        <section class="p4chart1" id="p4chart1"></section>
+
+        <section class="p4chart2" id="p4chart2"></section>
+        
+        <section class="eventlistpanel clearfix">
+            <div class="tablediv fl">
+                <table>
+                    <thead>
+                        <tr>
+                            <td></td>
+                            <td>事件名词</td>
+                            <td>事件热度</td>
+                            <td>热度较高省份</td>
+                            <td>危机度</td>
+                        </tr>
+                    </thead>
+                    <tbody id="tbody1"></tbody>
+                </table>
+                <div class="titleline up"></div>
+                <div class="titleline down"></div>
+            
+            </div>
+            <div class="tablediv fr">
+                <table>
+                    <thead>
+                        <tr>
+                            <td></td>
+                            <td>事件名词</td>
+                            <td>事件热度</td>
+                            <td>热度较高省份</td>
+                            <td>危机度</td>
+                        </tr>
+                    </thead>
+                    <tbody id="tbody2"></tbody>
+                </table>
+                <div class="titleline up"></div>
+                <div class="titleline down"></div>
+            </div>
+        </section>
+    </div>
+    <div id="tooltip">
+        <div class="tooltip_left3">
+            <p class="blockyellow">参考消息</p>
+            <p class="tooltiptext">
+                <span class="valuename">17日</span>
+                <span class="valuenum">980000</span>
+                <span class="fffpoint_lt"></span>
+                <span class="fffpoint_rb"></span>
+            </p>
+        </div>
+    </div>
+</body>
+<script>
+$(function() {
+    $(document.documentElement).css({
+        'font-size': (window.innerHeight > 1200 ? 1920 : $(document.documentElement).width()) / 1920 * 100
+    });
+
+    // console.log(window.innerHeight)
+    if (window.innerHeight > 1200) {
+        var scale = window.innerHeight / 1080;
+        console.log(window.innerHeight)
+        $(".root").css({
+            "width": "1920px",
+            "height": "1080px",
+            "transform": "translate(-50%,-50%) scale(" + scale + "," + scale + ")",
+            "-webkit-transform": "translate(-50%,-50%) scale(" + scale + "," + scale + ")"
+        })
+    }
+})
+</script>
+
+</html>

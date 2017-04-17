@@ -1,0 +1,13 @@
+{"success": "true",                                    
+"data":[
+{"seriesTitle": "全国","name":"雾霾1","num":1000},
+{"seriesTitle": "全国","name":"酸雨2","num":900}, 
+{"seriesTitle": "全国","name":"雾霾3","num":800},
+{"seriesTitle": "全国","name":"酸雨4","num":700},  
+{"seriesTitle": "全国","name":"酸雨5","num":600},
+{"seriesTitle": "全国","name":"雾霾6","num":500},
+{"seriesTitle": "全国","name":"酸雨7","num":400}, 
+{"seriesTitle": "全国","name":"雾霾8","num":300},
+{"seriesTitle": "全国","name":"酸雨9","num":200},
+{"seriesTitle": "全国","name":"酸雨0","num":100}
+]}

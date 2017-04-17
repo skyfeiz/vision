@@ -1,0 +1,22 @@
+{
+	"success":1,
+	"data":[
+		{
+			"seriesTitle":"全国",
+			"name":"正方",
+			"num":120000
+		},{
+			"seriesTitle":"全国",
+			"name":"中立",
+			"num":130000
+		},{
+			"seriesTitle":"全国",
+			"name":"负方",
+			"num":140000
+		},{
+			"seriesTitle":"全国",
+			"name":"总数",
+			"num":390000
+		}
+	]
+}

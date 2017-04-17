@@ -1,0 +1,20 @@
+{
+	"success":1,
+	"data":[
+		{
+			"eventArea":"北京",
+			"eventSum":2232434,
+			"title":"中央气象台：北方霾持续 27日减弱消散"
+		},
+		{
+			"eventArea":"河北",
+			"eventSum":1832000,
+			"title":"全国雾霾天气进入第六天京津冀地"
+		},
+		{
+			"eventArea":"天津",
+			"eventSum":1312434,
+			"title":"阿拉善经济开发区环保局多举措推"
+		}
+	]
+}

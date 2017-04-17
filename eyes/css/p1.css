@@ -1,0 +1,630 @@
+/*----------------------------------------left Panel----------------------------------------------*/
+
+.mainleft {
+    width: 19.8%;
+    height: 84.3%;
+    position: absolute;
+    left: 0.7rem;
+    top: 1.2rem;
+    z-index: 300;
+}
+
+
+/*----------------------------------------viewpoint Panel----------------------------------------------*/
+
+.viewPanel {
+    width: 100%;
+    height: 4.4%;
+    position: absolute;
+}
+
+.topline,
+.bottomline {
+    position: absolute;
+    left: 0;
+    height: 1px;
+    width: 100%;
+    background-color: rgba(5, 75, 112, 0.7);
+}
+
+.topline:before,
+.bottomline:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 3px;
+    height: 100%;
+    background-color: #fff;
+}
+
+.topline {
+    top: 0;
+}
+
+.bottomline {
+    bottom: 0;
+}
+
+.viewinfo {
+    width: 50%;
+    font-size: 0.2rem;
+    line-height: 100%;
+    position: absolute;
+    height: 0.2rem;
+    left: 0;
+    top: 50%;
+    margin-top: -0.11rem;
+    color: #00c6ff;
+    text-align: center;
+}
+
+.viewpoint {
+    position: absolute;
+    width: 50%;
+    height: 100%;
+    text-align: center;
+    right: 0;
+    color: #fff;
+    font-size: 0.24rem;
+    border: 1px solid #00c6ff;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    background-color: rgba(3, 72, 150, 0.6);
+    cursor: pointer;
+}
+.viewpoint:hover{
+    border-color: #fffc00;
+    box-shadow: 0px 0px 0px #0363ec;
+    background-color: rgba(154, 102, 2, 0.2);
+}
+.viewpoint p{
+    width: 100%;
+    height: 0.2rem;
+    line-height: 0.2rem;
+    position: absolute;
+    left: 0;
+    top: 50%;
+    margin-top: -0.1rem;
+    text-align: center;
+    cursor: default;
+}
+.viewpoint span {
+    cursor: pointer;
+    display: inline-block;
+}
+
+
+/*----------------------------------------chart Panel----------------------------------------------*/
+.chart1div .element-title-div{
+    height: 24.7%;
+}
+.chart2div .element-title-div{
+    height: 11.1%;
+}
+.chart3div .element-title-div{
+    height: 16%;
+}
+.chart2div{
+    width: 100%;
+    top: 32.7%;
+    height: 36.4%;
+}
+
+.chart3div {
+    width: 100%;
+    height: 25.4%;
+    bottom: 0;
+}
+
+.chart3div .element-content{
+    width: 100%;
+    height: 2.31rem;
+}
+
+/*----------------------------------------city choose----------------------------------------------*/
+.z_city{
+    width: 50%;
+    height: 100%;
+    position: absolute;
+    left: calc(100% + 10px);
+    top: 0;
+}
+._citys {
+    width: 268.42%;
+    display: inline-block;
+    position: relative;
+    background-color: rgba(0,20,57,0.9);
+}
+
+._citys span {
+    color: #fff;;
+    height: 20px;
+    width: 20px;
+    line-height: 20px;
+    text-align: center;
+    position: absolute;
+    right: 7px;
+    top: 7px;
+    border: 1px solid #56b4f8;
+    cursor: pointer;
+}
+._citys span:hover{
+    color: #fffc00;
+    border-color: #fffc00;
+}
+
+._citys0 {
+    width: 100%;
+    height:36px;
+    display: inline-block;
+    border-bottom: 1px solid #134875;
+    padding: 0;
+    margin: 0;
+}
+
+._citys0 li {
+    display: inline-block;
+    line-height: 34px;
+    font-size: 0.2rem;
+    color: #888;
+    width: 112px;
+    text-align: center;
+    cursor: pointer;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    color: #fff;
+}
+._citys0 li:hover{
+    color: #fffc00;
+}
+
+._citys0 .citySel {
+    color: #fffc00;
+}
+
+._citys1 {
+    width: 100%;
+    display: inline-block;
+    height: 340px;
+    overflow:hidden; 
+    padding: 20px 0;
+    position: relative;
+}
+._citys2{
+    width: 100%;
+    height: auto;
+    display: inline-block;
+    padding: 20px 0;
+}
+.cityscrollbox{
+    height: 290px;
+    overflow: hidden;
+    position: relative;
+}
+.citysearch{
+    width: 256px;
+    height: 60px;
+    margin: 0 auto;
+}
+.barBox {
+    width: 5px;
+    position: absolute;
+    right: 3px;
+    height: 100%;
+    background-color:rgba(0,198,255,0.2);
+    top: 0;
+}
+.barItem:hover{
+    width: 10px;
+    left: -2px;
+}
+.barItem {
+    width: 5px;
+    position: relative;
+    top: 0px;
+    left: 0;
+    height: 100px;
+    background-color: #00c6ff;
+}
+._citys1 a {
+    width:20%;
+    height: 35px;
+    display: inline-block;
+    color: #fff;
+    margin-bottom: 10px;
+    line-height: 35px;
+    text-align: center;
+    cursor: pointer;
+    font-size: 14px;
+    overflow: hidden;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+._citys1 a:hover {
+    color: #fffc00;
+}
+
+.AreaS {
+    line-height: 33px;
+    background-color: rgba(63,192,255,0.3) !important;
+    color: #fff !important;
+}
+
+/*----------------------------------------dashboard Panel----------------------------------------------*/
+.chart1div {
+    top: 10.5%;
+    width: 100%;
+    height: 16.5%;
+}
+#left1{
+    width: 1.63rem;
+    height: 50%;
+    position: absolute;
+    left: 0;
+    top: 8%;
+}
+.left1charttext{
+    position: absolute;
+    left: 0;
+    top: 62%;
+    width: 1.63rem;
+    height: 0.4rem;
+}
+.left1charttext p{
+    line-height: 1.1;
+    text-align: center;
+    font-size: 0.14rem;
+    color: #fff;
+}
+p.bluenum{
+    font-size: 0.24rem;
+    color: #00c6ff;
+}
+p.bluelight.bluenum{
+    color: #fff;
+}
+.left1text{
+    width: 52%;
+    position: absolute;
+    top: 13.3%;
+    right: 5.3%;
+    height: 73.4%;
+}
+.left1text .left1textitem{
+    width: 100%;
+    height: 27.2%;
+    margin-bottom: 6.2%;
+    position: relative;
+}
+.left1text .left1textitem:last-child{
+    margin-bottom: 0;
+}
+.whitepoint{
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    box-shadow: 0 0 4px #008aff;
+    background-color: #fff;
+}
+.toptriangle{
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 4.5px;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+.b_colorwhite{
+    border-color:  #fff transparent transparent #fff;
+}
+.b_colorgreen{
+    border-color:  #01b057 transparent transparent #01b057;
+}
+.b_coloryellow{
+    border-color:  #fffc00 transparent transparent #fffc00;
+}
+.b_colorred{
+    border-color:  #f9042f transparent transparent #f9042f;
+}
+.pos_rt0{
+    right: 0;
+    top: 0;
+}
+.pos_rb0{
+    right: 0;
+    bottom: 0;
+}
+.z_hide{
+    display: none;
+}
+.left1textitem .totalnum{
+    cursor: pointer;
+    text-indent: 0.1rem;
+    width: 100%;
+    height: 100%;
+    line-height: 1.3;
+    font-size: 0;
+    color:#84d5ff;
+    background: url(../images/p1/totalnumbg.png);
+}
+.left1textitem .totalnum{
+    font-size: 0.14rem;
+}
+.left1textitem .totalnum .bluenum{
+    font-size: 0.24rem;
+    color: #00c6ff;
+    margin-left: 0.06rem;
+}
+.left1textitem .totalnum .bluenum:hover{
+    color: #fff;
+}
+.left1textitem .shiftNum .bluenum:hover{
+    color: #fff;
+}
+
+/*----------------------------------------headline Panel----------------------------------------------*/
+.chart2{
+    width: 3.28rem;
+    height: 100%;
+    margin:0 auto;
+    position: relative;
+}
+
+.chart4news{
+    position: absolute;
+    left: 0.27rem;
+    width: 3.36rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    height: 100%;
+    color: #84d5ff;
+    height: 12px;
+    line-height: 1;
+    font-size: 12px;
+}
+.chart4news:hover{
+    color: #fffc00;
+}
+.chart4news.anew0{
+    top:6%;
+}
+.chart4news.anew1{
+    top:16%;
+}
+.chart4news.anew2{
+    top:27%;
+}
+.chart4news.anew3{
+    top:38%;
+}
+.chart4news.anew4{
+    top:49%;
+}
+.chart4news.anew5{
+    top:60%;
+}
+.chart4news.anew6{
+    top:71%;
+}
+.chart4news.anew7{
+    top:82%;
+}
+
+/*----------------------------------------source Panel----------------------------------------------*/
+.left3{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 2.31rem;
+}
+
+
+/*----------------------------------------map Panel----------------------------------------------*/
+
+#china{ 
+    margin: auto; 
+    width: 100%;
+    height: 100%;
+    position: relative;
+    background-color: #081732;
+    overflow: hidden;
+}
+#china canvas{
+    transform-origin: 50% 80%;          
+    position: absolute;
+    height: 100%;
+    left: 50%;
+    transform: translate(-50%,0%);
+    -webkit-transform: translate(-50%,0%);
+    -moz-transform: translate(-50%,0%);
+}
+#ChinaMap{
+    top: 0px;
+    opacity: 1;
+    z-index: 100;
+}
+#ProvinceMap,#CityMap{
+    opacity: 0;
+    z-index: 0;
+}
+#china .btn{
+    position: absolute;
+    top: 20px;
+    left: 30px;
+    color: #fff;
+    font-size: 18px;
+    cursor: pointer;
+    z-index: 999;
+}
+.toolTip{
+    position: absolute;
+    bottom: 100px;
+    left: 500px;
+    height: 0;
+    width: 2px;
+    margin-left: -1px;
+    transition: height 0.3s,width 0.3s ease 0.3s;
+    -webkit-transition: height 0.3s,width 0.3s ease 0.3s;
+    -moz-transition: height 0.3s,width 0.3s ease 0.3s;
+    z-index: 0;
+    overflow: hidden;
+}
+.toolTip:before{
+    display: block;
+    content: "";
+    height: 4px;
+    position: absolute;
+    top: 0;
+    left: 0px;
+    border-left: 1px solid #fff;
+}
+.toolTip:after{
+    display: block;
+    content: "";
+    height: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 1px;
+    border-left: 1px solid #fff;
+}
+.positive:after, .positive:before{
+    border-color: #01b057;
+}
+.neutral:after, .neutral:before{
+    border-color: #fffb00;
+}
+.negative:after, .negative:before{
+    border-color: #f9042f;
+}
+.toolTip div,.totalNum{
+    position: relative;
+    top: 20px;
+    right: -3px;
+    opacity: 0;
+    /*display: none;*/
+    transition: top 0.3s ease 0.3s,opacity 0.3s ease 0.3s;
+    -webkit-transition: top 0.3s ease 0.3s,opacity 0.3s ease 0.3s;
+    -moz-transition: top 0.3s ease 0.3s,opacity 0.3s ease 0.3s;
+    
+}
+.toolTip div{
+    font-size: 14px;
+    color:#84d5ff;
+    line-height: 23px;
+    width: 143px;
+    margin-top: 4px;
+    text-indent: 20px;
+    height: 140px;
+    padding-top: 2px;
+    background: rgba(0,0,0,0.2);
+}
+.toolTip div:after
+{
+    display: block;
+    content: "";
+    position: absolute;
+    top: 0;
+    right: -10px;
+    width: 10px;
+    height: 100%;
+    background: url("../images/p1/toolBg.png") no-repeat 100% 100%;
+}
+.toolTip div p{
+    position: relative;
+    cursor: pointer;
+}
+.toolTip div p:hover,.toolTip div p:hover span{
+    color: #fff;
+}
+.toolTip div p:before{
+    display: inline-block;
+    content: "";
+    width: 5px;
+    height: 10px;
+    position: absolute;
+    top: 7px;
+    left: 11px;
+    background-color: #003eca;
+}
+.toolTip div p.mapTip2:before{
+    background-color: #025dcd;
+}
+.toolTip div p.mapTip3:before{
+    background-color: #168aec;
+}
+.toolTip div p.mapTip4:before{
+    background-color: #00c6ff;
+}
+.toolTip div p.mapTip5:before{
+    background-color: #51e4ff;
+}
+.toolTip div p.mapTip6:before{
+    background-color: #fff;
+}
+.toolTip .totalNum{
+    font-size: 16px;
+    color:#84d5ff;
+    line-height: 30px;
+    width: 172px;
+    text-indent: 13px;
+    background: rgba(0,0,0,0.2);
+}
+.toolTip .totalNum span{
+    color: #fff;
+    text-shadow: #0072ff 0px 0px 3px;
+}
+.toolTip div span{
+    color: #00c6ff;
+}
+
+.toolShow{
+    height: 236px;
+    z-index: 200;
+    width: auto;
+    /*overflow: visible;*/
+}
+.toolShow div,.toolShow .totalNum{
+    top: 0;
+    opacity: 1;
+    /*display: block;*/
+}
+/*-----------------------------------*/
+.tooltip_left3{
+    width: 72px;
+    height: 40px;
+    font-size: 12px;
+}
+.tooltip_left3 .blockyellow{
+    width: 100%;
+    height: 20px;
+    line-height: 20px;
+    text-align: center;
+    position: relative;
+    color: #fff;
+}
+.tooltip_left3 .blockyellow:before{
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 5px;
+    width: 5px;
+    height: 10px;
+    background-color: #fffe00;
+}
+.tooltip_left3 .tooltiptext{
+    font-size: 18px;
+    color: #fff;
+    height: 20px;
+    line-height: 20px;
+    text-align: center;
+    background-color: rgba(27,57,119,0.9);
+    position: relative;
+}

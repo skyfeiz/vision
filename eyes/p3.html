@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>舆情地图</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css"></link>
+    <link rel="stylesheet" type="text/css" href="css/p3.css"></link>
+    <script type="text/javascript" src="libs/jquery-3.1.1.min.js"></script>
+    <script type="text/javascript" src="libs/echarts3.0.js"></script>
+    <script type="text/javascript" src="libs/worldcloud.js"></script>
+    <script type="text/javascript" src="libs/jquery_scrollBar.js"></script>
+    <script type="text/javascript" src="libs/easeljs-NEXT.combined.js"></script>
+    <script type="text/javascript" src="libs/preloadjs-0.4.1.min.js"></script>
+    <script type="text/javascript" src="libs/TweenMax.min.js"></script>
+    <script type="text/javascript" src="js/Controller.js"></script>
+    <script type="text/javascript" src="debug/city.js"></script>
+    <script type="text/javascript" src="chart/left3.js"></script>
+    <script type="text/javascript" src="chart/left1.js"></script>
+    <script type="text/javascript" src="chart/chart9.js"></script>
+    <script type="text/javascript" src="chart/chartP3_1.js"></script>
+    <script type="text/javascript" src="js/component/header.js"></script>
+    <script type="text/javascript" src="js/component/map_p3.js"></script>
+    <script type="text/javascript" src="js/component/mapViewSwitch.js"></script>
+    <script type="text/javascript" src="js/p3.js"></script>
+    <script>
+    $(function() {
+        new EE.Header(1);
+        new EE.P3Chart();
+    })
+    </script>
+</head>
+
+<body>
+    <div class="root">
+        <header class="clearfix" id="header"></header>
+        
+        <div class="pagetitle">
+            <p>研究报告</p>
+            <span class="titleline up"></span>
+            <span class="titleline down"></span>
+        </div>
+
+        <div id="china">
+            <div class="toolTip">
+                <p class="areaName">新疆总数：</p>
+                <p class="areaNum"></p>
+            </div>
+            <canvas id="ChinaMap" width="1280px" height="720px"></canvas>
+            <canvas id="ProvinceMap" width="1280px" height="720px"></canvas>
+            <p class="mapNav">
+              <span>中国</span>
+              <span class="subNav">省</span>
+              <span class="subNav">市</span>
+            </p>
+        </div>
+
+        <section class="element-content p3chart1">
+            <div id="p3Chart1">
+              
+            </div>
+        </section>
+        <section class="element-div p3chart2">
+           <div class="element-title-div">
+               <p class="element-title-text">群众正负意见分布</p>
+               <span class="divleft"></span>
+               <span class="divright"></span>
+           </div>
+           <div class="element-content">
+              <div class="p3chart2Box">
+                <div class="left1" id="p3Chart2"></div>
+                  <div class="left1charttext" id="left1charttext"></div>
+                  <div class="left1text" id="left1text">
+                      <div class="left1textitem">
+                          <div class="whitepoint pos_rt0"></div>
+                          <div class="whitepoint pos_rb0"></div>
+                          <div class="toptriangle b_colorwhite"></div>
+                          <p class="totalnum"></p>
+                      </div>
+                      <div class="left1textitem">
+                          <div class="whitepoint pos_rt0"></div>
+                          <div class="whitepoint pos_rb0"></div>
+                          <div class="toptriangle b_colorgreen"></div>
+                          <p class="totalnum shiftNum"></p>
+                      </div>
+                      <div class="left1textitem">
+                          <div class="whitepoint pos_rt0"></div>
+                          <div class="whitepoint pos_rb0"></div>
+                          <div class="toptriangle b_coloryellow"></div>
+                          <p class="totalnum shiftNum"></p>
+                      </div>
+                      <div class="left1textitem z_hide">
+                          <div class="whitepoint pos_rt0"></div>
+                          <div class="whitepoint pos_rb0"></div>
+                          <div class="toptriangle b_colorred"></div>
+                          <p class="totalnum shiftNum"></p>
+                      </div>
+                  </div>
+              </div>
+              <div class="p3chart2Text">
+                <ul>
+                  
+                </ul>
+              </div>
+           </div>
+       </section>
+       <section class="element-div p3chart3">
+           <div class="element-title-div">
+               <p class="element-title-text">雾霾</p>
+               <span class="divleft"></span>
+               <span class="divright"></span>
+           </div>
+           <div class="element-content">
+               <p></p>
+           </div>
+       </section>
+       <section class="element-div p3chart4">
+           <div class="element-title-div">
+               <p class="element-title-text">媒体发热度排名</p>
+               <span class="divleft"></span>
+               <span class="divright"></span>
+           </div>
+           <div class="element-content">
+               <div id="p3Chart4" data-bselft="1"></div>
+           </div>
+       </section>
+       <section class="element-div p3chart5">
+           <div class="element-title-div">
+               <p class="element-title-text">关键词云</p>
+               <span class="divleft"></span>
+               <span class="divright"></span>
+           </div>
+           <div class="element-content">
+               <div id="p3Chart5" data-bselft="1"></div>
+           </div>
+       </section>
+    </div>
+    <div id="tooltip">
+        <div class="tooltip_left3">
+            <p class="blockyellow">参考消息</p>
+            <p class="tooltiptext">
+                <span class="valuename">17日</span>
+                <span class="valuenum">980000</span>
+                <span class="fffpoint_lt"></span>
+                <span class="fffpoint_rb"></span>
+            </p>
+        </div>
+    </div>
+</body>
+<script>
+$(function() {
+    $(document.documentElement).css({
+        'font-size': $(document.documentElement).width() / 1920 * 100
+    })
+})
+</script>
+
+</html>

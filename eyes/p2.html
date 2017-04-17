@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>舆情地图</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css"></link>
+    <link rel="stylesheet" type="text/css" href="css/p2.css"></link>
+    <script type="text/javascript" src="libs/jquery-3.1.1.min.js"></script>
+    <script type="text/javascript" src="libs/echarts3.0.js"></script>
+    <script type="text/javascript" src="libs/worldcloud.js"></script>
+    <script type="text/javascript" src="libs/jquery_scrollBar.js"></script>
+    <script type="text/javascript" src="libs/easeljs-NEXT.combined.js"></script>
+    <script type="text/javascript" src="libs/TweenMax.min.js"></script>
+    <script type="text/javascript" src="js/Controller.js"></script>
+    <script type="text/javascript" src="js/component/timeline.js"></script>
+    <script type="text/javascript" src="chart/chart4.js"></script>
+    <script type="text/javascript" src="chart/chart5.js"></script>
+    <script type="text/javascript" src="chart/chart6.js"></script>
+    <script type="text/javascript" src="chart/chart7.js"></script>
+    <script type="text/javascript" src="chart/chart8.js"></script>
+    <script type="text/javascript" src="chart/chart9.js"></script>
+    <script type="text/javascript" src="js/component//header.js"></script>
+    <script type="text/javascript" src="js/p2.js"></script>
+    <script>
+    $(function() {
+        new EE.Header(1);
+        new EE.P2Chart();
+    })
+    </script>
+</head>
+
+<body>
+    <div class="root">
+        <header class="clearfix" id="header"></header>
+        <!-- search input -->
+        <section class="searchbox">
+            <input type="text" class="searchinput" />
+            <span class="searchbtn" autocomplete="off">搜索</span>
+        </section>
+        <section class="element-div chart4div">
+            <div class="element-title-div">
+                <p class="element-title-text">舆情头条</p>
+                <span class="divleft"></span>
+                <span class="divright"></span>
+            </div>
+            <div class="element-content">
+                <div class="chart4" id="chart4"></div>
+                <!-- <ul class="chart4news" id="chart4news"></ul> -->
+                <a class="chart4news" href="javascript:;">中央气象台：北方霾持续&nbsp;27日减弱消散</a>
+                <a class="chart4news" href="javascript:;">全国雾霾天气进入第六天京津冀地区污染最重</a>
+                <a class="chart4news" href="javascript:;">阿拉善经济开发区环保局多举措推进大气、水污染等等</a>
+                <a class="chart4news" href="javascript:;">专家：中国每年水污染造成经济损失2400亿元</a>
+                <a class="chart4news" href="javascript:;">“核污染”食品侵袭中国背后：跨境电商错在哪儿</a>
+                
+            </div>
+        </section>
+        <section class="element-div chart5div">
+            <div class="element-title-div">
+                <p class="element-title-text">事件省份排名</p>
+                <span class="divleft"></span>
+                <span class="divright"></span>
+            </div>
+            <div class="element-content">
+                <div class="chart5" id="chart5"></div>
+                <p class="unittitle">单位/万</p>
+            </div>
+        </section>
+        <section class="element-div chart6div">
+            <div class="element-title-div">
+                <p class="element-title-text">舆情走势</p>
+                <span class="divleft"></span>
+                <span class="divright"></span>
+            </div>
+            <div class="element-content">
+                <div class="chart6" id="chart6"></div>
+            </div>
+        </section>
+        <section class="element-div chart7div">
+            <div class="element-title-div">
+                <p class="element-title-text">来源媒体分布</p>
+                <span class="divleft"></span>
+                <span class="divright"></span>
+            </div>
+            <div class="element-content">
+                <div class="chart7" id="chart7" data-bselft="1"></div>
+            </div>
+        </section>
+        <section class="element-div chart8div">
+            <div class="element-title-div">
+                <p class="element-title-text">头条正中负面</p>
+                <span class="divleft"></span>
+                <span class="divright"></span>
+            </div>
+            <div class="element-content">
+                <div class="chart8" id="chart8"></div>
+                <p class="pietip" id="pietip">
+                    <span class="piecn">舆情总数</span>
+                    <span class="pienum">5000000</span>
+                </p>
+            </div>
+        </section>
+        <section class="element-div chart9div">
+            <div class="element-title-div">
+                <p class="element-title-text">关键词</p>
+                <span class="divleft"></span>
+                <span class="divright"></span>
+            </div>
+            <div class="element-content">
+                <div class="chart9" id="chart9"></div>
+            </div>
+        </section>
+        <!-- timeline -->
+        <section class="timeaxis timeaxis2" id="timeaxis">
+            <ul class="timebtns clearfix">
+                <li data-type="now" style="display: none;">最近七天</li>
+                <li data-type="month">月</li>
+                <li class="active" data-type="year">年</li>
+            </ul>
+            <div class="timelimitbox">
+                <div class="timecontent">
+                    <canvas class="canvastimeline" id="monthcanvas"></canvas>
+                    <canvas class="canvastimeline" id="yearcanvas"></canvas>
+                    <canvas class="canvastimeline" id="nowcanvas"></canvas>
+                    <div class="timeareabox" id="timeareabox">
+                        <div class="startline" id="startline"></div>
+                        <div class="endline" id="endline"></div>
+                    </div>
+                </div>
+            </div>
+            <span class="axisleft" id="axisleft"></span>
+            <span class="axisright" id="axisright"></span>
+        </section>
+    </div>
+    <div id="tooltip">
+        <div class="tooltip_left3">
+            <p class="blockyellow">参考消息</p>
+            <p class="tooltiptext">
+                <span class="valuename">17日</span>
+                <span class="valuenum">980000</span>
+                <span class="fffpoint_lt"></span>
+                <span class="fffpoint_rb"></span>
+            </p>
+        </div>
+    </div>
+</body>
+<script>
+$(function() {
+    $(document.documentElement).css({
+        'font-size': (window.innerHeight > 1200 ? 1920 : $(document.documentElement).width()) / 1920 * 100
+    });
+
+    console.log(window.innerHeight)
+    if(window.innerHeight > 1200){
+        var scale = window.innerHeight / 1080;
+        console.log(window.innerHeight)
+        $(".root").css({
+            "width": "1920px",
+            "height": "1080px",
+            "transform": "translate(-50%,-50%) scale("+scale+","+scale+")",
+            "-webkit-transform": "translate(-50%,-50%) scale("+scale+","+scale+")"
+        })
+    }
+    
+})
+</script>
+
+</html>

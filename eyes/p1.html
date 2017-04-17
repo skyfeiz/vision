@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>舆情地图</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css"></link>
+    <link rel="stylesheet" type="text/css" href="css/p1.css"></link>
+    <script type="text/javascript" src="libs/jquery-3.1.1.min.js"></script>
+    <script type="text/javascript" src="libs/echarts3.0.js"></script>
+    <script type="text/javascript" src="libs/worldcloud.js"></script>
+    <script type="text/javascript" src="libs/jquery_scrollBar.js"></script>
+    <script type="text/javascript" src="libs/easeljs-NEXT.combined.js"></script>
+    <script type="text/javascript" src="libs/preloadjs-0.4.1.min.js"></script>
+    <script type="text/javascript" src="libs/TweenMax.min.js"></script>
+    <script type="text/javascript" src="js/Controller.js"></script>
+    <script type="text/javascript" src="js/component/timeline.js"></script>
+    <script type="text/javascript" src="js/component/cityselect.js"></script>
+    <script type="text/javascript" src="js/component/header.js"></script>
+    <script type="text/javascript" src="debug/city.js"></script>
+    <script type="text/javascript" src="chart/left1.js"></script>
+    <script type="text/javascript" src="chart/chart2.js"></script>
+    <script type="text/javascript" src="chart/left3.js"></script>
+    <script type="text/javascript" src="js/component/map.js"></script>
+    <script type="text/javascript" src="js/component/mapViewSwitch.js"></script>
+    <script type="text/javascript" src="js/p1.js"></script>
+    <script>
+    $(function() {
+        new EE.Header();
+        new EE.P1Map();
+    })
+    </script>
+</head>
+
+<body>
+    <div class="root">
+        <div id="china">
+            <div class="toolTip">
+                <p class="totalNum">新疆总数：<span>1000</span></p>
+                <div>
+                    <p class="mapTip1">大气污染：<span>800</span></p>
+                    <p class="mapTip2">水体污染：<span>800</span></p>
+                    <p class="mapTip3">土壤污染：<span>800</span></p>
+                    <p class="mapTip4">核污染：<span>800</span></p>
+                    <p class="mapTip5">固体废弃物：<span>800</span></p>
+                    <p class="mapTip6">其他：<span>800</span></p>
+                </div>
+            </div>
+            <canvas id="ChinaMap" width="1280px" height="720px"></canvas>
+            <canvas id="ProvinceMap" width="1280px" height="720px"></canvas>
+            <!-- <canvas id="CityMap" width="1280px" height="720px"></canvas> -->
+        </div>
+        <header class="clearfix" id="header"></header>
+        <!-- partLeft -->
+        <div class="mainleft">
+            <section class="viewPanel" id="viewPanel">
+                <span class="topline"></span>
+                <span class="bottomline"></span>
+                <p class="viewinfo">当前观看视点</p>
+                <div class="viewpoint" id="city">
+                    <p>
+                        <span data-id="101" data-name="全国">全国</span>
+                    </p>
+                </div>
+                <div class="z_city" id="z_city"></div>
+            </section>
+            <section class="element-div chart1div">
+                <div class="element-title-div">
+                    <p class="element-title-text">舆情仪表盘</p>
+                    <span class="divleft"></span>
+                    <span class="divright"></span>
+                </div>
+                <div class="element-content">
+                    <div class="left1" id="left1"></div>
+                    <div class="left1charttext" id="left1charttext"></div>
+                    <div class="left1text" id="left1text">
+                        <div class="left1textitem">
+                            <div class="whitepoint pos_rt0"></div>
+                            <div class="whitepoint pos_rb0"></div>
+                            <div class="toptriangle b_colorwhite"></div>
+                            <p class="totalnum"></p>
+                        </div>
+                        <div class="left1textitem">
+                            <div class="whitepoint pos_rt0"></div>
+                            <div class="whitepoint pos_rb0"></div>
+                            <div class="toptriangle b_colorgreen"></div>
+                            <p class="totalnum"></p>
+                        </div>
+                        <div class="left1textitem">
+                            <div class="whitepoint pos_rt0"></div>
+                            <div class="whitepoint pos_rb0"></div>
+                            <div class="toptriangle b_coloryellow"></div>
+                            <p class="totalnum"></p>
+                        </div>
+                        <div class="left1textitem z_hide">
+                            <div class="whitepoint pos_rt0"></div>
+                            <div class="whitepoint pos_rb0"></div>
+                            <div class="toptriangle b_colorred"></div>
+                            <p class="totalnum"></p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="element-div chart2div">
+                <div class="element-title-div">
+                    <p class="element-title-text">舆情头条</p>
+                    <span class="divleft"></span>
+                    <span class="divright"></span>
+                </div>
+                <div class="element-content">
+                    <div class="chart2" id="chart2"></div>
+                </div>
+            </section>
+            <section class="element-div chart3div">
+                <div class="element-title-div">
+                    <p class="element-title-text">来源媒体分布</p>
+                    <span class="divleft"></span>
+                    <span class="divright"></span>
+                </div>
+                <div class="element-content">
+                    <div class="left3" id="left3_0"></div>
+                    <div class="left3" id="left3" data-bselft="1"></div>
+                </div>
+            </section>
+        </div>
+        <!-- timeline -->
+        <section class="timeaxis" id="timeaxis">
+            <ul class="timebtns clearfix">
+                <li data-type="now">最近七天</li>
+                <li data-type="month">月</li>
+                <li class="active" data-type="year">年</li>
+            </ul>
+            <div class="timelimitbox">
+                <div class="timecontent">
+                    <canvas class="canvastimeline" id="monthcanvas"></canvas>
+                    <canvas class="canvastimeline" id="yearcanvas"></canvas>
+                    <canvas class="canvastimeline" id="nowcanvas"></canvas>
+                    <div class="timeareabox" id="timeareabox">
+                        <div class="startline" id="startline"></div>
+                        <div class="endline" id="endline"></div>
+                    </div>
+                </div>
+            </div>
+            <span class="axisleft" id="axisleft"></span>
+            <span class="axisright" id="axisright"></span>
+        </section>
+    </div>
+    <div id="tooltip">
+        <div class="tooltip_left3">
+            <p class="blockyellow">参考消息</p>
+            <p class="tooltiptext">
+                980000
+                <span class="fffpoint_lt"></span>
+                <span class="fffpoint_rb"></span>
+            </p>
+        </div>
+    </div>
+</body>
+<script>
+$(function() {
+    $(document.documentElement).css({
+        'font-size': (window.innerHeight > 1200 ? 1920 : $(document.documentElement).width()) / 1920 * 100
+    });
+
+    // console.log(window.innerHeight)
+    if (window.innerHeight > 1200) {
+        var scale = window.innerHeight / 1080;
+        console.log(window.innerHeight)
+        $(".root").css({
+            "width": "1920px",
+            "height": "1080px",
+            "transform": "translate(-50%,-50%) scale(" + scale + "," + scale + ")",
+            "-webkit-transform": "translate(-50%,-50%) scale(" + scale + "," + scale + ")"
+        })
+    }
+})
+</script>
+
+</html>

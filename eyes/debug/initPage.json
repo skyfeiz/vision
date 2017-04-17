@@ -1,0 +1,13 @@
+{
+	"success": "true", 
+	"data":[
+		{
+			"seriesTitle":"101",
+			"name":"全国"
+		},
+		{
+			"seriesTitle":"101_012",
+			"name":"黑龙江"
+		}
+	]
+}
