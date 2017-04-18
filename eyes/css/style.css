@@ -6,7 +6,6 @@ body {
     height: 100%;
     min-width: 1280px;
     min-height: 720px;
-    overflow: hidden;
     font-family: "Microsoft yahei", "微软雅黑", "Tahoma", "Verdana", "Arial", "sans-serif";
 }
 body{
@@ -190,7 +189,7 @@ header h1 {
     background: none;
     border: 1px solid #3fc0ff;
     border-right:none;
-    color: #3fc0ff;
+    color: #fff;
     padding-left: 12px;
 }
 .root span.searchbtn{
@@ -273,9 +272,9 @@ header h1 {
 
 .timeaxis {
     position: absolute;
-    right: 7.7%;
+    left: 5.54rem;
     bottom: 5%;
-    width: 63.5%;
+    width: 11rem;
     height: 60px;
     z-index: 300;
 }

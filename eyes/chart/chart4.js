@@ -7,6 +7,8 @@ this.WbstChart = this.WbstChart || {};
 		this.z_index = 0;
 		this.timer = null;
 
+		this.EventDispatcher = $({});
+
 		this.data = null;
 
 		this.normal000 = {
@@ -26,37 +28,40 @@ this.WbstChart = this.WbstChart || {};
 
 		this._myChart.on('mouseover', function(param) {
 			_this.z_index = param.dataIndex;
-			_this.data[_this.z_index].label= {
-				normal:{
+			_this.data[_this.z_index].label = {
+				normal: {
 					show: true,
 					position: 'right',
 					offset: [0, -2],
-					textStyle:{
-						color:'#fffe00'
+					textStyle: {
+						color: '#fffe00'
 					}
 				}
 			};
 			_this.autoLight();
-		})
+		});
 
 		this._myChart.on('mouseout', function() {
 			_this.data[_this.z_index].itemStyle.normal = _this.normal000;
-			_this.data[_this.z_index].label= {
-				normal:{
+			_this.data[_this.z_index].label = {
+				normal: {
 					show: true,
 					position: 'right',
 					offset: [0, -2],
-					textStyle:{
-						color:'#fff'
+					textStyle: {
+						color: '#fff'
 					}
 				}
 			};
 			_this.z_pos = 0;
 			clearInterval(_this.timer);
 			_this.setOption();
-		})
+		});
+
+
 
 		this.initDom();
+		this.baseEvent();
 	};
 
 	p.autoLight = function() {
@@ -126,11 +131,11 @@ this.WbstChart = this.WbstChart || {};
 			}
 			_this.setOption();
 		}, 30);
-	}
+	};
 
 	p.initDom = function() {
 		this.$parent = $(this._dom).parent();
-	}
+	};
 
 	p.setConfig = function(value) {
 		this._config = value;
@@ -163,7 +168,7 @@ this.WbstChart = this.WbstChart || {};
 		this.creationText(this._dataProvider);
 
 		this.setOption();
-	}
+	};
 
 	p.setOption = function() {
 		var option = {
@@ -205,9 +210,9 @@ this.WbstChart = this.WbstChart || {};
 						position: 'right',
 						offset: [0, -2]
 					},
-					emphasis:{
-						textStyle:{
-							color:'#fffe00'
+					emphasis: {
+						textStyle: {
+							color: '#fffe00'
 						}
 					}
 				},
@@ -216,20 +221,25 @@ this.WbstChart = this.WbstChart || {};
 		};
 		// console.log(option);
 		this._myChart.setOption(option);
-	}
+	};
 
 	p.creationText = function(data) {
 		var strHtml = '';
 		$('a').remove('.chart4news');
 		if (data.length) {
 			for (var i = 0; i < data.length; i++) {
-				strHtml += '<a class="chart4news anew' + i + '" href="javascript:;">' + data[i].title + '</a>'
+				strHtml += '<a class="chart4news anew' + i + '" eventid="' + data[i].eventId + '">' + data[i].title + '</a>'
 			}
 			this.$parent.append(strHtml);
 		}
-	}
+	};
 
-
+	p.baseEvent = function() {
+		var _this = this;
+		_this.$parent.on('click', 'a', function() {
+			_this.EventDispatcher.trigger('click', $(this).attr('eventid'));
+		});
+	};
 
 	WbstChart.Chart4 = Chart4;
 })();

@@ -26,15 +26,10 @@ this.WbstChart = this.WbstChart || {};
 			});
 		});
 
-		_this._Bar3dchart.on('mouseout',function(){
+		_this._Bar3dchart.on('mouseout', function() {
 			_this.EventDispatcher.trigger('chartmouseout');
-		})
-
-
-		this.initDom();
+		});
 	};
-
-	p.initDom = function() {}
 
 	p.setConfig = function(value) {
 		this._config = value;
@@ -51,7 +46,7 @@ this.WbstChart = this.WbstChart || {};
 		if (this._config == null || this._dataProvider == null) {
 			return;
 		}
-		
+
 		var data = [];
 		var titleData = [];
 		for (var i = 0, len = this._dataProvider.length; i < len; i++) {
@@ -66,7 +61,7 @@ this.WbstChart = this.WbstChart || {};
 			data: titleData,
 			axisLabel: {
 				textStyle: {
-					color: '#00c6ff'
+					color: '#3fc0ff'
 				},
 				formatter: function(param) {
 					var arr = param.split('');
@@ -87,8 +82,8 @@ this.WbstChart = this.WbstChart || {};
 			}
 		}
 		var option = {
-			animationDuration:2000,
-			color: ['#00c6ff'],
+			animationDuration: 2000,
+			color: ['#3fc0ff'],
 			xAxis: xAxis,
 			grid: {
 				left: '2%',
@@ -103,7 +98,7 @@ this.WbstChart = this.WbstChart || {};
 				nameGap: 8,
 				splitNumber: 5,
 				nameTextStyle: {
-					color: '#00c6ff'
+					color: '#3fc0ff'
 				},
 				axisLine: {
 					lineStyle: {
@@ -112,7 +107,7 @@ this.WbstChart = this.WbstChart || {};
 				},
 				axisLabel: {
 					textStyle: {
-						color: '#00c6ff'
+						color: '#3fc0ff'
 					}
 				},
 				axisTick: {
@@ -136,10 +131,10 @@ this.WbstChart = this.WbstChart || {};
 					}
 				}
 			}]
-		}
+		};
 
 		this._Bar3dchart.setOption(option);
-	}
+	};
 
 	WbstChart.Bar3d = Bar3d;
 })();

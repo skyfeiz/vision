@@ -1,9 +1,17 @@
 this.EE = this.EE || {};
 (function(win, doc) {
+	var hostUrl = "http://" + win.location.host + "/vision/eyes/";
+
 	var P2Chart = function() {
 		this.c = new EE.Controller();
 
 		this._mapKIdVChart = {};
+
+		this.eventNum = 5;
+
+		this.rankNum = 8;
+
+		this.originNum = 10;
 
 		this.ready();
 	};
@@ -25,24 +33,25 @@ this.EE = this.EE || {};
 		var _this = this;
 		_this.t = new WbstChart.TimeLine('2014-08-08');
 		_this.t.silent = true;
-		
+
 		_this.c.getChartConfig('', function(data) {
 			_this._config = data;
 			_this.initChart();
-		})
+		});
 
 		_this.t.toChange = function(json) {
 			_this.startDate = json.startDate;
 			_this.endDate = json.endDate;
 			_this.changeData();
-		}
+		};
 
 		$(document).trigger('mouseup');
 	};
 
 	p.initDom = function() {
+
 		this.$op = $('#tooltip');
-	}
+	};
 
 	p.initChart = function() {
 		var _this = this;
@@ -51,118 +60,157 @@ this.EE = this.EE || {};
 		_this._Chart4.setConfig(_this._config.chart4.config);
 		_this._mapKIdVChart['chart4'] = _this._Chart4;
 
+		_this._Chart4.EventDispatcher.on('click', function(evt, item) {
+			// 需要的参数 事件id，视角，视角区域id，情感
+			win.location.href = encodeURI(hostUrl + 'p3.html?angle=' + _this.viewName + '&regin=' + _this.viewId + '&eventId=' + item + '&emotion=' + _this.emotion);
+
+		});
+
 		// 事件省份排名 chart5
 		_this._Chart5 = new WbstChart.Chart5(doc.getElementById('chart5'));
 		_this._Chart5.setConfig(_this._config.chart5.config);
 		_this._mapKIdVChart['chart5'] = _this._Chart5;
-		_this._Chart5.EventDispatcher.on('chartmouseover',function(vet,item){
-			var str = '<p class="tooltiptext"><span class="valuenum">'+item.item.xAxisValue*10000+'</span><span class="fffpoint_lt"></span><span class="fffpoint_rb"></span></p>';
+		_this._Chart5.EventDispatcher.on('chartmouseover', function(evt, item) {
+			var str = '<p class="tooltiptext"><span class="valuenum">' + item.item.xAxisValue * 10000 + '</span><span class="fffpoint_lt"></span><span class="fffpoint_rb"></span></p>';
 			_this.showToolTip(str, item.event.pageX, item.event.pageY);
-		})
-		_this._Chart5.EventDispatcher.on('chartmouseout',function(){
+		});
+		_this._Chart5.EventDispatcher.on('chartmouseout', function() {
 			_this.hideToolTip();
-		})
+		});
 
 		// 舆情走势 chart6
 		_this._Chart6 = new WbstChart.Chart6(doc.getElementById('chart6'));
 		_this._Chart6.setConfig(_this._config.chart6.config);
 		_this._mapKIdVChart['chart6'] = _this._Chart6;
-		_this._Chart6.EventDispatcher.on('chartmouseover',function(vet,item){
-			var str = '<p class="tooltiptext"><span class="valuename">'+item.item.seriesName+' :</span><span class="valuenum">'+item.item.xAxisValue*10000+'</span><span class="fffpoint_lt"></span><span class="fffpoint_rb"></span></p>';
+		_this._Chart6.EventDispatcher.on('chartmouseover', function(evt, item) {
+			var str = '<p class="tooltiptext"><span class="valuename">' + item.item.seriesName + ' :</span><span class="valuenum">' + item.item.xAxisValue * 10000 + '</span><span class="fffpoint_lt"></span><span class="fffpoint_rb"></span></p>';
 			_this.showToolTip(str, item.event.pageX, item.event.pageY);
-		})
-		_this._Chart6.EventDispatcher.on('chartmouseout',function(){
+		});
+		_this._Chart6.EventDispatcher.on('chartmouseout', function() {
 			_this.hideToolTip();
-		})
+		});
 
 		// 来源媒体分布 chart8
 		_this._Chart8 = new WbstChart.Chart8(doc.getElementById('chart8'));
 		_this._Chart8.setConfig(_this._config.chart8.config);
 		_this._mapKIdVChart['chart8'] = _this._Chart8;
-		_this._Chart8.EventDispatcher.on('chartmouseover',function(vet,item){
-			var str = '<p class="tooltiptext"><span class="valuenum">'+item.item.xAxisValue+'</span><span class="fffpoint_lt"></span><span class="fffpoint_rb"></span></p>';
+		_this._Chart8.EventDispatcher.on('chartmouseover', function(evt, item) {
+			var str = '<p class="tooltiptext"><span class="valuenum">' + item.item.xAxisValue + '</span><span class="fffpoint_lt"></span><span class="fffpoint_rb"></span></p>';
 			_this.showToolTip(str, item.event.pageX, item.event.pageY);
-		})
-		_this._Chart8.EventDispatcher.on('chartmouseout',function(){
+		});
+		_this._Chart8.EventDispatcher.on('chartmouseout', function() {
 			_this.hideToolTip();
-		})
+		});
+		_this._Chart8.EventDispatcher.on('click', function(evt, item) {
+			var str = item.name;
+			switch (str) {
+				case '正方':
+					_this.emotion = 1;
+					break;
+				case '中立':
+					_this.emotion = 0;
+					break;
+				default:
+					_this.emotion = -1;
+					break;
+			}
+
+			_this.changeData2();
+		});
 
 		// 词云 chart9
 		_this._Chart9 = new WbstChart.Chart9(doc.getElementById('chart9'));
 		_this._Chart9.setConfig(_this._config.chart9.config);
 		_this._mapKIdVChart['chart9'] = _this._Chart9;
-		_this._Chart9.EventDispatcher.on('chartmouseover',function(vet,item){
-			var str = '<p class="tooltiptext"><span class="valuenum">'+item.item.xAxisValue+'</span><span class="fffpoint_lt"></span><span class="fffpoint_rb"></span></p>';
+		_this._Chart9.EventDispatcher.on('chartmouseover', function(evt, item) {
+			var str = '<p class="tooltiptext"><span class="valuenum">' + item.item.xAxisValue + '</span><span class="fffpoint_lt"></span><span class="fffpoint_rb"></span></p>';
 			_this.showToolTip(str, item.event.pageX, item.event.pageY);
-		})
-		_this._Chart9.EventDispatcher.on('chartmouseout',function(){
+		});
+		_this._Chart9.EventDispatcher.on('chartmouseout', function() {
 			_this.hideToolTip();
-		})
+		});
+
+		_this._Chart9.EventDispatcher.on('click', function(evt, item) {
+			win.location.href = encodeURI(hostUrl + 'p3.html?&eventId=' + item + '&emotion=' + _this.emotion);
+		});
+
 
 		// 来源媒体分布 chart7  3d柱图必须最后加载
 		_this._Chart7 = new WbstChart.Chart7(doc.getElementById('chart7'));
 		_this._Chart7.setConfig(_this._config.chart7.config);
 		_this._mapKIdVChart['chart7'] = _this._Chart7;
-		_this._Chart7.EventDispatcher.on('chartmouseover',function(vet,item){
-			var str = '<p class="tooltiptext"><span class="valuenum">'+item.item.xAxisValue*10000+'</span><span class="fffpoint_lt"></span><span class="fffpoint_rb"></span></p>';
+		_this._Chart7.EventDispatcher.on('chartmouseover', function(evt, item) {
+			var str = '<p class="tooltiptext"><span class="valuenum">' + item.item.xAxisValue * 10000 + '</span><span class="fffpoint_lt"></span><span class="fffpoint_rb"></span></p>';
 			_this.showToolTip(str, item.event.pageX, item.event.pageY);
-		})
-		_this._Chart7.EventDispatcher.on('chartmouseout',function(){
+		});
+		_this._Chart7.EventDispatcher.on('chartmouseout', function() {
 			_this.hideToolTip();
-		})
-	}
+		});
+	};
 
 	p.changeData = function() {
 		var _this = this;
-
-		_this.c.getChart4Data({
-			region: _this.region,
-			startDate: _this.startDate,
-			endDate: _this.endDate
-		},function(result){
-			_this._mapKIdVChart['chart4'].setDataProvider(result.data);
-		})
-
-		_this.c.getChart5Data({
-			region: _this.region,
-			startDate: _this.startDate,
-			endDate: _this.endDate
-		},function(result){
-			_this._mapKIdVChart['chart5'].setDataProvider(result.data);
-		})
-
-		_this.c.getChart6Data({
-			region: _this.region,
-			startDate: _this.startDate,
-			endDate: _this.endDate
-		},function(result){
-			_this._mapKIdVChart['chart6'].setDataProvider(result.data);
-		})
-
-		_this.c.getChart7Data({
-			region: _this.region,
-			startDate: _this.startDate,
-			endDate: _this.endDate
-		},function(result){
-			_this._mapKIdVChart['chart7'].setDataProvider(result.data);
-		})
 
 		_this.c.getChart8Data({
 			region: _this.region,
 			startDate: _this.startDate,
 			endDate: _this.endDate
-		},function(result){
+		}, function(result) {
 			_this._mapKIdVChart['chart8'].setDataProvider(result.data);
-		})
+		});
 
 		_this.c.getChart9Data({
 			region: _this.region,
 			startDate: _this.startDate,
 			endDate: _this.endDate
-		},function(result){
+		}, function(result) {
 			_this._mapKIdVChart['chart9'].setDataProvider(result.data);
-		})
-	}
+		});
+
+		_this.changeData2();
+	};
+
+	p.changeData2 = function() {
+		var _this = this;
+		_this.c.getChart4Data({
+			region: _this.region,
+			startDate: _this.startDate,
+			endDate: _this.endDate,
+			emotion: _this.emotion,
+			num: _this.eventNum
+		}, function(result) {
+			_this._mapKIdVChart['chart4'].setDataProvider(result.data);
+		});
+
+		_this.c.getChart5Data({
+			region: _this.region,
+			startDate: _this.startDate,
+			endDate: _this.endDate,
+			emotion: _this.emotion,
+			num: _this.rankNum
+		}, function(result) {
+			_this._mapKIdVChart['chart5'].setDataProvider(result.data);
+		});
+
+		_this.c.getChart6Data({
+			region: _this.region,
+			startDate: _this.startDate,
+			endDate: _this.endDate,
+			emotion: _this.emotion
+		}, function(result) {
+			_this._mapKIdVChart['chart6'].setDataProvider(result.data);
+		});
+
+		_this.c.getChart7Data({
+			region: _this.region,
+			startDate: _this.startDate,
+			endDate: _this.endDate,
+			emotion: _this.emotion,
+			num: _this.originNum
+		}, function(result) {
+			_this._mapKIdVChart['chart7'].setDataProvider(result.data);
+		});
+	};
 
 	p.showToolTip = function(text, x, y) {
 		this.$op.html(text);
@@ -172,10 +220,10 @@ this.EE = this.EE || {};
 		// if (y + h > $(window).innerHeight()) y = $(window).innerHeight() - h;
 		this.$op.css({
 			opacity: 1,
-			left: x+20,
-			top: y-20
+			left: x + 20,
+			top: y - 20
 		});
-	}
+	};
 
 	p.hideToolTip = function() {
 		this.$op.css({
@@ -183,9 +231,7 @@ this.EE = this.EE || {};
 			left: -100,
 			top: -100
 		});
-	}
-
-
+	};
 
 	EE.P2Chart = P2Chart;
 })(window, document);

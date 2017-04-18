@@ -14,12 +14,13 @@
     <script type="text/javascript" src="libs/preloadjs-0.4.1.min.js"></script>
     <script type="text/javascript" src="libs/TweenMax.min.js"></script>
     <script type="text/javascript" src="js/Controller.js"></script>
+    <script type="text/javascript" src="js/component/screen.js"></script>
     <script type="text/javascript" src="js/component/timeline.js"></script>
     <script type="text/javascript" src="js/component/cityselect.js"></script>
     <script type="text/javascript" src="js/component/header.js"></script>
     <script type="text/javascript" src="debug/city.js"></script>
     <script type="text/javascript" src="chart/left1.js"></script>
-    <script type="text/javascript" src="chart/chart2.js"></script>
+    <script type="text/javascript" src="chart/left2.js"></script>
     <script type="text/javascript" src="chart/left3.js"></script>
     <script type="text/javascript" src="js/component/map.js"></script>
     <script type="text/javascript" src="js/component/mapViewSwitch.js"></script>
@@ -46,8 +47,8 @@
                     <p class="mapTip6">其他：<span>800</span></p>
                 </div>
             </div>
-            <canvas id="ChinaMap" width="1280px" height="720px"></canvas>
-            <canvas id="ProvinceMap" width="1280px" height="720px"></canvas>
+            <canvas id="ChinaMap" width="1632px" height="918px"></canvas>
+            <canvas id="ProvinceMap" width="1632px" height="918px"></canvas>
             <!-- <canvas id="CityMap" width="1280px" height="720px"></canvas> -->
         </div>
         <header class="clearfix" id="header"></header>
@@ -123,57 +124,40 @@
                 </div>
             </section>
         </div>
-        <!-- timeline -->
-        <section class="timeaxis" id="timeaxis">
-            <ul class="timebtns clearfix">
-                <li data-type="now">最近七天</li>
-                <li data-type="month">月</li>
-                <li class="active" data-type="year">年</li>
-            </ul>
-            <div class="timelimitbox">
-                <div class="timecontent">
-                    <canvas class="canvastimeline" id="monthcanvas"></canvas>
-                    <canvas class="canvastimeline" id="yearcanvas"></canvas>
-                    <canvas class="canvastimeline" id="nowcanvas"></canvas>
-                    <div class="timeareabox" id="timeareabox">
-                        <div class="startline" id="startline"></div>
-                        <div class="endline" id="endline"></div>
-                    </div>
-                </div>
+
+        <div id="tooltip">
+            <div class="tooltip_left3">
+                <p class="blockyellow">参考消息</p>
+                <p class="tooltiptext">
+                    980000
+                    <span class="fffpoint_lt"></span>
+                    <span class="fffpoint_rb"></span>
+                </p>
             </div>
-            <span class="axisleft" id="axisleft"></span>
-            <span class="axisright" id="axisright"></span>
-        </section>
-    </div>
-    <div id="tooltip">
-        <div class="tooltip_left3">
-            <p class="blockyellow">参考消息</p>
-            <p class="tooltiptext">
-                980000
-                <span class="fffpoint_lt"></span>
-                <span class="fffpoint_rb"></span>
-            </p>
         </div>
     </div>
+    
+    <!-- timeline -->
+    <section class="timeaxis" id="timeaxis">
+        <ul class="timebtns clearfix">
+            <li data-type="now">最近七天</li>
+            <li data-type="month">月</li>
+            <li class="active" data-type="year">年</li>
+        </ul>
+        <div class="timelimitbox">
+            <div class="timecontent">
+                <canvas class="canvastimeline" id="monthcanvas"></canvas>
+                <canvas class="canvastimeline" id="yearcanvas"></canvas>
+                <canvas class="canvastimeline" id="nowcanvas"></canvas>
+                <div class="timeareabox" id="timeareabox">
+                    <div class="startline" id="startline"></div>
+                    <div class="endline" id="endline"></div>
+                </div>
+            </div>
+        </div>
+        <span class="axisleft" id="axisleft"></span>
+        <span class="axisright" id="axisright"></span>
+    </section>
 </body>
-<script>
-$(function() {
-    $(document.documentElement).css({
-        'font-size': (window.innerHeight > 1200 ? 1920 : $(document.documentElement).width()) / 1920 * 100
-    });
-
-    // console.log(window.innerHeight)
-    if (window.innerHeight > 1200) {
-        var scale = window.innerHeight / 1080;
-        console.log(window.innerHeight)
-        $(".root").css({
-            "width": "1920px",
-            "height": "1080px",
-            "transform": "translate(-50%,-50%) scale(" + scale + "," + scale + ")",
-            "-webkit-transform": "translate(-50%,-50%) scale(" + scale + "," + scale + ")"
-        })
-    }
-})
-</script>
 
 </html>

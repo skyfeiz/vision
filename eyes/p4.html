@@ -12,6 +12,7 @@
     <script type="text/javascript" src="libs/jquery_scrollBar.js"></script>
     <script type="text/javascript" src="libs/easeljs-NEXT.combined.js"></script>
     <script type="text/javascript" src="libs/TweenMax.min.js"></script>
+    <script type="text/javascript" src="js/component/screen.js"></script>
     <script type="text/javascript" src="js/Controller.js"></script>
     <script type="text/javascript" src="js/component/timeline.js"></script>
     <script type="text/javascript" src="js/component/header.js"></script>
@@ -83,24 +84,5 @@
         </div>
     </div>
 </body>
-<script>
-$(function() {
-    $(document.documentElement).css({
-        'font-size': (window.innerHeight > 1200 ? 1920 : $(document.documentElement).width()) / 1920 * 100
-    });
-
-    // console.log(window.innerHeight)
-    if (window.innerHeight > 1200) {
-        var scale = window.innerHeight / 1080;
-        console.log(window.innerHeight)
-        $(".root").css({
-            "width": "1920px",
-            "height": "1080px",
-            "transform": "translate(-50%,-50%) scale(" + scale + "," + scale + ")",
-            "-webkit-transform": "translate(-50%,-50%) scale(" + scale + "," + scale + ")"
-        })
-    }
-})
-</script>
 
 </html>

@@ -3,182 +3,182 @@
 	"data": [{
 		"seriesTitle": "关键词",
 		"name": "两会",
-		"weight": 1
+		"weight": 98756
 	}, {
 		"seriesTitle": "关键词",
 		"name": "中国",
-		"weight": 2
+		"weight": 87465
 	}, {
 		"seriesTitle": "关键词",
 		"name": "代表",
-		"weight": 3
+		"weight": 77652
 	}, {
 		"seriesTitle": "关键词",
 		"name": "2017",
-		"weight": 4
+		"weight": 65437
 	}, {
 		"seriesTitle": "关键词",
 		"name": "人大",
-		"weight": 5
+		"weight": 63254
 	}, {
 		"seriesTitle": "关键词",
 		"name": "会以",
-		"weight": 6
+		"weight": 54676
 	}, {
 		"seriesTitle": "关键词",
 		"name": "记者",
-		"weight": 7
+		"weight": 51346
 	}, {
 		"seriesTitle": "关键词",
 		"name": "建议",
-		"weight": 8
+		"weight": 43135
 	}, {
 		"seriesTitle": "关键词",
 		"name": "人民",
-		"weight": 9
+		"weight": 34654
 	}, {
 		"seriesTitle": "关键词",
 		"name": "问题",
-		"weight": 10
+		"weight": 33124
 	}, {
 		"seriesTitle": "关键词",
 		"name": "委员",
-		"weight": 11
+		"weight": 32454
 	}, {
 		"seriesTitle": "关键词",
 		"name": "全国人大",
-		"weight": 12
+		"weight": 29664
 	}, {
 		"seriesTitle": "关键词",
 		"name": "工作",
-		"weight": 13
+		"weight": 28464
 	}, {
 		"seriesTitle": "关键词",
 		"name": "建议",
-		"weight": 14
+		"weight": 26435
 	}, {
 		"seriesTitle": "关键词",
 		"name": "全国两会",
-		"weight": 15
+		"weight": 23454
 	}, {
 		"seriesTitle": "关键词",
 		"name": "五次会议",
-		"weight": 16
+		"weight": 22313
 	}, {
 		"seriesTitle": "关键词",
 		"name": "李克强",
-		"weight": 17
+		"weight": 21654
 	}, {
 		"seriesTitle": "关键词",
 		"name": "治理",
-		"weight": 18
+		"weight": 18546
 	}, {
 		"seriesTitle": "关键词",
 		"name": "人大代表",
-		"weight": 19
+		"weight": 17654
 	}, {
 		"seriesTitle": "关键词",
 		"name": "十二届",
-		"weight": 20
+		"weight": 17654
 	}, {
 		"seriesTitle": "关键词",
 		"name": "政协",
-		"weight": 21
+		"weight": 17632
 	}, {
 		"seriesTitle": "关键词",
 		"name": "增长",
-		"weight": 22
+		"weight": 16999
 	}, {
 		"seriesTitle": "关键词",
 		"name": "军费",
-		"weight": 23
+		"weight": 16888
 	}, {
 		"seriesTitle": "关键词",
 		"name": "房地产",
-		"weight": 24
+		"weight": 16777
 	}, {
 		"seriesTitle": "关键词",
 		"name": "大气污染",
-		"weight": 25
+		"weight": 16555
 	}, {
 		"seriesTitle": "关键词",
 		"name": "改革",
-		"weight": 26
+		"weight": 16444
 	}, {
 		"seriesTitle": "关键词",
 		"name": "总书记",
-		"weight": 27
+		"weight": 16333
 	}, {
 		"seriesTitle": "关键词",
 		"name": "审议",
-		"weight": 28
+		"weight": 16222
 	}, {
 		"seriesTitle": "关键词",
 		"name": "民法",
-		"weight": 29
+		"weight": 16111
 	}, {
 		"seriesTitle": "关键词",
 		"name": "创新",
-		"weight": 30
+		"weight": 16000
 	}, {
 		"seriesTitle": "关键词",
 		"name": "发展",
-		"weight": 31
+		"weight": 15900
 	}, {
 		"seriesTitle": "关键词",
 		"name": "发言人",
-		"weight": 32
+		"weight": 15800
 	}, {
 		"seriesTitle": "关键词",
 		"name": "两会",
-		"weight": 33
+		"weight": 15700
 	}, {
 		"seriesTitle": "关键词",
 		"name": "政协委员",
-		"weight": 34
+		"weight": 15500
 	}, {
 		"seriesTitle": "关键词",
 		"name": "企业",
-		"weight": 35
+		"weight": 15200
 	}, {
 		"seriesTitle": "关键词",
 		"name": "世界",
-		"weight": 36
+		"weight": 15000
 	}, {
 		"seriesTitle": "关键词",
 		"name": "大会",
-		"weight": 37
+		"weight": 14666
 	}, {
 		"seriesTitle": "关键词",
 		"name": "政协",
-		"weight": 38
+		"weight": 14555
 	}, {
 		"seriesTitle": "关键词",
 		"name": "房子产税",
-		"weight": 39
+		"weight": 14333
 	}, {
 		"seriesTitle": "关键词",
 		"name": "草案",
-		"weight": 40
+		"weight": 14222
 	}, {
 		"seriesTitle": "关键词",
 		"name": "制度",
-		"weight": 41
+		"weight": 13666
 	}, {
 		"seriesTitle": "关键词",
 		"name": "国防",
-		"weight": 42
+		"weight": 12546
 	}, {
 		"seriesTitle": "关键词",
 		"name": "提案",
-		"weight": 43
+		"weight": 12345
 	}, {
 		"seriesTitle": "关键词",
 		"name": "立法",
-		"weight": 44
+		"weight": 11223
 	}, {
 		"seriesTitle": "关键词",
 		"name": "推进",
-		"weight": 45
+		"weight": 11111
 	}]
 }

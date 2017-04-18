@@ -12,7 +12,7 @@ this.WbstChart = this.WbstChart || {};
 		var _this = this;
 		_this._myChart = echarts.init(this._dom);
 
-		_this._myChart.on('mouseover',function(param){
+		_this._myChart.on('mouseover', function(param) {
 			var item = {};
 			item.seriesName = param.name;
 			item.xAxisValue = param.value;
@@ -21,11 +21,11 @@ this.WbstChart = this.WbstChart || {};
 				item: item,
 				event: evt
 			});
-		})
+		});
 
-		_this._myChart.on('mouseout',function(){
+		_this._myChart.on('mouseout', function() {
 			_this.EventDispatcher.trigger('chartmouseout');
-		})
+		});
 	};
 
 
@@ -40,13 +40,13 @@ this.WbstChart = this.WbstChart || {};
 
 	p.creationContent = function() {
 		if (this._config == null || this._dataProvider == null) {
-			return ;
+			return;
 		}
 
 		var legendJson = {};
 		var cateJson = {};
-		
-		for (var i = 0,len = this._dataProvider.length; i < len; i++) {
+
+		for (var i = 0, len = this._dataProvider.length; i < len; i++) {
 			legendJson[this._dataProvider[i].seriesTitle] = 1;
 			cateJson[this._dataProvider[i].name] = 1;
 		}
@@ -54,28 +54,28 @@ this.WbstChart = this.WbstChart || {};
 
 		var series = [];
 		var legend = [];
-		
+
 		for (var item in legendJson) {
 			var json = {
-				type:'bar',
-				name:item,
-				stack:'总量',
+				type: 'bar',
+				name: item,
+				stack: '总量',
 				barWidth: 14,
-				itemStyle:{
-					emphasis:{
-						color:'#fffe00',
-						borderWidth:4,
-						borderColor:'#fffe00'
+				itemStyle: {
+					emphasis: {
+						color: '#fffe00',
+						borderWidth: 4,
+						borderColor: '#fffe00'
 					}
 				},
-				legendHoverLink:false,
-				data:[]
+				legendHoverLink: false,
+				data: []
 			};
 			legend.push({
-				name:item,
-				icon:'rect'
+				name: item,
+				icon: 'rect'
 			});
-			for (var i = 0,len = this._dataProvider.length; i < len; i++) {
+			for (var i = 0, len = this._dataProvider.length; i < len; i++) {
 				if (this._dataProvider[i].seriesTitle == item) {
 					json.data.push(this._dataProvider[i].num);
 
@@ -89,33 +89,33 @@ this.WbstChart = this.WbstChart || {};
 			cataArr.push(name);
 		}
 		var option = {
-			animationDuration:3000,
-			color:['#052d7f','#4462e6','#024de7','#00c6ff','#90e1fe'],
-			legend:{
-				textStyle:{
-					color:'#81d6ff',
-					fontSize:12
+			animationDuration: 3000,
+			color: ['#052d7f', '#4462e6', '#024de7', '#00c6ff', '#90e1fe'],
+			legend: {
+				textStyle: {
+					color: '#81d6ff',
+					fontSize: 12
 				},
-				orient:'horizontal',
-				width:'100%',
-				data:legend,
-				left:0,
-				top:'3%',
-				padding:0,
-				itemWidth:7,
-				itemHeight:3,
-				formatter:function(param){
-					return param.substring(0,2)+'..'
+				orient: 'horizontal',
+				width: '100%',
+				data: legend,
+				left: 0,
+				top: '3%',
+				padding: 0,
+				itemWidth: 7,
+				itemHeight: 3,
+				formatter: function(param) {
+					return param.substring(0, 2) + '..'
 				}
 			},
-			grid:{
-				left:'0',
-				right:'4%',
-				top:'10%',
-				bottom:'3%',
+			grid: {
+				left: '0',
+				right: '4%',
+				top: '10%',
+				bottom: '3%',
 				containLabel: true,
 			},
-			xAxis:{
+			xAxis: {
 				axisTick: {
 					length: 1.1,
 					lineStyle: {
@@ -130,15 +130,15 @@ this.WbstChart = this.WbstChart || {};
 				},
 				axisLabel: {
 					textStyle: {
-						color: '#00c6ff'
+						color: '#3fc0ff'
 					}
 				},
 				splitLine: {
 					show: false,
 				}
 			},
-			yAxis:{
-				data:cataArr,
+			yAxis: {
+				data: cataArr,
 				axisLine: {
 					lineStyle: {
 						color: '#1c4581',
@@ -146,7 +146,7 @@ this.WbstChart = this.WbstChart || {};
 				},
 				axisLabel: {
 					textStyle: {
-						color: '#00c6ff'
+						color: '#3fc0ff'
 					}
 				},
 				axisTick: {
@@ -160,8 +160,8 @@ this.WbstChart = this.WbstChart || {};
 					show: false,
 				}
 			},
-			series:series
-		}
+			series: series
+		};
 		this._myChart.setOption(option);
 	};
 

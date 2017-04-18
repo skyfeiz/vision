@@ -28,15 +28,18 @@ this.WbstChart = this.WbstChart || {};
 
 		_this._myChart.on('mouseout', function() {
 			_this.EventDispatcher.trigger('chartmouseout');
-		})
+		});
 
+		_this._myChart.on('click', function(param) {
+			_this.EventDispatcher.trigger('click', param);
+		});
 
 		this.initDom();
 	};
 
 	p.initDom = function() {
 		this.$pietip = $('#pietip');
-	}
+	};
 
 	p.setConfig = function(value) {
 		this._config = value;
@@ -72,10 +75,10 @@ this.WbstChart = this.WbstChart || {};
 			}
 		}
 
-		this.$pietip.html('<span class="piecn">舆情总数</span><span class="pienum">'+total.value+'</span>');
+		this.$pietip.html('<span class="piecn">舆情总数</span><span class="pienum">' + total.value + '</span>');
 
 		var option = {
-			animationDuration:3000,
+			animationDuration: 3000,
 			color: ['#ed3f49', '#32ccc3', '#fed61c'],
 			legend: {
 				itemWidth: 7,
@@ -165,7 +168,7 @@ this.WbstChart = this.WbstChart || {};
 					normal: {
 						show: true,
 						formatter: function(param) {
-							return param.name+'\n'+param.value+'\n'+Math.round(param.percent)+'%';
+							return param.name + '\n' + param.value + '\n' + Math.round(param.percent) + '%';
 						}
 					}
 				},
@@ -178,9 +181,9 @@ this.WbstChart = this.WbstChart || {};
 				},
 				z: 4,
 			}]
-		}
+		};
 		this._myChart.setOption(option);
-	}
+	};
 
 	WbstChart.Chart8 = Chart8;
 })();

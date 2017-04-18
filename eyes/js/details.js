@@ -156,28 +156,28 @@ this.EE = this.EE || {};
 			}
 			_this.iNow = html;
 			numChange(html, n)
-		}
+		};
 
 	};
 
-	p.getData = function(){
+	p.getData = function() {
 		var _this = this;
 		this.c.getDetailsListData({
-			type:1,					//类型(1,2,3,4,5)
-			eventName:'',			//名称	
-			startTime:'',			//时间段：开始时间
-			endTime:'',				//时间段：结束时间
-			nowNo:'',				//用户当前视角
-			websiteName:'',			//舆情来源
-			mediaTypeC:'',			//舆情媒体
-			articleEmotio:'',		//舆情情感类型(正中负)
-			pages:'',				//每页显示点条数
-			rows:''					//页数
-		},function(result){
+			type: 1, //类型(1,2,3,4,5)
+			eventName: '', //名称	
+			startTime: '', //时间段：开始时间
+			endTime: '', //时间段：结束时间
+			nowNo: '', //用户当前视角
+			websiteName: '', //舆情来源
+			mediaTypeC: '', //舆情媒体
+			articleEmotio: '', //舆情情感类型(正中负)
+			pages: '', //每页显示点条数
+			rows: '' //页数
+		}, function(result) {
 			console.log(result);
 			_this.createList(result.data);
 
-		})
+		});
 	};
 
 	p.createList = function(data) {

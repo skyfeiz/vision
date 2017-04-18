@@ -11,6 +11,7 @@
     <script type="text/javascript" src="libs/jquery_scrollBar.js"></script>
     <script type="text/javascript" src="geojson/china.js"></script>
     <script type="text/javascript" src="chart/chartP6_map.js"></script>
+    <script type="text/javascript" src="js/component/screen.js"></script>
     <script type="text/javascript" src="js/Controller.js"></script>
     <script type="text/javascript" src="js/component/timeline.js"></script>
     <script type="text/javascript" src="js/component/header.js"></script>
@@ -37,6 +38,7 @@
             <div class="leaderinfo">
                 <div class="leaderimg">
                     <img src="images/leader.jpg" alt="" />
+                    <span class="triangle"></span>
                 </div>
                 <p class="leadermsg">习近平，男，汉族，1953年6月生，陕西富平人，1969年1月参加工作，1974年1月加入中国共产党，清华大学人文社会学院马克思主义理论与思想政治教育专业毕业，在职研究生学历，法学博士学位。
 现任中国共产党中央委员会总书记，中共中央军事委员会主席，中华人民共和国主席，中华人民共和国中央军事委员会主席。</p>
@@ -120,34 +122,17 @@
         </section>
     </div>
     <div id="tooltip">
-        <div class="tooltip_left3">
-            <p class="blockyellow">参考消息</p>
-            <p class="tooltiptext">
-                980000
-                <span class="fffpoint_lt"></span>
-                <span class="fffpoint_rb"></span>
-            </p>
+        <div class="tooltip_imgbox">
+            <img src="images/p6/leader_757.jpg" alt="" />
+            <span class="triangle"></span>
         </div>
+        <div class="infobox">
+            <p class="infoname">方力</p>
+            <p class="infodetail">北京市环保局局长</p>
+        </div>
+        <span class="triangle_lt"></span>
+        <span class="triangle_rb"></span>
     </div>
 </body>
-<script>
-$(function() {
-    $(document.documentElement).css({
-        'font-size': (window.innerHeight > 1200 ? 1920 : $(document.documentElement).width()) / 1920 * 100
-    });
-
-    // console.log(window.innerHeight)
-    if (window.innerHeight > 1200) {
-        var scale = window.innerHeight / 1080;
-        console.log(window.innerHeight)
-        $(".root").css({
-            "width": "1920px",
-            "height": "1080px",
-            "transform": "translate(-50%,-50%) scale(" + scale + "," + scale + ")",
-            "-webkit-transform": "translate(-50%,-50%) scale(" + scale + "," + scale + ")"
-        })
-    }
-})
-</script>
 
 </html>

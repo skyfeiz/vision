@@ -21,11 +21,11 @@ this.WbstChart = this.WbstChart || {};
 				item: item,
 				event: evt
 			});
-		})
+		});
 
 		_this._myChart.on('mouseout',function(){
 			_this.EventDispatcher.trigger('chartmouseout');
-		})
+		});
 	};
 
 
@@ -144,7 +144,7 @@ this.WbstChart = this.WbstChart || {};
 				},
 				axisLabel: {
 					textStyle: {
-						color: '#00c6ff'
+						color: '#3fc0ff'
 					},
 					interval:0
 				},
@@ -157,7 +157,7 @@ this.WbstChart = this.WbstChart || {};
 				nameGap: 10,
 				splitNumber: 5,
 				nameTextStyle: {
-					color: '#00c6ff'
+					color: '#3fc0ff'
 				},
 				axisTick: {
 					length: 1.1,
@@ -173,7 +173,7 @@ this.WbstChart = this.WbstChart || {};
 				},
 				axisLabel: {
 					textStyle: {
-						color: '#00c6ff'
+						color: '#3fc0ff'
 					}
 				},
 				splitLine: {
@@ -183,7 +183,7 @@ this.WbstChart = this.WbstChart || {};
 				}
 			},
 			series:series
-		}
+		};
 		
 		this._myChart.setOption(option);
 	};

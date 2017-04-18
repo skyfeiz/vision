@@ -13,6 +13,7 @@
     <script type="text/javascript" src="libs/easeljs-NEXT.combined.js"></script>
     <script type="text/javascript" src="libs/preloadjs-0.4.1.min.js"></script>
     <script type="text/javascript" src="libs/TweenMax.min.js"></script>
+    <script type="text/javascript" src="js/component/screen.js"></script>
     <script type="text/javascript" src="js/Controller.js"></script>
     <script type="text/javascript" src="debug/city.js"></script>
     <script type="text/javascript" src="chart/left3.js"></script>
@@ -46,8 +47,8 @@
                 <p class="areaName">新疆总数：</p>
                 <p class="areaNum"></p>
             </div>
-            <canvas id="ChinaMap" width="1280px" height="720px"></canvas>
-            <canvas id="ProvinceMap" width="1280px" height="720px"></canvas>
+            <canvas id="ChinaMap" width="1632px" height="918px"></canvas>
+            <canvas id="ProvinceMap" width="1632px" height="918px"></canvas>
             <p class="mapNav">
               <span>中国</span>
               <span class="subNav">省</span>
@@ -147,12 +148,5 @@
         </div>
     </div>
 </body>
-<script>
-$(function() {
-    $(document.documentElement).css({
-        'font-size': $(document.documentElement).width() / 1920 * 100
-    })
-})
-</script>
 
 </html>

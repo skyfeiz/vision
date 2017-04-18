@@ -1,14 +1,21 @@
-this.WBST = this.WBST || {};
+this.EE = this.EE || {};
 (function(win) {
 	var Login = function(fn) {
-		this.c = new EE.Controller(); 
+		this.c = new EE.Controller();
 		this.login = fn;
 		this.a = false;
 		this.first = true;
-		this.init();
+		this.ready();
 	};
 
 	var p = Login.prototype;
+
+	p.ready = function() {
+		var _this = this;
+		this.c.ready(function() {
+			_this.init();
+		});
+	};
 
 	p.init = function() {
 		this.initDom();
@@ -77,29 +84,29 @@ this.WBST = this.WBST || {};
 	};
 
 	p.initTestImg = function() {
-		this.$imgbarp.css('left',22)
-		this.$bar.css('left',22)
-		// 范围 140 - 290
+		this.$imgbarp.css('left', 22)
+		this.$bar.css('left', 22)
+			// 范围 140 - 290
 		this._posL = this.rnd(140, 290);
 		this.$img0.css({
 			left: this._posL
-		})
+		});
 
 		this.$imgbar.css({
 			backgroundPosition: -this._posL + 'px -13px'
-		})
-	}
+		});
+	};
 
 	p.rnd = function(m, n) {
 		return Math.random() * (n - m) + m;
-	}
+	};
 
 	p.dragEvent = function() {
 		var _this = this;
 		var disx = 0;
 		var l = 0;
 		var isDown = false;
-		_this.$bar.mouseover(function(ev){
+		_this.$bar.mouseover(function(ev) {
 			if (_this.first) {
 				if (_this.testInput()) {
 					_this.$imgtestbox.addClass('testing');
@@ -108,46 +115,54 @@ this.WBST = this.WBST || {};
 			}
 		});
 		_this.$bar.mousedown(function(ev) {
-			if (_this.a) {return;}
+			if (_this.a || _this.first) {
+				return;
+			}
 			disx = ev.pageX - $(this).position().left;
 			isDown = true;
-			$(document).on('mousemove',fnMove);
-			$(document).on('mouseup',fnUp);
+			$(document).on('mousemove', fnMove);
+			$(document).on('mouseup', fnUp);
 		});
 
-		function fnMove(ev){
-			if (!isDown) { return;}
+		function fnMove(ev) {
+			if (!isDown) {
+				return;
+			}
 			l = ev.pageX - disx;
-			if (l<=22) {
+			if (l <= 22) {
 				l = 22;
-			}else if (l >= 295) {
+			} else if (l >= 295) {
 				l = 295
 			}
-			_this.$bar.css('left',l);
-			_this.$imgbarp.css('left',l)
+			_this.$bar.css('left', l);
+			_this.$imgbarp.css('left', l)
 			ev.preventDefault();
 			ev.stopPropagation();
 		};
-		function fnUp(){
+
+		function fnUp() {
 			isDown = false;
-			if (Math.abs(l-_this._posL)<=3) {
+			if (Math.abs(l - _this._posL) <= 3) {
 				_this.$logintip.html('验证成功！');
 				_this.initTestImg();
 				_this.$imgtestbox.removeClass('testing');
 				_this.a = true;
-			}else{
+			} else {
 				_this.$logintip.html('验证失败，请重新拖动鼠标移动拼图，进行验证');
 				_this.initTestImg();
 			}
-			$(document).off('mousemove',fnMove);
-			$(document).off('mouseup',fnUp);
+			$(document).off('mousemove', fnMove);
+			$(document).off('mouseup', fnUp);
 		};
 
-		_this.$loginbtn.click(function(){
+		_this.$loginbtn.click(function() {
 			var name = _this.$user.val();
 			var password = _this.$password.val();
-			if (_this.testInput()) {
-				_this.c.login({loginName:name,password:password},function(str){
+			if (_this.testInput() && _this.a) {
+				_this.c.login({
+					loginName: name,
+					password: password
+				}, function(str) {
 					_this.$resulttip.html(str);
 				});
 			}
@@ -155,10 +170,9 @@ this.WBST = this.WBST || {};
 
 	};
 
-	p.testInput = function(){
-		return (this.$user.val() != this.$user.attr('defaultValue')
-			&&this.$password.val() != this.$password.attr('defaultValue'));
+	p.testInput = function() {
+		return (this.$user.val() != this.$user.attr('defaultValue') && this.$password.val() != this.$password.attr('defaultValue'));
 	};
 
-	WBST.Login = Login;
+	EE.Login = Login;
 })(window)

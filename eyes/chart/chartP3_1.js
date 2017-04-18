@@ -12,20 +12,20 @@ this.WbstChart = this.WbstChart || {};
 		var _this = this;
 		_this._myChart = echarts.init(this._dom);
 
-		_this._myChart.on('mouseover',function(param){
+		_this._myChart.on('mouseover', function(param) {
 			var item = {};
-			item.seriesName = param.name+'日';
+			item.seriesName = param.name + '日';
 			item.xAxisValue = param.value;
 			var evt = param.event.event;
 			_this.EventDispatcher.trigger('chartmouseover', {
 				item: item,
 				event: evt
 			});
-		})
+		});
 
-		_this._myChart.on('mouseout',function(){
+		_this._myChart.on('mouseout', function() {
 			_this.EventDispatcher.trigger('chartmouseout');
-		})
+		});
 	};
 
 
@@ -40,7 +40,7 @@ this.WbstChart = this.WbstChart || {};
 
 	p.creationContent = function() {
 		if (this._config == null || this._dataProvider == null) {
-			return ;
+			return;
 		}
 
 		// var legendJson = {};
@@ -55,69 +55,69 @@ this.WbstChart = this.WbstChart || {};
 		// var legendData = [];
 		var m = 0;
 		// var colorData = ['rgba(2,77,231,0.08)','rgba(11,200,255,0.08)','rgba(212,56,83,0.08)','rgba(241,149,4,0.08)','rgba(255,252,0,0.08)'];
-		
+
 		// for (var item in legendJson) {
-			var color = "rgba(0,198,255,0.2)";
-			var json = {
-				type:'line',
-				name : this._dataProvider[0].seriesTitle,
-				data:[],
-				symbolSize:0.1,
-				stack:"总量",
-				areaStyle:{
-					normal:{
-						color:new echarts.graphic.LinearGradient(0,0,0,1,[{
-							offset:0,
-							color:color
-						},{
-							offset:0.8,
-							color:color.substring(0,color.lastIndexOf('.'))+')'
-						}],false),
-						shadowColor:'rgba(0,0,0,0.1)',
-						shadowBlur:10
-					}
-				},
-				smooth:true
-			};
-			var cateData = [];
-			for (var i = 0,len = this._dataProvider.length; i < len; i++) {
-				// if (this._dataProvider[i].seriesTitle == item) {
-					json.data.push(this._dataProvider[i].num)
-					cateData.push(this._dataProvider[i].name.split("-")[2]);
-				// }
-			}
-			series.push(json);
+		var color = "rgba(0,198,255,0.2)";
+		var json = {
+			type: 'line',
+			name: this._dataProvider[0].seriesTitle,
+			data: [],
+			symbolSize: 0.1,
+			stack: "总量",
+			areaStyle: {
+				normal: {
+					color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+						offset: 0,
+						color: color
+					}, {
+						offset: 0.8,
+						color: color.substring(0, color.lastIndexOf('.')) + ')'
+					}], false),
+					shadowColor: 'rgba(0,0,0,0.1)',
+					shadowBlur: 10
+				}
+			},
+			smooth: true
+		};
+		var cateData = [];
+		for (var i = 0, len = this._dataProvider.length; i < len; i++) {
+			// if (this._dataProvider[i].seriesTitle == item) {
+			json.data.push(this._dataProvider[i].num)
+			cateData.push(this._dataProvider[i].name.split("-")[2]);
+			// }
+		}
+		series.push(json);
 		// }
 
-		
+
 		// for (var item in cateJson) {
 		// 	cateData.push(item);
 		// }
 
 		var option = {
-			animationDuration:3000,
-			color:['#fffc00'],
-			tooltip:{
-				trigger:'axis',
-				showContent:false,
-				axisPointer:{
-		            type:'line',
-		            lineStyle:{
-		                color:'rgba(63,192,255,0.5)'
-		            }
-		        }
+			animationDuration: 3000,
+			color: ['#fffc00'],
+			tooltip: {
+				trigger: 'axis',
+				showContent: false,
+				axisPointer: {
+					type: 'line',
+					lineStyle: {
+						color: 'rgba(63,192,255,0.5)'
+					}
+				}
 			},
-			grid:{
+			grid: {
 				left: '3%',
-		        right: '4%',
-		        top:'14%',
-		        bottom: '5%',
-		        containLabel: true
+				right: '4%',
+				top: '14%',
+				bottom: '5%',
+				containLabel: true
 			},
-			xAxis:{
-				data:cateData,
-				splitNumber:0,
-				boundaryGap:false,
+			xAxis: {
+				data: cateData,
+				splitNumber: 0,
+				boundaryGap: false,
 				axisTick: {
 					length: 1.1,
 					lineStyle: {
@@ -133,7 +133,7 @@ this.WbstChart = this.WbstChart || {};
 				axisLabel: {
 					interval: 1,
 					textStyle: {
-						color: '#00c6ff',
+						color: '#3fc0ff',
 						fontSize: 10
 					}
 				},
@@ -141,7 +141,7 @@ this.WbstChart = this.WbstChart || {};
 					show: false,
 				}
 			},
-			yAxis:{
+			yAxis: {
 				name: '单位/万  ',
 				nameGap: 10,
 				splitNumber: 5,
@@ -162,18 +162,18 @@ this.WbstChart = this.WbstChart || {};
 				},
 				axisLabel: {
 					textStyle: {
-						color: '#00c6ff'
+						color: '#3fc0ff'
 					}
 				},
 				splitLine: {
-					lineStyle:{
-						color:['rgba(28,69,129,0.3)']
+					lineStyle: {
+						color: ['rgba(28,69,129,0.3)']
 					}
 				}
 			},
-			series:series
-		}
-		
+			series: series
+		};
+
 		this._myChart.setOption(option);
 	};
 

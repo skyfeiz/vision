@@ -62,7 +62,7 @@ this.EE = this.EE || {};
 		this.$light = this.$headernav.find('.navlight');
 
 		this.$showuser = $('#showuser');
-	}
+	};
 
 	p.headerEvent = function() {
 		var _this = this;
@@ -71,12 +71,12 @@ this.EE = this.EE || {};
 			var index = $(this).index('a');
 			_this.$light.stop().animate({
 				left: (0.28 + index * 1.2) + 'rem'
-			})
+			});
 		});
 		_this.$navA.mouseout(function() {
 			_this.$light.stop().animate({
 				left: (0.28 + iNow * 1.2) + 'rem'
-			})
+			});
 		});
 
 		_this.$navA.click(function() {
@@ -87,7 +87,7 @@ this.EE = this.EE || {};
 
 		// 设置登录用户名
 		_this.$showuser.html(win.localStorage.loginName);
-	}
+	};
 
 	p.changeData = function() {
 		var _this = this;
@@ -114,7 +114,7 @@ this.EE = this.EE || {};
 		}, function(result) {
 			_this.wbst._mapKIdVChart['left3'].setDataProvider(result.data);
 		});
-	}
+	};
 
 
 	EE.P2Map = P2Map;

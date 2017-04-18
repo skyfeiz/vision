@@ -1,8 +1,9 @@
 {
     "success": true,
+    "silent":false,
     "data": [
         {
-            "seriesTitle": "领导轨迹",
+            "seriesTitle": "领导绿迹",
             "startName": "上海",
             "startNum": 20,
             "startCoor": [121.4648,31.2891],
@@ -10,7 +11,7 @@
             "endNum": 50,
             "endCoor": [116.4551,40.2539]
         },{
-            "seriesTitle": "领导轨迹",
+            "seriesTitle": "领导绿迹",
             "startName": "丹东",
             "startNum": 10,
             "startCoor": [124.541,40.4242],
@@ -18,7 +19,7 @@
             "endNum": 50,
             "endCoor": [116.4551,40.2539]
         },{
-            "seriesTitle": "领导轨迹",
+            "seriesTitle": "领导绿迹",
             "startName": "保定",
             "startNum": 12,
             "startCoor": [115.0488,39.0948],
@@ -26,7 +27,7 @@
             "endNum": 50,
             "endCoor": [116.4551,40.2539]
         },{
-            "seriesTitle": "领导轨迹",
+            "seriesTitle": "领导绿迹",
             "startName": "南昌",
             "startNum": 10,
             "startCoor": [116.0046,28.6633],
@@ -34,7 +35,7 @@
             "endNum": 50,
             "endCoor": [116.4551,40.2539]
         },{
-            "seriesTitle": "领导轨迹",
+            "seriesTitle": "领导绿迹",
             "startName": "厦门",
             "startNum": 40,
             "startCoor": [118.1689,24.6478],
@@ -42,7 +43,7 @@
             "endNum": 50,
             "endCoor": [116.4551,40.2539]
         },{
-            "seriesTitle": "领导轨迹",
+            "seriesTitle": "领导绿迹",
             "startName": "哈尔滨",
             "startNum": 23,
             "startCoor": [127.9688,45.368],
@@ -50,7 +51,7 @@
             "endNum": 50,
             "endCoor": [116.4551,40.2539]
         },{
-            "seriesTitle": "领导轨迹",
+            "seriesTitle": "领导绿迹",
             "startName": "延安",
             "startNum": 31,
             "startCoor": [109.1052,36.4252],
@@ -58,7 +59,7 @@
             "endNum": 50,
             "endCoor": [116.4551,40.2539]
         },{
-            "seriesTitle": "领导轨迹",
+            "seriesTitle": "领导绿迹",
             "startName": "成都",
             "startNum": 14,
             "startCoor": [103.9526,30.7617],
@@ -66,7 +67,7 @@
             "endNum": 50,
             "endCoor": [116.4551,40.2539]
         },{
-            "seriesTitle": "领导轨迹",
+            "seriesTitle": "领导绿迹",
             "startName": "湘潭",
             "startNum": 8,
             "startCoor": [112.5439,27.7075],
@@ -74,7 +75,7 @@
             "endNum": 50,
             "endCoor": [116.4551,40.2539]
         },{
-            "seriesTitle": "领导轨迹",
+            "seriesTitle": "领导绿迹",
             "startName": "西宁",
             "startNum": 10,
             "startCoor": [101.4038,36.8207],

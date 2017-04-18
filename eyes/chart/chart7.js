@@ -26,15 +26,10 @@ this.WbstChart = this.WbstChart || {};
 			});
 		});
 
-		_this._myChart.on('mouseout',function(){
+		_this._myChart.on('mouseout', function() {
 			_this.EventDispatcher.trigger('chartmouseout');
-		})
-
-
-		this.initDom();
+		});
 	};
-
-	p.initDom = function() {}
 
 	p.setConfig = function(value) {
 		this._config = value;
@@ -64,10 +59,10 @@ this.WbstChart = this.WbstChart || {};
 			type: 'category',
 			data: titleData,
 			axisLabel: {
-				interval:0,
+				interval: 0,
 				textStyle: {
-					color: '#00c6ff',
-					fontSize:12
+					color: '#3fc0ff',
+					fontSize: 12
 				}
 			},
 			axisTick: {
@@ -84,7 +79,7 @@ this.WbstChart = this.WbstChart || {};
 			}
 		}
 		var option = {
-			animationDuration:2000,
+			animationDuration: 2000,
 			color: ['#00c6ff'],
 			xAxis: xAxis,
 			grid: {
@@ -100,7 +95,7 @@ this.WbstChart = this.WbstChart || {};
 				nameGap: 8,
 				splitNumber: 5,
 				nameTextStyle: {
-					color: '#00c6ff'
+					color: '#3fc0ff'
 				},
 				axisLine: {
 					lineStyle: {
@@ -109,7 +104,7 @@ this.WbstChart = this.WbstChart || {};
 				},
 				axisLabel: {
 					textStyle: {
-						color: '#00c6ff'
+						color: '#3fc0ff'
 					}
 				},
 				axisTick: {
@@ -133,10 +128,10 @@ this.WbstChart = this.WbstChart || {};
 					}
 				}
 			}]
-		}
+		};
 
 		this._myChart.setOption(option);
-	}
+	};
 
 	WbstChart.Chart7 = Chart7;
 })();

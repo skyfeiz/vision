@@ -1,5 +1,6 @@
 this.WbstChart = this.WbstChart || {};
 (function() {
+	var iScale = 1;
 	/*传入的start和end的格式为2008-08-08*/
 	var TimeLine = function(start, end) {
 		// 开启计算时间的开关
@@ -40,7 +41,7 @@ this.WbstChart = this.WbstChart || {};
 
 		this.initTimeLimit(start, end);
 		this.init();
-	}
+	};
 
 	var p = TimeLine.prototype;
 
@@ -52,7 +53,7 @@ this.WbstChart = this.WbstChart || {};
 		this.moveLeft();
 		this.btnEvent();
 		this.resize();
-	}
+	};
 
 	// 年轴 通过起始时间和结束时间获取时间轴的总长
 	p.initTimeLimit = function(start, end) {
@@ -88,7 +89,7 @@ this.WbstChart = this.WbstChart || {};
 
 		this.xArr = this.setYearxArr();
 
-	}
+	};
 
 	p.initDom = function() {
 		this.timeLine = $('#timeaxis');
@@ -110,10 +111,16 @@ this.WbstChart = this.WbstChart || {};
 
 	p.initSize = function(isfirst) {
 		// 获取盒子的宽高，给canvas设置宽高
+		if (this.timeLine.width()<1920) {
+			iScale = 1;
+		}else{
+			iScale = SCALE;
+		}
 		var json = {
-			width: this.timeLine.width(),
-			height: this.timeLine.height()
+			width: this.timeLine.width()/iScale,
+			height: this.timeLine.height()/iScale
 		};
+
 		// 设置canvas显示区域的宽高 有overlow：hidden样式
 		this.limitbox.css(json);
 		this.limitLeft = this.limitbox.offset().left;
@@ -131,11 +138,11 @@ this.WbstChart = this.WbstChart || {};
 		this.drawGrid(isfirst, true);
 		this.canvas.attr('isdraw', 'yes');
 		if (isfirst) {
-			this.aL = this.areabox.position().left
-			this.aW = this.areabox.width();
-			this.cl = this.contentBox.position().left;
+			this.aL = this.areabox.position().left/iScale;
+			this.aW = this.areabox.width()/iScale;
+			this.cl = this.contentBox.position().left/iScale;
 		}
-	}
+	};
 
 	p.setSize = function() {
 		this.canvas.attr({
@@ -145,7 +152,7 @@ this.WbstChart = this.WbstChart || {};
 		this.contentBox.css({
 			width: this.axisLength + 28
 		});
-	}
+	};
 
 	p.drawGrid = function(isfirst) {
 		var _this = this;
@@ -177,7 +184,7 @@ this.WbstChart = this.WbstChart || {};
 			}
 
 			// 下标字
-			ctx.fillStyle = '#00c6ff';
+			ctx.fillStyle = '#3fc0ff';
 			ctx.fillText(xName, i + 12, 55);
 			// 下标线
 			ctx.beginPath();
@@ -191,9 +198,7 @@ this.WbstChart = this.WbstChart || {};
 				yText = _this.bMonth ? baseY + '月' : baseY + '年';
 				ctx.fillStyle = '#fff';
 				ctx.fillText(yText, i + 4, 13);
-				ctx.fillStyle = '#00c6ff';
-				ctx.fillRect(i - 6, 0, 5, 12);
-				ctx.fillRect(i - 5, 12, 3, 3);
+				ctx.fillStyle = '#3fc0ff';
 				ctx.fillRect(i - 4, 15, 1, 4);
 				if (isfirst) {
 					if (baseY == _this.defaultYear) {
@@ -220,77 +225,77 @@ this.WbstChart = this.WbstChart || {};
 
 		if (isfirst) {
 			_this.setArea();
-			_this.cl = _this.limitbox.width() - _this.canvas.width() + 8;
+			_this.cl = _this.limitbox.width()/iScale - _this.canvas.width()/iScale + 8;
 			_this.contentBox.css('left', _this.cl)
 		}
-	}
+	};
 
 	p.moveEvent = function() {
-		var _this = this;
-		var widthX;
-		var disX;
-		var isDown = false;
-		var autoMove = false;
-		var sign = '';
-		var nLeft = 0;
-		var datal = 0;
-		var dataw = 0;
-		var nowPageX = 0;
-		var limitWidth = 0;
-		var limitLeft = 0;
-		var beginX = 0;
-		var beginW = 0;
-		var overWidth = false;
+		var _this = this,
+			widthX,
+			disX,
+			isDown = false,
+			autoMove = false,
+			sign = '',
+			nLeft = 0,
+			datal = 0,
+			dataw = 0,
+			nowPageX = 0,
+			limitWidth = 0,
+			limitLeft = 0,
+			beginX = 0,
+			beginW = 0,
+			overWidth = false;
 
 		// 起始时间轴
 		_this.startline.mousedown(function(ev) {
-				if (_this.moveOnly||_this.silent) {
-					return;
-				}
-				limitWidth = _this.limitbox.width();
-				limitLeft = _this.limitbox.offset().left;
-
-				$(this).next().css('zIndex', 11);
-				$(this).css('zIndex', 22);
-				nLeft = _this.contentBox.offset().left;
-				widthX = -ev.pageX - _this.aW + nLeft;
-				disX = ev.pageX - _this.aL - nLeft;
-				beginX = ev.pageX - $(this).offset().left;
-				beginW = $(this).width();
-
-				sign = 'start';
-				isDown = true;
-				autoMove = false;
-				this.changenLeft = 0;
-
-				ev.stopPropagation();
-			})
-			// 结束时间轴
-		_this.endline.mousedown(function(ev) {
-			if (_this.moveOnly||_this.silent) {
+			if (_this.moveOnly || _this.silent) {
 				return;
 			}
-			limitWidth = _this.limitbox.width();
-			limitLeft = _this.limitbox.offset().left;
-			$(this).prev().css('zIndex', 11);
+			limitWidth = _this.limitbox.width()/iScale;
+			limitLeft = _this.limitbox.offset().left/iScale;
+
+			$(this).next().css('zIndex', 11);
 			$(this).css('zIndex', 22);
+			nLeft = _this.contentBox.offset().left/iScale;
+			widthX = -ev.pageX - _this.aW + nLeft;
+			disX = ev.pageX - _this.aL - nLeft;
 			beginX = ev.pageX - $(this).offset().left;
 			beginW = $(this).width();
-			nLeft = _this.contentBox.offset().left;
+
+			sign = 'start';
+			isDown = true;
+			autoMove = false;
+			this.changenLeft = 0;
+
+			ev.stopPropagation();
+		});
+		// 结束时间轴
+		_this.endline.mousedown(function(ev) {
+			if (_this.moveOnly || _this.silent) {
+				return;
+			}
+			limitWidth = _this.limitbox.width()/iScale;
+			limitLeft = _this.limitbox.offset().left/iScale;
+			$(this).prev().css('zIndex', 11);
+			$(this).css('zIndex', 22);
+			beginX = ev.pageX - $(this).offset().left/iScale;
+			beginW = $(this).width();
+			nLeft = _this.contentBox.offset().left/iScale;
 			widthX = ev.pageX - _this.aW - nLeft;
 			sign = 'end';
 			isDown = true;
 			autoMove = false;
 			ev.stopPropagation();
-		})
+		});
 
 		_this.areaBox.mousedown(function(ev) {
-			limitWidth = _this.limitbox.width();
-			limitLeft = _this.limitbox.offset().left;
-			nLeft = _this.contentBox.offset().left;
+			limitWidth = _this.limitbox.width()/iScale;
+			limitLeft = _this.limitbox.offset().left/iScale;
+			nLeft = _this.contentBox.offset().left/iScale;
 			disX = ev.pageX - _this.aL - nLeft;
-			beginX = ev.pageX - $(this).offset().left;
-			beginW = $(this).width();
+			beginX = ev.pageX - $(this).offset().left/iScale;
+			beginW = $(this).width()/iScale;
 			if (beginW > limitWidth - 20) {
 				overWidth = true;
 			} else {
@@ -300,7 +305,7 @@ this.WbstChart = this.WbstChart || {};
 			isDown = true;
 			_this.changenLeft = 0;
 			ev.stopPropagation();
-		})
+		});
 
 		$(document).mousemove(function(ev) {
 			if (!isDown) {
@@ -308,7 +313,7 @@ this.WbstChart = this.WbstChart || {};
 			}
 			fnMove(ev);
 			ev.preventDefault();
-		})
+		});
 
 		$(document).mouseup(function() {
 			isDown = false;
@@ -316,12 +321,12 @@ this.WbstChart = this.WbstChart || {};
 			_this.changenLeft = 0;
 
 			if (_this.bSpeedUp > 0) {
-				var $obj = [_this.axisleft,_this.axisright][_this.bSpeedUp-1];
+				var $obj = [_this.axisleft, _this.axisright][_this.bSpeedUp - 1];
 				clearInterval(_this.timer);
 				_this.bSpeedUp = 0;
 				$obj.trigger('mouseover');
 
-			}else{
+			} else {
 				_this.bSpeedUp = 0;
 				clearInterval(_this.timer);
 			}
@@ -347,8 +352,8 @@ this.WbstChart = this.WbstChart || {};
 			datal = _this.aL;
 			dataw = _this.aW;
 
-			_this.toChange&&_this.toChange(_this.getRangeTime());
-		})
+			_this.toChange && _this.toChange(_this.getRangeTime());
+		});
 
 		function fnMove(ev) {
 			nowPageX = ev.pageX;
@@ -360,7 +365,7 @@ this.WbstChart = this.WbstChart || {};
 				nowPageX = limitLeft + limitWidth - beginW + beginX - 4;
 			}
 
-			nLeft = _this.contentBox.offset().left;
+			nLeft = _this.contentBox.offset().left/iScale;
 			var changeX = nowPageX - nLeft;
 
 			switch (sign) {
@@ -445,21 +450,21 @@ this.WbstChart = this.WbstChart || {};
 			}
 
 		};
-	}
+	};
 
 	p.setArea = function() {
 		this.areabox.css({
 			width: this.aW,
 			left: this.aL
 		});
-	}
+	};
 
 	// canvas的父级移动     包含canvas和 时间开始轴，中间区域，时间结束轴等一起移动
 	// bOk为true时width和left跟着一起累加
 	p.canvaspMove = function(dir, bOkl, bOkw) {
-		var _this = this;
-		var timeSpace = _this.bSpeedUp>0?10:30;
-		var maxLeft = _this.axisLength - _this.limitbox.width();
+		var _this = this,
+			timeSpace = _this.bSpeedUp > 0 ? 10 : 30,
+			maxLeft = _this.axisLength - _this.limitbox.width()/iScale;
 		if (dir == 'left') {
 			_this.timer = setInterval(function() {
 				_this.cl += 4;
@@ -483,7 +488,6 @@ this.WbstChart = this.WbstChart || {};
 				}
 				_this.setArea();
 				_this.contentBox.css('left', _this.cl);
-				console.log(timeSpace);
 			}, timeSpace);
 		} else if (dir == 'right') {
 			_this.timer = setInterval(function() {
@@ -511,12 +515,12 @@ this.WbstChart = this.WbstChart || {};
 				}
 			}, timeSpace)
 		}
-	}
+	};
 
 	// canvas左边部分增加
 	p.createLeft = function() {
-		var _this = this;
-		var aw = 0;
+		var _this = this,
+			aw = 0;
 		// 小于50 增加canvas的宽，设置canvas的left,
 		// 判断处于年轴还是月轴
 		if (_this.bMonth) {
@@ -531,7 +535,7 @@ this.WbstChart = this.WbstChart || {};
 		_this.aL += aw;
 		_this.drawGrid(false, true);
 		_this.cl -= aw;
-	}
+	};
 
 
 	// 左移
@@ -553,25 +557,25 @@ this.WbstChart = this.WbstChart || {};
 		});
 
 
-		_this.axisleft.mouseover(function(){
+		_this.axisleft.mouseover(function() {
 			clearInterval(_this.timer);
 			_this.canvaspMove('left');
 		});
 
-		_this.axisright.mouseover(function(){
+		_this.axisright.mouseover(function() {
 			clearInterval(_this.timer);
 			_this.canvaspMove('right');
 		});
 
-		_this.axisleft.mouseout(function(){
+		_this.axisleft.mouseout(function() {
 			clearInterval(_this.timer);
 		});
 
-		_this.axisright.mouseout(function(){
+		_this.axisright.mouseout(function() {
 			clearInterval(_this.timer);
 		});
 
-	}
+	};
 
 	/*
 		通过 left 和 width 计算 时间范围
@@ -579,11 +583,11 @@ this.WbstChart = this.WbstChart || {};
 	*/
 	p.getRangeTime = function() {
 		// 距离最末端的 距离格数  总间隔数
-		var l = (this.axisLength - this.aL - 4) / this.xSpace | 0; // 取整
-		// endlined的间隔数
-		var w = l - this.aW / this.xSpace + 1;
-		var startDate = '';
-		var endDate = ''
+		var l = (this.axisLength - this.aL - 4) / this.xSpace | 0, // 取整
+			// endlined的间隔数
+			w = l - this.aW / this.xSpace + 1,
+			startDate = '',
+			endDate = '';
 		if (this.bMonth) {
 			// 月时间轴
 			/*
@@ -614,8 +618,8 @@ this.WbstChart = this.WbstChart || {};
 
 		}
 
-
 		console.log(startDate, endDate);
+
 		return {
 			startDate: startDate,
 			endDate: endDate
@@ -624,13 +628,13 @@ this.WbstChart = this.WbstChart || {};
 		// 补零函数
 		function n2d(n) {
 			return n < 10 ? '0' + n : n;
-		}
-	}
+		};
+	};
 
 	p.btnEvent = function() {
-		var _this = this;
-		var sign = 'year';
-		var firstClick = true;
+		var _this = this,
+			sign = 'year',
+			firstClick = true;
 		_this.timeBtn.click(function(ev) {
 			$(this).addClass('active').siblings().removeClass('active');
 			_this.canvas.hide();
@@ -764,29 +768,32 @@ this.WbstChart = this.WbstChart || {};
 			_this.canvas.show();
 			ev.stopPropagation();
 			$(document).trigger('mouseup');
-		})
-	}
+		});
+	};
 
 	p.resize = function() {
 		var _this = this;
+		if (SCALE > 1) {
+			_this.timeLine.css('transform','translateX('+SCALE*50+'%) scale('+SCALE+','+SCALE+')');
+		}
 		$(window).resize(function() {
 			var n = _this.limitWidth;
 			_this.initSize(false);
 			if (_this.limitbox.width() - n > 0) {
-				_this.cl = _this.contentBox.position().left - n + _this.limitbox.width();
+				_this.cl = _this.contentBox.position().left/iScale - n + _this.limitbox.width()/iScale;
 				if (_this.yearJson.boxl) {
-					_this.yearJson.boxl -= n - _this.limitbox.width()
+					_this.yearJson.boxl -= n - _this.limitbox.width()/iScale
 				}
 				if (_this.monthJson.boxl) {
-					_this.monthJson.boxl -= n - _this.limitbox.width()
+					_this.monthJson.boxl -= n - _this.limitbox.width()/iScale
 				}
 				if (_this.nowJson.boxl) {
-					_this.nowJson.boxl -= n - _this.limitbox.width()
+					_this.nowJson.boxl -= n - _this.limitbox.width()/iScale
 				}
 				_this.contentBox.css('left', _this.cl);
 			}
 		});
-	}
+	};
 
 	// 获取年下xArr的数据 ，
 	p.setYearxArr = function() {
@@ -802,7 +809,7 @@ this.WbstChart = this.WbstChart || {};
 		}
 
 		return xArr.reverse();
-	}
+	};
 
 	/*	
 		获取四年日的排序，并且把当日放在数组的第二个位置，第一位为明天，在canvas里不显示
@@ -834,7 +841,7 @@ this.WbstChart = this.WbstChart || {};
 		}
 		var xArr = arr.splice(signlen).concat(arr);
 		return xArr.reverse();
-	}
+	};
 
 	// 获取一个月的数据n 代表第几月，isR代表是否是润年，isDate是用来判断标记日期
 	p.get1monthDays = function(n, isR, isDate) {
@@ -862,7 +869,7 @@ this.WbstChart = this.WbstChart || {};
 			}
 		}
 		return arr;
-	}
+	};
 
 	WbstChart.TimeLine = TimeLine;
 })()

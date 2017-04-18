@@ -3,8 +3,8 @@ this.WbstChart = this.WbstChart || {};
 	var Chart9 = function(dom) {
 		this._dom = dom;
 
-		this.wid = $(this._dom).width();
-		this.heig = $(this._dom).height();
+		this.wid = $(this._dom).width()/SCALE;
+		this.heig = $(this._dom).height()/SCALE;
 
 		this.EventDispatcher = $({});
 
@@ -14,12 +14,10 @@ this.WbstChart = this.WbstChart || {};
 	var p = Chart9.prototype;
 
 	p.init = function() {
-
-
 		$(this._dom).css({
 			width: 390,
 			height: 308
-		})
+		});
 
 		this._myChart = echarts.init(this._dom);
 
@@ -38,17 +36,13 @@ this.WbstChart = this.WbstChart || {};
 
 		_this._myChart.on('mouseout', function() {
 			_this.EventDispatcher.trigger('chartmouseout');
-		})
+		});
 
 		_this._myChart.on('click', function(param) {
-			console.log(param);
-		})
-
-
-		this.initDom();
+			_this.EventDispatcher.trigger('click', param);
+		});
 	};
 
-	p.initDom = function() {}
 
 	p.setConfig = function(value) {
 		this._config = value;
@@ -68,7 +62,7 @@ this.WbstChart = this.WbstChart || {};
 		for (var i = 0, len = this._dataProvider.length; i < len; i++) {
 			data.push({
 				name: this._dataProvider[i].name,
-				value: 1000 - this._dataProvider[i].weight
+				value: this._dataProvider[i].weight
 			})
 		}
 
@@ -88,10 +82,9 @@ this.WbstChart = this.WbstChart || {};
 			gridSize: 1,
 			textStyle: {
 				normal: {
-					fontFamily: 'sans-serif',
-					fontWeight: 'bold',
+					fontFamily: 'Microsoft yahei',
 					color: function() {
-						return ['#00c6ff', '#0084ff', '#5999e2', '#67ffe1', '#3fc0ff', '#034dbd'][Math.round(Math.random() * 6)];
+						return ['#00c6ff', '#0084ff', '#5999e2', '#67ffe1', '#3fc0ff', '#034dbd'][Math.round(Math.random() * 5)];
 					}
 				},
 				emphasis: {
@@ -107,17 +100,17 @@ this.WbstChart = this.WbstChart || {};
 		this._myChart.setOption(option);
 
 		this.toScalc();
-	}
+	};
 
 	p.toScalc = function() {
-		this.scalcW = this.wid/390;
-		this.scalcH = this.heig/308
+		this.scalcW = this.wid / 390;
+		this.scalcH = this.heig / 308
 
 		$(this._dom).css({
-			transform:'translate('+(this.wid-390)/2+'px,'+(this.heig - 308)/2+'px) scale('+this.scalcW+','+this.scalcH+')'
-		})
+			transform: 'translate(' + (this.wid - 390) / 2 + 'px,' + (this.heig - 308) / 2 + 'px) scale(' + this.scalcW * 1.4 + ',' + this.scalcH * 1.4 + ')'
+		});
 
-	}
+	};
 
 
 	WbstChart.Chart9 = Chart9;

@@ -130,7 +130,21 @@
 			"toCoord": "endCoor",
 			"scatterName": "startName",
 			"scatterCoord": "startCoor",
-			"scatterNum": "startNum"
+			"scatterNum": "startNum",
+			"endNum":"endNum",
+			"endCoord":"endCoor"
+		}
+	},
+	"chartP6_1":{
+		"url":"",
+		"title":"",
+		"config":{
+			"title": "seriesTitle",
+			"scatterName": "startName",
+			"scatterCoord": "startCoor",
+			"scatterNum": "startNum",
+			"endNum":"endNum",
+			"endCoord":"endCoor"
 		}
 	}
 }

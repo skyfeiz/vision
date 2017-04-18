@@ -18,12 +18,12 @@ this.EE = this.EE || {};
 			"left3": "../eyes/debug/source.json",
 			"p1_mapData": "../eyes/debug/map.json",
 
-			"chart4": "../eyes/debug/chart4.json",		//舆情头条
-			"chart5": "../eyes/debug/chart5.json",		//舆情省份排名
-			"chart6": "../eyes/debug/chart6.json",		//舆情走势
-			"chart7": "../eyes/debug/chart7.json",		//来源媒体分布
-			"chart8": "../eyes/debug/chart8.json",		//头条正中负面
-			"chart9": "../eyes/debug/chart9.json",		//关键词
+			"chart4": "../eyes/debug/chart4.json", //舆情头条
+			"chart5": "../eyes/debug/chart5.json", //舆情省份排名
+			"chart6": "../eyes/debug/chart6.json", //舆情走势
+			"chart7": "../eyes/debug/chart7.json", //来源媒体分布
+			"chart8": "../eyes/debug/chart8.json", //头条正中负面
+			"chart9": "../eyes/debug/chart9.json", //关键词
 
 			//=================== p3 =====================================
 			"p3_mapData": "../eyes/debug/map.json",
@@ -33,19 +33,16 @@ this.EE = this.EE || {};
 			"opinions_p3": "debug/p3_2.json",
 			"opinionsList_p3": "debug/p3_2List.json",
 			"eventCurve_p3": "debug/p3_1.json",
-			
-			"p4chart1":"../eyes/debug/p4chart1.json",
-			"p4chart2":"../eyes/debug/p4chart2.json",
-			"p4list":"../eyes/debug/p4list.json",
 
-			"detailsList":"../eyes/debug/detailsList.json",
+			"p4chart1": "../eyes/debug/p4chart1.json",
+			"p4chart2": "../eyes/debug/p4chart2.json",
+			"p4list": "../eyes/debug/p4list.json",
 
-			"tracesChart1":"../eyes/debug/tracesChart1.json",
-			"tracesEvent":"../eyes/debug/traces.json",
-			"chartP6":"../eyes/debug/p6_map.json",
+			"detailsList": "../eyes/debug/detailsList.json",
 
-
-
+			"tracesChart1": "../eyes/debug/tracesChart1.json",
+			"tracesEvent": "../eyes/debug/traces.json",
+			"chartP6": "../eyes/debug/p6_map.json"
 		};
 
 		//	异步请求方法
@@ -58,7 +55,7 @@ this.EE = this.EE || {};
 					if (opt.callback instanceof Function)
 						opt.callback(json);
 				},
-				error: function(){
+				error: function() {
 					throw new Error(baseUrl + opt.url + " 接口");
 				}
 			});
@@ -135,7 +132,7 @@ this.EE = this.EE || {};
 			};
 		};
 
-		this.getInit = function(data,callback) {
+		this.getInit = function(data, callback) {
 			requestAsk({
 				url: api.initPage,
 				data: data,
@@ -149,7 +146,7 @@ this.EE = this.EE || {};
 			});
 		};
 
-		this.getChartConfig = function(data,callback){
+		this.getChartConfig = function(data, callback) {
 			requestAsk({
 				url: api.chartConfig,
 				data: data,
@@ -202,7 +199,7 @@ this.EE = this.EE || {};
 			});
 		};
 		//	p1 的地图打点数据
-		this.getMapData_P1 = function(data,callback){
+		this.getMapData_P1 = function(data, callback) {
 			requestAsk({
 				url: api.p1_mapData,
 				data: data,
@@ -305,7 +302,7 @@ this.EE = this.EE || {};
 
 		/*------------------------------------ p4 ------------------------------------------*/
 
-		this.getP4Chart1Data = function(data, callback){
+		this.getP4Chart1Data = function(data, callback) {
 			requestAsk({
 				url: api.p4chart1,
 				data: data,
@@ -319,7 +316,7 @@ this.EE = this.EE || {};
 			});
 		};
 
-		this.getP4Chart2Data = function(data, callback){
+		this.getP4Chart2Data = function(data, callback) {
 			requestAsk({
 				url: api.p4chart2,
 				data: data,
@@ -333,7 +330,7 @@ this.EE = this.EE || {};
 			});
 		};
 
-		this.getP4ListData = function(data, callback){
+		this.getP4ListData = function(data, callback) {
 			requestAsk({
 				url: api.p4list,
 				data: data,
@@ -349,7 +346,7 @@ this.EE = this.EE || {};
 
 
 		//	p3 的地图打点数据
-		this.getMapData_P3 = function(data,callback){
+		this.getMapData_P3 = function(data, callback) {
 			requestAsk({
 				url: api.p3_mapData,
 				data: data,
@@ -363,7 +360,7 @@ this.EE = this.EE || {};
 			});
 		};
 
-		this.getEventBrief_p3 = function(data,callback){
+		this.getEventBrief_p3 = function(data, callback) {
 			requestAsk({
 				url: api.eventBrief_p3,
 				data: data,
@@ -378,7 +375,7 @@ this.EE = this.EE || {};
 			});
 		};
 
-		this.getMediaRange_p3 = function(data,callback){
+		this.getMediaRange_p3 = function(data, callback) {
 			requestAsk({
 				url: api.mediaRange_p3,
 				data: data,
@@ -393,7 +390,7 @@ this.EE = this.EE || {};
 			});
 		};
 
-		this.getWorldCloud_p3 = function(data,callback){
+		this.getWorldCloud_p3 = function(data, callback) {
 			requestAsk({
 				url: api.worldCloud_p3,
 				data: data,
@@ -408,7 +405,7 @@ this.EE = this.EE || {};
 			});
 		};
 
-		this.getOpinions_p3 = function(data,callback){
+		this.getOpinions_p3 = function(data, callback) {
 			requestAsk({
 				url: api.opinions_p3,
 				data: data,
@@ -423,7 +420,7 @@ this.EE = this.EE || {};
 			});
 		};
 
-		this.getOpinionList_p3 = function(data,callback){
+		this.getOpinionList_p3 = function(data, callback) {
 			requestAsk({
 				url: api.opinionsList_p3,
 				data: data,
@@ -438,7 +435,7 @@ this.EE = this.EE || {};
 			});
 		};
 
-		this.getEventCurve_p3 = function(data,callback){
+		this.getEventCurve_p3 = function(data, callback) {
 			requestAsk({
 				url: api.eventCurve_p3,
 				data: data,
@@ -456,7 +453,7 @@ this.EE = this.EE || {};
 
 		/*------------------------------------ p4 ------------------------------------------*/
 
-		this.getDetailsListData = function(data, callback){
+		this.getDetailsListData = function(data, callback) {
 			requestAsk({
 				url: api.detailsList,
 				data: data,
@@ -474,7 +471,7 @@ this.EE = this.EE || {};
 
 		/*------------------------------------ leader traces ------------------------------------------*/
 
-		this.getTracesChart1Data = function(data,callback){
+		this.getTracesChart1Data = function(data, callback) {
 			requestAsk({
 				url: api.left1,
 				data: data,
@@ -488,7 +485,7 @@ this.EE = this.EE || {};
 			});
 		};
 
-		this.getTracesEventData = function(data,callback){
+		this.getTracesEventData = function(data, callback) {
 			requestAsk({
 				url: api.tracesEvent,
 				data: data,
@@ -502,7 +499,7 @@ this.EE = this.EE || {};
 			});
 		};
 
-		this.getChartP6Data = function(data,callback){
+		this.getChartP6Data = function(data, callback) {
 			requestAsk({
 				url: api.chartP6,
 				data: data,

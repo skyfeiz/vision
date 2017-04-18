@@ -124,9 +124,12 @@
     position: absolute;
     right: 0;
     bottom: 0.03rem;
-    color: #fffc00;
+    color: #fff;
     font-size: .14rem;
     cursor: pointer;
+}
+.p3chart2Text div button:hover,.p3chart2Text div button:active{
+    color: #fffc00;
 }
 .p3chart2Text .barBox{
     width: 0.05rem;
@@ -474,5 +477,5 @@ p.bluelight.bluenum{
     display: inline-block;
     vertical-align: middle;
     font-size: 18px;
-    color: #00c6ff;
+    color: #fff;
 }

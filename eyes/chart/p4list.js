@@ -31,24 +31,24 @@ this.WbstChart = this.WbstChart || {};
 
 		var htmlStr1 = '';
 		var htmlStr2 = '';
-		var arr = ['紧急','高','中','低'];
-		for (var i = 0,len = this._dataProvider.length; i < len; i++) {
+		var arr = ['紧急', '高', '中', '低'];
+		for (var i = 0, len = this._dataProvider.length; i < len; i++) {
 			var item = this._dataProvider[i];
-			if (i<5) {
-				htmlStr1 += '<tr>'+
-						'<td>'+(i+1)+'</td>'+
-						'<td>'+item.eventName+'</td>'+
-						'<td>'+item.eventSum+'</td>'+
-						'<td>'+item.eventArea+'</td>'+
-						'<td>'+arr[item.eventLevel]+'</td>'+
+			if (i < 5) {
+				htmlStr1 += '<tr>' +
+					'<td>' + (i + 1) + '</td>' +
+					'<td>' + item.eventName + '</td>' +
+					'<td>' + item.eventSum + '</td>' +
+					'<td>' + item.eventArea + '</td>' +
+					'<td>' + arr[item.eventLevel] + '</td>' +
 					'</tr>'
-			}else if(i<10){
-				htmlStr2 += '<tr>'+
-						'<td>'+(i+1)+'</td>'+
-						'<td>'+item.eventName+'</td>'+
-						'<td>'+item.eventSum+'</td>'+
-						'<td>'+item.eventArea+'</td>'+
-						'<td>'+arr[item.eventLevel]+'</td>'+
+			} else if (i < 10) {
+				htmlStr2 += '<tr>' +
+					'<td>' + (i + 1) + '</td>' +
+					'<td>' + item.eventName + '</td>' +
+					'<td>' + item.eventSum + '</td>' +
+					'<td>' + item.eventArea + '</td>' +
+					'<td>' + arr[item.eventLevel] + '</td>' +
 					'</tr>'
 			}
 		}
@@ -56,7 +56,7 @@ this.WbstChart = this.WbstChart || {};
 		this.$tbody1.html(htmlStr1);
 		this.$tbody2.html(htmlStr2);
 
-	}
+	};
 
 	WbstChart.P4List = P4List;
 })();

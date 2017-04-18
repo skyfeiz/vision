@@ -5,8 +5,8 @@ this.WBST = this.WBST || {};
 		this.city = [];
 		// 判断当前城市列表是否是 全部城市
 		this.regionJson = {
-			name:name,
-			id:id
+			name: name,
+			id: id
 		}
 		this.isAllCity = true;
 
@@ -34,52 +34,32 @@ this.WBST = this.WBST || {};
 		var _this = this;
 		_this.$city.click(function(ev) {
 			_this.$zCity.show();
+			_this.$city.addClass('active');
 			ev.stopPropagation();
 		});
 
 		$('#cColse').click(function() {
+			_this.$city.removeClass('active');
 			_this.$zCity.hide();
 		});
 
 		// 点击document隐藏
 		$(document).click(function(ev) {
 			if (!_this.$zCity[0].contains(ev.target)) {
+				_this.$city.removeClass('active');
 				_this.$zCity.hide();
 			};
 		});
 
-		// 点击更新数据
-		_this.$city.on('click', 'span', function(ev) {
-			var name = $(this).attr('data-name');
-			var id = $(this).attr('data-id');
-			var arr = id.split('_')
-			switch (arr.length) {
-				//表示点击全国
-				case 1:
-					_this.chinaChange();
-					break;
-				case 2:
-					_this.provinceChange({
-						name: name,
-						id: id
-					});
-					break;
-				case 3:
-					
-					break;
-			}
-
-			ev.stopPropagation();
-		});
-		
 		if (!_this.bCity) {
 			// 选择省 ，更新数据
 			_this.$city0.on('click', 'a', function(ev) {
 				var name = $(this).attr('data-name');
 				var id = $(this).attr('data-id');
 				_this.$city.html('<p>' +
-					'<span data-id="' + id + '" data-name="' + name + '" title="' + name + '">'+name+'</span>' +
+					'<span data-id="' + id + '" data-name="' + name + '" title="' + name + '">' + name + '</span>' +
 					'</p>');
+				_this.$city.removeClass('active');
 				_this.$zCity.hide();
 				// 加载视图
 				_this.provinceChange({
@@ -106,14 +86,15 @@ this.WBST = this.WBST || {};
 				ev.stopPropagation();
 			});
 		}
-		
+
 		// 选择城市 更新数据
 		_this.$city1.on('click', 'a', function(ev) {
 			var pname = $(this).attr('pdata-name');
 			var pid = $(this).attr('pdata-id');
 			var name = $(this).attr('data-name');
 			var id = $(this).attr('data-id');
-			_this.$city.html('<p><span data-id="' + id + '" data-name="' + name + '" pdata-id="' + pid + '" pdata-name="' + pname + '" title="' + name + '">'+name+'</span></p>');
+			_this.$city.html('<p><span data-id="' + id + '" data-name="' + name + '" pdata-id="' + pid + '" pdata-name="' + pname + '" title="' + name + '">' + name + '</span></p>');
+			_this.$city.removeClass('active');
 			_this.$zCity.hide();
 			// 加载视图
 			_this.cityChange({
@@ -123,7 +104,7 @@ this.WBST = this.WBST || {};
 
 			ev.stopPropagation();
 		});
-		
+
 		// 搜索
 		_this.$cityserch.click(function() {
 			var val = _this.$cityinput.val();
@@ -164,14 +145,14 @@ this.WBST = this.WBST || {};
 				// 权限为省
 				_this.bCity = true;
 				_this.initProvince(id);
-				_this.$city.html('<p><span data-id="' + arr[1] + '" data-name="' + name + '" title="' + name + '">'+name+'</span>' +
+				_this.$city.html('<p><span data-id="' + arr[1] + '" data-name="' + name + '" title="' + name + '">' + name + '</span>' +
 					'</p>');
 				break;
 			case 3:
 				// 权限为市
 				var pid = arr[0] + '_' + arr[1];
 				var pname = _this.province[pid].name;
-				_this.$city.html('<p><span pdata-id="'+pid+'" pdata-name="'+pname+'" data-id="' + arr[2] + '" data-name="' + name + '" title="' + name + '">' + name + '</span>' +
+				_this.$city.html('<p><span pdata-id="' + pid + '" pdata-name="' + pname + '" data-id="' + arr[2] + '" data-name="' + name + '" title="' + name + '">' + name + '</span>' +
 					'</p>');
 				break;
 		}
@@ -274,6 +255,7 @@ this.WBST = this.WBST || {};
 		}
 		strHtml += '</div>';
 		this.$city1.find('.cityscrollbox').html(strHtml);
+		$('.cityscrollbox').buildScrollBar();
 	};
 
 	// 获取当前省的城市列表  传入当前省的id
@@ -294,7 +276,7 @@ this.WBST = this.WBST || {};
 		var arr = id.split('_');
 		var strHtml = '';
 		var regionArr = _this.regionJson.id.split('_');
-		if (regionArr.length>arr.length) {
+		if (regionArr.length > arr.length) {
 			arr = regionArr;
 			var name = _this.regionJson.name;
 			var id = _this.regionJson.id;
@@ -304,13 +286,13 @@ this.WBST = this.WBST || {};
 				strHtml = '<p><span data-id="101" data-name="全国">全国</span></p>';
 				break;
 			case 2:
-				strHtml = '<p><span data-id="' + id + '" data-name="' + name + '" title="' + name + '">'+name+'</span>' +
+				strHtml = '<p><span data-id="' + id + '" data-name="' + name + '" title="' + name + '">' + name + '</span>' +
 					'</p>';
 				break;
 			case 3:
 				var pid = arr[0] + '_' + arr[1];
 				var pname = _this.province[pid].name;
-				strHtml = '<p><span data-id="' + id + '" data-name="' + name + '" pdata-id="' + pid + '" pdata-name="' + pname + '" title="' + name + '">'+name+'</span>' +
+				strHtml = '<p><span data-id="' + id + '" data-name="' + name + '" pdata-id="' + pid + '" pdata-name="' + pname + '" title="' + name + '">' + name + '</span>' +
 					'</p>';
 				break;
 		}

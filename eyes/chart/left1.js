@@ -3,9 +3,12 @@ this.WbstChart = this.WbstChart || {};
 	var DashBoard = function(dom) {
 		this._dom = dom;
 		// 显示的某方索引
+		this.EventDispatcher = $({});
 		this._key = 3;
 		// 保存颜色的Arr;
 		this.cArr = ['#fff','#01b057','#fffc00','#f9042f'];
+
+		this.bNotEvent = false;
 
 		this.init();
 	};
@@ -26,7 +29,7 @@ this.WbstChart = this.WbstChart || {};
 		this.$pNums = $('#left1text').find('.totalnum');
 		this.$children = $('#left1text').children();
 
-	}
+	};
 
 	p.setConfig =  function(value){
 		this._config = value;
@@ -98,7 +101,7 @@ this.WbstChart = this.WbstChart || {};
 		
 		this._dashChart.setOption(option);
 		this.creationText(this._dataProvider,this._key);
-	}
+	};
 
 	p.creationText = function(data){
 		this.$pNums.eq(0).html('<span>舆情总数</span><span class="bluenum">'+data[3].num+'</span>')
@@ -107,18 +110,20 @@ this.WbstChart = this.WbstChart || {};
 		this.$pNums.eq(3).html('<span>负方总数</span><span class="bluenum">'+data[2].num+'</span>')
 		this.$chartNum.html('<p>'+data[this._key-1].name+'总数</p><p class="bluenum bluelight">'+data[this._key-1].num+'</p>');
 		this.$children.removeClass('z_hide').eq(this._key).addClass('z_hide');
-	}
+	};
 
 	p.baseEvent = function(){
 		var _this = this;
 		this.$pNums.click(function(){
+			if(_this.bNotEvent){return;}
 			_this._key = $(this).index('.totalnum');
 			// 为0时 不操作;
 			if (_this._key) {
 				_this.creationContent();
+				_this.EventDispatcher.trigger('click',[1,0,-1][_this._key-1]);
 			}
-		})
-	}
+		});
+	};
 
 	WbstChart.DashBoard = DashBoard;
 })();

@@ -28,7 +28,7 @@ this.WbstChart = this.WbstChart || {};
 
 		_this._myChart.on('mouseout', function() {
 			_this.EventDispatcher.trigger('chartmouseout');
-		})
+		});
 
 	};
 
@@ -72,12 +72,12 @@ this.WbstChart = this.WbstChart || {};
 			}
 		}];
 
-		var colorArr = ['#e12b3e','#f1b420','#00a6f5'];
+		var colorArr = ['#e12b3e', '#f1b420', '#00a6f5'];
 		for (var i = 0, len = this._dataProvider.length; i < len; i++) {
 
-			var num =  this._dataProvider[i].eventSum/1e4;
+			var num = this._dataProvider[i].eventSum / 1e4;
 			data1.push({
-				value:num,
+				value: num,
 				itemStyle: item1Arr[i],
 			})
 			data2.push({
@@ -87,17 +87,17 @@ this.WbstChart = this.WbstChart || {};
 				symbolSize: ['98%', '15'],
 				symbolOffset: [0, 0],
 				symbolMargin: '1',
-				symbolBoundingData:num,
+				symbolBoundingData: num,
 				animationEasing: 'line',
 				animationDelay: function(dataIndex, params) {
-                        return params.index * 200;
-                    },
-				itemStyle:{
-                	normal:{
-                		color:colorArr[i]
-                	}
-                }
-			})
+					return params.index * 200;
+				},
+				itemStyle: {
+					normal: {
+						color: colorArr[i]
+					}
+				}
+			});
 			titleData.push(this._dataProvider[i].title);
 			cityData.push(this._dataProvider[i].eventArea);
 		}
@@ -107,9 +107,9 @@ this.WbstChart = this.WbstChart || {};
 		this.data2 = data2;
 		this.cityData = cityData;
 		this.setOption();
-	}
+	};
 
-	p.setOption = function(){
+	p.setOption = function() {
 		clearTimeout(this.timer);
 		var option = {
 			grid: {
@@ -122,7 +122,7 @@ this.WbstChart = this.WbstChart || {};
 				type: 'category',
 				data: this.titleData,
 				axisTick: {
-					show:false,
+					show: false,
 					alignWithLabel: true
 				},
 				axisLine: {
@@ -133,17 +133,17 @@ this.WbstChart = this.WbstChart || {};
 				axisLabel: {
 					textStyle: {
 						color: '#fff',
-						fontSize:14
+						fontSize: 14
 					},
-					margin:15,
-					formatter:function(params){
-						var mid = Math.floor(params.length/2);
-						return params.substring(0,mid)+'\n '+params.substring(mid);
+					margin: 15,
+					formatter: function(params) {
+						var mid = Math.floor(params.length / 2);
+						return params.substring(0, mid) + '\n ' + params.substring(mid);
 					}
 				}
-			},{
-				type:'category',
-				position:'bottom',
+			}, {
+				type: 'category',
+				position: 'bottom',
 				data: this.cityData,
 				axisLine: {
 					lineStyle: {
@@ -151,23 +151,23 @@ this.WbstChart = this.WbstChart || {};
 					}
 				},
 				axisTick: {
-					show:false,
+					show: false,
 					alignWithLabel: true
 				},
-				axisLabel:{
-					textStyle:{
-						color:"#5fcbff",
-						fontSize:16
+				axisLabel: {
+					textStyle: {
+						color: "#3fc0ff",
+						fontSize: 16
 					},
-					margin:50
+					margin: 50
 				}
 			}],
 			yAxis: [{
 				type: 'value',
-				name:'单位/万 ',
-				nameGap:20,
-				nameTextStyle:{
-					color:'#3fc0ff'
+				name: '单位/万 ',
+				nameGap: 20,
+				nameTextStyle: {
+					color: '#3fc0ff'
 				},
 				axisTick: {
 					length: 1.1,
@@ -183,57 +183,57 @@ this.WbstChart = this.WbstChart || {};
 				},
 				axisLabel: {
 					textStyle: {
-						color: '#00c6ff'
+						color: '#3fc0ff'
 					}
 				},
 				splitLine: {
-					lineStyle:{
-						color:'#1c4581'
+					lineStyle: {
+						color: '#1c4581'
 					}
 				}
 			}],
 			series: [{
 				name: '直接访问',
 				type: 'bar',
-				barMaxWidth:80,
+				barMaxWidth: 80,
 				data: this.data1,
-				label:{
-					normal:{
-						show:true,
-						position:'top',
-						formatter:function(params){
+				label: {
+					normal: {
+						show: true,
+						position: 'top',
+						formatter: function(params) {
 							// 12345 转 12,345
-							return (params.value*1e4).toString().replace(/\d{1,3}(?=(\d{3})+(\.\d*)?$)/g, '$&,');
+							return (params.value * 1e4).toString().replace(/\d{1,3}(?=(\d{3})+(\.\d*)?$)/g, '$&,');
 						},
-						offset:[0,-10],
-						textStyle:{
-							color:'#fff',
-							fontSize:26
+						offset: [0, -10],
+						textStyle: {
+							color: '#fff',
+							fontSize: 26
 						}
 					}
 				}
 			}, {
 				name: '直接访问2',
 				type: 'pictorialBar',
-				barMaxWidth:80,
+				barMaxWidth: 80,
 				data: this.data2
 			}]
-		}
+		};
 		this._myChart.setOption(option);
 		this.autoReplay();
-	}
+	};
 
-	p.autoReplay = function(){
+	p.autoReplay = function() {
 		var _this = this;
 		var oldData = null;
-		this.timer = setTimeout(function(){
+		this.timer = setTimeout(function() {
 			oldData = _this.data2;
 			_this.data2 = [];
 			_this.setOption();
 			_this.data2 = oldData;
 			_this.setOption();
-		},120000)
-	}
+		}, 120000)
+	};
 
 
 	WbstChart.P4Chart1 = P4Chart1;

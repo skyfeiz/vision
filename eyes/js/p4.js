@@ -26,13 +26,13 @@ this.EE = this.EE || {};
 			_this._config = data;
 			_this.initChart();
 			_this.changeData();
-		})
+		});
 
 	};
 
 	p.initDom = function() {
 		this.$op = $('#tooltip');
-	}
+	};
 
 	p.initChart = function() {
 		var _this = this;
@@ -46,20 +46,20 @@ this.EE = this.EE || {};
 		_this._P4Chart2 = new WbstChart.P4Chart2(doc.getElementById('p4chart2'));
 		_this._P4Chart2.setConfig(_this._config.p4chart2.config);
 		_this._mapKIdVChart['p4chart2'] = _this._P4Chart2;
-		_this._P4Chart2 .EventDispatcher.on('chartmouseover',function(vet,item){
-			var str = '<p class="tooltiptext"><span class="valuename">'+item.item.seriesName+' :</span><span class="valuenum">'+item.item.xAxisValue*10000+'</span><span class="fffpoint_lt"></span><span class="fffpoint_rb"></span></p>';
+		_this._P4Chart2.EventDispatcher.on('chartmouseover', function(vet, item) {
+			var str = '<p class="tooltiptext"><span class="valuename">' + item.item.seriesName + ' :</span><span class="valuenum">' + item.item.xAxisValue * 10000 + '</span><span class="fffpoint_lt"></span><span class="fffpoint_rb"></span></p>';
 			_this.showToolTip(str, item.event.pageX, item.event.pageY);
-		})
-		_this._P4Chart2 .EventDispatcher.on('chartmouseout',function(){
+		});
+		_this._P4Chart2.EventDispatcher.on('chartmouseout', function() {
 			_this.hideToolTip();
-		})
+		});
 
 		// event list
 		_this._P4List = new WbstChart.P4List();
 		_this._P4List.setConfig(_this._config.p4list.config);
 		_this._mapKIdVChart['p4list'] = _this._P4List;
 
-	}
+	};
 
 	p.changeData = function() {
 		var _this = this;
@@ -71,7 +71,7 @@ this.EE = this.EE || {};
 			endDate: _this.endDate
 		}, function(result) {
 			_this._mapKIdVChart['p4chart1'].setDataProvider(result.data);
-		})
+		});
 
 		// 折线图
 		_this.c.getP4Chart2Data({
@@ -80,7 +80,7 @@ this.EE = this.EE || {};
 			endDate: _this.endDate
 		}, function(result) {
 			_this._mapKIdVChart['p4chart2'].setDataProvider(result.data);
-		})
+		});
 
 		// event list
 		_this.c.getP4ListData({
@@ -89,9 +89,9 @@ this.EE = this.EE || {};
 			endDate: _this.endDate
 		}, function(result) {
 			_this._mapKIdVChart['p4list'].setDataProvider(result.data);
-		})
+		});
 
-	}
+	};
 
 	p.showToolTip = function(text, x, y) {
 		this.$op.html(text);
@@ -104,7 +104,7 @@ this.EE = this.EE || {};
 			left: x + 20,
 			top: y - 20
 		});
-	}
+	};
 
 	p.hideToolTip = function() {
 		this.$op.css({
@@ -112,7 +112,7 @@ this.EE = this.EE || {};
 			left: -100,
 			top: -100
 		});
-	}
+	};
 
 
 
