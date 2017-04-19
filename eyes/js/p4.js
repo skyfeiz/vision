@@ -97,8 +97,8 @@ this.EE = this.EE || {};
 		this.$op.html(text);
 		var w = this.$op.width() + 20;
 		var h = this.$op.height() + 20;
-		// if (x + w > $(window).innerWidth()) x = $(window).innerWidth() - w;
-		// if (y + h > $(window).innerHeight()) y = $(window).innerHeight() - h;
+		if (x + w > $(window).innerWidth()) x = $(window).innerWidth() - w;
+		if (y + h > $(window).innerHeight()) y = $(window).innerHeight() - h;
 		this.$op.css({
 			opacity: 1,
 			left: x + 20,

@@ -4,52 +4,52 @@
 		{
 			"seriesTitle":"媒体",
 			"name":"凤凰网",
-			"num":98
+			"num":980000
 		},
 		{
 			"seriesTitle":"媒体",
 			"name":"网易新闻",
-			"num":68
+			"num":680000
 		},
 		{
 			"seriesTitle":"媒体",
 			"name":"人人网",
-			"num":43
+			"num":430000
 		},
 		{
 			"seriesTitle":"媒体",
 			"name":"参考消息",
-			"num":56
+			"num":560000
 		},
 		{
 			"seriesTitle":"媒体",
 			"name":"东方卫视",
-			"num":34
+			"num":340000
 		},
 		{
 			"seriesTitle":"媒体",
 			"name":"南方日报",
-			"num":77
+			"num":770000
 		},
 		{
 			"seriesTitle":"媒体",
 			"name":"新华社",
-			"num":84
+			"num":840000
 		},
 		{
 			"seriesTitle":"媒体",
 			"name":"中华网",
-			"num":32
+			"num":320000
 		},
 		{
 			"seriesTitle":"媒体",
 			"name":"新华网",
-			"num":21
+			"num":210000
 		},
 		{
 			"seriesTitle":"媒体",
 			"name":"其他",
-			"num":16
+			"num":160000
 		}
 	]
 }

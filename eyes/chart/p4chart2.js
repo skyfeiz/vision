@@ -76,6 +76,25 @@ this.WbstChart = this.WbstChart || {};
 						shadowBlur: 10
 					}
 				},
+				markLine: {
+					silent:true,
+					symbolSize:0,
+					label:{
+						normal:{
+							show:false
+						}
+					},
+					data: [{
+						name: '标线1起点',
+						yAxis: 30
+					}, {
+						name: '标线1终点',
+						yAxis: 20
+					}, {
+						name: '标线1终点',
+						yAxis: 10
+					}]
+				},
 				smooth: true,
 				legendHoverLink: false
 			};
@@ -98,7 +117,7 @@ this.WbstChart = this.WbstChart || {};
 
 		var option = {
 			animationDuration: 3000,
-			color: ['#e12b3e', '#f09830', '#00a6f5'],
+			color: ['#e12b3e', '#f1b420', '#00a6f5'],
 			tooltip: {
 				trigger: 'axis',
 				showContent: false,
@@ -120,7 +139,7 @@ this.WbstChart = this.WbstChart || {};
 				padding: 2
 			},
 			grid: {
-				left: '0',
+				left: '1%',
 				right: '3%',
 				bottom: '0%',
 				containLabel: true
@@ -189,6 +208,7 @@ this.WbstChart = this.WbstChart || {};
 					}
 				},
 				splitLine: {
+					show: true,
 					lineStyle: {
 						color: ['rgba(28,69,129,1)']
 					}

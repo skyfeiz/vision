@@ -2,6 +2,7 @@ this.WbstChart = this.WbstChart || {};
 (function() {
 	var Chart5 = function(dom) {
 		this._dom = dom;
+		this.numScale = 1;
 		this.EventDispatcher = $({});
 		this.init();
 	};
@@ -9,6 +10,7 @@ this.WbstChart = this.WbstChart || {};
 	var p = Chart5.prototype;
 
 	p.init = function() {
+		this.initDom()
 		var _this = this;
 		_this._myChart = echarts.init(this._dom);
 
@@ -26,8 +28,12 @@ this.WbstChart = this.WbstChart || {};
 		_this._myChart.on('mouseout', function() {
 			_this.EventDispatcher.trigger('chartmouseout');
 		});
+
 	};
 
+	p.initDom = function(){
+		this.$unittitle = $('#unittitle');
+	};
 
 	p.setConfig = function(value) {
 		this._config = value;

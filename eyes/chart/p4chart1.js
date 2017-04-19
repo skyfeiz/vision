@@ -3,6 +3,8 @@ this.WbstChart = this.WbstChart || {};
 	var P4Chart1 = function(dom) {
 		this._dom = dom;
 
+		this.duration = 120000;
+
 		this.EventDispatcher = $({});
 
 		this.init();
@@ -232,8 +234,9 @@ this.WbstChart = this.WbstChart || {};
 			_this.setOption();
 			_this.data2 = oldData;
 			_this.setOption();
-		}, 120000)
+		}, this.duration);
 	};
+
 
 
 	WbstChart.P4Chart1 = P4Chart1;
