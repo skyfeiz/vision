@@ -1,0 +1,54 @@
+{
+	"success": true,
+	"error": "如果请求失败，返回页面的提示信息",
+	"data": [{
+			"parentSubjectCategoryId": 0,
+			"subjectCategoryId": 2,
+			"subjectCategoryName": "大气污染"
+		},{
+			"parentSubjectCategoryId": 0,
+			"subjectCategoryId": 3,
+			"subjectCategoryName": "大气污染"
+		},{
+			"parentSubjectCategoryId": 0,
+			"subjectCategoryId": 4,
+			"subjectCategoryName": "大气污染"
+		},{
+			"parentSubjectCategoryId": 0,
+			"subjectCategoryId": 5,
+			"subjectCategoryName": "大气污染"
+		},{
+			"parentSubjectCategoryId": 0,
+			"subjectCategoryId": 6,
+			"subjectCategoryName": "大气污染"
+		},{
+			"parentSubjectCategoryId": 0,
+			"subjectCategoryId": 7,
+			"subjectCategoryName": "大气污染"
+		},{
+			"parentSubjectCategoryId": 2,
+			"subjectCategoryId": 12,
+			"subjectCategoryName": "大气污染"
+		},{
+			"parentSubjectCategoryId": 3,
+			"subjectCategoryId": 13,
+			"subjectCategoryName": "大气污染"
+		},{
+			"parentSubjectCategoryId": 4,
+			"subjectCategoryId": 14,
+			"subjectCategoryName": "大气污染"
+		},{
+			"parentSubjectCategoryId": 5,
+			"subjectCategoryId": 15,
+			"subjectCategoryName": "大气污染"
+		},{
+			"parentSubjectCategoryId": 6,
+			"subjectCategoryId": 16,
+			"subjectCategoryName": "大气污染"
+		},{
+			"parentSubjectCategoryId": 7,
+			"subjectCategoryId": 17,
+			"subjectCategoryName": "大气污染"
+		}
+	]
+}

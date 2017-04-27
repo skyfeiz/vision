@@ -1,46 +1,40 @@
 {
-  "data": [
-  	{
-    "articleAuthor":"龙水源",
-	 "articleTitle":"“雾霾重来？济南挤进全国污染城市前十名”",
-	 "articlePubtime":"2016-10-31 17:12:32",
-	 "articleAbstract":"环保税开征最新消息：环保税2018年开征，每年...",
-	 "eventName":"事件",
-	 "articleSource":"网易、贴吧"
-  	},
-  	{
-    "articleAuthor":"龙水源",
-	 "articleTitle":"“雾霾重来？济南挤进全国污染城市前十名”",
-	 "articlePubtime":"2016-10-31 17:12:32",
-	 "articleAbstract":"环保税开征最新消息：环保税2018年开征，每年...",
-	 "eventName":"事件",
-	 "articleSource":"网易、贴吧"
-  	},
-  	{
-    "articleAuthor":"龙水源",
-	 "articleTitle":"“雾霾重来？济南挤进全国污染城市前十名”",
-	 "articlePubtime":"2016-10-31 17:12:32",
-	 "articleAbstract":"环保税开征最新消息：环保税2018年开征，每年...",
-	 "eventName":"事件",
-	 "articleSource":"网易、贴吧"
-  	},
-  	{
-    "articleAuthor":"龙水源",
-	 "articleTitle":"“雾霾重来？济南挤进全国污染城市前十名”",
-	 "articlePubtime":"2016-10-31 17:12:32",
-	 "articleAbstract":"环保税开征最新消息：环保税2018年开征，每年...",
-	 "eventName":"事件",
-	 "articleSource":"网易、贴吧"
-  	},
-  	{
-    "articleAuthor":"龙水源",
-	 "articleTitle":"“雾霾重来？济南挤进全国污染城市前十名”",
-	 "articlePubtime":"2016-10-31 17:12:32",
-	 "articleAbstract":"环保税开征最新消息：环保税2018年开征，每年...",
-	 "eventName":"事件",
-	 "articleSource":"网易、贴吧"
-  	}
-  ],
-  "reson":"",
-  "success": true
+	"data": [{
+		"articleAuthor": "龙水源",
+		"articleTitle": "“雾霾重来？济南挤进全国污染城市前十名”",
+		"articlePubtime": "2016-10-31 17:12:32",
+		"articleAbstract": "环保税开征最新消息：环保税2018年开征，每年...",
+		"eventName": "事件",
+		"articleSource": "网易、贴吧"
+	}, {
+		"articleAuthor": "龙水源",
+		"articleTitle": "“雾霾重来？济南挤进全国污染城市前十名”",
+		"articlePubtime": "2016-10-31 17:12:32",
+		"articleAbstract": "环保税开征最新消息：环保税2018年开征，每年...",
+		"eventName": "事件",
+		"articleSource": "网易、贴吧"
+	}, {
+		"articleAuthor": "龙水源",
+		"articleTitle": "“雾霾重来？济南挤进全国污染城市前十名”",
+		"articlePubtime": "2016-10-31 17:12:32",
+		"articleAbstract": "环保税开征最新消息：环保税2018年开征，每年...",
+		"eventName": "事件",
+		"articleSource": "网易、贴吧"
+	}, {
+		"articleAuthor": "龙水源",
+		"articleTitle": "“雾霾重来？济南挤进全国污染城市前十名”",
+		"articlePubtime": "2016-10-31 17:12:32",
+		"articleAbstract": "环保税开征最新消息：环保税2018年开征，每年...",
+		"eventName": "事件",
+		"articleSource": "网易、贴吧"
+	}, {
+		"articleAuthor": "龙水源",
+		"articleTitle": "“雾霾重来？济南挤进全国污染城市前十名”",
+		"articlePubtime": "2016-10-31 17:12:32",
+		"articleAbstract": "环保税开征最新消息：环保税2018年开征，每年...",
+		"eventName": "事件",
+		"articleSource": "网易、贴吧"
+	}],
+	"reson": "",
+	"success": true
 }

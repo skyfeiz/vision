@@ -2,32 +2,28 @@ this.EE = this.EE || {};
 (function(win) {
 	var Controller = function() {
 		var baseUrl = ""; //	请求域名头部
-		var hostUrl = "http://" + win.location.host + "/eems/sys/jsp/eyes/"; //	主机地址
-
-		var homeUrl =  "http://" + win.location.host + "/eems";
-
+		var hostUrl = "http://" + win.location.host + "/vision/eyes/"; //	主机地址
 		var storage = win.localStorage; //	离线缓存登录状态
 		//	接口列表
 		var api = {
 			//	============== p1 =================================
-			"login": homeUrl + "/rbac/foregroundLogin.action",
+			"login": "../eyes/debug/login1.json",
 			"logout": "",
 			"authority": "../eyes/asset/authority.json",
 			"chartConfig": "../eyes/asset/config.json",
-			"initPage": homeUrl + "/publicOpinionMap/regionalInformation.action",
-			"left1": homeUrl + "/publicOpinionMap/currentView.action",
-			"left2": homeUrl + "/publicOpinionMap/rankingEventsOne.action",
-			"left3": homeUrl + "/publicOpinionMap/rankingEventsSix.action",
-			"p1_mapData": homeUrl + "/publicOpinionMap/mapToData.action",
-			"initHeadlines": homeUrl + "/publicOpinionMap/rankingEventsPretreatment.action",
+			"initPage": "../eyes/debug/initPage.json",
+			"left1": "../eyes/debug/dashData.json",
+			"left2": "../eyes/debug/headline.json",
+			"left3": "../eyes/debug/source.json",
+			"p1_mapData": "../eyes/debug/map.json",
+			"initHeadlines": "../eyes/debug/login1.json",
 
-			"chart4": homeUrl + "/opinionStudy/getHottestEvent.action", //舆情头条
-			"chart5": homeUrl + "/opinionStudy/getEventProvinceRank.action", //舆情省份排名
-			"chart6": homeUrl + "/opinionStudy/getPublicOpinionLine.action", //舆情走势
-			"chart7": homeUrl + "/opinionStudy/getMediaTypeSource.action", //来源媒体分布
-			"chart8": homeUrl + "/opinionStudy/getHeadline.action", //头条正中负面
-			"chart9": homeUrl + "/opinionStudy/getKeywordsCloud.action", //关键词
-
+			"chart4": "../eyes/debug/chart4.json",		//舆情头条
+			"chart5": "../eyes/debug/chart5.json",		//舆情省份排名
+			"chart6": "../eyes/debug/chart6.json",		//舆情走势
+			"chart7": "../eyes/debug/chart7.json",		//来源媒体分布
+			"chart8": "../eyes/debug/chart8.json",		//头条正中负面
+			"chart9": "../eyes/debug/chart9.json",		//关键词
 			//=================== p3 =====================================
 			"p3_mapData": "../eyes/debug/map.json",
 			"eventBrief_p3": "debug/p3_3.json",
@@ -42,14 +38,18 @@ this.EE = this.EE || {};
 			"p4list": "../eyes/debug/p4list.json",
 
 			"detailsList": "../eyes/debug/detailsList.json",
+			"wordsData": "../eyes/debug/wordsData.json",
+			
 
 			"tracesChart1": "../eyes/debug/tracesChart1.json",
 			"tracesEvent": "../eyes/debug/traces.json",
-			"chartP6": "../eyes/debug/p6_map.json"
+			"chartP6": "../eyes/debug/p6_map.json",
+
+			"p8chart1":"../eyes/debug/p8chart1.json"
 		};
 
 		//	异步请求方法
-		var requestAsk = function(opt) { 
+		var requestAsk = function(opt) {
 			$.ajax({
 				type: opt.type || "GET",
 				data: opt.data || {},
@@ -58,26 +58,10 @@ this.EE = this.EE || {};
 					if (opt.callback instanceof Function)
 						opt.callback(json);
 				},
-				error: function() {
+				error: function(){
 					throw new Error(baseUrl + opt.url + " 接口");
 				}
-			});
-		};
-		
-		var requestAsk2 = function(opt) { 
-			$.ajax({
-				type: opt.type || "GET",
-				data: opt.data || {},
-				contentType:"application/json",
-				url: baseUrl + opt.url,
-				success: function(json) {
-					if (opt.callback instanceof Function)
-						opt.callback(json);
-				},
-				error: function() {
-					throw new Error(baseUrl + opt.url + " 接口");
-				}
-			});
+			})
 		};
 
 		//	判断是否登录
@@ -121,14 +105,13 @@ this.EE = this.EE || {};
 						if (json.success == false) {
 							callback(json.error);
 						} else {
-							console.log(json)
 							storage.region = json.region;
-							storage.userName = json.userName;
+							storage.loginName = data.loginName;
 							win.location.href = hostUrl + 'p1.html';
 						}
 					}
 				}
-			});
+			})
 		};
 
 		this.logout = function(data, callback) {
@@ -140,7 +123,7 @@ this.EE = this.EE || {};
 						callback(json);
 					storage.region = "";
 				}
-			});
+			})
 		};
 
 		// 登录模块
@@ -149,21 +132,21 @@ this.EE = this.EE || {};
 			var plogin = new WBST.Login();
 			plogin.subMsg = function(data, callback) {
 				_this.login(data, callback);
-			};
+			}
 		};
 
-		this.getInit = function(data, callback) {
+		this.getInit = function(data,callback) {
 			requestAsk({
 				url: api.initPage,
 				data: data,
 				callback: function(json) {
 					if (callback instanceof Function) {
 						if (json.success) {
-							callback(json);
+							callback(json)
 						}
 					}
 				}
-			});
+			})
 		};
 
 		this.getInitHeadlines = function(data, callback) {
@@ -181,7 +164,7 @@ this.EE = this.EE || {};
 			});
 		};
 
-		this.getChartConfig = function(data, callback) {
+		this.getChartConfig = function(data,callback){
 			requestAsk({
 				url: api.chartConfig,
 				data: data,
@@ -190,8 +173,8 @@ this.EE = this.EE || {};
 						callback(json)
 					}
 				}
-			});
-		};
+			})
+		}
 
 		this.getLeft1Data = function(data, callback) {
 			requestAsk({
@@ -204,29 +187,26 @@ this.EE = this.EE || {};
 						}
 					}
 				}
-			});
+			})
 		};
 
 		this.getLeft2Data = function(data, callback) {
-			requestAsk2({
+			requestAsk({
 				url: api.left2,
-				data: JSON.stringify(data),
-				type: "POST",
+				data: data,
 				callback: function(json) {
-					console.log(json)
 					if (callback instanceof Function) {
 						if (json.success) {
 							callback(json)
 						}
 					}
 				}
-			});
+			})
 		};
 		this.getLeft3Data = function(data, callback) {
-			requestAsk2({
+			requestAsk({
 				url: api.left3,
-				type: "POST",
-				data: JSON.stringify(data),
+				data: data,
 				callback: function(json) {
 					if (callback instanceof Function) {
 						if (json.success) {
@@ -237,12 +217,11 @@ this.EE = this.EE || {};
 			});
 		};
 		//	p1 的地图打点数据
-		this.getMapData_P1 = function(data, callback) {
+		this.getMapData_P1 = function(data,callback){
 			requestAsk({
 				url: api.p1_mapData,
 				data: data,
 				callback: function(json) {
-					console.log("地图数据==============================================")
 					if (callback instanceof Function) {
 						if (json.success) {
 							callback(json)
@@ -255,37 +234,31 @@ this.EE = this.EE || {};
 		/*------------------------------------p2------------------------------------------*/
 
 		this.getChart4Data = function(data, callback) {
-			
 			requestAsk({
 				url: api.chart4,
 				data: data,
 				callback: function(json) {
 					if (callback instanceof Function) {
-						var json = eval('('+json+')');
 						if (json.success) {
-							console.log(json);
 							callback(json)
 						}
 					}
 				}
-			});
+			})
 		};
 
 		this.getChart5Data = function(data, callback) {
-			console.log(data);
 			requestAsk({
 				url: api.chart5,
 				data: data,
 				callback: function(json) {
-					var json = eval('('+json+')');
-					console.log(json);
 					if (callback instanceof Function) {
 						if (json.success) {
 							callback(json)
 						}
 					}
 				}
-			});
+			})
 		};
 
 		this.getChart6Data = function(data, callback) {
@@ -294,14 +267,12 @@ this.EE = this.EE || {};
 				data: data,
 				callback: function(json) {
 					if (callback instanceof Function) {
-						var json = eval('('+json+')');
-						console.log(json);
 						if (json.success) {
 							callback(json)
 						}
 					}
 				}
-			});
+			})
 		};
 
 		this.getChart7Data = function(data, callback) {
@@ -310,14 +281,12 @@ this.EE = this.EE || {};
 				data: data,
 				callback: function(json) {
 					if (callback instanceof Function) {
-						var json = eval('('+json+')');
-						console.log(json);
 						if (json.success) {
 							callback(json)
 						}
 					}
 				}
-			});
+			})
 		};
 
 		this.getChart8Data = function(data, callback) {
@@ -326,14 +295,12 @@ this.EE = this.EE || {};
 				data: data,
 				callback: function(json) {
 					if (callback instanceof Function) {
-						var json = eval('('+json+')');
 						if (json.success) {
-							console.log(json)
 							callback(json)
 						}
 					}
 				}
-			});
+			})
 		};
 
 		this.getChart9Data = function(data, callback) {
@@ -342,63 +309,17 @@ this.EE = this.EE || {};
 				data: data,
 				callback: function(json) {
 					if (callback instanceof Function) {
-						var json = eval('('+json+')');
 						if (json.success) {
 							callback(json)
 						}
 					}
 				}
-			});
+			})
 		};
 
-
-		/*------------------------------------ p4 ------------------------------------------*/
-
-		this.getP4Chart1Data = function(data, callback) {
-			requestAsk({
-				url: api.p4chart1,
-				data: data,
-				callback: function(json) {
-					if (callback instanceof Function) {
-						if (json.success) {
-							callback(json);
-						}
-					}
-				}
-			});
-		};
-
-		this.getP4Chart2Data = function(data, callback) {
-			requestAsk({
-				url: api.p4chart2,
-				data: data,
-				callback: function(json) {
-					if (callback instanceof Function) {
-						if (json.success) {
-							callback(json);
-						}
-					}
-				}
-			});
-		};
-
-		this.getP4ListData = function(data, callback) {
-			requestAsk({
-				url: api.p4list,
-				data: data,
-				callback: function(json) {
-					if (callback instanceof Function) {
-						if (json.success) {
-							callback(json);
-						}
-					}
-				}
-			});
-		};
-
-
+		//	========== p3 =================
 		//	p3 的地图打点数据
-		this.getMapData_P3 = function(data, callback) {
+		this.getMapData_P3 = function(data,callback){
 			requestAsk({
 				url: api.p3_mapData,
 				data: data,
@@ -412,7 +333,7 @@ this.EE = this.EE || {};
 			});
 		};
 
-		this.getEventBrief_p3 = function(data, callback) {
+		this.getEventBrief_p3 = function(data,callback){
 			requestAsk({
 				url: api.eventBrief_p3,
 				data: data,
@@ -427,7 +348,7 @@ this.EE = this.EE || {};
 			});
 		};
 
-		this.getMediaRange_p3 = function(data, callback) {
+		this.getMediaRange_p3 = function(data,callback){
 			requestAsk({
 				url: api.mediaRange_p3,
 				data: data,
@@ -442,7 +363,7 @@ this.EE = this.EE || {};
 			});
 		};
 
-		this.getWorldCloud_p3 = function(data, callback) {
+		this.getWorldCloud_p3 = function(data,callback){
 			requestAsk({
 				url: api.worldCloud_p3,
 				data: data,
@@ -457,7 +378,7 @@ this.EE = this.EE || {};
 			});
 		};
 
-		this.getOpinions_p3 = function(data, callback) {
+		this.getOpinions_p3 = function(data,callback){
 			requestAsk({
 				url: api.opinions_p3,
 				data: data,
@@ -472,7 +393,7 @@ this.EE = this.EE || {};
 			});
 		};
 
-		this.getOpinionList_p3 = function(data, callback) {
+		this.getOpinionList_p3 = function(data,callback){
 			requestAsk({
 				url: api.opinionsList_p3,
 				data: data,
@@ -487,7 +408,7 @@ this.EE = this.EE || {};
 			});
 		};
 
-		this.getEventCurve_p3 = function(data, callback) {
+		this.getEventCurve_p3 = function(data,callback){
 			requestAsk({
 				url: api.eventCurve_p3,
 				data: data,
@@ -502,8 +423,7 @@ this.EE = this.EE || {};
 			});
 		};
 
-
-		/*------------------------------------ p4 ------------------------------------------*/
+		/*------------------------------------ details ------------------------------------------*/
 
 		this.getDetailsListData = function(data, callback) {
 			requestAsk({
@@ -519,7 +439,19 @@ this.EE = this.EE || {};
 			});
 		};
 
-
+		this.getWordsData = function(data, callback){
+			requestAsk({
+				url: api.wordsData,
+				data: data,
+				callback: function(json) {
+					if (callback instanceof Function) {
+						if (json.success) {
+							callback(json);
+						}
+					}
+				}
+			});
+		}
 
 		/*------------------------------------ leader traces ------------------------------------------*/
 
@@ -554,6 +486,21 @@ this.EE = this.EE || {};
 		this.getChartP6Data = function(data, callback) {
 			requestAsk({
 				url: api.chartP6,
+				data: data,
+				callback: function(json) {
+					if (callback instanceof Function) {
+						if (json.success) {
+							callback(json);
+						}
+					}
+				}
+			});
+		};
+
+
+		this.getP8Chart1Data = function(data, callback) {
+			requestAsk({
+				url: api.p8chart1,
 				data: data,
 				callback: function(json) {
 					if (callback instanceof Function) {

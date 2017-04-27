@@ -176,8 +176,8 @@ this.WbstChart = this.WbstChart || {};
 				trigger: 'item'
 			},
 			grid: {
-				left: 0,
-				right: '8%',
+				left: '7%',
+				right: '16%',
 				top: '8%',
 				bottom: '4%'
 			},
@@ -206,7 +206,14 @@ this.WbstChart = this.WbstChart || {};
 					normal: {
 						show: true,
 						position: 'right',
-						offset: [0, -2]
+						offset: [0, -2],
+						formatter:function(param){
+							if(param.value){
+								return param.value;
+							}else{
+								return '';
+							}
+						}
 					},
 					emphasis: {
 						textStyle: {
@@ -226,7 +233,7 @@ this.WbstChart = this.WbstChart || {};
 		$('a').remove('.chart4news');
 		if (data.length) {
 			for (var i = 0; i < data.length; i++) {
-				strHtml += '<a class="chart4news anew' + i + '" eventid="' + data[i].eventId + '">' + data[i].title + '</a>'
+				strHtml += '<a class="chart4news anew' + i + '" eventid="' + data[i].seriesTitle + '">' + data[i].name + '</a>';
 			}
 			this.$parent.append(strHtml);
 		}

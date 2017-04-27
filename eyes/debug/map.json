@@ -9,12 +9,13 @@
 			"numJust":"500",
 			"numIn":"200",
 			"numNegative":"300",
-			"atmosphere": 1000,
-			"water": 1000,
-			"soil": 1000,
-			"nucleus": 1000,
-			"solid": 1000,
-			"other": 1000
+			"mapToDataSixsBean": [
+				{"name": "大气污染", "num": 1000},
+				{"name": "水体污染", "num": 1000},
+				{"name": "土壤污染", "num": 1000},
+				{"name": "核污染", "num": 1000},
+				{"name": "固体废弃物", "num": 1000}
+			]
 		},
 		{
 			"seriesTitle": "全国",
@@ -24,12 +25,13 @@
 			"numJust":"500",
 			"numIn":"200",
 			"numNegative":"300",
-			"atmosphere": 1000,
-			"water": 1000,
-			"soil": 1000,
-			"nucleus": 1000,
-			"solid": 1000,
-			"other": 1000
+			"mapToDataSixsBean": [
+				{"name": "大气污染", "num": 1000},
+				{"name": "水体污染", "num": 1000},
+				{"name": "土壤污染", "num": 1000},
+				{"name": "核污染", "num": 1000},
+				{"name": "固体废弃物", "num": 1000}
+			]
 		},{
 			"seriesTitle": "全国",
 			"name": "天津",
@@ -38,12 +40,13 @@
 			"numJust":"300",
 			"numIn":"500",
 			"numNegative":"200",
-			"atmosphere": 1000,
-			"water": 1000,
-			"soil": 1000,
-			"nucleus": 1000,
-			"solid": 1000,
-			"other": 1000
+			"mapToDataSixsBean": [
+				{"name": "大气污染", "num": 1000},
+				{"name": "水体污染", "num": 1000},
+				{"name": "土壤污染", "num": 1000},
+				{"name": "核污染", "num": 1000},
+				{"name": "固体废弃物", "num": 1000}
+			]
 		},{
 			"seriesTitle": "全国",
 			"name": "广州",
@@ -52,12 +55,13 @@
 			"numJust":"500",
 			"numIn":"200",
 			"numNegative":"300",
-			"atmosphere": 1000,
-			"water": 1000,
-			"soil": 1000,
-			"nucleus": 1000,
-			"solid": 1000,
-			"other": 1000
+			"mapToDataSixsBean": [
+				{"name": "大气污染", "num": 1000},
+				{"name": "水体污染", "num": 1000},
+				{"name": "土壤污染", "num": 1000},
+				{"name": "核污染", "num": 1000},
+				{"name": "固体废弃物", "num": 1000}
+			]
 		},{
 			"seriesTitle": "全国",
 			"name": "杭州",
@@ -66,12 +70,13 @@
 			"numJust":"500",
 			"numIn":"200",
 			"numNegative":"300",
-			"atmosphere": 1000,
-			"water": 1000,
-			"soil": 1000,
-			"nucleus": 1000,
-			"solid": 1000,
-			"other": 1000
+			"mapToDataSixsBean": [
+				{"name": "大气污染", "num": 1000},
+				{"name": "水体污染", "num": 1000},
+				{"name": "土壤污染", "num": 1000},
+				{"name": "核污染", "num": 1000},
+				{"name": "固体废弃物", "num": 1000}
+			]
 		},{
 			"seriesTitle": "全国",
 			"name": "重庆",
@@ -80,12 +85,13 @@
 			"numJust":"500",
 			"numIn":"200",
 			"numNegative":"300",
-			"atmosphere": 1000,
-			"water": 1000,
-			"soil": 1000,
-			"nucleus": 1000,
-			"solid": 1000,
-			"other": 1000
+			"mapToDataSixsBean": [
+				{"name": "大气污染", "num": 1000},
+				{"name": "水体污染", "num": 1000},
+				{"name": "土壤污染", "num": 1000},
+				{"name": "核污染", "num": 1000},
+				{"name": "固体废弃物", "num": 1000}
+			]
 		},{
 			"seriesTitle": "全国",
 			"name": "福州",
@@ -94,12 +100,13 @@
 			"numJust":"500",
 			"numIn":"200",
 			"numNegative":"300",
-			"atmosphere": 1000,
-			"water": 1000,
-			"soil": 1000,
-			"nucleus": 1000,
-			"solid": 1000,
-			"other": 1000
+			"mapToDataSixsBean": [
+				{"name": "大气污染", "num": 1000},
+				{"name": "水体污染", "num": 1000},
+				{"name": "土壤污染", "num": 1000},
+				{"name": "核污染", "num": 1000},
+				{"name": "固体废弃物", "num": 1000}
+			]
 		},{
 			"seriesTitle": "全国",
 			"name": "兰州",
@@ -108,12 +115,13 @@
 			"numJust":"200",
 			"numIn":"300",
 			"numNegative":"500",
-			"atmosphere": 1000,
-			"water": 1000,
-			"soil": 1000,
-			"nucleus": 1000,
-			"solid": 1000,
-			"other": 1000
+			"mapToDataSixsBean": [
+				{"name": "大气污染", "num": 1000},
+				{"name": "水体污染", "num": 1000},
+				{"name": "土壤污染", "num": 1000},
+				{"name": "核污染", "num": 1000},
+				{"name": "固体废弃物", "num": 1000}
+			]
 		},{
 			"seriesTitle": "全国",
 			"name": "贵阳",
@@ -122,12 +130,13 @@
 			"numJust":"500",
 			"numIn":"200",
 			"numNegative":"300",
-			"atmosphere": 1000,
-			"water": 1000,
-			"soil": 1000,
-			"nucleus": 1000,
-			"solid": 1000,
-			"other": 1000
+			"mapToDataSixsBean": [
+				{"name": "大气污染", "num": 1000},
+				{"name": "水体污染", "num": 1000},
+				{"name": "土壤污染", "num": 1000},
+				{"name": "核污染", "num": 1000},
+				{"name": "固体废弃物", "num": 1000}
+			]
 		},{
 			"seriesTitle": "全国",
 			"name": "长沙",
@@ -136,12 +145,13 @@
 			"numJust":"500",
 			"numIn":"200",
 			"numNegative":"300",
-			"atmosphere": 1000,
-			"water": 1000,
-			"soil": 1000,
-			"nucleus": 1000,
-			"solid": 1000,
-			"other": 1000
+			"mapToDataSixsBean": [
+				{"name": "大气污染", "num": 1000},
+				{"name": "水体污染", "num": 1000},
+				{"name": "土壤污染", "num": 1000},
+				{"name": "核污染", "num": 1000},
+				{"name": "固体废弃物", "num": 1000}
+			]
 		},{
 			"seriesTitle": "全国",
 			"name": "南京",
@@ -150,12 +160,13 @@
 			"numJust":"500",
 			"numIn":"200",
 			"numNegative":"300",
-			"atmosphere": 1000,
-			"water": 1000,
-			"soil": 1000,
-			"nucleus": 1000,
-			"solid": 1000,
-			"other": 1000
+			"mapToDataSixsBean": [
+				{"name": "大气污染", "num": 1000},
+				{"name": "水体污染", "num": 1000},
+				{"name": "土壤污染", "num": 1000},
+				{"name": "核污染", "num": 1000},
+				{"name": "固体废弃物", "num": 1000}
+			]
 		},{
 			"seriesTitle": "全国",
 			"name": "南昌",
@@ -164,12 +175,13 @@
 			"numJust":"500",
 			"numIn":"200",
 			"numNegative":"300",
-			"atmosphere": 1000,
-			"water": 1000,
-			"soil": 1000,
-			"nucleus": 1000,
-			"solid": 1000,
-			"other": 1000
+			"mapToDataSixsBean": [
+				{"name": "大气污染", "num": 1000},
+				{"name": "水体污染", "num": 1000},
+				{"name": "土壤污染", "num": 1000},
+				{"name": "核污染", "num": 1000},
+				{"name": "固体废弃物", "num": 1000}
+			]
 		},{
 			"seriesTitle": "全国",
 			"name": "沈阳",
@@ -178,12 +190,13 @@
 			"numJust":"500",
 			"numIn":"200",
 			"numNegative":"300",
-			"atmosphere": 1000,
-			"water": 1000,
-			"soil": 1000,
-			"nucleus": 1000,
-			"solid": 1000,
-			"other": 1000
+			"mapToDataSixsBean": [
+				{"name": "大气污染", "num": 1000},
+				{"name": "水体污染", "num": 1000},
+				{"name": "土壤污染", "num": 1000},
+				{"name": "核污染", "num": 1000},
+				{"name": "固体废弃物", "num": 1000}
+			]
 		},{
 			"seriesTitle": "全国",
 			"name": "太原",
@@ -192,12 +205,13 @@
 			"numJust":"500",
 			"numIn":"200",
 			"numNegative":"300",
-			"atmosphere": 1000,
-			"water": 1000,
-			"soil": 1000,
-			"nucleus": 1000,
-			"solid": 1000,
-			"other": 1000
+			"mapToDataSixsBean": [
+				{"name": "大气污染", "num": 1000},
+				{"name": "水体污染", "num": 1000},
+				{"name": "土壤污染", "num": 1000},
+				{"name": "核污染", "num": 1000},
+				{"name": "固体废弃物", "num": 1000}
+			]
 		},{
 			"seriesTitle": "全国",
 			"name": "成都",
@@ -206,12 +220,13 @@
 			"numJust":"500",
 			"numIn":"200",
 			"numNegative":"300",
-			"atmosphere": 1000,
-			"water": 1000,
-			"soil": 1000,
-			"nucleus": 1000,
-			"solid": 1000,
-			"other": 1000
+			"mapToDataSixsBean": [
+				{"name": "大气污染", "num": 1000},
+				{"name": "水体污染", "num": 1000},
+				{"name": "土壤污染", "num": 1000},
+				{"name": "核污染", "num": 1000},
+				{"name": "固体废弃物", "num": 1000}
+			]
 		},{
 			"seriesTitle": "全国",
 			"name": "拉萨",
@@ -220,12 +235,13 @@
 			"numJust":"500",
 			"numIn":"200",
 			"numNegative":"300",
-			"atmosphere": 1000,
-			"water": 1000,
-			"soil": 1000,
-			"nucleus": 1000,
-			"solid": 1000,
-			"other": 1000
+			"mapToDataSixsBean": [
+				{"name": "大气污染", "num": 1000},
+				{"name": "水体污染", "num": 1000},
+				{"name": "土壤污染", "num": 1000},
+				{"name": "核污染", "num": 1000},
+				{"name": "固体废弃物", "num": 1000}
+			]
 		},{
 			"seriesTitle": "全国",
 			"name": "乌鲁木齐",
@@ -234,12 +250,13 @@
 			"numJust":"500",
 			"numIn":"200",
 			"numNegative":"300",
-			"atmosphere": 1000,
-			"water": 1000,
-			"soil": 1000,
-			"nucleus": 1000,
-			"solid": 1000,
-			"other": 1000
+			"mapToDataSixsBean": [
+				{"name": "大气污染", "num": 1000},
+				{"name": "水体污染", "num": 1000},
+				{"name": "土壤污染", "num": 1000},
+				{"name": "核污染", "num": 1000},
+				{"name": "固体废弃物", "num": 1000}
+			]
 		},{
 			"seriesTitle": "全国",
 			"name": "昆明",
@@ -248,12 +265,13 @@
 			"numJust":"500",
 			"numIn":"200",
 			"numNegative":"300",
-			"atmosphere": 1000,
-			"water": 1000,
-			"soil": 1000,
-			"nucleus": 1000,
-			"solid": 1000,
-			"other": 1000
+			"mapToDataSixsBean": [
+				{"name": "大气污染", "num": 1000},
+				{"name": "水体污染", "num": 1000},
+				{"name": "土壤污染", "num": 1000},
+				{"name": "核污染", "num": 1000},
+				{"name": "固体废弃物", "num": 1000}
+			]
 		},{
 			"seriesTitle": "全国",
 			"name": "西安",
@@ -262,12 +280,13 @@
 			"numJust":"500",
 			"numIn":"200",
 			"numNegative":"300",
-			"atmosphere": 1000,
-			"water": 1000,
-			"soil": 1000,
-			"nucleus": 1000,
-			"solid": 1000,
-			"other": 1000
+			"mapToDataSixsBean": [
+				{"name": "大气污染", "num": 1000},
+				{"name": "水体污染", "num": 1000},
+				{"name": "土壤污染", "num": 1000},
+				{"name": "核污染", "num": 1000},
+				{"name": "固体废弃物", "num": 1000}
+			]
 		},{
 			"seriesTitle": "全国",
 			"name": "哈尔滨",
@@ -276,12 +295,13 @@
 			"numJust":"500",
 			"numIn":"200",
 			"numNegative":"300",
-			"atmosphere": 1000,
-			"water": 1000,
-			"soil": 1000,
-			"nucleus": 1000,
-			"solid": 1000,
-			"other": 1000
+			"mapToDataSixsBean": [
+				{"name": "大气污染", "num": 1000},
+				{"name": "水体污染", "num": 1000},
+				{"name": "土壤污染", "num": 1000},
+				{"name": "核污染", "num": 1000},
+				{"name": "固体废弃物", "num": 1000}
+			]
 		},{
 			"seriesTitle": "全国",
 			"name": "长春",
@@ -290,12 +310,13 @@
 			"numJust":"500",
 			"numIn":"200",
 			"numNegative":"300",
-			"atmosphere": 1000,
-			"water": 1000,
-			"soil": 1000,
-			"nucleus": 1000,
-			"solid": 1000,
-			"other": 1000
+			"mapToDataSixsBean": [
+				{"name": "大气污染", "num": 1000},
+				{"name": "水体污染", "num": 1000},
+				{"name": "土壤污染", "num": 1000},
+				{"name": "核污染", "num": 1000},
+				{"name": "固体废弃物", "num": 1000}
+			]
 		},{
 			"seriesTitle": "全国",
 			"name": "武汉",
@@ -304,12 +325,13 @@
 			"numJust":"500",
 			"numIn":"200",
 			"numNegative":"300",
-			"atmosphere": 1000,
-			"water": 1000,
-			"soil": 1000,
-			"nucleus": 1000,
-			"solid": 1000,
-			"other": 1000
+			"mapToDataSixsBean": [
+				{"name": "大气污染", "num": 1000},
+				{"name": "水体污染", "num": 1000},
+				{"name": "土壤污染", "num": 1000},
+				{"name": "核污染", "num": 1000},
+				{"name": "固体废弃物", "num": 1000}
+			]
 		},{
 			"seriesTitle": "全国",
 			"name": "郑州",
@@ -318,12 +340,13 @@
 			"numJust":"500",
 			"numIn":"200",
 			"numNegative":"300",
-			"atmosphere": 1000,
-			"water": 1000,
-			"soil": 1000,
-			"nucleus": 1000,
-			"solid": 1000,
-			"other": 1000
+			"mapToDataSixsBean": [
+				{"name": "大气污染", "num": 1000},
+				{"name": "水体污染", "num": 1000},
+				{"name": "土壤污染", "num": 1000},
+				{"name": "核污染", "num": 1000},
+				{"name": "固体废弃物", "num": 1000}
+			]
 		},{
 			"seriesTitle": "全国",
 			"name": "海口",
@@ -332,12 +355,13 @@
 			"numJust":"500",
 			"numIn":"200",
 			"numNegative":"300",
-			"atmosphere": 1000,
-			"water": 1000,
-			"soil": 1000,
-			"nucleus": 1000,
-			"solid": 1000,
-			"other": 1000
+			"mapToDataSixsBean": [
+				{"name": "大气污染", "num": 1000},
+				{"name": "水体污染", "num": 1000},
+				{"name": "土壤污染", "num": 1000},
+				{"name": "核污染", "num": 1000},
+				{"name": "固体废弃物", "num": 1000}
+			]
 		}
 	]
 }

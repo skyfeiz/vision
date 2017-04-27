@@ -73,16 +73,18 @@ this.WbstChart = this.WbstChart || {};
 		})
 
 		var series = [];
+
 		series.push({
 				name: this._dataProvider[0][this._config["title"]],
 				type: 'lines',
 				zlevel: 1,
 				effect: {
 					show: true,
-					period: 1.5,
+					period: 2,
 					trailLength: 0.5,
-					color: '#fff',
-					symbolSize: 1.3
+					symbol:'circle',
+					color: '#ffff01',
+					symbolSize: 2
 				},
 				lineStyle: {
 					normal: {
@@ -93,7 +95,7 @@ this.WbstChart = this.WbstChart || {};
 				},
 				data: lineAry
 			},
-			/*{
+			{
 			    name: this._dataProvider[0][this._config["title"]],
 			    type: 'lines',
 			    zlevel: 2,
@@ -106,7 +108,7 @@ this.WbstChart = this.WbstChart || {};
 			        }
 			    },
 			    data: lineAry
-			},*/
+			},
 			{
 				name: this._dataProvider[0][this._config["title"]],
 				type: 'effectScatter',

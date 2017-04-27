@@ -23,7 +23,7 @@ this.EE = this.EE || {};
 
     p.init = function() {
         var _this = this;
-        _this.t = new WbstChart.TimeLine('2010-08-08', '2016-08-08');
+        _this.t = new WbstChart.TimeLine({start:'2008-08-08',now:true});
 
         _this.c.getChartConfig('', function(data) {
             _this._config = data;

@@ -47,7 +47,7 @@ this.EE = this.EE || {};
 		_this._P4Chart2.setConfig(_this._config.p4chart2.config);
 		_this._mapKIdVChart['p4chart2'] = _this._P4Chart2;
 		_this._P4Chart2.EventDispatcher.on('chartmouseover', function(vet, item) {
-			var str = '<p class="tooltiptext"><span class="valuename">' + item.item.seriesName + ' :</span><span class="valuenum">' + item.item.xAxisValue * 10000 + '</span><span class="fffpoint_lt"></span><span class="fffpoint_rb"></span></p>';
+			var str = '<p class="tooltiptext"><span class="valuename">' + item.item.seriesName + ' :</span><span class="valuenum">' + item.item.xAxisValue + '</span><span class="fffpoint_lt"></span><span class="fffpoint_rb"></span></p>';
 			_this.showToolTip(str, item.event.pageX, item.event.pageY);
 		});
 		_this._P4Chart2.EventDispatcher.on('chartmouseout', function() {

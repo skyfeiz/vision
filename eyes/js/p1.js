@@ -1,11 +1,15 @@
 this.EE = this.EE || {};
 (function(win, doc) {
+	// var hostUrl = "http://" + win.location.host + "/eems/sys/jsp/eyes/";
 	var hostUrl = "http://" + win.location.host + "/vision/eyes/";
 
 	var P1Map = function() {
 		this.c = new EE.Controller();
 
 		this._mapKIdVChart = {};
+
+		this.startDate = '2017-04-01';
+		this.endDate = '2017-04-30';
 
 		this.ready();
 	};
@@ -15,17 +19,18 @@ this.EE = this.EE || {};
 	p.ready = function() {
 		var _this = this;
 		_this.c.ready(function(region) {
-			_this.region = region;
 			_this.c.getInit({
 				region: region
 			}, function(json) {
 				// 初始的视角
+				_this.region = json.data[0].seriesTitle;
+				_this.regionName = json.data[0].name;
 				_this.viewName = json.data[0].name;
 				_this.viewId = json.data[0].seriesTitle;
-				_this.setCookie('angle',_this.viewName);
-				_this.setCookie('regin',_this.viewId);
-				// 情感默认为负方
-				_this.emotion = -1;
+
+				// 情感默认为总数
+				_this.emotion = 'sum';
+				_this.sign = 1;
 				_this.init();
 				_this.initDom();
 			})
@@ -35,133 +40,166 @@ this.EE = this.EE || {};
 	p.init = function() {
 		var _this = this;
 		_this.s = new WBST.CitySelect(_this.viewName, _this.viewId);
-		_this.t = new WbstChart.TimeLine('2010-08-08', '2016-08-08');
-		_this.map = new EE.map(_this.viewId, function() {
+		_this.t = new WbstChart.TimeLine('2010-08-08');
 
-			_this.c.getChartConfig('', function(data) {
-				_this._config = data;
-				_this.initChart();
+		// 信息预处理
+		_this.initData(function(event) {
+			_this.map = new EE.map(_this.viewId, function() {
+				console.log("地图形成-------------------------------")
+				_this.c.getChartConfig('', function(data) {
+					_this._config = data;
+					_this.initChart();
+				});
+				//	时间轴
+				_this.t.toChange = function(json) {
+					_this.startDate = json.startDate;
+					_this.endDate = json.endDate;
+					_this.initData(function(event) {
+						_this.changeData(event)
+					});
+				};
+				//				$(document).trigger('mouseup');
+				$("#setnow").trigger('click');
 			});
-			//	时间轴
-			_this.t.toChange = function(json) {
-				_this.startDate = json.startDate;
-				_this.endDate = json.endDate;
-				_this.changeData();
+
+
+			//			选择城市改变地图
+			_this.s.cityChange = function(obj) {
+				_this.viewName = obj.name;
+				_this.viewId = obj.id;
+				_this.map.clickCity(obj, function() {
+					_this.initData(function() {
+						_this.changeData()
+					});
+				});
 			};
+			_this.s.provinceChange = function(obj) {
+				_this.viewName = obj.name;
+				_this.viewId = obj.id;
+				_this.map.clickProvince(obj, function() {
+					//					_this.initData(function(){
+					//						_this.changeData()
+					//					});
+				});
+			};
+			_this.s.chinaChange = function() {
+				_this.viewName = '全国';
+				_this.viewId = '101';
+				_this.map.clickChina(null, function() {
+					_this.initData(function() {
+						_this.changeData()
+					});
+				});
+			};
+			//	点击地图改变视角
+			_this.map.chinaClick = function(name, id) {
+				_this.viewName = name;
+				_this.viewId = id;
+				var len = id.split("_").length;
+				if (len == 0)
+					_this.sign = 1;
+				else
+					_this.sign = 2;
 
-			$(document).trigger('mouseup');
+				_this.s.createLeft(name, id);
+				_this.initData(function() {
+					_this.changeData()
+				});
+			};
+			_this.map.cityBlankClick = function(obj) {
+				_this.viewName = obj.name;
+				_this.viewId = obj.id;
+				_this.sign = 2;
+				_this.s.createLeft(obj.name, obj.id);
+				_this.s.provinceChange(obj);
+			};
+			_this.map.provinceBlankClick = function() {
+				_this.viewName = '全国';
+				_this.viewId = '101';
+				_this.sign = 1;
+				_this.s.createLeft("全国", "101");
+				_this.s.chinaChange();
+			};
 		});
-		//	选择城市改变地图
-		_this.s.cityChange = function(obj) {
-			_this.viewName = obj.name;
-			_this.viewId = obj.id;
-			_this.setCookie('angle',_this.viewName);
-			_this.setCookie('regin',_this.viewId);
-			_this.map.clickCity(obj, function() {
-				_this.changeData();
-			});
-		};
-		_this.s.provinceChange = function(obj) {
-			_this.viewName = obj.name;
-			_this.viewId = obj.id;
-			_this.setCookie('angle',_this.viewName);
-			_this.setCookie('regin',_this.viewId);
-			_this.map.clickProvince(obj, function() {
-				_this.changeData();
-			});
-		};
-		_this.s.chinaChange = function() {
-			_this.viewName = '全国';
-			_this.viewId = '101';
-			_this.setCookie('angle',_this.viewName);
-			_this.setCookie('regin',_this.viewId);
-			_this.map.clickChina(null, function() {
-				_this.changeData();
-			});
-		};
-		//	点击地图改变视角
-		_this.map.chinaClick = function(name, id) {
-			_this.viewName = name;
-			_this.viewId = id;
-			_this.setCookie('angle',_this.viewName);
-			_this.setCookie('regin',_this.viewId);
-			_this.s.createLeft(name, id);
-			_this.changeData();
-		};
-		/*_this.map.blankClick = function() {
-			_this.s.createLeft("全国", "101");
-			_this.s.chinaChange();
-		};
-		*/
-		_this.map.cityBlankClick = function(obj) {
-			_this.viewName = obj.name;
-			_this.viewId = obj.id;
-			_this.setCookie('angle',_this.viewName);
-			_this.setCookie('regin',_this.viewId);
-			_this.s.createLeft(obj.name, obj.id);
-			_this.s.provinceChange(obj);
-		};
-		_this.map.provinceBlankClick = function() {
-			_this.viewName = '全国';
-			_this.viewId = '101';
-			_this.setCookie('angle',_this.viewName);
-			_this.setCookie('regin',_this.viewId);
-			_this.s.createLeft("全国", "101");
-			_this.s.chinaChange();
-		};
-
-		// _this.map.getDots = function(id){
-		// 	_this.c.getMapData_P1({
-		// 		region: _this.region,
-		// 		startDate: _this.startDate,
-		// 		endDate: _this.endDate
-		// 	})
-		// };
 	};
 
 	p.initDom = function() {
 		this.$op = $('#tooltip');
 	};
 
-	p.changeData = function() {
+	p.initData = function(fn) {
 		var _this = this;
+
+		if (_this.viewId.indexOf(_this.region) == -1) {
+			_this.viewId = _this.region;
+		}
+
+		_this.c.getInitHeadlines({
+			region: _this.viewId,
+			startDate: _this.startDate,
+			endDate: _this.endDate,
+			attribute: 'sum'
+		}, function(json) {
+			_this.events = json.data;
+			fn && fn(json.data);
+		})
+	};
+
+	p.changeData = function(event) {
+		var _this = this;
+
+		// 判断视角 超出权限 
+		if (_this.viewId.indexOf(_this.region) == -1) {
+			_this.viewId = _this.region;
+		}
+
 		_this.c.getLeft1Data({
-			region: _this.region,
+			region: _this.viewId,
 			startDate: _this.startDate,
 			endDate: _this.endDate
 		}, function(result) {
 			_this._mapKIdVChart['left1'].setDataProvider(result.data);
 		});
 
-		_this.changeData2();
-
+		_this.changeData2(event);
 	};
 
-	p.changeData2 = function() {
+	p.changeData2 = function(event) {
 		var _this = this;
+		_this.events = event || _this.events;
+
+		if (_this.viewId.indexOf(_this.region) == -1) {
+			_this.viewId = _this.region;
+		}
+
 		_this.c.getLeft2Data({
-			emotion: _this.emotion,
-			region: _this.region,
+			attribute: _this.emotion,
+			region: _this.viewId,
 			startDate: _this.startDate,
-			endDate: _this.endDate
+			endDate: _this.endDate,
+			event: _this.events
 		}, function(result) {
 			_this._mapKIdVChart['left2'].setDataProvider(result.data);
 		});
 
 		_this.c.getLeft3Data({
-			emotion: _this.emotion,
-			region: _this.region,
+			attribute: _this.emotion,
+			region: _this.viewId,
 			startDate: _this.startDate,
-			endDate: _this.endDate
+			endDate: _this.endDate,
+			event: _this.events
 		}, function(result) {
 			_this._mapKIdVChart['left3'].setDataProvider(result.data);
 		});
 		//	刷新地图打点数据
+		console.log(_this.viewId);
+		console.log("地图视角" + _this.emotion)
 		_this.c.getMapData_P1({
-			emotion: _this.emotion,
-			region: _this.region,
+			attribute: _this.emotion,
+			region: _this.viewId,
 			startDate: _this.startDate,
-			endDate: _this.endDate
+			endDate: _this.endDate,
+			sign: _this.sign
 		}, function(result) {
 			_this.map.setDotAry(result.data);
 		});
@@ -175,8 +213,9 @@ this.EE = this.EE || {};
 		_this._mapKIdVChart['left1'] = _this._dashChart;
 
 		_this._dashChart.EventDispatcher.on('click', function(evt, item) {
-			_this.emotion = item;
-			_this.changeData2()
+			_this.emotion = ['negative', 'neutral', 'positive', 'sum'][item + 1];
+			console.log(_this.emotion);
+			_this.changeData2();
 		});
 		// _this.getLeft1Data();
 
@@ -186,9 +225,8 @@ this.EE = this.EE || {};
 		_this._mapKIdVChart['left2'] = _this._hearLineChart;
 
 		_this._hearLineChart.EventDispatcher.on('click', function(evt, item) {
-			// 事件id，情感 		通过url传递
-			// 视角，视角区域id 	通过cookie传递
-			win.location.href = encodeURI(hostUrl + 'p3.html?&eventId=' + item + '&emotion=' + _this.emotion);
+			// 事件id，情感 视角，视角区域id		通过url传递
+			win.location.href = encodeURI(hostUrl + 'p3.html?&eventId=' + item + '&emotion=' + _this.emotion + '&angle=' + _this.viewName + '&regin=' + _this.viewId);
 
 		});
 		// _this.getLeft2Data();
@@ -232,16 +270,6 @@ this.EE = this.EE || {};
 			left: -100,
 			top: -100
 		});
-	};
-	// 设置cookie
-	p.setCookie = function(name,value,iDay){
-		if (iDay){
-			var oDate = new Date();
-			oDate.setDate(oDate.getDate()+iDay);
-			doc.cookie = name+'='+value+';path=/;expires='+oDate;
-		}else{
-			doc.cookie = name+'='+value+';path=/';
-		}
 	};
 
 	EE.P1Map = P1Map;

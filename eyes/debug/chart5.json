@@ -3,162 +3,162 @@
 	"data": [{
 		"seriesTitle": "雾霾",
 		"name": "河北",
-		"num": 10
+		"num": 100000
 	}, {
 		"seriesTitle": "雾霾",
 		"name": "河南",
-		"num": 20
+		"num": 200000
 	}, {
 		"seriesTitle": "雾霾",
 		"name": "广东",
-		"num": 14
+		"num": 140000
 	}, {
 		"seriesTitle": "雾霾",
 		"name": "北京",
-		"num": 13
+		"num": 130000
 	}, {
 		"seriesTitle": "雾霾",
 		"name": "辽宁",
-		"num": 15
+		"num": 150000
 	}, {
 		"seriesTitle": "雾霾",
 		"name": "浙江",
-		"num": 16
+		"num": 160000
 	}, {
 		"seriesTitle": "雾霾",
 		"name": "内蒙古",
-		"num": 17
+		"num": 170000
 	}, {
 		"seriesTitle": "雾霾",
 		"name": "吉林",
-		"num": 13
+		"num": 130000
 	}, {
 		"seriesTitle": "酸雨",
 		"name": "河北",
-		"num": 20
+		"num": 200000
 	}, {
 		"seriesTitle": "酸雨",
 		"name": "河南",
-		"num": 24
+		"num": 240000
 	}, {
 		"seriesTitle": "酸雨",
 		"name": "广东",
-		"num": 14
+		"num": 140000
 	}, {
 		"seriesTitle": "酸雨",
 		"name": "北京",
-		"num": 16
+		"num": 160000
 	}, {
 		"seriesTitle": "酸雨",
 		"name": "辽宁",
-		"num": 21
+		"num": 210000
 	}, {
 		"seriesTitle": "酸雨",
 		"name": "浙江",
-		"num": 17
+		"num": 170000
 	}, {
 		"seriesTitle": "酸雨",
 		"name": "内蒙古",
-		"num": 21
+		"num": 210000
 	}, {
 		"seriesTitle": "酸雨",
 		"name": "吉林",
-		"num": 16
+		"num": 160000
 	}, {
 		"seriesTitle": "核污染",
 		"name": "河北",
-		"num": 24
+		"num": 240000
 	}, {
 		"seriesTitle": "核污染",
 		"name": "河南",
-		"num": 16
+		"num": 160000
 	}, {
 		"seriesTitle": "核污染",
 		"name": "广东",
-		"num": 21
+		"num": 210000
 	}, {
 		"seriesTitle": "核污染",
 		"name": "北京",
-		"num": 21
+		"num": 210000
 	}, {
 		"seriesTitle": "核污染",
 		"name": "辽宁",
-		"num": 13
+		"num": 130000
 	}, {
 		"seriesTitle": "核污染",
 		"name": "浙江",
-		"num": 14
+		"num": 140000
 	}, {
 		"seriesTitle": "核污染",
 		"name": "内蒙古",
-		"num": 15
+		"num": 150000
 	}, {
 		"seriesTitle": "核污染",
 		"name": "吉林",
-		"num": 16
+		"num": 160000
 	}, {
 		"seriesTitle": "环境污染",
 		"name": "河北",
-		"num": 21
+		"num": 210000
 	}, {
 		"seriesTitle": "环境污染",
 		"name": "河南",
-		"num": 22
+		"num": 220000
 	}, {
 		"seriesTitle": "环境污染",
 		"name": "广东",
-		"num": 13
+		"num": 130000
 	}, {
 		"seriesTitle": "环境污染",
 		"name": "北京",
-		"num": 14
+		"num": 140000
 	}, {
 		"seriesTitle": "环境污染",
 		"name": "辽宁",
-		"num": 18
+		"num": 180000
 	}, {
 		"seriesTitle": "环境污染",
 		"name": "浙江",
-		"num": 16
+		"num": 160000
 	}, {
 		"seriesTitle": "环境污染",
 		"name": "内蒙古",
-		"num": 20
+		"num": 200000
 	}, {
 		"seriesTitle": "环境污染",
 		"name": "吉林",
-		"num": 12
+		"num": 120000
 	}, {
 		"seriesTitle": "气象",
 		"name": "河北",
-		"num": 16
+		"num": 160000
 	}, {
 		"seriesTitle": "气象",
 		"name": "河南",
-		"num": 14
+		"num": 140000
 	}, {
 		"seriesTitle": "气象",
 		"name": "广东",
-		"num": 23
+		"num": 230000
 	}, {
 		"seriesTitle": "气象",
 		"name": "北京",
-		"num": 21
+		"num": 210000
 	}, {
 		"seriesTitle": "气象",
 		"name": "辽宁",
-		"num": 14
+		"num": 140000
 	}, {
 		"seriesTitle": "气象",
 		"name": "浙江",
-		"num": 16
+		"num": 160000
 	}, {
 		"seriesTitle": "气象",
 		"name": "内蒙古",
-		"num": 18
+		"num": 180000
 	}, {
 		"seriesTitle": "气象",
 		"name": "吉林",
-		"num": 20
+		"num": 200000
 	}]
 }

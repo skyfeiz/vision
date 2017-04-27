@@ -1,12 +1,11 @@
 this.EE = this.EE || {};
 (function() {
-	var map = function(id, callback) {
+	var map = function(ID, callback) {
 		var cur = this,
-			mapping, chinaMap, provinceMap, view, queue, activeProvince = null,
-			activeCity = null;
+			mapping, chinaMap, provinceMap, view, queue, activeProvince = null, activeCity = null, tipShow = true, loadTween = { time: 0 }, loadAnimation;
 		var resourceAry = [{
 			id: "bg",
-			src: "images/p3/bg.jpg"
+			src: "images/p3/bg.png"
 		}, {
 			id: "positive",
 			src: "images/p1/greenDot.png"
@@ -36,8 +35,8 @@ this.EE = this.EE || {};
 			queue.on("complete", function() {
 				mapping = province;
 
+				var id=ID.region;
 				if (id) {
-					// console.log(id)
 					var pId = id.split("_");
 					if (pId.length == 2) {
 						activeProvince = mapping[id];
@@ -66,43 +65,93 @@ this.EE = this.EE || {};
 						onComplete: callback,
 						imgAry: queue,
 						clickScale: 0.7,
-						center: [0.49, 0.55],
+						center: [0.5, 0.55],
 						scale: [0.65684, 0.8],
 						bg: true,
 						activeName: activeProvince ? activeProvince.name : null
 					});
 					view = chinaMap;
 
-					// bindToolOver();
+					initLoadTween();
+					bindToolOver();
 
 					chinaMap.toolTipOver = mapToolShow;
 					chinaMap.toolTipOut = mapToolHide;
 
 					chinaMap.clickFun = function(name, callback) {
-						// if (provinceMap)
-						// 	provinceMap.clear();
+						$("#waitCover").show();
+						loadAnimation.play();
 						areaThorough(name, null, function(range, curMap) {
 							mapLevelSwitch($("#ChinaMap"), $("#ProvinceMap"));
 							callback(range);
 						});
 					};
+
+					if(ID.view && ID.view.indexOf(ID.region)!=-1&&ID.view!=ID.region){
+						$("#waitCover").show();
+						loadAnimation.play();
+						var idAry = ID.view.split("_");
+						if(idAry.length==2){
+							areaThorough(ID.viewName, null, function(range, curMap) {
+								chinaMap.changeView(range);
+								mapLevelSwitch($("#ChinaMap"), $("#ProvinceMap"));
+							});
+						}
+						else if(idAry.length==3){
+							var pID = idAry[0]+"_"+idAry[1];
+
+							areaThorough(province[pID].name, ID.viewName, function(range, curMap) {
+								chinaMap.changeView(range);
+								mapLevelSwitch($("#ChinaMap"), $("#ProvinceMap"));
+							}, true);
+						}
+					}
 				}
+			});
+		};
+
+		function initLoadTween(){
+			loadAnimation = TweenMax.to(loadTween,0.6,{
+				time: 96,
+				ease: Linear.easeNone,
+				paused: true,
+				onUpdate: function(){
+					$("#loadSprite").css({
+						"background-position": "0px "+(-128*Math.floor(loadTween.time/6))+"px"
+					});
+				},
+				repeat: -1
+			})
+		};
+
+		function bindToolOver() {
+			$(".toolTip").mouseenter(function() {
+				tipShow = false;
+				cur.mapCount = self.clearTimeout(cur.mapCount);
+			}).mouseleave(function() {
+				tipShow = true;
+				$(".toolTip").removeClass("toolShow");
 			});
 		};
 
 		function mapToolShow(infor, position) {
 			var scale = $("#china").height() / parseInt($("#ChinaMap").attr("height"));
+			cur.mapCount = self.clearTimeout(cur.mapCount);
 
 			$(".toolTip .areaName").text(infor.name + "总数：");
 			$(".toolTip .areaNum").text(infor.num);
 			$(".toolTip").css({
-				left: position.x * scale + $("#ChinaMap").offset().left - $("#china").offset().left,
-				bottom: $("#china").height() - position.y * scale
+				left: position.x * scale + $("#ChinaMap").offset().left - $("#china").offset().left + 18,
+				bottom: $("#china").height() - position.y * scale - 18
 			}).addClass("toolShow");
 		};
 
 		function mapToolHide() {
-			$(".toolTip").removeClass("toolShow");
+			if(tipShow){
+				cur.mapCount = self.setTimeout(function() {
+					$(".toolTip").removeClass("toolShow");
+				}, 2000);
+			}
 		};
 
 		//	创建省份
@@ -120,8 +169,9 @@ this.EE = this.EE || {};
 						range: range,
 						imgAry: queue,
 						activeName: activeCity ? activeCity.name : activeName,
-						center: [0.49, 0.55],
+						center: [0.5, 0.55],
 						scale: [0.467, 0.56],
+						silent: isSilent(name) || a.length==3,
 						onComplete: function() {
 							if (callback instanceof Function) {
 								callback(range, provinceMap);
@@ -136,7 +186,6 @@ this.EE = this.EE || {};
 								NAME = name;
 
 							if (cur.chinaClick instanceof Function) {
-								console.log(NAME, id);
 								cur.chinaClick(NAME, id);
 							}
 
@@ -145,8 +194,10 @@ this.EE = this.EE || {};
 					provinceMap.id = id;
 					view = provinceMap;
 
-					if (activeCity || activeName)
+					if (activeName)
 						provinceMap.outClick = function() {
+							$("#waitCover").show();
+							loadAnimation.play();
 							$(".toolTip").removeClass("toolShow");
 							cur.cityBlankClick({
 								id: ID,
@@ -155,6 +206,8 @@ this.EE = this.EE || {};
 						};
 					else
 						provinceMap.outClick = function() {
+							$("#waitCover").show();
+							loadAnimation.play();
 							$(".toolTip").removeClass("toolShow");
 							cur.provinceBlankClick();
 						};
@@ -163,7 +216,8 @@ this.EE = this.EE || {};
 					provinceMap.toolTipOut = mapToolHide;
 
 					provinceMap.clickFun = function(cityName, callback) {
-						// provinceMap.clear();
+						$("#waitCover").show();
+						loadAnimation.play();
 						areaThorough(name, cityName, function(Range, curMap) {
 							mapLevelSwitch($("#ChinaMap"), $("#ProvinceMap"));
 							callback(Range);
@@ -176,6 +230,20 @@ this.EE = this.EE || {};
 			});
 		};
 
+		function isSilent(name){
+			var silenceAry = ["北京","天津","上海","重庆","香港","澳门","台湾"];
+			var s = false;
+
+			for(var i=0; i<silenceAry.length; i++){
+				if(name.match(silenceAry[i])){
+					s = true;
+					break;
+				}
+			}
+
+			return s;
+		};
+
 		// function testCity(ary){
 		// 	console.log(ary.length)
 		// 	for(var i=0; i<ary.length; i++){
@@ -186,7 +254,6 @@ this.EE = this.EE || {};
 
 		//	地区钻取
 		function areaThorough(name, activeName, callback, isCity) {
-			console.log(activeName)
 			if (isCity) {
 				for (var i in mapping) {
 					if (mapping[i].name.match(name)) {
@@ -226,7 +293,11 @@ this.EE = this.EE || {};
 			}), 0.2, {
 				opacity: 1,
 				delay: 0.6,
-				ease: Power2.easeInOut
+				ease: Power2.easeInOut,
+				onComplete: function(){
+					$("#waitCover").hide();
+					loadAnimation.pause();
+				}
 			});
 		};
 
@@ -268,6 +339,8 @@ this.EE = this.EE || {};
 			if (provinceMap)
 				provinceMap.clear();
 
+			$("#waitCover").show();
+			loadAnimation.play();
 			mapLevelSwitch($("#ProvinceMap"), $("#ChinaMap"), 0);
 
 			chinaMap.changeView();
@@ -290,12 +363,11 @@ this.EE = this.EE || {};
 						opacity: 0
 					});
 					chinaMap.changeView(range);
+					$("#waitCover").show();
+					loadAnimation.play();
 					mapLevelSwitch($("#ChinaMap"), $("#ProvinceMap"));
 				}
 			} else {
-				// if (provinceMap)
-				// 	provinceMap.clear();
-
 				$("#ProvinceMap").css({
 					opacity: 0
 				});
@@ -303,6 +375,8 @@ this.EE = this.EE || {};
 					if (callback instanceof Function)
 						callback();
 					chinaMap.changeView(range);
+					$("#waitCover").show();
+					loadAnimation.play();
 					mapLevelSwitch($("#ChinaMap"), $("#ProvinceMap"));
 				});
 			}
@@ -310,9 +384,6 @@ this.EE = this.EE || {};
 		};
 
 		this.clickCity = function(obj, callback) {
-			// if (provinceMap)
-			// 	provinceMap.clear();
-
 			$("#ProvinceMap").css({
 				opacity: 0
 			});

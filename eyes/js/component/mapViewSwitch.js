@@ -49,14 +49,13 @@ this.EE = this.EE || {};
 			// opt.center = opt.center || [0.5, 0.5];
 			opt.center = opt.center || [0.6, 0.5];
 			// opt.scale = opt.scale || [1, 1];
-			opt.scale = opt.scale || [0.78, 0.95];
+			opt.scale = opt.scale || [0.74, 0.95];
 			opt.click2Deep = opt.click2Deep === false ? false : true;
 			opt.clickDispare = opt.clickDispare === true ? true : false;
 			opt.silent = opt.silent === true ? true : false;
 			opt.clickScale = opt.clickScale || 1;
 
-			if (!opt.silent)
-				createjs.Ticker.addEventListener("tick", stage);
+			createjs.Ticker.addEventListener("tick", stage);
 
 			width = opt.canvas.width * (0.5 - Math.abs(0.5 - opt.center[0])) * 2;
 			height = opt.canvas.height * (0.5 - Math.abs(0.5 - opt.center[1])) * 2;
@@ -174,8 +173,8 @@ this.EE = this.EE || {};
 				mapShape.addEventListener('mouseover', function() {
 					mapShape.mapData.fillCommand.style = "#00c6ff";
 					mapShape.alpha = 1;
-					mapShape.x = -3;
-					mapShape.y = -3;
+					mapShape.x = -5;
+					mapShape.y = -5;
 
 				});
 				mapShape.addEventListener('mouseout', function() {
@@ -261,126 +260,117 @@ this.EE = this.EE || {};
 				}
 			});
 		};
+
+		// 添加点， 取最大值  positive:正方， neutral：中立  negative:负方 
 		var addDots = function(dotCoors) {
 			cur.dotBox.removeAllChildren();
 			for (var i = 0; i < dotCoors.length; i++) {
-				var img, light;
-				var max = Math.max(Math.max(dotCoors[i].numJust, dotCoors[i].numIn), dotCoors[i].numNegative);
-				if (dotCoors[i].numJust == max) {
-					img = opt.imgAry.getResult("positive");
-					light = opt.imgAry.getResult("positiveL");
-					dotCoors[i].type = "positive";
-				}
-				if (dotCoors[i].numIn == max) {
-					img = opt.imgAry.getResult("neutral");
-					light = opt.imgAry.getResult("neutralL");
-					dotCoors[i].type = "neutral";
-				}
-				if (dotCoors[i].numNegative == max) {
-					img = opt.imgAry.getResult("negative");
-					light = opt.imgAry.getResult("negativeL");
-					dotCoors[i].type = "negative";
-				}
-
-				var dot = new createjs.Bitmap(img);
-				dot.regX = img.width / 2;
-				dot.regY = img.height / 2;
-				dot.scaleX = dot.scaleY = 0;
-
-				dot.x = dotCoors[i].coordinate[0] / 180 * Math.PI * radiusX;
-				dot.y = -dotCoors[i].coordinate[1] / 180 * Math.PI * radiusY;
-				// dot.coorData = dotCoors[i].coor;
-				var num = new createjs.Text(dotCoors[i].num, "18px Arial normal", "#00c6ff");
-				num.regY = 12;
-				num.x = dot.x - 14;
-				num.y = dot.y;
-				num.alpha = 0;
-
-				dotBind(dot, dotCoors[i]);
-
-				cur.dotBox.addChild(num);
-				cur.dotBox.addChild(dot);
-
-				var light1 = new createjs.Bitmap(light);
-				light1.regX = light.width / 2;
-				light1.regY = light.height / 2;
-				light1.x = dot.x;
-				light1.y = dot.y;
-				light1.scaleX = light1.scaleY = light1.alpha = 0;
-				cur.dotBox.addChildAt(light1, 0);
-
-				var delay = Math.random() * 1;
-
-				TweenMax.to(dot, 0.6, {
-					delay: delay,
-					scaleX: 1,
-					scaleY: 1,
-					ease: Linear.easeNone
-				});
-				TweenMax.to(num, 0.6, {
-					delay: delay + 0.2,
-					alpha: 1,
-					x: dot.x + 18,
-					ease: Power2.easeOut
-				});
-
-				var tween1 = TweenMax.to(light1, 2.1, {
-					delay: delay,
-					scaleX: 1.4,
-					scaleY: 1.4,
-					// alpha: 1,
-					ease: Linear.easeNone,
-					repeat: -1,
-					onUpdateParams: [light1],
-					onUpdate: function(l) {
-						l.alpha = Math.sin(Math.PI * l.scaleX / 1.4);
+				if(!isNaN(dotCoors[i].num) && dotCoors[i].num!=0){
+					var img, light;
+					var max = Math.max(Math.max(dotCoors[i].numJust, dotCoors[i].numIn), dotCoors[i].numNegative);
+					if (dotCoors[i].numJust == max) {
+						img = opt.imgAry.getResult("positive");
+						light = opt.imgAry.getResult("positiveL");
+						dotCoors[i].type = "positive";
 					}
-				})
-				tweenAry.push(tween1);
-
-				var light2 = new createjs.Bitmap(light);
-				light2.regX = light.width / 2;
-				light2.regY = light.height / 2;
-				light2.x = dot.x;
-				light2.y = dot.y;
-				light2.scaleX = light2.scaleY = light2.alpha = 0;
-				cur.dotBox.addChildAt(light2, 0);
-
-				var tween2 = TweenMax.to(light2, 2.1, {
-					delay: delay + 0.7,
-					scaleX: 1.4,
-					scaleY: 1.4,
-					// alpha: 1,
-					ease: Linear.easeNone,
-					repeat: -1,
-					onUpdateParams: [light2],
-					onUpdate: function(l) {
-						l.alpha = Math.sin(Math.PI * l.scaleX / 1.4);
+					if (dotCoors[i].numIn == max) {
+						img = opt.imgAry.getResult("neutral");
+						light = opt.imgAry.getResult("neutralL");
+						dotCoors[i].type = "neutral";
 					}
-				})
-				tweenAry.push(tween2);
-
-				var light3 = new createjs.Bitmap(light);
-				light3.regX = light.width / 2;
-				light3.regY = light.height / 2;
-				light3.x = dot.x;
-				light3.y = dot.y;
-				light3.scaleX = light3.scaleY = light3.alpha = 0;
-				cur.dotBox.addChildAt(light3, 0);
-
-				var tween3 = TweenMax.to(light3, 2.1, {
-					delay: delay + 1.4,
-					scaleX: 1.4,
-					scaleY: 1.4,
-					// alpha: 1,
-					ease: Linear.easeNone,
-					repeat: -1,
-					onUpdateParams: [light3],
-					onUpdate: function(l) {
-						l.alpha = Math.sin(Math.PI * l.scaleX / 1.4);
+					if (dotCoors[i].numNegative == max) {
+						img = opt.imgAry.getResult("negative");
+						light = opt.imgAry.getResult("negativeL");
+						dotCoors[i].type = "negative";
 					}
-				})
-				tweenAry.push(tween3);
+
+					var dot = new createjs.Bitmap(img);
+					
+					dot.regX = img.width / 2;
+					dot.regY = img.height / 2;
+					dot.scaleX = dot.scaleY = 0;
+
+					dot.x = dotCoors[i].coordinate[0] / 180 * Math.PI * radiusX;
+					dot.y = -dotCoors[i].coordinate[1] / 180 * Math.PI * radiusY;
+					var num = new createjs.Text(dotCoors[i].num, "18px Arial normal", "#fff");
+					num.regY = 12;
+					num.x = dot.x - 14;
+					num.y = dot.y;
+					num.alpha = 0;
+
+					dotBind(dot, dotCoors[i]);
+
+					cur.dotBox.addChild(num);
+					cur.dotBox.addChild(dot);
+
+					var ary = ["北京","天津","上海","香港"];
+					var s = false;
+					for(var j=0; j<ary.length; j++){
+						if(dotCoors[i].name.match(ary[j])){
+							s = true;
+							break;
+						}
+					}
+
+					var light1 = new createjs.Bitmap(light);
+					light1.regX = light.width / 2;
+					light1.regY = light.height / 2;
+					light1.x = dot.x;
+					light1.y = dot.y;
+					light1.scaleX = light1.scaleY = light1.alpha = 0;
+					cur.dotBox.addChildAt(light1, 0);
+
+					var delay = i*0.05;
+
+					TweenMax.to(dot, 0.6, {
+						delay: delay,
+						scaleX: s ? 0.5 : 1,
+						scaleY: s ? 0.5 : 1,
+						ease: Linear.easeNone
+					});
+					TweenMax.to(num, 0.6, {
+						delay: delay + 0.2,
+						alpha: 1,
+						x: dot.x + 18,
+						ease: Power2.easeOut
+					});
+
+					var tween1 = TweenMax.to(light1, 2.1, {
+						delay: delay,
+						scaleX: 1.4,
+						scaleY: 1.4,
+						ease: Linear.easeNone,
+						repeat: -1,
+						repeatDelay: 0.15,
+						onUpdateParams: [light1],
+						onUpdate: function(l) {
+							l.alpha = Math.sin(Math.PI * l.scaleX / 1.4);
+						}
+					})
+					tweenAry.push(tween1);
+
+					var light2 = new createjs.Bitmap(light);
+					light2.regX = light.width / 2;
+					light2.regY = light.height / 2;
+					light2.x = dot.x;
+					light2.y = dot.y;
+					light2.scaleX = light2.scaleY = light2.alpha = 0;
+					cur.dotBox.addChildAt(light2, 0);
+
+					var tween2 = TweenMax.to(light2, 2.1, {
+						delay: delay + 0.7,
+						scaleX: 1.4,
+						scaleY: 1.4,
+						ease: Linear.easeNone,
+						repeat: -1,
+						repeatDelay: 0.15,
+						onUpdateParams: [light2],
+						onUpdate: function(l) {
+							l.alpha = Math.sin(Math.PI * l.scaleX / 1.4);
+						}
+					})
+					tweenAry.push(tween2);
+				}
 			}
 		};
 

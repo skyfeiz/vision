@@ -8,12 +8,11 @@
     <link rel="stylesheet" type="text/css" href="css/p1.css"></link>
     <script type="text/javascript" src="libs/jquery-3.1.1.min.js"></script>
     <script type="text/javascript" src="libs/echarts3.0.js"></script>
-    <script type="text/javascript" src="libs/worldcloud.js"></script>
     <script type="text/javascript" src="libs/jquery_scrollBar.js"></script>
     <script type="text/javascript" src="libs/easeljs-NEXT.combined.js"></script>
     <script type="text/javascript" src="libs/preloadjs-0.4.1.min.js"></script>
     <script type="text/javascript" src="libs/TweenMax.min.js"></script>
-    <script type="text/javascript" src="js/Controller.js"></script>
+    <script type="text/javascript" src="js/Controller00.js"></script>
     <script type="text/javascript" src="js/component/screen.js"></script>
     <script type="text/javascript" src="js/component/timeline.js"></script>
     <script type="text/javascript" src="js/component/cityselect.js"></script>
@@ -37,19 +36,20 @@
     <div class="root">
         <div id="china">
             <div class="toolTip">
-                <p class="totalNum">新疆总数：<span>1000</span></p>
-                <div>
-                    <p class="mapTip1">大气污染：<span>800</span></p>
-                    <p class="mapTip2">水体污染：<span>800</span></p>
-                    <p class="mapTip3">土壤污染：<span>800</span></p>
-                    <p class="mapTip4">核污染：<span>800</span></p>
-                    <p class="mapTip5">固体废弃物：<span>800</span></p>
-                    <p class="mapTip6">其他：<span>800</span></p>
+            	<div class="tipBox">
+	                <p class="totalNum">新疆总数：<span>1000</span></p>
+	                <div>
+	                    <p class="mapTip1">大气污染：<span>800</span></p>
+	                    <p class="mapTip2">水体污染：<span>800</span></p>
+	                    <p class="mapTip3">土壤污染：<span>800</span></p>
+	                    <p class="mapTip4">核污染：<span>800</span></p>
+	                    <p class="mapTip5">固体废弃物：<span>800</span></p>
+	                </div>
                 </div>
             </div>
             <canvas id="ChinaMap" width="1632px" height="918px"></canvas>
             <canvas id="ProvinceMap" width="1632px" height="918px"></canvas>
-            <!-- <canvas id="CityMap" width="1280px" height="720px"></canvas> -->
+            <div id="waitCover"><div id="loadSprite"></div></div>
         </div>
         <header class="clearfix" id="header"></header>
         <!-- partLeft -->
@@ -114,7 +114,7 @@
             </section>
             <section class="element-div chart3div">
                 <div class="element-title-div">
-                    <p class="element-title-text">来源媒体分布</p>
+                    <p class="element-title-text">媒体类型</p>
                     <span class="divleft"></span>
                     <span class="divright"></span>
                 </div>
@@ -140,7 +140,7 @@
     <!-- timeline -->
     <section class="timeaxis" id="timeaxis">
         <ul class="timebtns clearfix">
-            <li data-type="now">最近七天</li>
+            <li data-type="now" id="setnow">最近七天</li>
             <li data-type="month">月</li>
             <li class="active" data-type="year">年</li>
         </ul>
@@ -159,5 +159,4 @@
         <span class="axisright" id="axisright"></span>
     </section>
 </body>
-
 </html>

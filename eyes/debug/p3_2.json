@@ -1,8 +1,9 @@
 {
   "data": {
-    "negative": 100,
-    "neutral": 200,
-    "positive": 50
+    "正方": 100,
+    "中立": 200,
+    "负方": 50,
+    "总数":350
   },
   "reson":"",
   "success": true

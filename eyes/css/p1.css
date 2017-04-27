@@ -152,11 +152,30 @@
     left: calc(100% + 10px);
     top: 0;
 }
-._citys {
+.citybox{
     width: 268.42%;
+    height: 0;
+    overflow: hidden;
+    -webkit-transition: 0.3s all;
+    -moz-transition: 0.3s all;
+    transition: 0.3s all;
+    position: relative;
+}
+.citybox.active{
+    width: 268.42%;
+    height: 410px;
+}
+._citys {
+    width: 341px;
+    height: 410px;
     display: inline-block;
     position: relative;
     background-color: rgba(0,20,57,0.9);
+    -webkit-transition: 0.3s all;
+    -moz-transition: 0.3s all;
+    transition: 0.3s all;
+    position: absolute;
+    bottom: 0;
 }
 
 ._citys span {
@@ -391,7 +410,7 @@ p.bluelight.bluenum{
 
 /*----------------------------------------headline Panel----------------------------------------------*/
 .chart2{
-    width: 3.28rem;
+    width: 100%;
     height: 100%;
     margin:0 auto;
     position: relative;
@@ -406,8 +425,8 @@ p.bluelight.bluenum{
     text-overflow: ellipsis;
     height: 100%;
     color: #84d5ff;
-    height: 12px;
-    line-height: 1;
+    height: 14px;
+    line-height: 14px;
     font-size: 12px;
     cursor: pointer;
 }
@@ -415,28 +434,28 @@ p.bluelight.bluenum{
     color: #fffc00;
 }
 .chart4news.anew0{
-    top:6%;
+    top:6.949%;
 }
 .chart4news.anew1{
-    top:16%;
+    top:17.825%;
 }
 .chart4news.anew2{
-    top:27%;
+    top:28.701%;
 }
 .chart4news.anew3{
-    top:38%;
+    top:39.577%;
 }
 .chart4news.anew4{
-    top:49%;
+    top:50.453%;
 }
 .chart4news.anew5{
-    top:60%;
+    top:61.33%;
 }
 .chart4news.anew6{
-    top:71%;
+    top:72.206%;
 }
 .chart4news.anew7{
-    top:82%;
+    top:83.082%;
 }
 
 /*----------------------------------------source Panel----------------------------------------------*/
@@ -456,7 +475,6 @@ p.bluelight.bluenum{
     width: 100%;
     height: 100%;
     position: relative;
-    background-color: #081732;
     overflow: hidden;
 }
 #china canvas{
@@ -508,6 +526,7 @@ p.bluelight.bluenum{
     left: 0px;
     border-left: 1px solid #fff;
 }
+
 .toolTip:after{
     display: block;
     content: "";
@@ -526,7 +545,11 @@ p.bluelight.bluenum{
 .negative:after, .negative:before{
     border-color: #f9042f;
 }
-.toolTip div,.totalNum{
+.toolTip .tipBox{
+    position: absolute;
+    top: 0;
+}
+.toolTip .tipBox div,.totalNum{
     position: relative;
     top: 20px;
     right: -3px;
@@ -537,18 +560,16 @@ p.bluelight.bluenum{
     -moz-transition: top 0.3s ease 0.3s,opacity 0.3s ease 0.3s;
     
 }
-.toolTip div{
+.toolTip .tipBox div{
     font-size: 14px;
     color:#84d5ff;
     line-height: 23px;
-    width: 143px;
-    margin-top: 4px;
+    margin: 4px 10px 0px 0px;
     text-indent: 20px;
-    height: 140px;
-    padding-top: 2px;
-    background: rgba(0,0,0,0.2);
+    padding: 2px 0px;
+    background: rgba(0,0,0,0.5);
 }
-.toolTip div:after
+.toolTip .tipBox div:after
 {
     display: block;
     content: "";
@@ -559,14 +580,14 @@ p.bluelight.bluenum{
     height: 100%;
     background: url("../images/p1/toolBg.png") no-repeat 100% 100%;
 }
-.toolTip div p{
+.toolTip .tipBox div p{
     position: relative;
     cursor: pointer;
 }
-.toolTip div p:hover,.toolTip div p:hover span{
+.toolTip .tipBox div p:hover,.toolTip .tipBox div p:hover span{
     color: #fff;
 }
-.toolTip div p:before{
+.toolTip .tipBox div p:before{
     display: inline-block;
     content: "";
     width: 5px;
@@ -576,34 +597,34 @@ p.bluelight.bluenum{
     left: 11px;
     background-color: #003eca;
 }
-.toolTip div p.mapTip2:before{
+.toolTip .tipBox div p.mapTip2:before{
     background-color: #025dcd;
 }
-.toolTip div p.mapTip3:before{
+.toolTip .tipBox div p.mapTip3:before{
     background-color: #168aec;
 }
-.toolTip div p.mapTip4:before{
+.toolTip .tipBox div p.mapTip4:before{
     background-color: #00c6ff;
 }
-.toolTip div p.mapTip5:before{
+.toolTip .tipBox div p.mapTip5:before{
     background-color: #51e4ff;
 }
-.toolTip div p.mapTip6:before{
+.toolTip .tipBox div p.mapTip6:before{
     background-color: #fff;
 }
 .toolTip .totalNum{
     font-size: 16px;
     color:#84d5ff;
     line-height: 30px;
-    width: 172px;
+    width: 190px;
     text-indent: 13px;
-    background: rgba(0,0,0,0.2);
+    background: rgba(0,0,0,0.5);
 }
 .toolTip .totalNum span{
     color: #fff;
     text-shadow: #0072ff 0px 0px 3px;
 }
-.toolTip div span{
+.toolTip .tipBox div span{
     color: #00c6ff;
 }
 
@@ -611,12 +632,33 @@ p.bluelight.bluenum{
     height: 236px;
     z-index: 200;
     width: auto;
-    /*overflow: visible;*/
+    overflow: visible;
 }
-.toolShow div,.toolShow .totalNum{
+.toolShow .tipBox div,.toolShow .totalNum{
     top: 0;
     opacity: 1;
     /*display: block;*/
+}
+#waitCover{
+    position: absolute;
+    z-index: 299;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.3);
+    display: none;
+}
+#loadSprite{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 128px;
+    height: 128px;
+    margin-top: -64px;
+    margin-left: -64px;
+    overflow: hidden;
+    background: url("../images/Preloader_2.png") no-repeat 0px 0px;
 }
 /*-----------------------------------*/
 .tooltip_left3{

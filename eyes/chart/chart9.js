@@ -39,10 +39,10 @@ this.WbstChart = this.WbstChart || {};
 		});
 
 		_this._myChart.on('click', function(param) {
-			_this.EventDispatcher.trigger('click', param);
+			console.log(param.name);
+			_this.EventDispatcher.trigger('click', param.name);
 		});
 	};
-
 
 	p.setConfig = function(value) {
 		this._config = value;
@@ -65,7 +65,17 @@ this.WbstChart = this.WbstChart || {};
 				value: this._dataProvider[i].weight
 			})
 		}
-
+		var size = 1;
+		
+		if (len<=30) {
+			size = 8;
+		}else if (len<=40) {
+			size = 6
+		}else if (len<=50) {
+			size = 4
+		}else if (len<=60) {
+			size = 2
+		}
 		var json = {
 			type: 'wordCloud',
 			shape: 'circle',
@@ -76,10 +86,9 @@ this.WbstChart = this.WbstChart || {};
 			height: '90%',
 			right: null,
 			bottom: null,
-			sizeRange: [12, 32],
+			sizeRange: [12, 30],
 			rotationRange: [0, 0],
 			rotationStep: 45,
-			gridSize: 1,
 			textStyle: {
 				normal: {
 					fontFamily: 'Microsoft yahei',

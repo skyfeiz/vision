@@ -10,9 +10,6 @@
     <script type="text/javascript" src="libs/echarts3.0.js"></script>
     <script type="text/javascript" src="libs/worldcloud.js"></script>
     <script type="text/javascript" src="libs/jquery_scrollBar.js"></script>
-    <script type="text/javascript" src="libs/easeljs-NEXT.combined.js"></script>
-    <script type="text/javascript" src="libs/preloadjs-0.4.1.min.js"></script>
-    <script type="text/javascript" src="libs/TweenMax.min.js"></script>
     <script type="text/javascript" src="js/component/screen.js"></script>
     <script type="text/javascript" src="js/Controller00.js"></script>
     <script type="text/javascript" src="debug/city.js"></script>
@@ -20,14 +17,13 @@
     <script type="text/javascript" src="chart/left1.js"></script>
     <script type="text/javascript" src="chart/chart9.js"></script>
     <script type="text/javascript" src="chart/chartP3_1.js"></script>
+    <script type="text/javascript" src="chart/p8chart1.js"></script>
     <script type="text/javascript" src="js/component/header.js"></script>
-    <script type="text/javascript" src="js/component/map_p3.js"></script>
-    <script type="text/javascript" src="js/component/mapViewSwitch.js"></script>
-    <script type="text/javascript" src="js/p3.js"></script>
+    <script type="text/javascript" src="js/anreport.js"></script>
     <script>
     $(function() {
-        new EE.Header(1);
-        new EE.P3Chart();
+        new EE.Header(5);
+        new EE.Anreport();
     })
     </script>
 </head>
@@ -37,24 +33,9 @@
         <header class="clearfix" id="header"></header>
         
         <div class="pagetitle">
-            <p>研究报告</p>
+            <p>分析报告</p>
             <span class="titleline up"></span>
             <span class="titleline down"></span>
-        </div>
-
-        <div id="china">
-            <div class="toolTip">
-                <p class="areaName">新疆总数：</p>
-                <p class="areaNum"></p>
-            </div>
-            <canvas id="ChinaMap" width="1632px" height="918px"></canvas>
-            <canvas id="ProvinceMap" width="1632px" height="918px"></canvas>
-            <p class="mapNav">
-              <span>中国</span>
-              <span class="subNav">省</span>
-              <span class="subNav">市</span>
-            </p>
-            <div id="waitCover"><div id="loadSprite"></div></div>
         </div>
 
         <section class="element-content p3chart1">
@@ -135,6 +116,10 @@
            <div class="element-content">
                <div id="p3Chart5" data-bselft="1"></div>
            </div>
+       </section>
+
+       <section class="element-div p8chart1">
+           <div id="p8chart1"></div>
        </section>
     </div>
     <div id="tooltip">

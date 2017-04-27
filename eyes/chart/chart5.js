@@ -4,6 +4,8 @@ this.WbstChart = this.WbstChart || {};
 		this._dom = dom;
 		this.numScale = 1;
 		this.EventDispatcher = $({});
+
+		this.numData = {};
 		this.init();
 	};
 
@@ -17,7 +19,7 @@ this.WbstChart = this.WbstChart || {};
 		_this._myChart.on('mouseover', function(param) {
 			var item = {};
 			item.seriesName = param.name;
-			item.xAxisValue = param.value;
+			item.xAxisValue = _this.numData[param.seriesName][param.dataIndex];
 			var evt = param.event.event;
 			_this.EventDispatcher.trigger('chartmouseover', {
 				item: item,
@@ -31,7 +33,7 @@ this.WbstChart = this.WbstChart || {};
 
 	};
 
-	p.initDom = function(){
+	p.initDom = function() {
 		this.$unittitle = $('#unittitle');
 	};
 
@@ -51,15 +53,42 @@ this.WbstChart = this.WbstChart || {};
 
 		var legendJson = {};
 		var cateJson = {};
-
+		this.numData = {};
 		for (var i = 0, len = this._dataProvider.length; i < len; i++) {
 			legendJson[this._dataProvider[i].seriesTitle] = 1;
 			cateJson[this._dataProvider[i].name] = 1;
+			this.numData[this._dataProvider[i].seriesTitle] = [];
 		}
 
 
 		var series = [];
 		var legend = [];
+
+		var maxNum = 0;
+		for (var item in cateJson) {
+			var addNum = 0;
+			for (var i = 0, len = this._dataProvider.length; i < len; i++) {
+				if (this._dataProvider[i].name == item) {
+					addNum += 1*this._dataProvider[i].num;
+					if (maxNum < addNum) {
+						maxNum = addNum;
+					}
+				}
+			}
+		}
+
+		var numLen = (maxNum / 1000 | 0).toString().length;
+		if (maxNum < 1000) {
+			numLen = 0;
+			this.numScale = 1;
+		}else if(numLen<4){
+			numLen = 1;
+			this.numScale = 1000;
+		}else{
+			this.numScale = Math.pow(10,numLen);
+			numLen-=2;
+		}
+		this.$unittitle.html('单位/'+ ['条', '千', '万', '十万', '百万', '千万', '亿', '十亿', '百亿', '千亿', '万亿'][numLen]);
 
 		for (var item in legendJson) {
 			var json = {
@@ -83,8 +112,8 @@ this.WbstChart = this.WbstChart || {};
 			});
 			for (var i = 0, len = this._dataProvider.length; i < len; i++) {
 				if (this._dataProvider[i].seriesTitle == item) {
-					json.data.push(this._dataProvider[i].num);
-
+					json.data.push(this._dataProvider[i].num/this.numScale);
+					this.numData[item].push(this._dataProvider[i].num);
 				}
 			}
 			series.push(json);
@@ -115,8 +144,8 @@ this.WbstChart = this.WbstChart || {};
 				}
 			},
 			grid: {
-				left: '0',
-				right: '4%',
+				left: '5%',
+				right: '6%',
 				top: '10%',
 				bottom: '3%',
 				containLabel: true,

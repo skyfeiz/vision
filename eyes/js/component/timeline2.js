@@ -2,15 +2,19 @@ this.WbstChart = this.WbstChart || {};
 (function() {
 	var iScale = 1;
 	/*传入的start和end的格式为2008-08-08*/
-	var TimeLine = function(start, end) {
+	var TimeLine = function(json) {
+		// 是否包括 当年 当月;
+		this.bNow = json.now;
+		// 1某月 2某年
+		this.type = 2;
 		// 开启计算时间的开关
 		this.getTime = true;
 
 		// 下标的间距
-		this.xSpace = 40;
+		this.xSpace = 60;
 
 		// 数据初始化canvas的长度  屏幕的宽
-		this.axisLength = 1920;
+		this.axisLength = 1200;
 
 		// 选择区域的宽  默认一格
 		this.aW = this.xSpace;
@@ -41,7 +45,7 @@ this.WbstChart = this.WbstChart || {};
 		// 判断是否只能移动，点击最近7天时 为true;
 		this.moveOnly = false;
 
-		this.initTimeLimit(start, end);
+		this.initTimeLimit(json);
 		this.init();
 	};
 
@@ -58,36 +62,37 @@ this.WbstChart = this.WbstChart || {};
 	};
 
 	// 年轴 通过起始时间和结束时间获取时间轴的总长
-	p.initTimeLimit = function(start, end) {
-		if (end) {
-			this.endTime = end;
+	p.initTimeLimit = function(json) {
+		if (json.end) {
+			this.endTime = json.end;
 			var endArr = this.endTime.split('-');
 			this.endYear = endArr[0];
 			this.endMonth = Math.floor(endArr[1]);
-			this.endDate = Math.floor(endArr[2]);
 		} else {
 			var oDate = new Date();
 			this.endYear = oDate.getFullYear();
-			this.endMonth = oDate.getMonth() + 1;
-			this.endDate = oDate.getDate();
-			this.endTime = this.endYear + '-' + this.endMonth + '-' + this.endDate;
+				this.endMonth = oDate.getMonth();
+			if (json.now) {
+				this.endMonth++;
+			}
+			
+			this.endTime = this.endYear + '-' + this.endMonth;
 		}
-		this.startTime = start;
+		this.startTime = json.start;
 
 		var startArr = this.startTime.split('-');
 
 		this.startYear = startArr[0];
 		this.startMonth = Math.floor(startArr[1]);
-		this.startDate = Math.floor(startArr[2]);
-
-		var mtimes = new Date(this.endTime) - new Date(this.startTime);
-
-		this.dayLength = Math.floor(mtimes / (1000 * 3600) / 24 + 1) * this.xSpace;
 
 		this.monthLength = ((this.endYear - this.startYear) * 12 + this.endMonth - this.startMonth + 1) * this.xSpace;
-
+		this.yearLength = (this.endYear - this.startYear) * this.xSpace;
 		// 初始选择前一年
 		this.defaultYear = this.endYear;
+		if (json.now) {
+			this.defaultYear++;
+		}
+		
 
 		this.xArr = this.setYearxArr();
 
@@ -113,14 +118,14 @@ this.WbstChart = this.WbstChart || {};
 
 	p.initSize = function(isfirst) {
 		// 获取盒子的宽高，给canvas设置宽高
-		if (this.timeLine.width()<1920) {
+		if (this.timeLine.width() < 1920) {
 			iScale = 1;
-		}else{
+		} else {
 			iScale = SCALE;
 		}
 		var json = {
-			width: this.timeLine.width()/iScale,
-			height: this.timeLine.height()/iScale
+			width: this.timeLine.width() / iScale,
+			height: this.timeLine.height() / iScale
 		};
 
 		// 设置canvas显示区域的宽高 有overlow：hidden样式
@@ -140,9 +145,9 @@ this.WbstChart = this.WbstChart || {};
 		this.drawGrid(isfirst, true);
 		this.canvas.attr('isdraw', 'yes');
 		if (isfirst) {
-			this.aL = this.areabox.position().left/iScale;
-			this.aW = this.areabox.width()/iScale;
-			this.cl = this.contentBox.position().left/iScale;
+			this.aL = this.areabox.position().left / iScale;
+			this.aW = this.areabox.width() / iScale;
+			this.cl = this.contentBox.position().left / iScale;
 		}
 	};
 
@@ -159,7 +164,7 @@ this.WbstChart = this.WbstChart || {};
 	p.drawGrid = function(isfirst) {
 		var _this = this;
 		var ctx = _this.canvas[0].getContext('2d');
-		ctx.clearRect(0, 0, _this.canvas.width()/iScale, _this.canvas.height()/iScale);
+		ctx.clearRect(0, 0, _this.canvas.width() / iScale, _this.canvas.height() / iScale);
 
 		ctx.fillStyle = 'rgba(10,107,174,0.5)';
 		ctx.rect(0, 23, _this.axisLength + 8, 15);
@@ -170,15 +175,20 @@ this.WbstChart = this.WbstChart || {};
 		ctx.fillRect(0, 41, _this.axisLength + 8, 1);
 
 		// Y轴最开始的基数 ，从右到左
-		var baseY = _this.bMonth ? _this.endMonth : _this.endYear;
+		var baseY = _this.bMonth ? _this.endMonth : _this.defaultYear;
+		var endYear = _this.endYear;
 		var yText = _this.bMonth ? baseY + '月' : baseY + '年';
 
 		var xlength = _this.xArr.length;
-		var bOk = true; //此开关 在设置first初始值的时候，设置日的时候用，选择最近一月；只选择一次
 
 		for (var i = _this.axisLength, j = 0; i >= 0; i -= _this.xSpace) {
+			var xName;
+			if (this.bMonth) {
+				xName = _this.xArr[((_this.axisLength - i) / _this.xSpace) % xlength];
+			} else {
+				xName = baseY--;
+			}
 
-			var xName = _this.xArr[((_this.axisLength - i) / _this.xSpace) % xlength];
 
 			if (Math.floor(i / _this.xSpace) % 2) {
 				ctx.fillStyle = 'rgba(10,107,174,0.2)';
@@ -196,38 +206,20 @@ this.WbstChart = this.WbstChart || {};
 			// 画上标
 			// 上标字
 
-			if (xName == 1) {
-				yText = _this.bMonth ? baseY + '月' : baseY + '年';
+			if (xName == 1 && _this.bMonth) {
+				yText = endYear + '年';
 				ctx.fillStyle = '#fff';
 				ctx.fillText(yText, i + 4, 13);
 				ctx.fillStyle = '#3fc0ff';
 				ctx.fillRect(i - 4, 15, 1, 4);
-				if (isfirst) {
-					if (baseY == _this.defaultYear) {
-						// _this.aL = i - 4;
-						// _this.aW = _this.xSpace * _this.endMonth;
-						_this.aL = _this.axisLength - _this.xSpace - 4;
-					} else if (baseY == _this.endMonth && bOk && !_this.moveOnly) {
-						// _this.aL = i - 4;
-						// _this.aW = _this.axisLength - i;
-						bOk = false;
-						_this.aL = _this.axisLength - _this.xSpace - 4;
-					}
-				}
-				baseY = _this.bMonth ? ((baseY - 1) % 12 || 12) : baseY - 1;
-			}
-			if (isfirst && _this.moveOnly && bOk) {
-				if (xName == _this.xArr[7]) {
-					_this.aL = i - 4;
-					_this.aW = _this.xSpace * 7;
-					bOk = false
-				}
+				endYear--;
 			}
 		}
 
 		if (isfirst) {
+			_this.cl = _this.limitbox.width() / iScale - _this.canvas.width() / iScale + 8;
+			_this.aL = _this.axisLength - _this.xSpace - 4;
 			_this.setArea();
-			_this.cl = _this.limitbox.width()/iScale - _this.canvas.width()/iScale + 8;
 			_this.contentBox.css('left', _this.cl)
 		}
 	};
@@ -238,7 +230,6 @@ this.WbstChart = this.WbstChart || {};
 			disX,
 			isDown = false,
 			autoMove = false,
-			sign = '',
 			nLeft = 0,
 			datal = 0,
 			dataw = 0,
@@ -249,62 +240,18 @@ this.WbstChart = this.WbstChart || {};
 			beginW = 0,
 			overWidth = false;
 
-		// 起始时间轴
-		_this.startline.mousedown(function(ev) {
-			if (_this.moveOnly || _this.silent) {
-				return;
-			}
-			limitWidth = _this.limitbox.width()/iScale;
-			limitLeft = _this.limitbox.offset().left/iScale;
-
-			$(this).next().css('zIndex', 11);
-			$(this).css('zIndex', 22);
-			nLeft = _this.contentBox.offset().left/iScale;
-			widthX = -ev.pageX - _this.aW + nLeft;
-			disX = ev.pageX - _this.aL - nLeft;
-			beginX = ev.pageX - $(this).offset().left;
-			beginW = $(this).width();
-
-			sign = 'start';
-			isDown = true;
-			autoMove = false;
-			this.changenLeft = 0;
-
-			ev.stopPropagation();
-		});
-		// 结束时间轴
-		_this.endline.mousedown(function(ev) {
-			if (_this.moveOnly || _this.silent) {
-				return;
-			}
-			limitWidth = _this.limitbox.width()/iScale;
-			limitLeft = _this.limitbox.offset().left/iScale;
-			$(this).prev().css('zIndex', 11);
-			$(this).css('zIndex', 22);
-			beginX = ev.pageX - $(this).offset().left/iScale;
-			beginW = $(this).width();
-			nLeft = _this.contentBox.offset().left/iScale;
-			widthX = ev.pageX - _this.aW - nLeft;
-			sign = 'end';
-			isDown = true;
-			autoMove = false;
-			ev.stopPropagation();
-		});
-
 		_this.areaBox.mousedown(function(ev) {
-			if(_this.moveOnly){return;}
-			limitWidth = _this.limitbox.width()/iScale;
-			limitLeft = _this.limitbox.offset().left/iScale;
-			nLeft = _this.contentBox.offset().left/iScale;
+			limitWidth = _this.limitbox.width() / iScale;
+			limitLeft = _this.limitbox.offset().left / iScale;
+			nLeft = _this.contentBox.offset().left / iScale;
 			disX = ev.pageX - _this.aL - nLeft;
-			beginX = ev.pageX - $(this).offset().left/iScale;
-			beginW = $(this).width()/iScale;
+			beginX = ev.pageX - $(this).offset().left / iScale;
+			beginW = $(this).width() / iScale;
 			if (beginW > limitWidth - 20) {
 				overWidth = true;
 			} else {
 				overWidth = false;
 			}
-			sign = 'area';
 			isDown = true;
 			_this.changenLeft = 0;
 			ev.stopPropagation();
@@ -336,10 +283,6 @@ this.WbstChart = this.WbstChart || {};
 
 			var nl = _this.axisLength - Math.round((_this.axisLength - _this.aL - 4) / _this.xSpace) * _this.xSpace;
 
-			// var n2 = Math.round(_this.axisLength - _this.aL - 8)
-			// 根据l和width算出选择时间区域
-			// var nl = Math.round((_this.aL + 4) / _this.xSpace) * _this.xSpace;
-
 			if (_this.aW % _this.xSpace) {
 				var nWidth = nl - _this.aL;
 				_this.aW = Math.round((_this.aW - nWidth) / _this.xSpace) * _this.xSpace;
@@ -368,86 +311,53 @@ this.WbstChart = this.WbstChart || {};
 				nowPageX = limitLeft + limitWidth - beginW + beginX - 4;
 			}
 
-			nLeft = _this.contentBox.offset().left/iScale;
+			nLeft = _this.contentBox.offset().left / iScale;
 			var changeX = nowPageX - nLeft;
 
-			switch (sign) {
-				case 'start':
-					// 鼠标移动动的距离
 
-					_this.aL = changeX - disX;
-					if (_this.aL <= 0) {
-						_this.aL = 4;
-						_this.aW = -disX - widthX;
-					} else {
-						_this.aW = -changeX - widthX + _this.changenLeft;
-					}
-					//  20 为感应范围
-					if (nowPageX <= limitLeft + beginX + 4 && _this.aL > 0) {
-						if (!autoMove) {
-							_this.bStop = true;
-							_this.canvaspMove('left', true, true);
-							autoMove = true;
-						}
-					} else {
-						_this.bStop = true;
-						autoMove = false;
-					}
-					break;
-				case 'end':
-					_this.aW = changeX - widthX;
-					if (_this.aW + _this.aL >= _this.axisLength) {
-						_this.aW = _this.axisLength - _this.aL;
-					};
-					if (nowPageX >= limitWidth + limitLeft - beginW + beginX && _this.aW + _this.aL < _this.axisLength - 40) {
-						if (!autoMove) {
-							_this.bStop = true;
-							_this.canvaspMove('right', true, true);
-							autoMove = true;
-						}
-					} else {
-						_this.bStop = true;
-						autoMove = false;
-					}
-					break;
-				case 'area':
-					_this.aL = changeX - disX + _this.changenLeft;
+			_this.aL = changeX - disX + _this.changenLeft;
 
-					if (_this.aL <= 0) {
-						_this.aL = 4;
-					} else if (_this.aL + _this.aW >= _this.axisLength) {
-						_this.aL = _this.axisLength - _this.aW;
-					}
-					if (_this.aL < 100 || _this.cl > -100) {
-						_this.createLeft();
-						_this.contentBox.css('left', _this.cl);
-					}
-					if (nowPageX <= limitLeft + (!overWidth ? beginX + 4 : 0) && _this.aL > 0) {
-						if (!autoMove) {
-							_this.bStop = true;
-							_this.canvaspMove('left', true);
-							autoMove = true;
-						}
-					} else if (nowPageX >= limitWidth + limitLeft + (!overWidth ? -beginW + beginX - 4 : 0)) {
-						if (!autoMove) {
-							_this.bStop = true;
-							_this.canvaspMove('right', true);
-							autoMove = true;
-						}
-					} else if (_this.axisLength - _this.aL - _this.aW < 10) {
-						_this.bStop = true;
-						_this.canvaspMove('right');
-					} else {
-						_this.bStop = true;
-						autoMove = false;
-					}
-					break;
+			if (_this.aL <= 0) {
+				_this.aL = 4;
+			} else if (_this.aL + _this.aW >= _this.axisLength) {
+				_this.aL = _this.axisLength - _this.aW;
 			}
+			if (_this.aL < 100 || _this.cl > -100) {
+				_this.createLeft();
+				_this.contentBox.css('left', _this.cl);
+			}
+			if (nowPageX <= limitLeft + (!overWidth ? beginX + 4 : 0) && _this.aL > 0) {
+				if (!autoMove) {
+					_this.bStop = true;
+					_this.canvaspMove('left', true);
+					autoMove = true;
+				}
+			} else if (nowPageX >= limitWidth + limitLeft + (!overWidth ? -beginW + beginX - 4 : 0)) {
+				if (!autoMove) {
+					_this.bStop = true;
+					_this.canvaspMove('right', true);
+					autoMove = true;
+				}
+			} else if (_this.axisLength - _this.aL - _this.aW < 10) {
+				_this.bStop = true;
+				_this.canvaspMove('right');
+			} else {
+				_this.bStop = true;
+				autoMove = false;
+			}
+
 			// 非定时器的情况下,即拖拽情况下，设置l和width
 			if (!autoMove) {
-				if (_this.aW < _this.xSpace) {
-					_this.aW = _this.xSpace;
-					$(document).trigger('mouseup');
+				if (_this.bMonth) {
+					if (_this.axisLength - _this.aL - _this.xSpace / 2 > _this.monthLength) {
+						_this.aL = _this.axisLength - _this.monthLength - 1;
+						$(document).trigger('mouseup');
+					}
+				} else {
+					if (_this.axisLength - _this.aL - _this.xSpace / 2 > _this.yearLength) {
+						_this.aL = _this.axisLength - _this.yearLength - 1;
+						$(document).trigger('mouseup');
+					}
 				}
 				_this.setArea();
 			}
@@ -466,7 +376,7 @@ this.WbstChart = this.WbstChart || {};
 	// bOk为true时width和left跟着一起累加
 	p.canvaspMove = function(dir, bOkl, bOkw) {
 		var _this = this,
-			maxLeft = _this.axisLength - _this.limitbox.width()/iScale;
+			maxLeft = _this.axisLength - _this.limitbox.width() / iScale;
 		if (dir == 'left') {
 			_this.bStop = false;
 			fnLeft();
@@ -475,8 +385,10 @@ this.WbstChart = this.WbstChart || {};
 			fnRight();
 		}
 
-		function fnLeft(){
-			if (_this.bStop) {return;}
+		function fnLeft() {
+			if (_this.bStop) {
+				return;
+			}
 			_this.cl += 4;
 			if (_this.cl >= 4) {
 				_this.cl = 0;
@@ -498,11 +410,13 @@ this.WbstChart = this.WbstChart || {};
 			}
 			_this.setArea();
 			_this.contentBox.css('left', _this.cl);
-			setTimeout(fnLeft,30);
+			setTimeout(fnLeft, 30);
 		}
 
-		function fnRight(){
-			if (_this.bStop) {return;}
+		function fnRight() {
+			if (_this.bStop) {
+				return;
+			}
 			_this.cl -= 4;
 			if (_this.cl <= -maxLeft - 4) {
 				_this.cl = -maxLeft - 4;
@@ -525,7 +439,7 @@ this.WbstChart = this.WbstChart || {};
 				}
 				_this.setArea();
 			}
-			setTimeout(fnRight,30);
+			setTimeout(fnRight, 30);
 		}
 	};
 
@@ -535,10 +449,17 @@ this.WbstChart = this.WbstChart || {};
 			aw = 0;
 		// 小于50 增加canvas的宽，设置canvas的left,
 		// 判断处于年轴还是月轴
+
 		if (_this.bMonth) {
-			aw = _this.dayLength > _this.axisLength + _this.mW + 10 ? _this.mW : _this.dayLength - _this.axisLength + 10;
-		} else {
+			if (_this.monthLength < _this.axisLength) {
+				return;
+			}
 			aw = _this.monthLength > _this.axisLength + _this.mW + 10 ? _this.mW : _this.monthLength - _this.axisLength + 10;
+		} else {
+			if (_this.yearLength < _this.axisLength) {
+				return;
+			}
+			aw = _this.yearLength > _this.axisLength + _this.mW + 10 ? _this.mW : _this.yearLength - _this.axisLength + 10;
 		}
 		_this.axisLength += aw;
 
@@ -582,106 +503,50 @@ this.WbstChart = this.WbstChart || {};
 		var l = (this.axisLength - this.aL - 4) / this.xSpace | 0, // 取整
 			// endlined的间隔数
 			w = l - this.aW / this.xSpace + 1,
-			startDate = '',
-			endDate = '';
+			date = '';
 		if (this.bMonth) {
 			// 月时间轴
-			/*
-				通过对时间对象的setDate方法来获得时间区域 setDate(m)  m为1~30，设置为m日，超过部分会自动累加月后计算日。
-				m为负数，-1为上个月最后一天，-2为上月倒数第二天，依次累加，月份跟随一起计算
-			*/
-			var oDate = new Date(this.endTime);
-			// 获取当月的天数
-			var today = oDate.getDate() + 1;
-			//  日期不在当月
-			oDate.setDate(today - l);
-			startDate = oDate.getFullYear() + '-' + n2d(oDate.getMonth() + 1) + '-' + n2d(oDate.getDate());
-			oDate = new Date(this.endTime);
-			oDate.setDate(today - w)
-			endDate = oDate.getFullYear() + '-' + n2d(oDate.getMonth() + 1) + '-' + n2d(oDate.getDate());
-		} else {
-			// // 年时间轴   不用对象的方法
-			// allMonth = this.endMonth + (this.endYear - 1000) * 12 - 1;
-			// startDate = 1000 + Math.floor((allMonth - l) / 12) + '-' + (((allMonth - l + 1) % 12) || 12);
-			// endDate = 1000 + Math.floor((allMonth - w) / 12) + '-' + (((allMonth - w + 1) % 12) || 12);
-			var oDate = new Date(this.endTime);
-			var tmonth = this.endMonth;
-			oDate.setMonth(tmonth - l);
-			startDate = oDate.getFullYear() + '-' + n2d(oDate.getMonth() + 1);
-			var oDate = new Date(this.endTime);
-			oDate.setMonth(tmonth - w);
-			endDate = oDate.getFullYear() + '-' + n2d(oDate.getMonth() + 1);
 
+			var oDate = new Date(this.endTime);
+			var baseMonth = oDate.getMonth() + 1;
+			oDate.setMonth(baseMonth - l);
+			date = oDate.getFullYear() + '-' + n2d(oDate.getMonth() + 1);
+
+		} else {
+			// 年时间轴
+			date = this.endYear - l + 1 + '';
 		}
 
-		console.log(startDate, endDate);
+		console.log(date);
 
 		return {
-			startDate: startDate,
-			endDate: endDate
+			date: date,
+			type: this.type
 		};
 
 		// 补零函数
 		function n2d(n) {
-			return n < 10 ? '0' + n : n;
+			return n < 10 ? '0' + n : '' + n;
 		};
 	};
 
 	p.btnEvent = function() {
 		var _this = this,
-			sign = 'year';
+			sign = 'year',
+			firstClick = true;
 		_this.timeBtn.click(function(ev) {
 			$(this).addClass('active').siblings().removeClass('active');
 			_this.canvas.hide();
 			_this.getTime = true;
 			switch ($(this).attr('data-type')) {
-				case 'now':
-					// 最近七天状态下，默认选择区域大小为7天，大小不能改变，只能改变选择区域位置。
-					_this.moveOnly = true;
-					_this.bMonth = true;
-					_this.xArr = _this.setMonthxArr();
-					_this.canvas = _this.nowCanvas;
-					//  判断之前是什么轴 连续点击自己时 跳出
-					if (sign == 'now') {
-						_this.getTime = false;
-						break;
-					} else if (sign == 'month') {
-						_this.monthJson = {
-							l: _this.aL,
-							w: _this.aW,
-							axisLength: _this.axisLength,
-							boxl: _this.cl
-						};
-					} else if (sign == 'year') {
-						_this.yearJson = {
-							l: _this.aL,
-							w: _this.aW,
-							axisLength: _this.axisLength,
-							boxl: _this.cl
-						};
-					}
-					sign = 'now';
-					if (_this.canvas.attr('isdraw') != 'yes') {
-						_this.canvas.attr('isdraw', 'yes');
-						// 初始化月轴
-						_this.initSize(true);
-						break;
-					}
-					_this.aL = _this.nowJson.l;
-					_this.aW = _this.xSpace * 7;
-					_this.axisLength = _this.nowJson.axisLength;
-					_this.cl = _this.nowJson.boxl;
-					_this.contentBox.css({
-						width: _this.nowJson.axisLength + 28,
-						left: _this.cl
-					});
-					// 设置月轴的状态
-					_this.setArea();
-					break;
 				case 'month':
-					_this.moveOnly = false;
+					_this.type = 1;
+					if (firstClick) {
+						_this.aW = _this.xSpace;
+					} else {
+						firstClick = false;
+					}
 					_this.bMonth = true;
-					_this.xArr = _this.setMonthxArr();
 					_this.canvas = _this.monthCanvas;
 					if (sign == 'month') {
 						_this.getTime = false;
@@ -694,18 +559,10 @@ this.WbstChart = this.WbstChart || {};
 							axisLength: _this.axisLength,
 							boxl: _this.cl
 						};
-					} else if (sign == 'now') {
-						_this.nowJson = {
-							l: _this.aL,
-							axisLength: _this.axisLength,
-							boxl: _this.cl
-						}
 					}
-					
 					sign = 'month';
 					// 判断canvas是否已经初始化
 					if (_this.canvas.attr('isdraw') != 'yes') {
-						_this.aW = _this.xSpace;
 						_this.canvas.attr('isdraw', 'yes');
 						// 初始化月轴
 						_this.initSize(true);
@@ -723,7 +580,7 @@ this.WbstChart = this.WbstChart || {};
 					_this.setArea();
 					break;
 				case 'year':
-					_this.moveOnly = false;
+					_this.type = 2;
 					if (sign == 'year') {
 						_this.getTime = false;
 						break;
@@ -734,12 +591,6 @@ this.WbstChart = this.WbstChart || {};
 							axisLength: _this.axisLength,
 							boxl: _this.cl
 						};
-					} else if (sign == 'now') {
-						_this.nowJson = {
-							l: _this.aL,
-							axisLength: _this.axisLength,
-							boxl: _this.cl
-						}
 					}
 					sign = 'year';
 					_this.bMonth = false;
@@ -766,21 +617,21 @@ this.WbstChart = this.WbstChart || {};
 	p.resize = function() {
 		var _this = this;
 		if (SCALE > 1) {
-			_this.timeLine.css('transform','translateX('+SCALE*50+'%) scale('+SCALE+','+SCALE+')');
+			_this.timeLine.css('transform', 'translateX(' + SCALE * 50 + '%) scale(' + SCALE + ',' + SCALE + ')');
 		}
 		$(window).resize(function() {
 			var n = _this.limitWidth;
 			_this.initSize(false);
 			if (_this.limitbox.width() - n > 0) {
-				_this.cl = _this.contentBox.position().left/iScale - n + _this.limitbox.width()/iScale;
+				_this.cl = _this.contentBox.position().left / iScale - n + _this.limitbox.width() / iScale;
 				if (_this.yearJson.boxl) {
-					_this.yearJson.boxl -= n - _this.limitbox.width()/iScale
+					_this.yearJson.boxl -= n - _this.limitbox.width() / iScale
 				}
 				if (_this.monthJson.boxl) {
-					_this.monthJson.boxl -= n - _this.limitbox.width()/iScale
+					_this.monthJson.boxl -= n - _this.limitbox.width() / iScale
 				}
 				if (_this.nowJson.boxl) {
-					_this.nowJson.boxl -= n - _this.limitbox.width()/iScale
+					_this.nowJson.boxl -= n - _this.limitbox.width() / iScale
 				}
 				_this.contentBox.css('left', _this.cl);
 			}
@@ -801,66 +652,6 @@ this.WbstChart = this.WbstChart || {};
 		}
 
 		return xArr.reverse();
-	};
-
-	/*	
-		获取四年日的排序，并且把当日放在数组的第二个位置，第一位为明天，在canvas里不显示
-		如果当日为24号，数组大致类型为
-		[25,24,23,22,......................,28,27,26]
-		画canvas时循环从数组里取值
-	*/
-	p.setMonthxArr = function() {
-		var _this = this;
-		var isDate = false;
-		var sY = _this.endYear % 4;
-		var arr = [];
-		for (var i = 0; i < 4; i++) {
-			for (var j = 1; j < 13; j++) {
-				if (i == sY && j == _this.endMonth) {
-					isDate = true;
-				} else {
-					isDate = false;
-				}
-				arr = arr.concat(_this.get1monthDays(j, !(i % 4), isDate))
-			}
-		}
-		var signlen = 0;
-		for (var i = 0; i < arr.length; i++) {
-			if (arr[i] == 'sign') { //根据标记重排序数组 标记为放到最后，倒序后在最前
-				arr[i] = _this.endDate + 1;
-				signlen = i;
-			}
-		}
-		var xArr = arr.splice(signlen).concat(arr);
-		return xArr.reverse();
-	};
-
-	// 获取一个月的数据n 代表第几月，isR代表是否是润年，isDate是用来判断标记日期
-	p.get1monthDays = function(n, isR, isDate) {
-		var _this = this;
-		var arr = [];
-		var m = 0;
-		switch (n) {
-			case 4:
-			case 6:
-			case 11:
-				m = 30;
-				break;
-			case 2:
-				m = isR ? 29 : 28;
-				break;
-			default:
-				m = 31;
-				break;
-		}
-		for (var i = 0; i < m; i++) {
-			if (isDate && i == _this.endDate + 1) {
-				arr[i] = 'sign'; //当日期是date的是时候，设一个标记 ，通过标记重排序数组
-			} else {
-				arr[i] = i + 1;
-			}
-		}
-		return arr;
 	};
 
 	WbstChart.TimeLine = TimeLine;

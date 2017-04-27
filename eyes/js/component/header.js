@@ -37,6 +37,9 @@ this.EE = this.EE || {};
 		+'<a>绿色搜索'
 		+'<span class="pointbg"></span>'
 		+'</a>'
+		+'<a href="anreport.html">微眼观察'
+		+'<span class="pointbg"></span>'
+		+'</a>'
 		+'<span class="navlight"></span>'
 		+'</nav>'
 		+'<div class="infopanel fr">'
@@ -44,7 +47,6 @@ this.EE = this.EE || {};
 		+'<span class="username fl" id="showuser">Admin</span>'
 		+'<span class="welcomeword fl">欢迎您</span>'
 		+'</p>'
-		+'<span class="datTime fl">'+year+'.'+this.n2d(month)+'.'+this.n2d(day)+'</span>'
 		+'<span class="signout fl" id="signout">退出<b></b></span>'
 		+'</div>';
 
@@ -82,7 +84,7 @@ this.EE = this.EE || {};
 
 		_this.$navA.eq(_this.iNow).trigger('click').trigger('mouseover');
 		// 设置登录用户名
-		_this.$showuser.html(window.localStorage.loginName);
+		_this.$showuser.html(window.localStorage.userName);
 
 		$('#signout').click(function(){
 			_this.c.logout('',function(){

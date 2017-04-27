@@ -5,6 +5,11 @@ this.WbstChart = this.WbstChart || {};
 
 		this.duration = 120000;
 
+		this.numScale = 1;
+		this.numLen = 1;
+
+		this.numData = [];
+
 		this.EventDispatcher = $({});
 
 		this.init();
@@ -20,7 +25,7 @@ this.WbstChart = this.WbstChart || {};
 		_this._myChart.on('mouseover', function(param) {
 			var item = {};
 			item.seriesName = param.name;
-			item.xAxisValue = param.value;
+			item.xAxisValue = param.value * _this.numScale;
 			var evt = param.event.event;
 			_this.EventDispatcher.trigger('chartmouseover', {
 				item: item,
@@ -53,7 +58,7 @@ this.WbstChart = this.WbstChart || {};
 		var data2 = [];
 		var titleData = [];
 		var cityData = [];
-
+		this.numData = [];
 		var item1Arr = [{
 			normal: {
 				color: 'rgba(255,43,62,0.3)',
@@ -75,9 +80,29 @@ this.WbstChart = this.WbstChart || {};
 		}];
 
 		var colorArr = ['#e12b3e', '#f1b420', '#00a6f5'];
+
+		var maxNum = 0;
+		for (var i = 0, len = this._dataProvider.length; i < len; i++) {
+			if (maxNum < 1*this._dataProvider[i].eventSum) {
+				maxNum = 1*this._dataProvider[i].eventSum;
+			}
+		}
+		var numLen = (maxNum / 1000 | 0).toString().length;
+		if (maxNum < 1000) {
+			numLen = 0;
+			this.numScale = 1;
+		} else if (numLen < 4) {
+			numLen = 1;
+			this.numScale = 1000;
+		} else {
+			this.numScale = Math.pow(10, numLen);
+			numLen-=2;
+		}
+		this.numLen = numLen;
 		for (var i = 0, len = this._dataProvider.length; i < len; i++) {
 
-			var num = this._dataProvider[i].eventSum / 1e4;
+			var num = this._dataProvider[i].eventSum / this.numScale;
+			this.numData.push(this._dataProvider[i].eventSum);
 			data1.push({
 				value: num,
 				itemStyle: item1Arr[i],
@@ -112,6 +137,7 @@ this.WbstChart = this.WbstChart || {};
 	};
 
 	p.setOption = function() {
+		var _this = this;
 		clearTimeout(this.timer);
 		var option = {
 			grid: {
@@ -166,7 +192,7 @@ this.WbstChart = this.WbstChart || {};
 			}],
 			yAxis: [{
 				type: 'value',
-				name: '单位/万 ',
+				name: '单位/' + ['条', '千', '万', '十万', '百万', '千万', '亿', '十亿', '百亿', '千亿', '万亿'][_this.numLen] + ' ',
 				nameGap: 20,
 				nameTextStyle: {
 					color: '#3fc0ff'
@@ -205,7 +231,7 @@ this.WbstChart = this.WbstChart || {};
 						position: 'top',
 						formatter: function(params) {
 							// 12345 转 12,345
-							return (params.value * 1e4).toString().replace(/\d{1,3}(?=(\d{3})+(\.\d*)?$)/g, '$&,');
+							return _this.numData[params.dataIndex].toString().replace(/\d{1,3}(?=(\d{3})+(\.\d*)?$)/g, '$&,');
 						},
 						offset: [0, -10],
 						textStyle: {

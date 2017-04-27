@@ -32,16 +32,44 @@ this.WBST = this.WBST || {};
 
 	p.baseEvent = function() {
 		var _this = this;
+		var $close = $('#cColse');
+		var timer = null;
 		_this.$city.click(function(ev) {
 			_this.$zCity.show();
+			_this.$citybox.addClass('active');
 			_this.$city.addClass('active');
 			ev.stopPropagation();
 		});
 
-		$('#cColse').click(function() {
-			_this.$city.removeClass('active');
-			_this.$zCity.hide();
+		_this.$city.mouseenter(function(){
+			clearTimeout(timer);
+			_this.$city.trigger('click');
 		});
+
+		_this.$city.mouseleave(function(){
+			timer = setTimeout(function(){
+				$close.trigger('click');
+			},500);
+		});
+
+		this.$zCity.mouseenter(function(){
+			clearTimeout(timer);
+		});
+
+		this.$zCity.mouseleave(function(){
+			timer = setTimeout(function(){
+				$close.trigger('click');
+			},500);
+		});
+
+		$close.click(function(ev) {
+			_this.$city.removeClass('active');
+			_this.$citybox.removeClass('active');
+			// _this.$zCity.hide();
+			ev.stopPropagation();
+		});
+
+		
 
 		// 点击document隐藏
 		$(document).click(function(ev) {
@@ -160,7 +188,7 @@ this.WBST = this.WBST || {};
 	};
 
 	p.initAll = function() {
-		var dal = '<div class="_citys">' +
+		var dal = '<div class="citybox" id="citybox"><div class="_citys" id="_citys">' +
 			'<span title="关闭" id="cColse" >×</span>' +
 			'<ul id="_citysheng" class="_citys0">' +
 			'<li class="citySel">省份</li>' +
@@ -172,10 +200,12 @@ this.WBST = this.WBST || {};
 			'<input class="searchinput" type="text" id="cityinput" />' +
 			'<span class="searchbtn" id="cityserch">搜索</span>' +
 			'</div>' +
-			'<div class="cityscrollbox">' +
-			'</div>' +
+			'<div class="cityscrollbox"></div>' +
+			'</div>'+
 			'</div>';
 		this.$zCity.html(dal);
+		this.$citybox = $('#citybox');
+		this.$citys = $('#citys');
 		this.$city0 = $('#_citys0');
 		this.$city1 = $('#_citys1');
 		this.$cityserch = $('#cityserch');
@@ -190,7 +220,7 @@ this.WBST = this.WBST || {};
 	};
 
 	p.initProvince = function(id) {
-		var dal = '<div class="_citys">' +
+		var dal = '<div class="citybox" id="citybox"><div class="_citys" id="_citys">' +
 			'<span title="关闭" id="cColse" >×</span>' +
 			'<ul id="_citysheng" class="_citys0">' +
 			'<li>城市</li>' +
@@ -200,10 +230,12 @@ this.WBST = this.WBST || {};
 			'<input class="searchinput" type="text" id="cityinput" />' +
 			'<span class="searchbtn" id="cityserch">搜索</span>' +
 			'</div>' +
-			'<div class="cityscrollbox">' +
+			'<div class="cityscrollbox"></div>' +
 			'</div>' +
 			'</div>';
 		this.$zCity.html(dal);
+		this.$citybox = $('#citybox');
+		this.$citys = $('#citys');
 		this.$city1 = $('#_citys1');
 		this.$cityserch = $('#cityserch');
 		this.$cityinput = $('#cityinput');

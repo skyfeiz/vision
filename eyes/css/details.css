@@ -46,7 +46,7 @@
     width: 1.2rem;
     min-width: 50px;
     border: 1px solid #3fc0ff;
-    background-color: rgba(63, 192, 255, 0.3);
+    background-color: rgba(63, 192, 255, 0.2);
     -webkit-transition: 0.5s all ease;
     -moz-transition: 0.5s all ease;
     transition: 0.5s all ease;
@@ -121,19 +121,19 @@
     position: absolute;
     left: 0;
     top: 100%;
-    width: calc(1.1rem - 5px);
+    width: 1.1rem;
     margin-left: -1px;
     background-color: rgba(0, 0, 0, 0.8);
     max-height: 260px;
     overflow: hidden;
+    padding-right: 0 !important;
 }
-
 .choosebox .droplist li {
     padding-left: 0.1rem;
     line-height: 24px;
     height: 24px;
     cursor: pointer;
-    width: calc(100% - 10px);
+    width: calc(100% - 14px);
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -251,7 +251,10 @@
     line-height: 1;
     margin-right: 0.18rem;
 }
-
+.ullist .textinfo .hashref:hover,
+.ullist .textinfo .hashref:active{
+    color: #fffc00;
+}
 .ullist .atitle {
     position: absolute;
     left: 0.4rem;

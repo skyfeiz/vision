@@ -1,5 +1,6 @@
 this.EE = this.EE || {};
 (function(win, doc) {
+	// var hostUrl = "http://" + win.location.host + "/eems/opinionStudy/";
 	var hostUrl = "http://" + win.location.host + "/vision/eyes/";
 
 	var P2Chart = function() {
@@ -13,6 +14,10 @@ this.EE = this.EE || {};
 
 		this.originNum = 10;
 
+		this.emotion = 2;
+
+		this.nRandom = new Date().getTime();
+
 		this.ready();
 	};
 
@@ -22,16 +27,14 @@ this.EE = this.EE || {};
 		var _this = this;
 		_this.c.ready(function(region) {
 			_this.region = region;
-
 			_this.init();
 			_this.initDom();
-
 		});
 	};
 
 	p.init = function() {
 		var _this = this;
-		_this.t = new WbstChart.TimeLine('2014-08-08');
+		_this.t = new WbstChart.TimeLine({start:'2008-08-08'});
 		_this.t.silent = true;
 
 		_this.c.getChartConfig('', function(data) {
@@ -40,8 +43,8 @@ this.EE = this.EE || {};
 		});
 
 		_this.t.toChange = function(json) {
-			_this.startDate = json.startDate;
-			_this.endDate = json.endDate;
+			_this.date = json.date;
+			_this.type = json.type;
 			_this.changeData();
 		};
 
@@ -62,7 +65,7 @@ this.EE = this.EE || {};
 
 		_this._Chart4.EventDispatcher.on('click', function(evt, item) {
 			// 需要的参数 事件id，视角，视角区域id，情感
-			win.location.href = encodeURI(hostUrl + 'p3.html?angle=' + _this.viewName + '&regin=' + _this.viewId + '&eventId=' + item + '&emotion=' + _this.emotion);
+			win.location.href = encodeURI(hostUrl + 'p3.html?eventId=' + item + '&emotion=' + _this.emotion);
 
 		});
 
@@ -71,7 +74,7 @@ this.EE = this.EE || {};
 		_this._Chart5.setConfig(_this._config.chart5.config);
 		_this._mapKIdVChart['chart5'] = _this._Chart5;
 		_this._Chart5.EventDispatcher.on('chartmouseover', function(evt, item) {
-			var str = '<p class="tooltiptext"><span class="valuenum">' + item.item.xAxisValue * 10000 + '</span><span class="fffpoint_lt"></span><span class="fffpoint_rb"></span></p>';
+			var str = '<p class="tooltiptext"><span class="valuenum">' + item.item.xAxisValue + '</span><span class="fffpoint_lt"></span><span class="fffpoint_rb"></span></p>';
 			_this.showToolTip(str, item.event.pageX, item.event.pageY);
 		});
 		_this._Chart5.EventDispatcher.on('chartmouseout', function() {
@@ -83,7 +86,7 @@ this.EE = this.EE || {};
 		_this._Chart6.setConfig(_this._config.chart6.config);
 		_this._mapKIdVChart['chart6'] = _this._Chart6;
 		_this._Chart6.EventDispatcher.on('chartmouseover', function(evt, item) {
-			var str = '<p class="tooltiptext"><span class="valuename">' + item.item.seriesName + ' :</span><span class="valuenum">' + item.item.xAxisValue * 10000 + '</span><span class="fffpoint_lt"></span><span class="fffpoint_rb"></span></p>';
+			var str = '<p class="tooltiptext"><span class="valuename">' + item.item.seriesName + ' :</span><span class="valuenum">' + item.item.xAxisValue + '</span><span class="fffpoint_lt"></span><span class="fffpoint_rb"></span></p>';
 			_this.showToolTip(str, item.event.pageX, item.event.pageY);
 		});
 		_this._Chart6.EventDispatcher.on('chartmouseout', function() {
@@ -110,8 +113,11 @@ this.EE = this.EE || {};
 				case '中立':
 					_this.emotion = 0;
 					break;
-				default:
+				case '负方':
 					_this.emotion = -1;
+					break;
+				default:
+					_this.emotion = 2;
 					break;
 			}
 
@@ -131,7 +137,7 @@ this.EE = this.EE || {};
 		});
 
 		_this._Chart9.EventDispatcher.on('click', function(evt, item) {
-			win.location.href = encodeURI(hostUrl + 'p3.html?&eventId=' + item + '&emotion=' + _this.emotion);
+			win.location.href = encodeURI(hostUrl + 'details.html?type=4&eventName=' + item + '&emotion=' + _this.emotion);
 		});
 
 
@@ -140,7 +146,7 @@ this.EE = this.EE || {};
 		_this._Chart7.setConfig(_this._config.chart7.config);
 		_this._mapKIdVChart['chart7'] = _this._Chart7;
 		_this._Chart7.EventDispatcher.on('chartmouseover', function(evt, item) {
-			var str = '<p class="tooltiptext"><span class="valuenum">' + item.item.xAxisValue * 10000 + '</span><span class="fffpoint_lt"></span><span class="fffpoint_rb"></span></p>';
+			var str = '<p class="tooltiptext"><span class="valuenum">' + item.item.xAxisValue + '</span><span class="fffpoint_lt"></span><span class="fffpoint_rb"></span></p>';
 			_this.showToolTip(str, item.event.pageX, item.event.pageY);
 		});
 		_this._Chart7.EventDispatcher.on('chartmouseout', function() {
@@ -152,17 +158,19 @@ this.EE = this.EE || {};
 		var _this = this;
 
 		_this.c.getChart8Data({
-			region: _this.region,
-			startDate: _this.startDate,
-			endDate: _this.endDate
+			type: _this.type,
+			date: _this.startDate,
+			batchFlag: _this.nRandom
 		}, function(result) {
 			_this._mapKIdVChart['chart8'].setDataProvider(result.data);
 		});
 
 		_this.c.getChart9Data({
-			region: _this.region,
-			startDate: _this.startDate,
-			endDate: _this.endDate
+			num: '30',
+			dateType: _this.type,
+			date: _this.date,
+			articleEmotion: _this.emotion,
+			batchFlag: _this.nRandom
 		}, function(result) {
 			_this._mapKIdVChart['chart9'].setDataProvider(result.data);
 		});
@@ -173,40 +181,39 @@ this.EE = this.EE || {};
 	p.changeData2 = function() {
 		var _this = this;
 		_this.c.getChart4Data({
-			region: _this.region,
-			startDate: _this.startDate,
-			endDate: _this.endDate,
-			emotion: _this.emotion,
-			num: _this.eventNum
+			dateType: _this.type,
+			date: _this.date,
+			articleEmotion: _this.emotion,
+			batchFlag: _this.nRandom
 		}, function(result) {
 			_this._mapKIdVChart['chart4'].setDataProvider(result.data);
 		});
 
 		_this.c.getChart5Data({
-			region: _this.region,
-			startDate: _this.startDate,
-			endDate: _this.endDate,
-			emotion: _this.emotion,
-			num: _this.rankNum
+			dateType: _this.type,
+			date: _this.date,
+			articleEmotion: _this.emotion,
+			num: _this.rankNum,
+			batchFlag: _this.nRandom
 		}, function(result) {
 			_this._mapKIdVChart['chart5'].setDataProvider(result.data);
 		});
 
 		_this.c.getChart6Data({
-			region: _this.region,
-			startDate: _this.startDate,
-			endDate: _this.endDate,
-			emotion: _this.emotion
+			dateType: _this.type,
+			date: _this.date,
+			articleEmotion: _this.emotion,
+			batchFlag: _this.nRandom
 		}, function(result) {
 			_this._mapKIdVChart['chart6'].setDataProvider(result.data);
 		});
 
 		_this.c.getChart7Data({
-			region: _this.region,
-			startDate: _this.startDate,
-			endDate: _this.endDate,
-			emotion: _this.emotion,
-			num: _this.originNum
+			dateType: _this.type,
+			date: _this.date,
+			articleEmotion: _this.emotion,
+			num: _this.originNum,
+			batchFlag: _this.nRandom
 		}, function(result) {
 			_this._mapKIdVChart['chart7'].setDataProvider(result.data);
 		});

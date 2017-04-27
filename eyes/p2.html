@@ -3,18 +3,16 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>舆情地图</title>
+    <title>舆情分析</title>
     <link rel="stylesheet" type="text/css" href="css/style.css"></link>
     <link rel="stylesheet" type="text/css" href="css/p2.css"></link>
     <script type="text/javascript" src="libs/jquery-3.1.1.min.js"></script>
     <script type="text/javascript" src="libs/echarts3.0.js"></script>
     <script type="text/javascript" src="libs/worldcloud.js"></script>
     <script type="text/javascript" src="libs/jquery_scrollBar.js"></script>
-    <script type="text/javascript" src="libs/easeljs-NEXT.combined.js"></script>
-    <script type="text/javascript" src="libs/TweenMax.min.js"></script>
     <script type="text/javascript" src="js/component/screen.js"></script>
-    <script type="text/javascript" src="js/Controller.js"></script>
-    <script type="text/javascript" src="js/component/timeline.js"></script>
+    <script type="text/javascript" src="js/Controller00.js"></script>
+    <script type="text/javascript" src="js/component/timeline2.js"></script>
     <script type="text/javascript" src="chart/chart4.js"></script>
     <script type="text/javascript" src="chart/chart5.js"></script>
     <script type="text/javascript" src="chart/chart6.js"></script>
@@ -27,6 +25,7 @@
     $(function() {
         new EE.Header(1);
         new EE.P2Chart();
+        // new WbstChart.TimeLine('2008-08');
     })
     </script>
 </head>
@@ -64,7 +63,7 @@
             </div>
             <div class="element-content">
                 <div class="chart5" id="chart5"></div>
-                <p class="unittitle" id="unittitle">单位/万</p>
+                <p class="unittitle" id="unittitle"></p>
             </div>
         </section>
         <section class="element-div chart6div">

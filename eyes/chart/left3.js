@@ -5,6 +5,8 @@ this.WbstChart = this.WbstChart || {};
 
 		this.numScale = 1;
 
+		this.numData = [];
+
 		this.EventDispatcher = $({});
 
 		this.init();
@@ -20,7 +22,7 @@ this.WbstChart = this.WbstChart || {};
 		_this._Bar3dchart.on('mouseover', function(param) {
 			var item = {};
 			item.seriesName = param.name;
-			item.xAxisValue = param.value*_this.numScale;
+			item.xAxisValue = _this.numData[param.dataIndex];
 			var evt = param.event.event;
 			_this.EventDispatcher.trigger('chartmouseover', {
 				item: item,
@@ -48,18 +50,17 @@ this.WbstChart = this.WbstChart || {};
 		if (this._config == null || this._dataProvider == null) {
 			return;
 		}
-		var maxNum = 0;
 
 		var data = [];
 		var titleData = [];
-
+		this.numData = [];
+		var maxNum = 0;
 		for (var i = 0, len = this._dataProvider.length; i < len; i++) {
-			if (this._dataProvider[i][this._config.valueField] > maxNum) {
-				maxNum = this._dataProvider[i][this._config.valueField];
+			if (1*this._dataProvider[i][this._config.valueField] > maxNum) {
+				maxNum = 1*this._dataProvider[i][this._config.valueField];
 			}
 		}
 		var numLen = (maxNum / 1000 | 0).toString().length;
-
 		if (maxNum < 1000) {
 			numLen = 0;
 			this.numScale = 1;
@@ -68,12 +69,14 @@ this.WbstChart = this.WbstChart || {};
 			this.numScale = 1000;
 		}else{
 			this.numScale = Math.pow(10,numLen);
+			numLen-=2;
 		}
 
 
 		for (var i = 0, len = this._dataProvider.length; i < len; i++) {
 			var item = {};
 			item.name = this._dataProvider[i][this._config.labelField];
+			this.numData.push(this._dataProvider[i][this._config.valueField]);
 			item.value = this._dataProvider[i][this._config.valueField]/this.numScale;
 			data.push(item);
 			titleData.push(item.name);
@@ -147,6 +150,7 @@ this.WbstChart = this.WbstChart || {};
 			series: [{
 				type: 'bar',
 				barWidth: 14,
+				barMinHeight:10,
 				name: '来源媒体',
 				data: data,
 				itemStyle: {

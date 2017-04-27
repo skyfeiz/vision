@@ -32,9 +32,12 @@ this.WbstChart = this.WbstChart || {};
 
 		_this._myChart.on('click', function(param) {
 			_this.EventDispatcher.trigger('click', param);
+			_this.toSelect(param.dataIndex);
+			_this._myChart.setOption(_this.option);
 		});
 
 		this.initDom();
+		this.baseEvent();
 	};
 
 	p.initDom = function() {
@@ -51,22 +54,23 @@ this.WbstChart = this.WbstChart || {};
 	};
 
 	p.creationContent = function() {
-
 		if (this._config == null || this._dataProvider == null) {
 			return;
 		}
+
 
 		var seriesData = [];
 		var legendData = [];
 		var total = {};
 		for (var i = 0, len = this._dataProvider.length; i < len; i++) {
-			if (this._dataProvider[i].name == '总数') {
-				total.name = '总数';
+			if (this._dataProvider[i].name == '全部') {
+				total.name = '全部';
 				total.value = this._dataProvider[i].num;
 			} else {
 				seriesData.push({
 					name: this._dataProvider[i].name,
-					value: this._dataProvider[i].num
+					value: this._dataProvider[i].num,
+					selected: false
 				})
 				legendData.push({
 					name: this._dataProvider[i].name,
@@ -79,7 +83,7 @@ this.WbstChart = this.WbstChart || {};
 
 		var option = {
 			animationDuration: 3000,
-			color: ['#ed3f49', '#32ccc3', '#fed61c'],
+			color: ['#32ccc3', '#fed61c', '#ed3f49'],
 			legend: {
 				itemWidth: 7,
 				itemHeight: 3,
@@ -182,8 +186,30 @@ this.WbstChart = this.WbstChart || {};
 				z: 4,
 			}]
 		};
-		this._myChart.setOption(option);
+
+		this.option = option;
+		this._myChart.setOption(this.option);
 	};
+
+	p.toSelect = function(id){
+		var data = this.option.series[3].data;
+		for (var i = 0; i < data.length; i++) {
+			if (i == id) {
+				data[i].selected = true;
+			} else {
+				data[i].selected = false;
+			}
+		}
+	}
+
+	p.baseEvent = function() {
+		var _this = this;
+		_this.$pietip.click(function(){
+			_this.toSelect(-1);
+			_this._myChart.setOption(_this.option);
+			_this.EventDispatcher.trigger('click', {type:'全部'});
+		})
+	}
 
 	WbstChart.Chart8 = Chart8;
 })();

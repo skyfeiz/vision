@@ -1,5 +1,6 @@
 .timeaxis{
-	width: 57.4%;
+    left: 6.9rem;
+	width: 11rem;
 }
 
 .hotevent{
@@ -334,6 +335,7 @@ p.bluelight.bluenum{
     -moz-transform: translate(-50%,-50%);
     height: 100%;
     width: 100%;
+    overflow: hidden;
 }
 .mapbox img{
     width: 100%;

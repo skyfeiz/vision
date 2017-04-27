@@ -2,7 +2,7 @@ this.EE = this.EE || {};
 (function(win, doc) {
 	var hostUrl = "http://" + win.location.host + "/vision/eyes/";
 
-	var P3Chart = function() {
+	var Anreport = function() {
 		this.c = new EE.Controller();
 
 		this._mapKIdVChart = {};
@@ -10,7 +10,7 @@ this.EE = this.EE || {};
 		this.ready();
 	};
 
-	var p = P3Chart.prototype;
+	var p = Anreport.prototype;
 
 	p.ready = function() {
 		var _this = this;
@@ -18,7 +18,6 @@ this.EE = this.EE || {};
 			_this.sign = 1;
 			// region 权限  regin 视角id
 			_this.region = region;
-			console.log(region)
 			_this.getStatus();
 			_this.init();
 			_this.initEvent();
@@ -43,137 +42,51 @@ this.EE = this.EE || {};
 	p.init = function() {
 		var _this = this;
 		this.$op = $('#tooltip');
-		_this.bindMapNav();
-		_this.dealNav(_this.regin,_this.angle);
-		_this.map = new EE.map({region: _this.region, view: _this.regin, viewName: _this.angle}, function() {
-			_this.c.getChartConfig('', function(data) {
-				_this._config = data;
-				_this.initChart();
-				// 判断视角 超出权限 
-				if (_this.regin.indexOf(_this.region) == -1) {
-					_this.regin = _this.region;
-				}
-				_this.changeData();
-				//	刷新词云
-				_this.c.getWorldCloud_p3({
-					regin: _this.regin,
-					startDate: _this.startDate,
-					endDate: _this.endDate,
-					angle: _this.angle,
-					eventId: _this.eventId
-				}, function(result) {
-					console.log("刷新词云");
-					_this.p3Chart5.setDataProvider(result.data);
-				});
-
-				//	刷新30天事件曲线
-				_this.c.getEventCurve_p3({
-					regin: _this.regin,
-					angle: _this.angle,
-					eventId: _this.eventId,
-				}, function(result) {
-					console.log('刷新30天事件曲线');
-					_this.p3Chart1.setDataProvider(result.data);
-				});
-
-				//	刷新事件简介
-				_this.c.getEventBrief_p3({
-					eventId: _this.eventId
-				}, function(result) {
-					console.log('刷新事件简介');
-					$(".p3chart3 .element-title-text").text(result.data.name);
-					$(".p3chart3 .element-content p").text(result.data.description);
-				});
-			});
-		});
-
-		_this.map.chinaClick = function(name, id) {
-			_this.viewName = name;
-			_this.viewId = id;
-			var len = id.split("_").length;
-				if (len == 0)
-					_this.sign = 1;
-				else
-					_this.sign = 2;
+		
+		_this.c.getChartConfig('', function(data) {
+			_this._config = data;
+			_this.initChart();
+			// 判断视角 超出权限 
 			_this.changeData();
-			_this.dealNav(id, name);
-		};
-		_this.map.provinceBlankClick = function() {
-			_this.dealNav("101");
-			_this.map.clickChina(null, function() {
-				_this.viewName = '全国';
-				_this.viewId = '101';
-				_this.sign = 1;
-				_this.changeData();
+			//	刷新词云
+			_this.c.getWorldCloud_p3({
+				regin: _this.regin,
+				startDate: _this.startDate,
+				endDate: _this.endDate,
+				angle: _this.angle,
+				eventId: _this.eventId
+			}, function(result) {
+				console.log("刷新词云");
+				_this.p3Chart5.setDataProvider(result.data);
 			});
-		};
 
-		_this.map.cityBlankClick = function(obj) {
-			_this.map.clickProvince(obj, function() {
-				_this.viewName = obj.name;
-				_this.viewId = obj.id;
-				_this.sign = 2;
-				_this.changeData();
+			//	刷新30天事件曲线
+			_this.c.getEventCurve_p3({
+				regin: _this.regin,
+				angle: _this.angle,
+				eventId: _this.eventId,
+			}, function(result) {
+				console.log('刷新30天事件曲线');
+				_this.p3Chart1.setDataProvider(result.data);
 			});
-		};
-	};
 
-	//	地图层级导航点击事件
-	p.bindMapNav = function() {
-		var _this = this;
-
-		$(".mapNav span").eq(1).click(function() {
-			var obj = {
-				name: $(this).data("areaName"),
-				id: $(this).data("id")
-			};
-			$(".mapNav span").eq(2).hide();
-			_this.map.clickProvince(obj, function() {
-				_this.viewName = obj.name;
-				_this.viewId = obj.id;
-				_this.sign = 2;
-				_this.changeData();
+			//	刷新事件简介
+			_this.c.getEventBrief_p3({
+				eventId: _this.eventId
+			}, function(result) {
+				console.log('刷新事件简介');
+				$(".p3chart3 .element-title-text").text(result.data.name);
+				$(".p3chart3 .element-content p").text(result.data.description);
 			});
 		});
-
-		$(".mapNav span").eq(0).click(function() {
-			$(".mapNav span").eq(1).hide();
-			$(".mapNav span").eq(2).hide();
-			_this.map.clickChina(null, function() {
-				_this.viewName = '全国';
-				_this.viewId = '101';
-				_this.sign = 1;
-				_this.changeData();
-			});
-		});
-	};
-
-	p.dealNav = function(id, name) {
-		var ary = id.split("_");
-		var index = ary.length - 1;
-		$(".mapNav span").each(function(i) {
-			if (i > index)
-				$(this).hide();
-			else {
-				if (i == index){
-					$(this).text(name).data({
-						"areaName": name,
-						"areaId": id
-					});
-				}
-				if(ary.length==3 && i==1)
-					$(this).text(province[ary[0]+"_"+ary[1]].name).data({
-						"areaName": province[ary[0]+"_"+ary[1]].name,
-						"areaId": province[ary[0]+"_"+ary[1]].id
-					});
-
-				$(this).show();
-			}
-		});
+		
 	};
 
 	p.initChart = function() {
 		var _this = this;
+		_this.p8chart1 = new WbstChart.P8chart1(doc.getElementById('p8chart1'));
+		_this.p8chart1.setConfig(_this._config.p8chart1.config);
+
 		//	群众正负意见分布
 		_this.p3Chart1 = new WbstChart.ChartP3_1(doc.getElementById('p3Chart1'));
 		_this.p3Chart1.setConfig(_this._config.p3Chart1.config);
@@ -223,9 +136,6 @@ this.EE = this.EE || {};
 	p.changeData = function() {
 		var _this = this;
 
-		if (_this.regin.indexOf(_this.region) == -1) {
-			_this.regin = _this.region;
-		}
 		//	刷新意见
 		console.log('刷新意见');
 		_this.c.getOpinions_p3({
@@ -258,21 +168,7 @@ this.EE = this.EE || {};
 
 	p.changeData2 = function() {
 		var _this = this;
-		if (_this.regin.indexOf(_this.region) == -1) {
-			_this.regin = _this.region;
-		}
-		//	刷新地图打点数据
-		_this.c.getMapData_P3({
-			regin: _this.regin,
-			startDate: _this.startDate,
-			endDate: _this.endDate,
-			angle: _this.angle,	
-			eventId: _this.eventId,
-			sign: _this.sign
-		}, function(result) {
-			console.log('刷新地图打点数据');
-			_this.map.setDotAry(result.data);
-		});
+
 		//	刷新媒体发热度排名
 		_this.c.getMediaRange_p3({
 			regin: _this.regin,
@@ -284,6 +180,13 @@ this.EE = this.EE || {};
 			console.log('刷新媒体发热度排名');
 			_this.p3Chart4.setDataProvider(result.data);
 		});
+
+		// 	刷新散点关系图
+		_this.c.getP8Chart1Data({
+
+		},function(result){
+			_this.p8chart1.setDataProvider(result.data);
+		})
 
 		_this.c.getOpinionList_p3({
 			//	刷新list
@@ -371,5 +274,5 @@ this.EE = this.EE || {};
 		this.regin = json.regin;
 	};
 
-	EE.P3Chart = P3Chart;
+	EE.Anreport = Anreport;
 })(window, document);
