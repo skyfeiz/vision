@@ -86,6 +86,13 @@ this.EE = this.EE || {};
 		var _this = this;
 		_this.p8chart1 = new WbstChart.P8chart1(doc.getElementById('p8chart1'));
 		_this.p8chart1.setConfig(_this._config.p8chart1.config);
+		_this.p8chart1.EventDispatcher.on('chartmouseover', function(evt, item) {
+			var str = '<p class="tooltiptext"><span class="valuenum">' + item.item.seriesName + '</span><span class="fffpoint_lt"></span><span class="fffpoint_rb"></span></p>';
+			_this.showToolTip(str, item.event.pageX, item.event.pageY);
+		});
+		_this.p8chart1.EventDispatcher.on('chartmouseout', function() {
+			_this.hideToolTip();
+		});
 
 		//	群众正负意见分布
 		_this.p3Chart1 = new WbstChart.ChartP3_1(doc.getElementById('p3Chart1'));
@@ -276,3 +283,6 @@ this.EE = this.EE || {};
 
 	EE.Anreport = Anreport;
 })(window, document);
+
+
+

@@ -151,7 +151,8 @@
 		"url":"",
 		"title":"",
 		"config":{
-			
+			"pName":"pName",
+			"name":"media"
 		}
 	}
 }

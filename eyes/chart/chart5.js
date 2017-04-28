@@ -118,11 +118,12 @@ this.WbstChart = this.WbstChart || {};
 			}
 			series.push(json);
 		}
-
+		
 		var cataArr = [];
 		for (var name in cateJson) {
 			cataArr.push(name);
 		}
+		
 		var option = {
 			animationDuration: 3000,
 			color: ['#052d7f', '#4462e6', '#024de7', '#00c6ff', '#90e1fe'],
@@ -199,6 +200,18 @@ this.WbstChart = this.WbstChart || {};
 		};
 		this._myChart.setOption(option);
 	};
+
+	// 数组求和
+	p.sumArr = function(arr){
+		if (!arr.length) {
+			return 0;
+		}
+		var num = 0;
+		for (var i = 0; i < arr.length; i++) {
+			num += arr[i]*1;
+		}
+		return num;
+	}
 
 	WbstChart.Chart5 = Chart5;
 })();

@@ -292,7 +292,7 @@ this.EE = this.EE || {};
 
 					dot.x = dotCoors[i].coordinate[0] / 180 * Math.PI * radiusX;
 					dot.y = -dotCoors[i].coordinate[1] / 180 * Math.PI * radiusY;
-					var num = new createjs.Text(dotCoors[i].num, "18px Arial normal", "#fff");
+					var num = new createjs.Text(dotCoors[i].num, "normal 18px Microsoft yahei", "#fff");
 					num.regY = 12;
 					num.x = dot.x - 14;
 					num.y = dot.y;
