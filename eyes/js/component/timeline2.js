@@ -59,6 +59,7 @@ this.WbstChart = this.WbstChart || {};
 		this.moveLeft();
 		this.btnEvent();
 		this.resize();
+		this.canvasClick();
 	};
 
 	// 年轴 通过起始时间和结束时间获取时间轴的总长
@@ -99,9 +100,9 @@ this.WbstChart = this.WbstChart || {};
 	};
 
 	p.initDom = function() {
+
 		this.timeLine = $('#timeaxis');
 		this.yearCanvas = $('#yearcanvas');
-		this.nowCanvas = $('#nowcanvas');
 		this.monthCanvas = $('#monthcanvas');
 		this.canvas = this.yearCanvas;
 		this.limitbox = this.timeLine.find('.timelimitbox');
@@ -653,6 +654,29 @@ this.WbstChart = this.WbstChart || {};
 
 		return xArr.reverse();
 	};
+
+	/*新加事件  点击canvas选择起始位置调整*/
+	p.canvasClick = function(){
+		var _this = this;
+		_this.yearCanvas.click(function(ev){
+			fn(ev)
+			ev.stopPropagation();
+		});
+
+		_this.monthCanvas.click(function(){
+
+			ev.stopPropagation();
+		})
+
+		function fn(ev){
+			var x = ev.pageX - _this.limitbox.offset().left / iScale;
+			var y = ev.pageY - _this.limitbox.offset().top / iScale;
+			if (y<=40 && y>=18) {
+				var w = _this.limitbox.width() / iScale;
+				
+			}
+		}
+	}
 
 	WbstChart.TimeLine = TimeLine;
 })()

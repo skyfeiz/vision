@@ -25,13 +25,13 @@ this.EE = this.EE || {};
 			"chart8": "../eyes/debug/chart8.json",		//头条正中负面
 			"chart9": "../eyes/debug/chart9.json",		//关键词
 			//=================== p3 =====================================
-			"p3_mapData": "../eyes/debug/map.json",
-			"eventBrief_p3": "debug/p3_3.json",
-			"mediaRange_p3": "debug/p3_4.json",
-			"worldCloud_p3": "debug/chart9.json",
-			"opinions_p3": "debug/p3_2.json",
-			"opinionsList_p3": "debug/p3_2List.json",
-			"eventCurve_p3": "debug/p3_1.json",
+			"p3_mapData": "../eyes/debug/map.json", 	//地图
+			"eventBrief_p3": "debug/p3_3.json",			//污染说明
+			"mediaRange_p3": "debug/p3_4.json",			//发热度排名
+			"worldCloud_p3": "debug/chart9.json",		//词云
+			"opinions_p3": "debug/p3_2.json", 			//情感类型
+			"opinionsList_p3": "debug/p3_2List.json", 	//事件列表
+			"eventCurve_p3": "debug/p3_1.json",			//30天事件曲线图
 
 			"p4chart1": "../eyes/debug/p4chart1.json",
 			"p4chart2": "../eyes/debug/p4chart2.json",
@@ -45,7 +45,22 @@ this.EE = this.EE || {};
 			"tracesEvent": "../eyes/debug/traces.json",
 			"chartP6": "../eyes/debug/p6_map.json",
 
-			"p8chart1":"../eyes/debug/p8chart1.json"
+
+			"micro4": "../eyes/debug/chart4.json",		//舆情头条
+			"micro5": "../eyes/debug/source.json",		//舆情省份排名
+			"micro6": "../eyes/debug/chart6.json",		//舆情走势
+			"micro7": "../eyes/debug/micro7.json",		//来源媒体分布
+			"micro8": "../eyes/debug/chart8.json",		//头条正中负面
+			"micro9": "../eyes/debug/chart9.json",		//关键词
+
+
+			"p8chart1":"../eyes/debug/p8chart1.json",
+			"p8chart2":"../eyes/debug/p8chart2.json",
+			"p8chart3":"../eyes/debug/p8chart3.json",
+			"p8chart3list":"../eyes/debug/p8chart3_list.json",
+			"p8chart4":"../eyes/debug/source.json",
+			"p8explain":"../eyes/debug/p8explain.json",
+			"worldCloud_p8": "debug/chart9.json"
 		};
 
 		//	异步请求方法
@@ -497,10 +512,181 @@ this.EE = this.EE || {};
 			});
 		};
 
+		/*------------------------------------Micro observation------------------------------------------*/
 
+		this.getMicro4Data = function(data, callback) {
+			requestAsk({
+				url: api.micro4,
+				data: data,
+				callback: function(json) {
+					if (callback instanceof Function) {
+						if (json.success) {
+							callback(json)
+						}
+					}
+				}
+			})
+		};
+
+		this.getMicro5Data = function(data, callback) {
+			requestAsk({
+				url: api.micro5,
+				data: data,
+				callback: function(json) {
+					if (callback instanceof Function) {
+						if (json.success) {
+							callback(json)
+						}
+					}
+				}
+			})
+		};
+
+		this.getMicro6Data = function(data, callback) {
+			requestAsk({
+				url: api.micro6,
+				data: data,
+				callback: function(json) {
+					if (callback instanceof Function) {
+						if (json.success) {
+							callback(json)
+						}
+					}
+				}
+			})
+		};
+
+		this.getMicro7Data = function(data, callback) {
+			requestAsk({
+				url: api.micro7,
+				data: data,
+				callback: function(json) {
+					if (callback instanceof Function) {
+						if (json.success) {
+							callback(json)
+						}
+					}
+				}
+			})
+		};
+
+		this.getMicro8Data = function(data, callback) {
+			requestAsk({
+				url: api.micro8,
+				data: data,
+				callback: function(json) {
+					if (callback instanceof Function) {
+						if (json.success) {
+							callback(json)
+						}
+					}
+				}
+			})
+		};
+
+		this.getMicro9Data = function(data, callback) {
+			requestAsk({
+				url: api.micro9,
+				data: data,
+				callback: function(json) {
+					if (callback instanceof Function) {
+						if (json.success) {
+							callback(json)
+						}
+					}
+				}
+			})
+		};
+
+
+		/*------------------------------------ anreport ------------------------------------------*/
 		this.getP8Chart1Data = function(data, callback) {
 			requestAsk({
 				url: api.p8chart1,
+				data: data,
+				callback: function(json) {
+					if (callback instanceof Function) {
+						if (json.success) {
+							callback(json);
+						}
+					}
+				}
+			});
+		};
+
+		this.getP8Chart2Data = function(data, callback) {
+			requestAsk({
+				url: api.p8chart2,
+				data: data,
+				callback: function(json) {
+					if (callback instanceof Function) {
+						if (json.success) {
+							callback(json);
+						}
+					}
+				}
+			});
+		};
+
+		this.getP8Chart3Data = function(data, callback) {
+			requestAsk({
+				url: api.p8chart3,
+				data: data,
+				callback: function(json) {
+					if (callback instanceof Function) {
+						if (json.success) {
+							callback(json);
+						}
+					}
+				}
+			});
+		};
+
+		this.getP8Chart3ListData = function(data, callback) {
+			requestAsk({
+				url: api.p8chart3list,
+				data: data,
+				callback: function(json) {
+					if (callback instanceof Function) {
+						if (json.success) {
+							callback(json);
+						}
+					}
+				}
+			});
+		};
+
+		this.getP8Chart4Data = function(data, callback) {
+			requestAsk({
+				url: api.p8chart4,
+				data: data,
+				callback: function(json) {
+					if (callback instanceof Function) {
+						if (json.success) {
+							callback(json);
+						}
+					}
+				}
+			});
+		};
+
+		this.getP8ExplainData = function(data, callback) {
+			requestAsk({
+				url: api.p8explain,
+				data: data,
+				callback: function(json) {
+					if (callback instanceof Function) {
+						if (json.success) {
+							callback(json);
+						}
+					}
+				}
+			});
+		};
+
+		this.getP8WorldCloudData = function(data, callback) {
+			requestAsk({
+				url: api.worldCloud_p8,
 				data: data,
 				callback: function(json) {
 					if (callback instanceof Function) {

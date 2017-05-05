@@ -183,3 +183,79 @@ span.searchbtn {
     margin: 0 auto;
     height:100%;
 }
+
+
+
+
+
+
+
+
+
+/*---------------------------------------- micro 页面 ----------------------------------------------*/
+
+.mediabox{
+    position: absolute;
+    left: 1.6rem;
+    top: 16.2%;
+    width: 3.2rem;
+    height: 0.36rem;
+}
+.mediabox span{
+    text-align: center;
+    font-size: 0.16rem;
+    width: 50%;
+    height: 0.34rem;
+    border: 1px solid #a0a0a0;
+    line-height: 0.34rem;
+    color: #a0a0a0;
+    background-color: rgba(160,160,160,0.2);
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    position: relative;
+    cursor: pointer;
+}
+.wenxinMedia{
+    margin-left: -1px;
+}
+.mediabox span.active{
+    z-index: 2;
+    border-color: #3fc0ff;
+    color: #fff;
+    background-color: rgba(0,166,245,0.2);
+}
+
+
+/* comment */
+#micro7{
+    height: calc(100% - 0.3rem);
+    overflow: hidden;
+}
+.commentUl{
+    position: relative;
+    padding: 0 0.36rem;
+}
+.commentUl li{
+    height: 1.28rem;
+    padding-top: 0.18rem;
+    border-bottom: 1px solid #034462; 
+}
+.commentUl .p_title{
+    color: #fff;
+    font-weight: normal;
+    font-size: 0.14rem;
+   line-height: 0.20rem;
+}
+.commentUl .p_time{
+    color: #1389dc;
+    font-size: 0.12rem;
+    line-height: 0.14rem;
+    padding-top: 0.05rem;
+    padding-bottom: 0.1rem;
+}
+.commentUl .p_content{
+    color: #5fcbff;
+    font-size: 0.14rem;
+    line-height: 0.20rem;
+}

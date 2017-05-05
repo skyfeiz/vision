@@ -50,7 +50,6 @@ this.WbstChart = this.WbstChart || {};
 		if (this._config == null || this._dataProvider == null) {
 			return;
 		}
-
 		var data = [];
 		var titleData = [];
 		this.numData = [];
@@ -60,6 +59,10 @@ this.WbstChart = this.WbstChart || {};
 				maxNum = 1*this._dataProvider[i][this._config.valueField];
 			}
 		}
+
+		this._dataProvider.sort(function(a,b){
+			return b.num - a.num;
+		})
 		var numLen = (maxNum / 1000 | 0).toString().length;
 		if (maxNum < 1000) {
 			numLen = 0;
@@ -82,7 +85,6 @@ this.WbstChart = this.WbstChart || {};
 			titleData.push(item.name);
 		}
 		
-
 		var xAxis = {
 			type: 'category',
 			data: titleData,

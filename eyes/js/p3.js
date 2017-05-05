@@ -202,6 +202,10 @@ this.EE = this.EE || {};
 		_this.p3Chart5.EventDispatcher.on('chartmouseout', function() {
 			_this.hideToolTip();
 		});
+		_this.p3Chart5.EventDispatcher.on('click', function(evt, item) {
+			win.location.href = encodeURI(hostUrl + 'details.html?type=4&eventName=' + item + '&emotion=' + _this.emotion);
+		});
+		
 		// 媒体发热度排名
 		_this.p3Chart4 = new WbstChart.Bar3d(doc.getElementById('p3Chart4'));
 		_this.p3Chart4.setConfig(_this._config.left3.config);

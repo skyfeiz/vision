@@ -250,9 +250,11 @@
     height: 0.14rem;
     line-height: 1;
     margin-right: 0.18rem;
+    cursor: default;
 }
 .ullist .textinfo .hashref:hover,
 .ullist .textinfo .hashref:active{
+    cursor: pointer;
     color: #fffc00;
 }
 .ullist .atitle {

@@ -19,7 +19,7 @@ this.WbstChart = this.WbstChart || {};
 		_this._myChart.on('mouseover', function(param) {
 			var item = {};
 			item.seriesName = param.name;
-			item.xAxisValue = _this.numData[param.seriesName][param.dataIndex];
+			item.xAxisValue = _this.numData[param.seriesName][param.dataIndex].value;
 			var evt = param.event.event;
 			_this.EventDispatcher.trigger('chartmouseover', {
 				item: item,
@@ -50,10 +50,13 @@ this.WbstChart = this.WbstChart || {};
 		if (this._config == null || this._dataProvider == null) {
 			return;
 		}
+		
+		var rankArr = []; 		// 存排序的数组
+		var legendJson = {};	// 存 ，雾霾，酸雨，核污染...
+		var cateJson = {};		// 存城市，北京，河北，河南...
 
-		var legendJson = {};
-		var cateJson = {};
-		this.numData = {};
+		this.numData = {};		// 存原始数据
+
 		for (var i = 0, len = this._dataProvider.length; i < len; i++) {
 			legendJson[this._dataProvider[i].seriesTitle] = 1;
 			cateJson[this._dataProvider[i].name] = 1;
@@ -64,17 +67,34 @@ this.WbstChart = this.WbstChart || {};
 		var series = [];
 		var legend = [];
 
+		var cateNumArr = [];
+
 		var maxNum = 0;
 		for (var item in cateJson) {
 			var addNum = 0;
+			var json = {name:item,num:[]};
 			for (var i = 0, len = this._dataProvider.length; i < len; i++) {
 				if (this._dataProvider[i].name == item) {
 					addNum += 1*this._dataProvider[i].num;
 					if (maxNum < addNum) {
 						maxNum = addNum;
 					}
+					json.num.push(1*this._dataProvider[i].num);
 				}
 			}
+
+			cateNumArr.push(json);
+		}
+ 		var _this = this;
+ 		// 通过 该省数据的和进行排序
+ 		cateNumArr.sort(function(a,b){
+ 			return _this.sumArr(a.num) - _this.sumArr(b.num);
+ 		})
+
+ 		// 保存排好序的类目名 [河南，河北，北京,....]
+ 		var cataArr = [];
+		for (var i = 0; i < cateNumArr.length; i++) {
+			cataArr.push(cateNumArr[i].name)
 		}
 
 		var numLen = (maxNum / 1000 | 0).toString().length;
@@ -110,20 +130,36 @@ this.WbstChart = this.WbstChart || {};
 				name: item,
 				icon: 'rect'
 			});
+			// 保存需要排序的数组数据
+			var rankArr = [];
 			for (var i = 0, len = this._dataProvider.length; i < len; i++) {
 				if (this._dataProvider[i].seriesTitle == item) {
-					json.data.push(this._dataProvider[i].num/this.numScale);
-					this.numData[item].push(this._dataProvider[i].num);
+
+					rankArr.push({
+						value:this._dataProvider[i].num,
+						name:this._dataProvider[i].name
+					});
 				}
 			}
+			// 保存排好序的数组数组
+			var listArr = [];
+			for (var i = 0; i < cataArr.length; i++) {
+				listArr[cataArr.indexOf(rankArr[i].name)] = rankArr[i];
+			}
+
+			json.data = listArr;
+
+			for (var i = 0; i < listArr.length; i++) {
+				// 真实数据保存，避免 对象引用
+				this.numData[item][i] = {};
+				this.numData[item][i].name = listArr[i].name;
+				this.numData[item][i].value = listArr[i].value;
+
+				listArr[i].value = listArr[i].value/this.numScale;
+			}
+			
 			series.push(json);
 		}
-		
-		var cataArr = [];
-		for (var name in cateJson) {
-			cataArr.push(name);
-		}
-		
 		var option = {
 			animationDuration: 3000,
 			color: ['#052d7f', '#4462e6', '#024de7', '#00c6ff', '#90e1fe'],

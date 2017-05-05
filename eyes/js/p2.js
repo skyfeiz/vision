@@ -48,6 +48,16 @@ this.EE = this.EE || {};
 			_this.changeData();
 		};
 
+		_this.c.getChart9Data({
+			num: '30',
+			dateType: _this.type,
+			date: _this.date,
+			articleEmotion: _this.emotion,
+			batchFlag: _this.nRandom
+		}, function(result) {
+			_this._mapKIdVChart['chart9'].setDataProvider(result.data);
+		});
+
 		$(document).trigger('mouseup');
 	};
 
@@ -163,16 +173,6 @@ this.EE = this.EE || {};
 			batchFlag: _this.nRandom
 		}, function(result) {
 			_this._mapKIdVChart['chart8'].setDataProvider(result.data);
-		});
-
-		_this.c.getChart9Data({
-			num: '30',
-			dateType: _this.type,
-			date: _this.date,
-			articleEmotion: _this.emotion,
-			batchFlag: _this.nRandom
-		}, function(result) {
-			_this._mapKIdVChart['chart9'].setDataProvider(result.data);
 		});
 
 		_this.changeData2();

@@ -52,6 +52,9 @@ this.WbstChart = this.WbstChart || {};
 		var maxNum = 0;
 
 		this.numData = [];
+		this._dataProvider.sort(function(a,b){
+			return b.num - a.num;
+		})
 		for (var i = 0, len = this._dataProvider.length; i < len; i++) {
 			if (maxNum<1*this._dataProvider[i].num) {
 				maxNum = 1*this._dataProvider[i].num;

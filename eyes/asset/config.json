@@ -147,6 +147,51 @@
 			"endCoord":"endCoor"
 		}
 	},
+	"micro4":{
+		"url":"",
+		"title":"舆情头条",
+		"config":{
+			
+		}
+	},
+	"micro5":{
+		"url":"",
+		"title":"事件省份排名",
+		"config":{
+			"labelField": "name",
+			"valueField": "num"
+		}
+	},
+	"micro6":{
+		"url":"",
+		"title":"舆情走势",
+		"config":{
+			
+		}
+	},
+	"micro7":{
+		"url":"",
+		"title":"来源媒体分布",
+		"config":{
+			"title":"title",
+			"content":"content",
+			"time":"time"
+		}
+	},
+	"micro8":{
+		"url":"",
+		"title":"头条正中负面",
+		"config":{
+			
+		}
+	},
+	"micro9":{
+		"url":"",
+		"title":"关键词",
+		"config":{
+			
+		}
+	},
 	"p8chart1":{
 		"url":"",
 		"title":"",

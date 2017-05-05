@@ -49,7 +49,7 @@ this.EE = this.EE || {};
 			// 判断视角 超出权限 
 			_this.changeData();
 			//	刷新词云
-			_this.c.getWorldCloud_p3({
+			_this.c.getP8WorldCloudData({
 				regin: _this.regin,
 				startDate: _this.startDate,
 				endDate: _this.endDate,
@@ -61,7 +61,7 @@ this.EE = this.EE || {};
 			});
 
 			//	刷新30天事件曲线
-			_this.c.getEventCurve_p3({
+			_this.c.getP8Chart2Data({
 				regin: _this.regin,
 				angle: _this.angle,
 				eventId: _this.eventId,
@@ -71,7 +71,7 @@ this.EE = this.EE || {};
 			});
 
 			//	刷新事件简介
-			_this.c.getEventBrief_p3({
+			_this.c.getP8ExplainData({
 				eventId: _this.eventId
 			}, function(result) {
 				console.log('刷新事件简介');
@@ -79,7 +79,6 @@ this.EE = this.EE || {};
 				$(".p3chart3 .element-content p").text(result.data.description);
 			});
 		});
-		
 	};
 
 	p.initChart = function() {
@@ -122,6 +121,11 @@ this.EE = this.EE || {};
 		_this.p3Chart5.EventDispatcher.on('chartmouseout', function() {
 			_this.hideToolTip();
 		});
+		_this.p3Chart5.EventDispatcher.on('click', function(evt, item) {
+			win.location.href = encodeURI(hostUrl + 'details.html?type=4&eventName=' + item + '&emotion=' + _this.emotion);
+		});
+
+
 		// 媒体发热度排名
 		_this.p3Chart4 = new WbstChart.Bar3d(doc.getElementById('p3Chart4'));
 		_this.p3Chart4.setConfig(_this._config.left3.config);
@@ -145,7 +149,7 @@ this.EE = this.EE || {};
 
 		//	刷新意见
 		console.log('刷新意见');
-		_this.c.getOpinions_p3({
+		_this.c.getP8Chart3Data({
 			regin: _this.regin,
 			startDate: _this.startDate,
 			endDate: _this.endDate,
@@ -177,7 +181,7 @@ this.EE = this.EE || {};
 		var _this = this;
 
 		//	刷新媒体发热度排名
-		_this.c.getMediaRange_p3({
+		_this.c.getP8Chart4Data({
 			regin: _this.regin,
 			startDate: _this.startDate,
 			endDate: _this.endDate,
@@ -195,7 +199,7 @@ this.EE = this.EE || {};
 			_this.p8chart1.setDataProvider(result.data);
 		})
 
-		_this.c.getOpinionList_p3({
+		_this.c.getP8Chart3ListData({
 			//	刷新list
 			regin: _this.regin,
 			startDate: _this.startDate,
