@@ -1,5 +1,5 @@
 this.WbstChart = this.WbstChart || {};
-(function() {
+(function(doc) {
 	var iScale = 1;
 	/*传入的start和end的格式为2008-08-08*/
 	var TimeLine = function(json) {
@@ -100,6 +100,7 @@ this.WbstChart = this.WbstChart || {};
 	};
 
 	p.initDom = function() {
+		$doc = $(doc);
 
 		this.timeLine = $('#timeaxis');
 		this.yearCanvas = $('#yearcanvas');
@@ -258,7 +259,7 @@ this.WbstChart = this.WbstChart || {};
 			ev.stopPropagation();
 		});
 
-		$(document).mousemove(function(ev) {
+		$doc.mousemove(function(ev) {
 			if (!isDown) {
 				return;
 			}
@@ -266,7 +267,7 @@ this.WbstChart = this.WbstChart || {};
 			ev.preventDefault();
 		});
 
-		$(document).mouseup(function() {
+		$doc.mouseup(function() {
 			isDown = false;
 			autoMove = false;
 			_this.changenLeft = 0;
@@ -349,17 +350,7 @@ this.WbstChart = this.WbstChart || {};
 
 			// 非定时器的情况下,即拖拽情况下，设置l和width
 			if (!autoMove) {
-				if (_this.bMonth) {
-					if (_this.axisLength - _this.aL - _this.xSpace / 2 > _this.monthLength) {
-						_this.aL = _this.axisLength - _this.monthLength - 1;
-						$(document).trigger('mouseup');
-					}
-				} else {
-					if (_this.axisLength - _this.aL - _this.xSpace / 2 > _this.yearLength) {
-						_this.aL = _this.axisLength - _this.yearLength - 1;
-						$(document).trigger('mouseup');
-					}
-				}
+				_this.testLimit();
 				_this.setArea();
 			}
 
@@ -515,7 +506,7 @@ this.WbstChart = this.WbstChart || {};
 
 		} else {
 			// 年时间轴
-			date = this.endYear - l + 1 + '';
+			date = this.defaultYear - l + '';
 		}
 
 		console.log(date);
@@ -611,7 +602,7 @@ this.WbstChart = this.WbstChart || {};
 			}
 			_this.canvas.show();
 			ev.stopPropagation();
-			$(document).trigger('mouseup');
+			$doc.trigger('mouseup');
 		});
 	};
 
@@ -655,6 +646,24 @@ this.WbstChart = this.WbstChart || {};
 		return xArr.reverse();
 	};
 
+	// 测试边界
+	p.testLimit = function(only){
+		if (this.bMonth) {
+			if (this.axisLength - this.aL - this.xSpace / 2 > this.monthLength) {
+				this.aL = this.axisLength - this.monthLength - 1;
+				$doc.trigger('mouseup');
+			}
+		} else {
+			if (this.axisLength - this.aL - this.xSpace / 2 > this.yearLength) {
+				this.aL = this.axisLength - this.yearLength - 1;
+				$doc.trigger('mouseup');
+			}
+		}
+		if (only) {
+			$doc.trigger('mouseup');
+		}
+	}
+
 	/*新加事件  点击canvas选择起始位置调整*/
 	p.canvasClick = function(){
 		var _this = this;
@@ -663,20 +672,21 @@ this.WbstChart = this.WbstChart || {};
 			ev.stopPropagation();
 		});
 
-		_this.monthCanvas.click(function(){
-
+		_this.monthCanvas.click(function(ev){
+			fn(ev)
 			ev.stopPropagation();
 		})
 
 		function fn(ev){
-			var x = ev.pageX - _this.limitbox.offset().left / iScale;
+			var x = ev.pageX;
 			var y = ev.pageY - _this.limitbox.offset().top / iScale;
-			if (y<=40 && y>=18) {
-				var w = _this.limitbox.width() / iScale;
-				
+			if (y<=56 && y>=18) {
+				var l = _this.areabox.offset().left / iScale;
+				_this.aL += x - l;
+				_this.testLimit(true);
 			}
 		}
 	}
 
 	WbstChart.TimeLine = TimeLine;
-})()
+})(document);

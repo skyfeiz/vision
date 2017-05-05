@@ -146,7 +146,13 @@ this.EE = this.EE || {};
 		_this._micro5.setConfig(_this._config.micro5.config);
 		_this._mapKIdVChart['micro5'] = _this._micro5;
 		_this._micro5.EventDispatcher.on('chartmouseover', function(evt, item) {
-			var str = '<p class="tooltiptext"><span class="valuenum">' + item.item.xAxisValue + '</span><span class="fffpoint_lt"></span><span class="fffpoint_rb"></span></p>';
+			var str = '<div class="tooltip_left3">' +
+				'<p class="blockyellow">' + item.item.seriesName + '</p>' +
+				'<p class="tooltiptext">' + item.item.xAxisValue +
+				'<span class="fffpoint_lt"></span>' +
+				'<span class="fffpoint_rb"></span>' +
+				'</p>' +
+				'</div>';
 			_this.showToolTip(str, item.event.pageX, item.event.pageY);
 		});
 		_this._micro5.EventDispatcher.on('chartmouseout', function() {

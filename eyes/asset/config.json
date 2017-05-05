@@ -197,7 +197,8 @@
 		"title":"",
 		"config":{
 			"pName":"pName",
-			"name":"media"
+			"name":"media",
+			"time":"time"
 		}
 	}
 }

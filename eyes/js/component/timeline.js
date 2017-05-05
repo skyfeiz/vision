@@ -1,5 +1,5 @@
 this.WbstChart = this.WbstChart || {};
-(function() {
+(function(doc) {
 	var iScale = 1;
 	/*传入的start和end的格式为2008-08-08*/
 	var TimeLine = function(start, end) {
@@ -55,6 +55,7 @@ this.WbstChart = this.WbstChart || {};
 		this.moveLeft();
 		this.btnEvent();
 		this.resize();
+		this.canvasClick();
 	};
 
 	// 年轴 通过起始时间和结束时间获取时间轴的总长
@@ -94,6 +95,8 @@ this.WbstChart = this.WbstChart || {};
 	};
 
 	p.initDom = function() {
+		$doc = $(doc);
+
 		this.timeLine = $('#timeaxis');
 		this.yearCanvas = $('#yearcanvas');
 		this.nowCanvas = $('#nowcanvas');
@@ -310,7 +313,7 @@ this.WbstChart = this.WbstChart || {};
 			ev.stopPropagation();
 		});
 
-		$(document).mousemove(function(ev) {
+		$doc.mousemove(function(ev) {
 			if (!isDown) {
 				return;
 			}
@@ -318,7 +321,7 @@ this.WbstChart = this.WbstChart || {};
 			ev.preventDefault();
 		});
 
-		$(document).mouseup(function() {
+		$doc.mouseup(function() {
 			isDown = false;
 			autoMove = false;
 			_this.changenLeft = 0;
@@ -447,7 +450,7 @@ this.WbstChart = this.WbstChart || {};
 			if (!autoMove) {
 				if (_this.aW < _this.xSpace) {
 					_this.aW = _this.xSpace;
-					$(document).trigger('mouseup');
+					$doc.trigger('mouseup');
 				}
 				_this.setArea();
 			}
@@ -759,7 +762,7 @@ this.WbstChart = this.WbstChart || {};
 			}
 			_this.canvas.show();
 			ev.stopPropagation();
-			$(document).trigger('mouseup');
+			$doc.trigger('mouseup');
 		});
 	};
 
@@ -863,5 +866,43 @@ this.WbstChart = this.WbstChart || {};
 		return arr;
 	};
 
+	// 测试边界
+	p.testLimit = function(){
+		if (this.bMonth) {
+			if (this.axisLength - this.aL - this.xSpace / 2 > this.monthLength) {
+				this.aL = this.axisLength - this.monthLength - 1;
+			}
+		} else {
+			if (this.axisLength - this.aL - this.xSpace / 2 > this.yearLength) {
+				this.aL = this.axisLength - this.yearLength - 1;
+			}
+		}
+		$doc.trigger('mouseup');
+	}
+
+	/*新加事件  点击canvas选择起始位置调整*/
+	p.canvasClick = function(){
+		var _this = this;
+		_this.yearCanvas.click(function(ev){
+			fn(ev)
+			ev.stopPropagation();
+		});
+
+		_this.monthCanvas.click(function(ev){
+			fn(ev)
+			ev.stopPropagation();
+		})
+
+		function fn(ev){
+			var x = ev.pageX;
+			var y = ev.pageY - _this.limitbox.offset().top / iScale;
+			if (y<=56 && y>=18) {
+				var l = _this.areabox.offset().left / iScale;
+				_this.aL += x - l;
+				_this.testLimit();
+			}
+		}
+	}
+
 	WbstChart.TimeLine = TimeLine;
-})()
+})(document);

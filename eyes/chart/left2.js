@@ -211,7 +211,6 @@ this.WbstChart = this.WbstChart || {};
 						position: 'right',
 						offset: [0, -2],
 						formatter:function(param){
-							console.log(param.value);
 							if(param.value && param.value!=0){
 								return param.value;
 							}else{

@@ -259,3 +259,36 @@ span.searchbtn {
     font-size: 0.14rem;
     line-height: 0.20rem;
 }
+
+/*-----------------------------------*/
+.tooltip_left3{
+    min-width: 72px;
+    height: 40px;
+    font-size: 12px;
+}
+.tooltip_left3 .blockyellow{
+    width: 100%;
+    height: 20px;
+    line-height: 20px;
+    text-align: center;
+    position: relative;
+    color: #fff;
+}
+.tooltip_left3 .blockyellow:before{
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 5px;
+    width: 5px;
+    height: 10px;
+    background-color: #fffe00;
+}
+.tooltip_left3 .tooltiptext{
+    font-size: 18px;
+    color: #fff;
+    height: 20px;
+    line-height: 20px;
+    text-align: center;
+    background-color: rgba(27,57,119,0.9);
+    position: relative;
+}
