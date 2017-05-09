@@ -10,6 +10,8 @@ this.WbstChart = this.WbstChart || {};
 
 		this.numData = [];
 
+		this.warning = [];
+
 		this.EventDispatcher = $({});
 
 		this.init();
@@ -50,9 +52,29 @@ this.WbstChart = this.WbstChart || {};
 
 	p.creationContent = function() {
 
-		if (this._config == null || this._dataProvider == null) {
+		if (this._config == null || this._dataProvider == null || !Array.isArray(this.warning)) {
 			return;
 		}
+
+		var warnObj = {};
+		for (var i = 0; i < this.warning.length; i++) {
+			var item = this.warning[i];
+			switch (item.name) {
+				case '紧急':
+					warnObj.s1 = item.num;
+					break;
+				case '高':
+					warnObj.s2 = item.num;
+					break;
+				case '中':
+					warnObj.s3 = item.num;
+					break;
+				default:
+					console.log('低');
+					break;
+			}
+		}
+
 		var _this = this;
 		var data1 = [];
 		var data2 = [];
@@ -77,14 +99,20 @@ this.WbstChart = this.WbstChart || {};
 				borderWidth: 1,
 				borderColor: '#00a6f5'
 			}
+		}, {
+			normal: {
+				color: 'rgba(1,176,87,0.3)',
+				borderWidth: 1,
+				borderColor: '#01b057'
+			}
 		}];
 
-		var colorArr = ['#e12b3e', '#f1b420', '#00a6f5'];
+		var colorArr = ['#e12b3e', '#f1b420', '#00a6f5', '#01b057'];
 
 		var maxNum = 0;
 		for (var i = 0, len = this._dataProvider.length; i < len; i++) {
-			if (maxNum < 1*this._dataProvider[i].eventSum) {
-				maxNum = 1*this._dataProvider[i].eventSum;
+			if (maxNum < 1 * this._dataProvider[i].num) {
+				maxNum = 1 * this._dataProvider[i].num;
 			}
 		}
 		var numLen = (maxNum / 1000 | 0).toString().length;
@@ -96,16 +124,31 @@ this.WbstChart = this.WbstChart || {};
 			this.numScale = 1000;
 		} else {
 			this.numScale = Math.pow(10, numLen);
-			numLen-=2;
+			numLen -= 2;
 		}
 		this.numLen = numLen;
-		for (var i = 0, len = this._dataProvider.length; i < len; i++) {
 
-			var num = this._dataProvider[i].eventSum / this.numScale;
-			this.numData.push(this._dataProvider[i].eventSum);
+		// 表现数据
+		this.mark1 = warnObj.s3 / this.numScale;
+		this.mark2 = warnObj.s2 / this.numScale;
+		this.mark3 = warnObj.s1 / this.numScale;
+		for (var i = 0, len = this._dataProvider.length; i < len; i++) {
+			var realNum = this._dataProvider[i].num;
+			var index;
+			if (realNum <= warnObj.s3) {
+				index = 3;
+			}else if (realNum <= warnObj.s2) {
+				index = 2
+			}else if (realNum <= warnObj.s1) {
+				index = 1
+			}else {
+				index = 0;
+			}
+			var num = realNum / this.numScale;
+			this.numData.push(realNum);
 			data1.push({
 				value: num,
-				itemStyle: item1Arr[i],
+				itemStyle: item1Arr[index],
 			})
 			data2.push({
 				value: num,
@@ -121,12 +164,12 @@ this.WbstChart = this.WbstChart || {};
 				},
 				itemStyle: {
 					normal: {
-						color: colorArr[i]
+						color: colorArr[index]
 					}
 				}
 			});
-			titleData.push(this._dataProvider[i].title);
-			cityData.push(this._dataProvider[i].eventArea);
+			titleData.push(this._dataProvider[i].eventName);
+			cityData.push(this._dataProvider[i].regionName);
 		}
 
 		this.titleData = titleData;
@@ -139,6 +182,7 @@ this.WbstChart = this.WbstChart || {};
 	p.setOption = function() {
 		var _this = this;
 		clearTimeout(this.timer);
+		var colorData = ['rgba(255,42,62,0.8)', 'rgba(241,180,32,0.8)', 'rgba(0,166,245,0.8)', 'rgba(1,176,87,0.8)'];
 		var option = {
 			grid: {
 				left: '0%',
@@ -165,6 +209,9 @@ this.WbstChart = this.WbstChart || {};
 					},
 					margin: 15,
 					formatter: function(params) {
+						if (params.length<10) {
+							return params;
+						}
 						var mid = Math.floor(params.length / 2);
 						return params.substring(0, mid) + '\n ' + params.substring(mid);
 					}
@@ -215,9 +262,7 @@ this.WbstChart = this.WbstChart || {};
 					}
 				},
 				splitLine: {
-					lineStyle: {
-						color: '#1c4581'
-					}
+					show:false
 				}
 			}],
 			series: [{
@@ -239,7 +284,42 @@ this.WbstChart = this.WbstChart || {};
 							fontSize: 26
 						}
 					}
-				}
+				},
+				markLine: {
+					silent: true,
+					symbolSize: 0,
+					
+					label: {
+						normal: {
+							show: false
+						}
+					},
+					data: [{
+						name: '标线1',
+						yAxis: this.mark1,
+						lineStyle: {
+							normal:{
+								color: colorData[2]
+							}
+						},
+					}, {
+						name: '标线2',
+						yAxis: this.mark2,
+						lineStyle: {
+							normal:{
+								color: colorData[1]
+							}
+						},
+					}, {
+						name: '标线3',
+						yAxis: this.mark3,
+						lineStyle: {
+							normal:{
+								color: colorData[0]
+							}
+						},
+					}]
+				},
 			}, {
 				name: '直接访问2',
 				type: 'pictorialBar',

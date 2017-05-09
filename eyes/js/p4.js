@@ -24,8 +24,11 @@ this.EE = this.EE || {};
 		var _this = this;
 		_this.c.getChartConfig('', function(data) {
 			_this._config = data;
-			_this.initChart();
-			_this.changeData();
+
+			_this.c.getWarningLevel('',function(result){
+				_this.initChart(result.data);
+				_this.changeData();
+			});
 		});
 
 	};
@@ -34,17 +37,19 @@ this.EE = this.EE || {};
 		this.$op = $('#tooltip');
 	};
 
-	p.initChart = function() {
+	p.initChart = function(warningArr) {
 		var _this = this;
 
 		// battery bar
 		_this._P4Chart1 = new WbstChart.P4Chart1(doc.getElementById('p4chart1'));
 		_this._P4Chart1.setConfig(_this._config.p4chart1.config);
+		_this._P4Chart1.warning = warningArr;
 		_this._mapKIdVChart['p4chart1'] = _this._P4Chart1;
 
 		// 折线图
 		_this._P4Chart2 = new WbstChart.P4Chart2(doc.getElementById('p4chart2'));
 		_this._P4Chart2.setConfig(_this._config.p4chart2.config);
+		_this._P4Chart2.warning = warningArr;
 		_this._mapKIdVChart['p4chart2'] = _this._P4Chart2;
 		_this._P4Chart2.EventDispatcher.on('chartmouseover', function(vet, item) {
 			var str = '<p class="tooltiptext"><span class="valuename">' + item.item.seriesName + ' :</span><span class="valuenum">' + item.item.xAxisValue + '</span><span class="fffpoint_lt"></span><span class="fffpoint_rb"></span></p>';
@@ -101,8 +106,8 @@ this.EE = this.EE || {};
 		if (y + h > $(window).innerHeight()) y = $(window).innerHeight() - h;
 		this.$op.css({
 			opacity: 1,
-			left: x + 20,
-			top: y - 20
+			left: x - 50,
+			top: y - 40
 		});
 	};
 

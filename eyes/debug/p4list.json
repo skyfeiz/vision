@@ -2,64 +2,64 @@
 	"success":1,
 	"data":[
 		{
-			"eventArea":"北京",
-			"eventSum":2232434,
+			"regionName":"北京",
+			"num":2232434,
 			"eventName":"中央气象台：北方霾持续 27日减弱消散",
-			"eventLevel":0
+			"level":"紧急"
 		},
 		{
-			"eventArea":"河北",
-			"eventSum":1832000,
+			"regionName":"河北",
+			"num":1832000,
 			"eventName":"全国雾霾天气进入第六天京津冀地",
-			"eventLevel":1
+			"level":"高"
 		},
 		{
-			"eventArea":"天津",
-			"eventSum":1312434,
+			"regionName":"天津",
+			"num":1312434,
 			"eventName":"阿拉善经济开发区环保局多举措推",
-			"eventLevel":2
+			"level":"中"
 		},
 		{
-			"eventArea":"北京",
-			"eventSum":2232434,
+			"regionName":"北京",
+			"num":2232434,
 			"eventName":"中央气象台：北方霾持续 27日减弱消散",
-			"eventLevel":0
+			"level":"紧急"
 		},
 		{
-			"eventArea":"河北",
-			"eventSum":1832000,
+			"regionName":"河北",
+			"num":1832000,
 			"eventName":"全国雾霾天气进入第六天京津冀地",
-			"eventLevel":1
+			"level":"高"
 		},
 		{
-			"eventArea":"天津",
-			"eventSum":1312434,
+			"regionName":"天津",
+			"num":1312434,
 			"eventName":"阿拉善经济开发区环保局多举措推",
-			"eventLevel":2
+			"level":"中"
 		},
 		{
-			"eventArea":"北京",
-			"eventSum":2232434,
+			"regionName":"北京",
+			"num":2232434,
 			"eventName":"中央气象台：北方霾持续 27日减弱消散",
-			"eventLevel":0
+			"level":"紧急"
 		},
 		{
-			"eventArea":"河北",
-			"eventSum":1832000,
+			"regionName":"河北",
+			"num":1832000,
 			"eventName":"全国雾霾天气进入第六天京津冀地",
-			"eventLevel":1
+			"level":"高"
 		},
 		{
-			"eventArea":"天津",
-			"eventSum":1312434,
+			"regionName":"天津",
+			"num":1312434,
 			"eventName":"阿拉善经济开发区环保局多举措推",
-			"eventLevel":2
+			"level":"中"
 		},
 		{
-			"eventArea":"北京",
-			"eventSum":2232434,
+			"regionName":"北京",
+			"num":2232434,
 			"eventName":"中央气象台：北方霾持续 27日减弱消散",
-			"eventLevel":0
+			"level":"紧急"
 		}
 	]
 }

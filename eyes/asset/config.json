@@ -173,9 +173,9 @@
 		"url":"",
 		"title":"来源媒体分布",
 		"config":{
-			"title":"title",
-			"content":"content",
-			"time":"time"
+			"title":"userName",
+			"content":"replyContent",
+			"time":"replyTime"
 		}
 	},
 	"micro8":{

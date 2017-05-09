@@ -228,7 +228,7 @@ this.WbstChart = this.WbstChart || {};
 		$('a').remove('.chart4news');
 		if (data.length) {
 			for (var i = 0; i < data.length; i++) {
-				strHtml += '<a class="chart4news anew' + i + '" eventid="' + data[i].eventId + '">' + data[i].name + '</a>'
+				strHtml += '<a class="chart4news anew' + i + '" eventid="' + (data[i].eventId||data[i].eventId.id) + '">' + data[i].name + '</a>'
 			}
 			this.$parent.append(strHtml);
 		}

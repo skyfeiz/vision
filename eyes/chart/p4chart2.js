@@ -4,6 +4,7 @@ this.WbstChart = this.WbstChart || {};
 		this._dom = dom;
 		this.numScale = 1;
 		this.numData = {};
+		this.warning = [];
 		this.EventDispatcher = $({});
 		this.init();
 	};
@@ -41,8 +42,26 @@ this.WbstChart = this.WbstChart || {};
 	};
 
 	p.creationContent = function() {
-		if (this._config == null || this._dataProvider == null) {
+		if (this._config == null || this._dataProvider == null || !Array.isArray(this.warning)) {
 			return;
+		}
+		var warnObj = {};
+		for (var i = 0; i < this.warning.length; i++) {
+			var item = this.warning[i];
+			switch (item.name) {
+				case '紧急':
+					warnObj.s1 = item.num;
+					break;
+				case '高':
+					warnObj.s2 = item.num;
+					break;
+				case '中':
+					warnObj.s3 = item.num;
+					break;
+				default:
+					console.log('低');
+					break;
+			}
 		}
 
 		var legendJson = {};
@@ -51,90 +70,124 @@ this.WbstChart = this.WbstChart || {};
 		var maxNum = 0;
 		this.numData = {};
 		for (var i = 0, len = this._dataProvider.length; i < len; i++) {
-			legendJson[this._dataProvider[i].seriesTitle] = 1;
+			legendJson[this._dataProvider[i].eventName] = 1;
 			cateJson[this._dataProvider[i].name] = 1;
-			this.numData[this._dataProvider[i].seriesTitle] = [];
-			if (maxNum < 1*this._dataProvider[i].num) {
-				maxNum = 1*this._dataProvider[i].num;
+			this.numData[this._dataProvider[i].eventName] = [];
+			if (maxNum < 1 * this._dataProvider[i].num) {
+				maxNum = 1 * this._dataProvider[i].num;
 			}
 		}
+
 		var numLen = (maxNum / 1000 | 0).toString().length;
 		if (maxNum < 1000) {
 			numLen = 0;
 			this.numScale = 1;
-		}else if(numLen<4){
+		} else if (numLen < 4) {
 			numLen = 1;
 			this.numScale = 1000;
-		}else{
-			this.numScale = Math.pow(10,numLen);
-			numLen-=2;
+		} else {
+			this.numScale = Math.pow(10, numLen);
+			numLen -= 2;
 		}
 
 		// 表现数据
-		var mark1 = 1e6/this.numScale;
-		var mark2 = 2e6/this.numScale;
-		var mark3 = 3e6/this.numScale;
+		var mark1 = warnObj.s3 / this.numScale;
+		var mark2 = warnObj.s2 / this.numScale;
+		var mark3 = warnObj.s1 / this.numScale;
 
 		var series = [];
 		var legendData = [];
-		var m = 0;
-		var colorData = ['rgba(255,42,62,0.8)', 'rgba(241,180,32,0.8)', 'rgba(0,166,245,0.8)'];
+		var colorData = ['rgba(255,42,62,0.8)', 'rgba(241,180,32,0.8)', 'rgba(0,166,245,0.8)', 'rgba(1,176,87,0.8)'];
+		var itemColor = ['#e12b3e', '#f1b420', '#00a6f5', '#01b057'];
 
 		for (var item in legendJson) {
-			var color = colorData[m++];
+			var lastNum = 0;
 			var json = {
 				type: 'line',
 				name: item,
 				data: [],
 				symbolSize: 0.1,
-				areaStyle: {
-					normal: {
-						color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
-							offset: 0,
-							color: color
-						}, {
-							offset: 1,
-							color: color.substring(0, color.lastIndexOf('.')) + ')'
-						}], false),
-						shadowColor: 'rgba(0,0,0,0.1)',
-						shadowBlur: 10
-					}
-				},
 				markLine: {
-					silent:true,
-					symbolSize:0,
-					label:{
-						normal:{
-							show:false
+					silent: true,
+					symbolSize: 0,
+					
+					label: {
+						normal: {
+							show: false
 						}
 					},
 					data: [{
 						name: '标线1起点',
-						yAxis: mark1
+						yAxis: mark1,
+						lineStyle: {
+							normal:{
+								color: colorData[2]
+							}
+						},
 					}, {
 						name: '标线1终点',
-						yAxis: mark2
+						yAxis: mark2,
+						lineStyle: {
+							normal:{
+								color: colorData[1]
+							}
+						},
 					}, {
 						name: '标线1终点',
-						yAxis: mark3
+						yAxis: mark3,
+						lineStyle: {
+							normal:{
+								color: colorData[0]
+							}
+						},
 					}]
 				},
 				smooth: true,
 				legendHoverLink: false
 			};
+
 			legendData.push({
 				name: item,
 				icon: 'rect'
 			});
 			for (var i = 0, len = this._dataProvider.length; i < len; i++) {
-				if (this._dataProvider[i].seriesTitle == item) {
-					this.numData[item].push(this._dataProvider[i].num);
-					json.data.push(this._dataProvider[i].num/this.numScale)
+				if (this._dataProvider[i].eventName == item) {
+					lastNum = this._dataProvider[i].num;
+					this.numData[item].push(lastNum);
+					json.data.push(lastNum / this.numScale)
 				}
 			}
+			var index;
+			if (lastNum <= warnObj.s3) {
+				index = 3;
+			} else if (lastNum <= warnObj.s2) {
+				index = 2
+			} else if (lastNum <= warnObj.s1) {
+				index = 1
+			} else {
+				index = 0;
+			}
+			json.itemStyle = {
+				normal: {
+					color: itemColor[index]
+				}
+			};
+			var color = colorData[index];
+			json.areaStyle = {
+				normal: {
+					color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+						offset: 0,
+						color: color
+					}, {
+						offset: 1,
+						color: color.substring(0, color.lastIndexOf('.')) + ')'
+					}], false),
+					shadowColor: 'rgba(0,0,0,0.1)',
+					shadowBlur: 10
+				}
+			};
 			series.push(json);
 		}
-
 		var cateData = [];
 		for (var item in cateJson) {
 			cateData.push(item);
@@ -142,7 +195,6 @@ this.WbstChart = this.WbstChart || {};
 
 		var option = {
 			animationDuration: 3000,
-			color: ['#e12b3e', '#f1b420', '#00a6f5'],
 			tooltip: {
 				trigger: 'axis',
 				showContent: false,
@@ -233,10 +285,7 @@ this.WbstChart = this.WbstChart || {};
 					}
 				},
 				splitLine: {
-					show: true,
-					lineStyle: {
-						color: ['rgba(28,69,129,1)']
-					}
+					show: false,
 				}
 			},
 			series: series

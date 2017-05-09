@@ -1,364 +1,364 @@
 {
 	"success": true,
 	"data": [{
-		"seriesTitle": "中央气象台：北方霾持续27日减弱",
-		"name": 1,
+		"eventName": "中央气象台：北方霾持续27日减弱",
+		"eventTime": "2016-08-01",
 		"num": 3600000
 	}, {
-		"seriesTitle": "全国雾霾天气进入第六天京津冀地",
-		"name": 1,
+		"eventName": "全国雾霾天气进入第六天京津冀地",
+		"eventTime": "2016-08-01",
 		"num": 2000000
 	}, {
-		"seriesTitle": "阿拉善经济开发区环保局多举措推",
-		"name": 1,
+		"eventName": "阿拉善经济开发区环保局多举措推",
+		"eventTime": "2016-08-01",
 		"num": 1400000
 	}, {
-		"seriesTitle": "中央气象台：北方霾持续27日减弱",
-		"name": 2,
+		"eventName": "中央气象台：北方霾持续27日减弱",
+		"eventTime": "2016-08-02",
 		"num": 3000000
 	}, {
-		"seriesTitle": "全国雾霾天气进入第六天京津冀地",
-		"name": 2,
+		"eventName": "全国雾霾天气进入第六天京津冀地",
+		"eventTime": "2016-08-02",
 		"num": 2000000
 	}, {
-		"seriesTitle": "阿拉善经济开发区环保局多举措推",
-		"name": 2,
+		"eventName": "阿拉善经济开发区环保局多举措推",
+		"eventTime": "2016-08-02",
 		"num": 1000000
 	}, {
-		"seriesTitle": "中央气象台：北方霾持续27日减弱",
-		"name": 3,
+		"eventName": "中央气象台：北方霾持续27日减弱",
+		"eventTime": "2016-08-03",
 		"num": 3000000
 	}, {
-		"seriesTitle": "全国雾霾天气进入第六天京津冀地",
-		"name": 3,
+		"eventName": "全国雾霾天气进入第六天京津冀地",
+		"eventTime": "2016-08-03",
 		"num": 2400000
 	}, {
-		"seriesTitle": "阿拉善经济开发区环保局多举措推",
-		"name": 3,
+		"eventName": "阿拉善经济开发区环保局多举措推",
+		"eventTime": "2016-08-03",
 		"num": 1400000
 	}, {
-		"seriesTitle": "中央气象台：北方霾持续27日减弱",
-		"name": 4,
+		"eventName": "中央气象台：北方霾持续27日减弱",
+		"eventTime": "2016-08-04",
 		"num": 3600000
 	}, {
-		"seriesTitle": "全国雾霾天气进入第六天京津冀地",
-		"name": 4,
+		"eventName": "全国雾霾天气进入第六天京津冀地",
+		"eventTime": "2016-08-04",
 		"num": 2800000
 	}, {
-		"seriesTitle": "阿拉善经济开发区环保局多举措推",
-		"name": 4,
+		"eventName": "阿拉善经济开发区环保局多举措推",
+		"eventTime": "2016-08-04",
 		"num": 1000000
 	}, {
-		"seriesTitle": "中央气象台：北方霾持续27日减弱",
-		"name": 5,
+		"eventName": "中央气象台：北方霾持续27日减弱",
+		"eventTime": "2016-08-05",
 		"num": 3000000
 	}, {
-		"seriesTitle": "全国雾霾天气进入第六天京津冀地",
-		"name": 5,
+		"eventName": "全国雾霾天气进入第六天京津冀地",
+		"eventTime": "2016-08-05",
 		"num": 2000000
 	}, {
-		"seriesTitle": "阿拉善经济开发区环保局多举措推",
-		"name": 5,
+		"eventName": "阿拉善经济开发区环保局多举措推",
+		"eventTime": "2016-08-05",
 		"num": 1200000
 	}, {
-		"seriesTitle": "中央气象台：北方霾持续27日减弱",
-		"name": 6,
+		"eventName": "中央气象台：北方霾持续27日减弱",
+		"eventTime": "2016-08-06",
 		"num": 3600000
 	}, {
-		"seriesTitle": "全国雾霾天气进入第六天京津冀地",
-		"name": 6,
+		"eventName": "全国雾霾天气进入第六天京津冀地",
+		"eventTime": "2016-08-06",
 		"num": 2800000
 	}, {
-		"seriesTitle": "阿拉善经济开发区环保局多举措推",
-		"name": 6,
+		"eventName": "阿拉善经济开发区环保局多举措推",
+		"eventTime": "2016-08-06",
 		"num": 1200000
 	}, {
-		"seriesTitle": "中央气象台：北方霾持续27日减弱",
-		"name": 7,
+		"eventName": "中央气象台：北方霾持续27日减弱",
+		"eventTime": 7,
 		"num": 3000000
 	}, {
-		"seriesTitle": "全国雾霾天气进入第六天京津冀地",
-		"name": 7,
+		"eventName": "全国雾霾天气进入第六天京津冀地",
+		"eventTime": 7,
 		"num": 2400000
 	}, {
-		"seriesTitle": "阿拉善经济开发区环保局多举措推",
-		"name": 7,
+		"eventName": "阿拉善经济开发区环保局多举措推",
+		"eventTime": 7,
 		"num": 1000000
 	}, {
-		"seriesTitle": "中央气象台：北方霾持续27日减弱",
-		"name": 8,
+		"eventName": "中央气象台：北方霾持续27日减弱",
+		"eventTime": 8,
 		"num": 4200000
 	}, {
-		"seriesTitle": "全国雾霾天气进入第六天京津冀地",
-		"name": 8,
+		"eventName": "全国雾霾天气进入第六天京津冀地",
+		"eventTime": 8,
 		"num": 2000000
 	}, {
-		"seriesTitle": "阿拉善经济开发区环保局多举措推",
-		"name": 8,
+		"eventName": "阿拉善经济开发区环保局多举措推",
+		"eventTime": 8,
 		"num": 1000000
 	}, {
-		"seriesTitle": "中央气象台：北方霾持续27日减弱",
-		"name": 9,
+		"eventName": "中央气象台：北方霾持续27日减弱",
+		"eventTime": 9,
 		"num": 3000000
 	}, {
-		"seriesTitle": "全国雾霾天气进入第六天京津冀地",
-		"name": 9,
+		"eventName": "全国雾霾天气进入第六天京津冀地",
+		"eventTime": 9,
 		"num": 2800000
 	}, {
-		"seriesTitle": "阿拉善经济开发区环保局多举措推",
-		"name": 9,
+		"eventName": "阿拉善经济开发区环保局多举措推",
+		"eventTime": 9,
 		"num": 1000000
 	}, {
-		"seriesTitle": "中央气象台：北方霾持续27日减弱",
-		"name": 10,
+		"eventName": "中央气象台：北方霾持续27日减弱",
+		"eventTime": 10,
 		"num": 3000000
 	}, {
-		"seriesTitle": "全国雾霾天气进入第六天京津冀地",
-		"name": 10,
+		"eventName": "全国雾霾天气进入第六天京津冀地",
+		"eventTime": 10,
 		"num": 2800000
 	}, {
-		"seriesTitle": "阿拉善经济开发区环保局多举措推",
-		"name": 10,
+		"eventName": "阿拉善经济开发区环保局多举措推",
+		"eventTime": 10,
 		"num": 1200000
 	}, {
-		"seriesTitle": "中央气象台：北方霾持续27日减弱",
-		"name": 11,
+		"eventName": "中央气象台：北方霾持续27日减弱",
+		"eventTime": 11,
 		"num": 4200000
 	}, {
-		"seriesTitle": "全国雾霾天气进入第六天京津冀地",
-		"name": 11,
+		"eventName": "全国雾霾天气进入第六天京津冀地",
+		"eventTime": 11,
 		"num": 2400000
 	}, {
-		"seriesTitle": "阿拉善经济开发区环保局多举措推",
-		"name": 11,
+		"eventName": "阿拉善经济开发区环保局多举措推",
+		"eventTime": 11,
 		"num": 1000000
 	}, {
-		"seriesTitle": "中央气象台：北方霾持续27日减弱",
-		"name": 12,
+		"eventName": "中央气象台：北方霾持续27日减弱",
+		"eventTime": 12,
 		"num": 3600000
 	}, {
-		"seriesTitle": "全国雾霾天气进入第六天京津冀地",
-		"name": 12,
+		"eventName": "全国雾霾天气进入第六天京津冀地",
+		"eventTime": 12,
 		"num": 2000000
 	}, {
-		"seriesTitle": "阿拉善经济开发区环保局多举措推",
-		"name": 12,
+		"eventName": "阿拉善经济开发区环保局多举措推",
+		"eventTime": 12,
 		"num": 1000000
 	}, {
-		"seriesTitle": "中央气象台：北方霾持续27日减弱",
-		"name": 13,
+		"eventName": "中央气象台：北方霾持续27日减弱",
+		"eventTime": 13,
 		"num": 4200000
 	}, {
-		"seriesTitle": "全国雾霾天气进入第六天京津冀地",
-		"name": 13,
+		"eventName": "全国雾霾天气进入第六天京津冀地",
+		"eventTime": 13,
 		"num": 2000000
 	}, {
-		"seriesTitle": "阿拉善经济开发区环保局多举措推",
-		"name": 13,
+		"eventName": "阿拉善经济开发区环保局多举措推",
+		"eventTime": 13,
 		"num": 1200000
 	}, {
-		"seriesTitle": "中央气象台：北方霾持续27日减弱",
-		"name": 14,
+		"eventName": "中央气象台：北方霾持续27日减弱",
+		"eventTime": 14,
 		"num": 4200000
 	}, {
-		"seriesTitle": "全国雾霾天气进入第六天京津冀地",
-		"name": 14,
+		"eventName": "全国雾霾天气进入第六天京津冀地",
+		"eventTime": 14,
 		"num": 2800000
 	}, {
-		"seriesTitle": "阿拉善经济开发区环保局多举措推",
-		"name": 14,
+		"eventName": "阿拉善经济开发区环保局多举措推",
+		"eventTime": 14,
 		"num": 1000000
 	}, {
-		"seriesTitle": "中央气象台：北方霾持续27日减弱",
-		"name": 15,
+		"eventName": "中央气象台：北方霾持续27日减弱",
+		"eventTime": 15,
 		"num": 3600000
 	}, {
-		"seriesTitle": "全国雾霾天气进入第六天京津冀地",
-		"name": 15,
+		"eventName": "全国雾霾天气进入第六天京津冀地",
+		"eventTime": 15,
 		"num": 2800000
 	}, {
-		"seriesTitle": "阿拉善经济开发区环保局多举措推",
-		"name": 15,
+		"eventName": "阿拉善经济开发区环保局多举措推",
+		"eventTime": 15,
 		"num": 1000000
 	}, {
-		"seriesTitle": "中央气象台：北方霾持续27日减弱",
-		"name": 16,
+		"eventName": "中央气象台：北方霾持续27日减弱",
+		"eventTime": 16,
 		"num": 4200000
 	}, {
-		"seriesTitle": "全国雾霾天气进入第六天京津冀地",
-		"name": 16,
+		"eventName": "全国雾霾天气进入第六天京津冀地",
+		"eventTime": 16,
 		"num": 2800000
 	}, {
-		"seriesTitle": "阿拉善经济开发区环保局多举措推",
-		"name": 16,
+		"eventName": "阿拉善经济开发区环保局多举措推",
+		"eventTime": 16,
 		"num": 1400000
 	}, {
-		"seriesTitle": "中央气象台：北方霾持续27日减弱",
-		"name": 17,
+		"eventName": "中央气象台：北方霾持续27日减弱",
+		"eventTime": 17,
 		"num": 3600000
 	}, {
-		"seriesTitle": "全国雾霾天气进入第六天京津冀地",
-		"name": 17,
+		"eventName": "全国雾霾天气进入第六天京津冀地",
+		"eventTime": 17,
 		"num": 2000000
 	}, {
-		"seriesTitle": "阿拉善经济开发区环保局多举措推",
-		"name": 17,
+		"eventName": "阿拉善经济开发区环保局多举措推",
+		"eventTime": 17,
 		"num": 1400000
 	}, {
-		"seriesTitle": "中央气象台：北方霾持续27日减弱",
-		"name": 18,
+		"eventName": "中央气象台：北方霾持续27日减弱",
+		"eventTime": 18,
 		"num": 4200000
 	}, {
-		"seriesTitle": "全国雾霾天气进入第六天京津冀地",
-		"name": 18,
+		"eventName": "全国雾霾天气进入第六天京津冀地",
+		"eventTime": 18,
 		"num": 2400000
 	}, {
-		"seriesTitle": "阿拉善经济开发区环保局多举措推",
-		"name": 18,
+		"eventName": "阿拉善经济开发区环保局多举措推",
+		"eventTime": 18,
 		"num": 1200000
 	}, {
-		"seriesTitle": "中央气象台：北方霾持续27日减弱",
-		"name": 19,
+		"eventName": "中央气象台：北方霾持续27日减弱",
+		"eventTime": 19,
 		"num": 4200000
 	}, {
-		"seriesTitle": "全国雾霾天气进入第六天京津冀地",
-		"name": 19,
+		"eventName": "全国雾霾天气进入第六天京津冀地",
+		"eventTime": 19,
 		"num": 2400000
 	}, {
-		"seriesTitle": "阿拉善经济开发区环保局多举措推",
-		"name": 19,
+		"eventName": "阿拉善经济开发区环保局多举措推",
+		"eventTime": 19,
 		"num": 1200000
 	}, {
-		"seriesTitle": "中央气象台：北方霾持续27日减弱",
-		"name": 20,
+		"eventName": "中央气象台：北方霾持续27日减弱",
+		"eventTime": 20,
 		"num": 4200000
 	}, {
-		"seriesTitle": "全国雾霾天气进入第六天京津冀地",
-		"name": 20,
+		"eventName": "全国雾霾天气进入第六天京津冀地",
+		"eventTime": 20,
 		"num": 2400000
 	}, {
-		"seriesTitle": "阿拉善经济开发区环保局多举措推",
-		"name": 20,
+		"eventName": "阿拉善经济开发区环保局多举措推",
+		"eventTime": 20,
 		"num": 1000000
 	}, {
-		"seriesTitle": "中央气象台：北方霾持续27日减弱",
-		"name": 21,
+		"eventName": "中央气象台：北方霾持续27日减弱",
+		"eventTime": 21,
 		"num": 4200000
 	}, {
-		"seriesTitle": "全国雾霾天气进入第六天京津冀地",
-		"name": 21,
+		"eventName": "全国雾霾天气进入第六天京津冀地",
+		"eventTime": 21,
 		"num": 2000000
 	}, {
-		"seriesTitle": "阿拉善经济开发区环保局多举措推",
-		"name": 21,
+		"eventName": "阿拉善经济开发区环保局多举措推",
+		"eventTime": 21,
 		"num": 1200000
 	}, {
-		"seriesTitle": "中央气象台：北方霾持续27日减弱",
-		"name": 22,
+		"eventName": "中央气象台：北方霾持续27日减弱",
+		"eventTime": 22,
 		"num": 3600000
 	}, {
-		"seriesTitle": "全国雾霾天气进入第六天京津冀地",
-		"name": 22,
+		"eventName": "全国雾霾天气进入第六天京津冀地",
+		"eventTime": 22,
 		"num": 2400000
 	}, {
-		"seriesTitle": "阿拉善经济开发区环保局多举措推",
-		"name": 22,
+		"eventName": "阿拉善经济开发区环保局多举措推",
+		"eventTime": 22,
 		"num": 1200000
 	}, {
-		"seriesTitle": "中央气象台：北方霾持续27日减弱",
-		"name": 23,
+		"eventName": "中央气象台：北方霾持续27日减弱",
+		"eventTime": 23,
 		"num": 3600000
 	}, {
-		"seriesTitle": "全国雾霾天气进入第六天京津冀地",
-		"name": 23,
+		"eventName": "全国雾霾天气进入第六天京津冀地",
+		"eventTime": 23,
 		"num": 2000000
 	}, {
-		"seriesTitle": "阿拉善经济开发区环保局多举措推",
-		"name": 23,
+		"eventName": "阿拉善经济开发区环保局多举措推",
+		"eventTime": 23,
 		"num": 1200000
 	}, {
-		"seriesTitle": "中央气象台：北方霾持续27日减弱",
-		"name": 24,
+		"eventName": "中央气象台：北方霾持续27日减弱",
+		"eventTime": 24,
 		"num": 4200000
 	}, {
-		"seriesTitle": "全国雾霾天气进入第六天京津冀地",
-		"name": 24,
+		"eventName": "全国雾霾天气进入第六天京津冀地",
+		"eventTime": 24,
 		"num": 2400000
 	}, {
-		"seriesTitle": "阿拉善经济开发区环保局多举措推",
-		"name": 24,
+		"eventName": "阿拉善经济开发区环保局多举措推",
+		"eventTime": 24,
 		"num": 1200000
 	}, {
-		"seriesTitle": "中央气象台：北方霾持续27日减弱",
-		"name": 25,
+		"eventName": "中央气象台：北方霾持续27日减弱",
+		"eventTime": 25,
 		"num": 3600000
 	}, {
-		"seriesTitle": "全国雾霾天气进入第六天京津冀地",
-		"name": 25,
+		"eventName": "全国雾霾天气进入第六天京津冀地",
+		"eventTime": 25,
 		"num": 2800000
 	}, {
-		"seriesTitle": "阿拉善经济开发区环保局多举措推",
-		"name": 25,
+		"eventName": "阿拉善经济开发区环保局多举措推",
+		"eventTime": 25,
 		"num": 1200000
 	}, {
-		"seriesTitle": "中央气象台：北方霾持续27日减弱",
-		"name": 26,
+		"eventName": "中央气象台：北方霾持续27日减弱",
+		"eventTime": 26,
 		"num": 3000000
 	}, {
-		"seriesTitle": "全国雾霾天气进入第六天京津冀地",
-		"name": 26,
+		"eventName": "全国雾霾天气进入第六天京津冀地",
+		"eventTime": 26,
 		"num": 2400000
 	}, {
-		"seriesTitle": "阿拉善经济开发区环保局多举措推",
-		"name": 26,
+		"eventName": "阿拉善经济开发区环保局多举措推",
+		"eventTime": 26,
 		"num": 1200000
 	}, {
-		"seriesTitle": "中央气象台：北方霾持续27日减弱",
-		"name": 27,
+		"eventName": "中央气象台：北方霾持续27日减弱",
+		"eventTime": 27,
 		"num": 3600000
 	}, {
-		"seriesTitle": "全国雾霾天气进入第六天京津冀地",
-		"name": 27,
+		"eventName": "全国雾霾天气进入第六天京津冀地",
+		"eventTime": 27,
 		"num": 2400000
 	}, {
-		"seriesTitle": "阿拉善经济开发区环保局多举措推",
-		"name": 27,
+		"eventName": "阿拉善经济开发区环保局多举措推",
+		"eventTime": 27,
 		"num": 1000000
 	}, {
-		"seriesTitle": "中央气象台：北方霾持续27日减弱",
-		"name": 28,
+		"eventName": "中央气象台：北方霾持续27日减弱",
+		"eventTime": 28,
 		"num": 3600000
 	}, {
-		"seriesTitle": "全国雾霾天气进入第六天京津冀地",
-		"name": 28,
+		"eventName": "全国雾霾天气进入第六天京津冀地",
+		"eventTime": 28,
 		"num": 2800000
 	}, {
-		"seriesTitle": "阿拉善经济开发区环保局多举措推",
-		"name": 28,
+		"eventName": "阿拉善经济开发区环保局多举措推",
+		"eventTime": 28,
 		"num": 1200000
 	}, {
-		"seriesTitle": "中央气象台：北方霾持续27日减弱",
-		"name": 29,
+		"eventName": "中央气象台：北方霾持续27日减弱",
+		"eventTime": 29,
 		"num": 3000000
 	}, {
-		"seriesTitle": "全国雾霾天气进入第六天京津冀地",
-		"name": 29,
+		"eventName": "全国雾霾天气进入第六天京津冀地",
+		"eventTime": 29,
 		"num": 2400000
 	}, {
-		"seriesTitle": "阿拉善经济开发区环保局多举措推",
-		"name": 29,
+		"eventName": "阿拉善经济开发区环保局多举措推",
+		"eventTime": 29,
 		"num": 1400000
 	}, {
-		"seriesTitle": "中央气象台：北方霾持续27日减弱",
-		"name": 30,
+		"eventName": "中央气象台：北方霾持续27日减弱",
+		"eventTime": 30,
 		"num": 3600000
 	}, {
-		"seriesTitle": "全国雾霾天气进入第六天京津冀地",
-		"name": 30,
+		"eventName": "全国雾霾天气进入第六天京津冀地",
+		"eventTime": 30,
 		"num": 2000000
 	}, {
-		"seriesTitle": "阿拉善经济开发区环保局多举措推",
-		"name": 30,
-		"num": 1400000
+		"eventName": "阿拉善经济开发区环保局多举措推",
+		"eventTime": 30,
+		"num": 1000000
 	}]
 }

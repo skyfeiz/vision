@@ -32,7 +32,8 @@ this.EE = this.EE || {};
 			"opinions_p3": "debug/p3_2.json", 			//情感类型
 			"opinionsList_p3": "debug/p3_2List.json", 	//事件列表
 			"eventCurve_p3": "debug/p3_1.json",			//30天事件曲线图
-
+			
+			"warninglevel": "../eyes/debug/warninglevel.json",
 			"p4chart1": "../eyes/debug/p4chart1.json",
 			"p4chart2": "../eyes/debug/p4chart2.json",
 			"p4list": "../eyes/debug/p4list.json",
@@ -432,6 +433,65 @@ this.EE = this.EE || {};
 					if (callback instanceof Function) {
 						if (json.success) {
 							callback(json)
+						}
+					}
+				}
+			});
+		};
+
+
+		/*------------------------------------ p4 ------------------------------------------*/
+
+		this.getWarningLevel = function(data, callback){
+			requestAsk({
+				url:api.warninglevel,
+				data:data,
+				callback:function(json){
+					if (callback instanceof Function) {
+						if (json.success) {
+							callback(json);
+						}
+					}
+				}
+			})
+		}
+
+		this.getP4Chart1Data = function(data, callback) {
+			requestAsk({
+				url: api.p4chart1,
+				data: data,
+				callback: function(json) {
+					if (callback instanceof Function) {
+						if (json.success) {
+							callback(json);
+						}
+					}
+				}
+			});
+		};
+
+		this.getP4Chart2Data = function(data, callback) {
+			requestAsk({
+				url: api.p4chart2,
+				data: data,
+				callback: function(json) {
+					if (callback instanceof Function) {
+						if (json.success) {
+							callback(json);
+						}
+					}
+				}
+			});
+		};
+
+		this.getP4ListData = function(data, callback) {
+			requestAsk({
+				url: api.p4list,
+				data: data,
+				callback: function(json) {
+					if (callback instanceof Function) {
+						if (json.success) {
+							callback(json);
 						}
 					}
 				}

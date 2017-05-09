@@ -12,9 +12,13 @@ this.EE = this.EE || {};
 
 		this.rankNum = 8;
 
-		this.originNum = 10;
+		// 评论条数
+		this.commentNum = 10;
 
 		this.emotion = 2;
+
+		// 默认为 微博 1
+		this.sourceType = 1;
 
 		this.t = 0;
 		this.bAuto = false;
@@ -164,7 +168,8 @@ this.EE = this.EE || {};
 		var _this = this;
 
 		_this.c.getMicro8Data({
-			type: _this.type,
+			sourceType:_this.sourceType,
+			dateType: _this.type,
 			date: _this.startDate,
 			batchFlag: _this.nRandom
 		}, function(result) {
@@ -172,6 +177,7 @@ this.EE = this.EE || {};
 		});
 
 		_this.c.getMicro9Data({
+			sourceType:_this.sourceType,
 			num: '30',
 			dateType: _this.type,
 			date: _this.date,
@@ -187,6 +193,7 @@ this.EE = this.EE || {};
 	p.changeData2 = function() {
 		var _this = this;
 		_this.c.getMicro4Data({
+			sourceType:_this.sourceType,
 			dateType: _this.type,
 			date: _this.date,
 			articleEmotion: _this.emotion,
@@ -196,6 +203,7 @@ this.EE = this.EE || {};
 		});
 
 		_this.c.getMicro5Data({
+			sourceType:_this.sourceType,
 			dateType: _this.type,
 			date: _this.date,
 			articleEmotion: _this.emotion,
@@ -206,6 +214,7 @@ this.EE = this.EE || {};
 		});
 
 		_this.c.getMicro6Data({
+			sourceType:_this.sourceType,
 			dateType: _this.type,
 			date: _this.date,
 			articleEmotion: _this.emotion,
@@ -215,10 +224,11 @@ this.EE = this.EE || {};
 		});
 
 		_this.c.getMicro7Data({
+			sourceType:_this.sourceType,
 			dateType: _this.type,
 			date: _this.date,
+			num: _this.commentNum,
 			articleEmotion: _this.emotion,
-			num: _this.originNum,
 			batchFlag: _this.nRandom
 		}, function(result) {
 			_this.createComment(result.data);
@@ -229,7 +239,11 @@ this.EE = this.EE || {};
 		var _this = this;
 
 		_this.$medias.click(function(){
+			// 重复点自己时不刷新
+			if ($(this).hasClass('active')) {return;}
+			_this.sourceType = $(this).index() + 1;
 			$(this).addClass('active').siblings().removeClass('active');
+			_this.changeData();
 		})
 
 		_this.$commentUl.mouseenter(function(){
@@ -253,9 +267,9 @@ this.EE = this.EE || {};
 			this.bAuto = false;
 		}
 		for (var i = 0; i < data.length; i++) {
-			var timeObj = this.getByTimes(data[i][config['time']]);
+			// var timeObj = this.getByTimes(data[i][config['time']]);
 
-			strHtml += '<li><h4 class="p_title">' + data[i][config['title']] + '</h4>' + '<p class="p_time">' + timeObj.Y + '-' + timeObj.M + '-' + timeObj.D + ' ' + timeObj.h + ':' + timeObj.m + '</p>' + '<p class="p_content">' + data[i][config['content']] + '</p></li>';
+			strHtml += '<li><h4 class="p_title">' + data[i][config['title']] + '</h4>' + '<p class="p_time">' +data[i][config['time']]+ '</p>' + '<p class="p_content">' + data[i][config['content']] + '</p></li>';
 		}
 		this.$commentUl.html(strHtml);
 		this.t = 0;

@@ -115,7 +115,8 @@ this.WbstChart = this.WbstChart || {};
 
 		var cateData = [];
 		for (var item in cateJson) {
-			cateData.push(item);
+			var iArr = item.split('_');
+			cateData.push(iArr[iArr.length - 1]);
 		}
 
 		var option = {
