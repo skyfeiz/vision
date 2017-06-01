@@ -42,11 +42,10 @@ this.WbstChart = this.WbstChart || {};
 	};
 
 	p.creationContent = function() {
-
 		if (this._config == null || this._dataProvider == null) {
 			return;
 		}
-
+		console.log(this._dataProvider);
 		var data = [];
 		var titleData = [];
 		var maxNum = 0;
@@ -89,6 +88,11 @@ this.WbstChart = this.WbstChart || {};
 				textStyle: {
 					color: '#3fc0ff',
 					fontSize: 12
+				},
+				formatter:function(n){
+					n = n.trim();
+					if (n.indexOf("iPhone")==0) {return "iPhone"};
+					return n.substring(0,4);
 				}
 			},
 			axisTick: {

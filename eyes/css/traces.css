@@ -152,6 +152,10 @@
 	line-height: 0.24rem;
 	color:#3fc0ff;
 	font-size: 0.14rem;
+    display: -webkit-box;
+    -webkit-line-clamp: 7;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
 }
 .chart1div .element-content{
 	height: 43.16%;
@@ -265,21 +269,20 @@ p.bluelight.bluenum{
 }
 
 #tooltip{
-    position: absolute;;
+    position: absolute;
     left: -100px;
     top: -100px;
     opacity: 0;
     width: 140px;
-    height: 200px;
+    padding-top: 10px;
+    padding-bottom: 10px;
     background-color: rgba(0,0,0,0.8);
 }
 .tooltip_imgbox{
     width: 100px;
     height: 130px;
-    position: absolute;
-    top: 10px;
-    left: 50%;
-    margin-left: -50px;
+    margin: 0 auto;
+    margin-bottom: 10px;
 }
 .tooltip_imgbox img{
     width: 100%;
@@ -303,11 +306,8 @@ p.bluelight.bluenum{
 }
 .infobox{
     width: 126px;
-    height: 42px;
-    position: absolute;
-    top: 146px;
-    left: 50%;
-    margin-left: -63px;
+    min-height: 42px;
+    margin:0 auto;
     background:url(../images/p6/infopoint.png);
 }
 .infoname{

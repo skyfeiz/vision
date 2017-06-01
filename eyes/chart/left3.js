@@ -50,6 +50,9 @@ this.WbstChart = this.WbstChart || {};
 		if (this._config == null || this._dataProvider == null) {
 			return;
 		}
+		if (this._dataProvider.length>10) {
+			this._dataProvider = this._dataProvider.splice(0,10);
+		}
 		var data = [];
 		var titleData = [];
 		this.numData = [];
@@ -94,7 +97,12 @@ this.WbstChart = this.WbstChart || {};
 				},
 				formatter: function(param) {
 					var arr = param.split('');
-					return arr.join('\n');
+					if (arr.length>3) {
+						arr = arr.splice(0,3);
+						return arr.join('\n');
+					}else{
+						return arr.join('\n');
+					}
 				}
 			},
 			axisTick: {

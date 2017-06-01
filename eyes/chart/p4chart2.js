@@ -66,12 +66,18 @@ this.WbstChart = this.WbstChart || {};
 
 		var legendJson = {};
 		var cateJson = {};
+		var cateData = [];
 
 		var maxNum = 0;
 		this.numData = {};
 		for (var i = 0, len = this._dataProvider.length; i < len; i++) {
 			legendJson[this._dataProvider[i].eventName] = 1;
-			cateJson[this._dataProvider[i].name] = 1;
+			
+			if (cateJson[this._dataProvider[i].eventTime] != 1) {
+				cateJson[this._dataProvider[i].eventTime] = 1;
+				var arr = this._dataProvider[i].eventTime.split('-');
+				cateData.push(arr[arr.length - 1]);
+			}
 			this.numData[this._dataProvider[i].eventName] = [];
 			if (maxNum < 1 * this._dataProvider[i].num) {
 				maxNum = 1 * this._dataProvider[i].num;
@@ -158,11 +164,11 @@ this.WbstChart = this.WbstChart || {};
 				}
 			}
 			var index;
-			if (lastNum <= warnObj.s3) {
+			if (lastNum < warnObj.s3) {
 				index = 3;
-			} else if (lastNum <= warnObj.s2) {
+			} else if (lastNum < warnObj.s2) {
 				index = 2
-			} else if (lastNum <= warnObj.s1) {
+			} else if (lastNum < warnObj.s1) {
 				index = 1
 			} else {
 				index = 0;
@@ -188,10 +194,6 @@ this.WbstChart = this.WbstChart || {};
 			};
 			series.push(json);
 		}
-		var cateData = [];
-		for (var item in cateJson) {
-			cateData.push(item);
-		}
 
 		var option = {
 			animationDuration: 3000,
@@ -206,7 +208,7 @@ this.WbstChart = this.WbstChart || {};
 				}
 			},
 			legend: {
-				bottom: '8%',
+				bottom: '15%',
 				textStyle: {
 					color: '#81d6ff'
 				},
@@ -252,7 +254,7 @@ this.WbstChart = this.WbstChart || {};
 					textStyle: {
 						color: '#00c6ff'
 					},
-					margin: 75
+					margin: 110
 				},
 				axisLine: {
 					lineStyle: {

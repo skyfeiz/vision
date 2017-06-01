@@ -2,10 +2,20 @@ this.EE = this.EE || {};
 (function(doc) {
 	var Details = function() {
 		this.c = new EE.Controller();
+		
+		this.word1 = '';
+		this.word2 = '';
 
-		this.pageTotal = 100;
-
+		this.area1 = '';
+		this.area2 = '';
+		// 总页数
+		this.pageTotal = 0;
+		// 当前页码
 		this.iNow = 1;
+		// 当前起始页码  第一个li的值
+		this.startNum = 1;
+		// 选中的li的索引
+		this.nIndex = 0;
 
 		this.ready();
 	};
@@ -19,7 +29,7 @@ this.EE = this.EE || {};
 			_this.region = region;
 			_this.getStatus();
 			_this.init();
-			if (_this.type == 4) {
+			if (_this.eventName !== undefined) {
 				_this.$wordinput.val(_this.eventName);
 			}
 		});
@@ -31,10 +41,6 @@ this.EE = this.EE || {};
 
 		this.timeChoose();
 
-		this.createCityList();
-
-		this.createPageList();
-
 		this.pageEvent();
 
 		$(doc).trigger('click');
@@ -42,6 +48,8 @@ this.EE = this.EE || {};
 		this.getListData();
 
 		this.getWordsData();
+
+		this.getAreaData();
 	};
 
 	p.initDom = function() {
@@ -76,6 +84,9 @@ this.EE = this.EE || {};
 		this.$cityList = this.$city.find('.droplist');
 		this.$cityUl = this.$city.find('ul');
 
+		// 提交筛选按钮
+		this.$submsg = $("#submsg");
+
 		//找到相关结果总数 
 		this.$resultnum = $('#resultnum');
 
@@ -103,18 +114,17 @@ this.EE = this.EE || {};
 		var n = this.pageTotal > 10 ? 10 : this.pageTotal;
 
 		for (var i = 0; i < n; i++) {
-			htmlStr += '<li>' + (i + 1) + '</li>';
+			htmlStr += '<li>' + (i + this.startNum) + '</li>';
 		}
 
 		this.$pageList.html(htmlStr);
 		this.$pageLi = this.$pageList.children();
 
-		this.$pageLi.eq(0).addClass('active');
+		this.$pageLi.eq(this.nIndex).addClass('active');
 	};
 
 	p.pageEvent = function() {
 		var _this = this;
-		var start = 1;
 
 		_this.$pageList.on('click', 'li', function(ev) {
 			var index = $(this).index();
@@ -143,12 +153,16 @@ this.EE = this.EE || {};
 		});
 
 		function numChange(html, n) {
-			var add = start = start + n;
+			_this.nIndex = 0;
+			var add = _this.startNum = _this.startNum + n;
+			var iii = 0;
 			_this.$pageLi.removeClass('active');
 			_this.$pageLi.each(function(i, ele) {
 				if (add == html) {
 					$(ele).addClass('active');
+					_this.nIndex = iii;
 				}
+				iii++
 				$(ele).html(add++);
 			});
 			// 获取列表数据生成列表
@@ -156,12 +170,12 @@ this.EE = this.EE || {};
 		};
 
 		function getDistance(html) {
-			var n = html - start - 5;
+			var n = html - _this.startNum - 5;
 			if (n < 0) {
-				n = start > 1 - n ? n : 1 - start;
+				n = _this.startNum > 1 - n ? n : 1 - _this.startNum;
 			}
 			if (n > 0) {
-				n = start < _this.pageTotal - 9 - n ? n : _this.pageTotal - 9 - start;
+				n = _this.startNum < _this.pageTotal - 9 - n ? n : _this.pageTotal - 9 - _this.startNum;
 			}
 			_this.iNow = html;
 			numChange(html, n)
@@ -173,26 +187,40 @@ this.EE = this.EE || {};
 	p.getListData = function() {
 		var _this = this;
 		this.c.getDetailsListData({
-			type: _this.type, //类型(1,2,3,4,5)
-			eventName: _this.name, //名称	
+			keyWord: _this.eventName, //名称	
 			startTime: _this.$start.html(), //时间段：开始时间
+			// startTime: '2017-05-01', //时间段：开始时间
 			endTime: _this.$end.html(), //时间段：结束时间
-			nowNo: _this.viewName, //用户当前视角地
-			websiteName: _this.webName, //舆情来源
-			mediaTypeC: _this.media, //舆情媒体
-			articleEmotio: _this.emotion, //舆情情感类型(正中负)
+			// endTime: '2017-05-18', //时间段：结束时间
+			primaryClassification: _this.word1,
+			twoStageClassification: _this.word2,
+			province: _this.area1,
+			city: _this.area2,
 			pages: '5', //每页显示点条数
-			rows: _this.iNow //页数
+			pageNumber: _this.iNow //页数
 		}, function(result) {
 			_this.createList(result.data);
 			_this.$resultnum.html(result.total);
+			var number = Math.ceil(result.total / 5) || 0;
+			_this.pageTotal = number;
+			_this.$totalnum.html('共 ' + number + ' 页');
+			_this.createPageList();
 		});
 	};
 
 	p.createList = function(data) {
 		var htmlStr = '';
-		for (var i = 0; i < 5; i++) {
-			htmlStr += '<li>' + '<a href="' + data[i].articleUrl + '" class="atitle">' + data[i].articleTitle + '</a>' + '<p class="textinfo">' + '<a href="javascript:;">来源：' + data[i].articleSource + '</a>' + '<a href="javascript:;">用户：' + data[i].articleAuthor + '</a>' + '<a>发布时间：' + data[i].articlePubtime + '</a>' + '<a class="hashref" href="' + data[i].articleUrl + '">' + data[i].articleUrl + '</a>' + '</p>' + '<span class="textline"></span>' + '<p class="listcontent">' + data[i].articleAbstract + '</p>' + '</li>';
+		if (data instanceof Object && data.length) {
+			for (var i = 0; i < data.length; i++) {
+				var urlArr = data[i].articleUrl.split('?');
+				var content = data[i].articleAbstract;
+				if (content.length > 200) {
+					content = content.substring(0, 200) + '...';
+				}
+				htmlStr += '<li>' + '<a href="' + data[i].articleUrl + '" class="atitle">' + data[i].articleTitle + '</a>' + '<p class="textinfo">' + '<a href="javascript:;">来源：' + data[i].articleSource + '</a>' + '<a href="javascript:;">用户：' + data[i].articleAuthor + '</a>' + '<a>发布时间：' + data[i].articlePubtime + '</a>' + '<a class="hashref" href="' + data[i].articleUrl + '">' + urlArr[0] + '</a>' + '</p>' + '<span class="textline"></span>' + '<p class="listcontent">' + content + '</p>' + '</li>';
+			}
+		}else{
+			console.warn('返回的数据data: '+data+' 不是数组或者数据为空');
 		}
 		this.$ullist.html(htmlStr);
 	};
@@ -201,10 +229,18 @@ this.EE = this.EE || {};
 
 		var _this = this;
 		// 大搜索框
-		_this.$search.click(function(){
+		_this.$search.click(function() {
 			var val = _this.$wordinput.val();
-			_this.type = 4;
-			_this.name = val;
+			_this.eventName = val;
+			_this.iNow = 1;
+			_this.startNum = 1;
+			_this.nIndex = 0;
+			if (val != '') {
+				_this.getListData();
+			}
+		})
+
+		_this.$submsg.click(function() {
 			_this.getListData();
 		})
 
@@ -230,15 +266,19 @@ this.EE = this.EE || {};
 		});
 
 		_this.$provinceList.on('click', 'ul li', function(ev) {
+			var bAll = false;
 			var json = {
-				'data-name': $(this).attr('data-name'),
+				'data-name': $(this).attr('title'),
 				'data-id': $(this).attr('data-id')
 			}
 
 			json.title = json['data-name'];
+			_this.area1 = json['data-id'];
 			_this.$provinceText.attr(json);
-
-			_this.createThisCity(json['data-id']);
+			if (json['data-id'] == 101) {
+				bAll = true;
+			}
+			_this.createCity(json['data-id'],bAll);
 
 			ev.stopPropagation();
 		});
@@ -248,23 +288,22 @@ this.EE = this.EE || {};
 				'data-name': $(this).attr('data-name'),
 				'data-id': $(this).attr('data-id')
 			}
-
+			_this.area2 = json['data-id'];
 			json.title = json['data-name'];
-			_this.$cityText.attr(json)
+			_this.$cityText.attr(json);
 
 			ev.stopPropagation();
 		});
 
 		_this.$keyword1.on('click', 'ul li', function(ev) {
 			var id = $(this).attr('data-id');
-			_this.type = 1;
-			_this.name = id;
+			_this.word1 = id;
 			_this.creatrWord2(id);
 			ev.stopPropagation();
 		})
 
 		_this.$keyword2.on('click', 'ul li', function(ev) {
-			_this.name = $(this).attr('data-id');
+			_this.word2 = $(this).attr('data-id');
 			ev.stopPropagation();
 		})
 
@@ -280,7 +319,6 @@ this.EE = this.EE || {};
 			max: '2099-06-16 23:59:59', //最大日期
 			istoday: false,
 			choose: function(datas) {
-				console.log(datas);
 				end.min = datas; //开始日选好后，重置结束日的最小日期
 				end.start = datas //将结束日的初始值设定为开始日
 			}
@@ -303,46 +341,133 @@ this.EE = this.EE || {};
 		_this.c.getWordsData({
 
 		}, function(result) {
-			_this.wordData = _this.data2Relation(result.data);
-			_this.createWord1(_this.wordData);
+			_this.wordData = _this.data2Relation(result.data, 'parentSubjectCategoryId', 'subjectCategoryId',0);
+			_this.createWord1();
+		});
+	};
+
+	p.getAreaData = function() {
+		var _this = this;
+		_this.c.getAreaData({
+
+		}, function(result) {
+			_this.areaData = _this.data2Relation(result.data, 'C0014_ORG_UPID', 'C0014_ORG_NO',101);
+			for (var i = 0; i < result.data.length; i++) {
+				if (result.data[i].C0014_ORG_LEVEL_TYPE == 0) {
+					_this.areaData.unshift({
+						 C0014_ORG_LEVEL_TYPE:1,
+						 C0014_ORG_NAME:'全国',
+						 C0014_ORG_NO:101,
+						 C0014_ORG_UPID:0
+					})
+					break;
+				}
+			}
+			_this.createProvince();
 		});
 	};
 
 	p.createWord1 = function() {
 		var data = this.wordData;
+		var nLis = 0;
 		var htmlStr = '<ul>';
 		for (var i = 0; i < data.length; i++) {
-			htmlStr += '<li data-id="' + data[i].subjectCategoryId + '" title="' + data[i].subjectCategoryName + '">' + data[i].subjectCategoryName + '</li>';
+			if (data[i].parentSubjectCategoryId == 0) {
+				nLis++;
+				htmlStr += '<li data-id="' + data[i].subjectCategoryId + '" title="' + data[i].subjectCategoryName + '">' + data[i].subjectCategoryName + '</li>';
+			}
 		}
 		htmlStr += '</ul>';
-		this.$keyword1.find('.droplist').html(htmlStr).buildScrollBar();
-	}
+
+		var $obj = this.$keyword1.find('.droplist');
+		$obj.html(htmlStr);
+		$obj.find('ul').css('height',24*nLis);
+		$obj.buildScrollBar();
+	};
 
 	// 根据父级id获取子集的关键词
 	p.creatrWord2 = function(id) {
 		var data = this.wordData;
+		var nLis = 0;
 		var htmlStr = '<ul>';
 		for (var i = 0; i < data.length; i++) {
 			if (data[i].subjectCategoryId == id) {
 				for (var j = 0; j < data[i].sub.length; j++) {
+					nLis++;
 					htmlStr += '<li data-id="' + data[i].sub[j].subjectCategoryId + '" title="' + data[i].sub[j].subjectCategoryName + '">' + data[i].sub[j].subjectCategoryName + '</li>';
 				}
 			}
 		}
 		htmlStr += '</ul>';
-		this.$keyword2.find('.droplist').html(htmlStr).buildScrollBar();
+		var $obj = this.$keyword2.find('.droplist');
+		$obj.html(htmlStr);
+		$obj.find('ul').css('height',24*nLis);
+		$obj.buildScrollBar();
+		this.area2 = '';
 		this.$keyword2.find('span').html('请选择');
-	}
+	};
 
-	p.data2Relation = function(data) {
+	p.createProvince = function() {
+		var data = this.areaData;
+		var htmlStr = '<ul>';
+		var nLis = 0; 
+		for (var i = 0; i < data.length; i++) {
+			if (data[i].C0014_ORG_LEVEL_TYPE == 1 ) {
+				nLis++;
+				htmlStr += '<li data-id="' + data[i].C0014_ORG_NO + '" title="' + data[i].C0014_ORG_NAME + '">' + data[i].C0014_ORG_NAME + '</li>';
+			}
+			if (data[i].C0014_ORG_LEVEL_TYPE == 0) {
+				isAll = true;
+			}
+
+		}
+		htmlStr += '</ul>';
+		var $obj = this.$province.find('.droplist');
+		$obj.html(htmlStr);
+		$obj.find('ul').css('height',24*nLis);
+		$obj.buildScrollBar();
+	};
+
+	p.createCity = function(id,allCity) {
+		var data = this.areaData;
+		var htmlStr = '<ul>';
+		var nLis = 0;
+		for (var i = 0; i < data.length; i++) {
+			if (allCity) {
+				if (data[i].sub){
+					for (var j = 0; j < data[i].sub.length; j++) {
+						nLis++;
+						htmlStr += '<li data-id="' + data[i].sub[j].C0014_ORG_NO + '" title="' + data[i].sub[j].C0014_ORG_NAME + '">' + data[i].sub[j].C0014_ORG_NAME + '</li>';
+					}
+				}
+				
+			}else{
+				if (data[i].C0014_ORG_NO == id) {
+					for (var j = 0; j < data[i].sub.length; j++) {
+						nLis++
+						htmlStr += '<li data-id="' + data[i].sub[j].C0014_ORG_NO + '" title="' + data[i].sub[j].C0014_ORG_NAME + '">' + data[i].sub[j].C0014_ORG_NAME + '</li>';
+					}
+				}
+			}
+			
+		}
+		htmlStr += '</ul>';
+		var $obj = this.$city.find('.droplist');
+		$obj.html(htmlStr);
+		$obj.find('ul').css('height',24*nLis);
+		$obj.buildScrollBar();
+		this.$city.find('span').html('请选择');
+	};
+
+	p.data2Relation = function(data, pIdName, idName ,noPid) {
 		var arr = [];
 		for (var i = 0; i < data.length; i++) {
-			if (data[i].parentSubjectCategoryId == 0) {
+			if (data[i][pIdName] == noPid) {
 				var json = {};
 				json = data[i];
 				json.sub = [];
 				for (var j = 0; j < data.length; j++) {
-					if (data[j].parentSubjectCategoryId == data[i].subjectCategoryId) {
+					if (data[j][pIdName] == data[i][idName]) {
 						json.sub.push(data[j]);
 					}
 				}
@@ -352,73 +477,6 @@ this.EE = this.EE || {};
 		}
 		return arr;
 	}
-
-	p.createCityList = function() {
-		// 判断权限显示城市列表
-		this.province = province;
-		var arr = this.region.split('_');
-		switch (arr.length) {
-			case 1:
-				// 全国权限	，都可以选择  省下拉框默认为全国
-				this.createProvince();
-				this.createThisCity();
-				break;
-			case 2:
-				this.$province.attr('silent', 'yes');
-				// 省级权限 ，只能选择当前省的城市名
-				this.createProvince(this.region);
-				this.createThisCity(this.region);
-				break;
-			case 3:
-				this.$city.attr('silent', 'yes');
-				// 市级权限 ，只显示城市， 下拉框不能点开
-				break;
-		};
-	};
-
-	// 获取当前省的所有市
-	p.createThisCity = function(id) {
-		this.$cityText.html('请选择');
-		var json = {};
-		var n = 0;
-		if (id) {
-			json = this.province[id].sub;
-		} else {
-			for (var item in this.province) {
-				json = $.extend({}, json, this.province[item].sub);
-			}
-		}
-		var strHtml = '';
-		for (var item in json) {
-			n++;
-			strHtml += '<li data-id="' + json[item].id + '" data-name="' + json[item].name + '" data-pid="' + json[item].pid + '" data-pname="' + json[item].pname + '" title="' + json[item].name + '">' + json[item].name + '</li>';
-		}
-
-
-		this.$cityList.html('<ul style="height:' + 24 * n + 'px;">' + strHtml + '</ul>');
-
-		this.$cityList.buildScrollBar();
-	};
-
-	// 根据权限来
-	p.createProvince = function(id) {
-		var province = this.province;
-		var strHtml = '';
-		if (id) {
-			strHtml += '<li data-id="' + id + '" data-name="' + province[id].name + '" title="' + province[id].name + '">' + province[id].name + '</li>';
-			this.$provinceText.html(province[id].name).attr('title', province[id].name);
-			this.$provinceText.attr({
-				'data-id': id,
-				'data-name': province[id].name
-			});
-		} else {
-			for (var item in province) {
-				strHtml += '<li data-id="' + province[item].id + '" data-name="' + province[item].name + '" title="' + province[item].name + '">' + province[item].name + '</li>'
-			}
-		}
-		this.$provinceUl.html(strHtml);
-		this.$provinceList.buildScrollBar();
-	};
 
 	/*p.changeData = function() {
 		var _this = this;
@@ -440,10 +498,8 @@ this.EE = this.EE || {};
 
 
 		this.eventId = json.eventId;
-		this.emotion = json.emotion;
-		this.type = json.type;
 		this.eventName = json.eventName;
-		
+
 	};
 
 	EE.Details = Details;

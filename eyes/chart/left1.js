@@ -127,22 +127,15 @@ this.WbstChart = this.WbstChart || {};
 					radius: ['75%', '85%'],
 					center: ['50%', '55%'],
 					hoverAnimation: false,
-					label: {
-						normal: {
-							show: false,
-							formatter: function(param) {
-								return scalc;
-							},
-							textStyle: {
-								fontSize: 16,
-								color: '#01b5e9'
+					label:{
+						normal:{
+							show:false,
+							textStyle:{
+								fontSize:0
 							}
 						},
-						emphasis: {
-							show: false,
-							formatter: function(param) {
-								return scalc;
-							}
+						emphasis:{
+							show:false
 						}
 					},
 					data: [{
@@ -151,7 +144,14 @@ this.WbstChart = this.WbstChart || {};
 						label: {
 							normal: {
 								show: true,
-								position: 'center'
+								position: 'center',
+								formatter: function(param) {
+									return scalc;
+								},
+								textStyle: {
+									fontSize: 16,
+									color: '#01b5e9'
+								}
 							}
 						},
 						itemStyle: {
@@ -164,7 +164,12 @@ this.WbstChart = this.WbstChart || {};
 						}
 					}, {
 						value: this._dataProvider[3].num - this._dataProvider[this._key - 1].num,
-						name: '其他'
+						name: '其他',
+						label:{
+							normal:{
+								show:false
+							}
+						}
 					}]
 				}]
 			};

@@ -33,23 +33,31 @@ this.WbstChart = this.WbstChart || {};
 		var htmlStr2 = '';
 		for (var i = 0, len = this._dataProvider.length; i < len; i++) {
 			var item = this._dataProvider[i];
-			if (i < 5) {
+			var name = item.eventName;
+			if(name.length>26){
+				name = name.substring(0,26)+'...';
+			}
+			if (i < len/2) {
 				htmlStr1 += '<tr>' +
 					'<td>' + (i + 1) + '</td>' +
-					'<td>' + item.eventName + '</td>' +
+					'<td>' + name + '</td>' +
 					'<td>' + item.num + '</td>' +
 					'<td>' + item.regionName + '</td>' +
 					'<td>' + item.level + '</td>' +
-					'</tr>'
+					'</tr>';
 			} else if (i < 10) {
 				htmlStr2 += '<tr>' +
 					'<td>' + (i + 1) + '</td>' +
-					'<td>' + item.eventName + '</td>' +
+					'<td>' + name + '</td>' +
 					'<td>' + item.num + '</td>' +
 					'<td>' + item.regionName + '</td>' +
 					'<td>' + item.level + '</td>' +
-					'</tr>'
+					'</tr>';
 			}
+		}
+		if (len<=5) {
+			htmlStr1 += htmlStr2;
+			htmlStr2 = '';
 		}
 
 		this.$tbody1.html(htmlStr1);

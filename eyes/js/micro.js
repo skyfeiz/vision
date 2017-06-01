@@ -1,7 +1,7 @@
 this.EE = this.EE || {};
 (function(win, doc) {
-	// var hostUrl = "http://" + win.location.host + "/eems/opinionStudy/";
-	var hostUrl = "http://" + win.location.host + "/vision/eyes/";
+	var hostUrl = "http://" + win.location.host + "/eems/sys/jsp/eyes/"; 
+	// var hostUrl = "http://" + win.location.host + "/vision/eyes/";
 
 	var Micro = function() {
 		this.c = new EE.Controller();
@@ -16,9 +16,11 @@ this.EE = this.EE || {};
 		this.commentNum = 10;
 
 		this.emotion = 2;
+		this.startDate = '2008-08-08';
 
 		// 默认为 微博 1
 		this.sourceType = 1;
+		this.type = 1;
 
 		this.t = 0;
 		this.bAuto = false;
@@ -35,17 +37,19 @@ this.EE = this.EE || {};
 		var _this = this;
 		_this.c.ready(function(region) {
 			_this.region = region;
-			_this.init();
-			_this.initDom();
-			_this.baseEvent();
+			_this.c.getNowTime({},function(result){
+				console.log("系统时间: "+result);
+				_this.endDate = result;
+				_this.init();
+				_this.initDom();
+				_this.baseEvent();
+			});
 		});
 	};
 
 	p.init = function() {
 		var _this = this;
-		_this.t = new WbstChart.TimeLine({
-			start: '2008-08-08'
-		});
+		_this.t = new WbstChart.TimeLine(_this.startDate,_this.endDate);
 		_this.t.silent = true;
 
 		_this.c.getChartConfig('', function(data) {
@@ -54,7 +58,7 @@ this.EE = this.EE || {};
 		});
 
 		_this.t.toChange = function(json) {
-			_this.date = json.date;
+			_this.date = json.startDate;
 			_this.type = json.type;
 			_this.changeData();
 		};
@@ -80,7 +84,7 @@ this.EE = this.EE || {};
 
 		_this._micro4.EventDispatcher.on('click', function(evt, item) {
 			// 需要的参数 事件id，视角，视角区域id，情感
-			win.location.href = encodeURI(hostUrl + 'p3.html?eventId=' + item + '&emotion=' + _this.emotion);
+			win.location.href = encodeURI(hostUrl + 'anreport.html?eventId=' + item + '&emotion=' + _this.emotion);
 
 		});
 
@@ -89,7 +93,7 @@ this.EE = this.EE || {};
 		_this._micro6.setConfig(_this._config.micro6.config);
 		_this._mapKIdVChart['micro6'] = _this._micro6;
 		_this._micro6.EventDispatcher.on('chartmouseover', function(evt, item) {
-			var str = '<p class="tooltiptext"><span class="valuename">' + item.item.seriesName + ' :</span><span class="valuenum">' + item.item.xAxisValue + '</span><span class="fffpoint_lt"></span><span class="fffpoint_rb"></span></p>';
+			var str = '<p class="tooltiptext"><span class="valuename">' + (_this.type==1?item.item.seriesName.replace(/日/,'时'):item.item.seriesName) + ' :</span><span class="valuenum">' + item.item.xAxisValue + '</span><span class="fffpoint_lt"></span><span class="fffpoint_rb"></span></p>';
 			_this.showToolTip(str, item.event.pageX, item.event.pageY);
 		});
 		_this._micro6.EventDispatcher.on('chartmouseout', function() {
@@ -111,12 +115,14 @@ this.EE = this.EE || {};
 			var str = item.name;
 			switch (str) {
 				case '正方':
+				case '正面':
 					_this.emotion = 1;
 					break;
 				case '中立':
 					_this.emotion = 0;
 					break;
 				case '负方':
+				case '负面':
 					_this.emotion = -1;
 					break;
 				default:
@@ -140,7 +146,7 @@ this.EE = this.EE || {};
 		});
 
 		_this._micro9.EventDispatcher.on('click', function(evt, item) {
-			win.location.href = encodeURI(hostUrl + 'details.html?type=4&eventName=' + item + '&emotion=' + _this.emotion);
+			// win.location.href = encodeURI(hostUrl + 'details.html?type=4&eventName=' + item + '&emotion=' + _this.emotion);
 		});
 
 
@@ -166,42 +172,32 @@ this.EE = this.EE || {};
 
 	p.changeData = function() {
 		var _this = this;
+		_this.nRandom = new Date().getTime();
 
+		// 情感类型 请求数据
 		_this.c.getMicro8Data({
 			sourceType:_this.sourceType,
 			dateType: _this.type,
-			date: _this.startDate,
+			date: _this.date,
 			batchFlag: _this.nRandom
 		}, function(result) {
+			console.log("刷新情感类型");
 			_this._mapKIdVChart['micro8'].setDataProvider(result.data);
 		});
 
+		// 词云 请求数据
 		_this.c.getMicro9Data({
 			sourceType:_this.sourceType,
-			num: '30',
+			num: 30,
 			dateType: _this.type,
 			date: _this.date,
-			articleEmotion: _this.emotion,
+			// articleEmotion: _this.emotion,
 			batchFlag: _this.nRandom
 		}, function(result) {
 			_this._mapKIdVChart['micro9'].setDataProvider(result.data);
 		});
 
-		_this.changeData2();
-	};
-
-	p.changeData2 = function() {
-		var _this = this;
-		_this.c.getMicro4Data({
-			sourceType:_this.sourceType,
-			dateType: _this.type,
-			date: _this.date,
-			articleEmotion: _this.emotion,
-			batchFlag: _this.nRandom
-		}, function(result) {
-			_this._mapKIdVChart['micro4'].setDataProvider(result.data);
-		});
-
+		// 发热度排名 请求数据
 		_this.c.getMicro5Data({
 			sourceType:_this.sourceType,
 			dateType: _this.type,
@@ -213,6 +209,26 @@ this.EE = this.EE || {};
 			_this._mapKIdVChart['micro5'].setDataProvider(result.data);
 		});
 
+		_this.changeData2();
+	};
+
+	p.changeData2 = function() {
+		var _this = this;
+
+		// 头条 请求数据
+		_this.c.getMicro4Data({
+			sourceType:_this.sourceType,
+			dateType: _this.type,
+			date: _this.date,
+			articleEmotion: _this.emotion,
+			batchFlag: _this.nRandom
+		}, function(result) {
+			_this._mapKIdVChart['micro4'].setDataProvider(result.data);
+		});
+
+		
+
+		// 走势曲线 请求数据
 		_this.c.getMicro6Data({
 			sourceType:_this.sourceType,
 			dateType: _this.type,
@@ -223,6 +239,7 @@ this.EE = this.EE || {};
 			_this._mapKIdVChart['micro6'].setDataProvider(result.data);
 		});
 
+		// 用户评论 请求数据
 		_this.c.getMicro7Data({
 			sourceType:_this.sourceType,
 			dateType: _this.type,
@@ -260,6 +277,7 @@ this.EE = this.EE || {};
 		var config = this._config.micro7.config;
 		var len = data.length;
 		if (!len) {
+			this.$commentUl.html('');
 			return;
 		}else if (len>2) {
 			this.bAuto = true;
@@ -314,7 +332,7 @@ this.EE = this.EE || {};
 					_this.t = 0;
 				}
 			}
-			_this.aTimer = setTimeout(fn,30)
+			_this.aTimer = setTimeout(fn,30);
 		}
 		fn();
 	}

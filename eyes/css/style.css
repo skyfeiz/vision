@@ -242,6 +242,9 @@ header h1 {
     line-height: 0.25rem;
     font-size: 0.16rem;
     position: absolute;
+    text-overflow:ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
     top: 50%;
     margin: 0px 1.5%;
     transform: translate(0%,-50%);
@@ -296,8 +299,8 @@ header h1 {
     height: 24px;
     line-height: 24px;
     font-size: 14px;
-    color: #3fc0ff;
-    border: 1px solid #00c6ff;
+    color: #00c6ff;
+    border: 1px solid #3fc0ff;
     text-align: center;
     float: left;
     background-color: rgba(63, 192, 255, 0.2);
@@ -317,9 +320,10 @@ header h1 {
 .timebtns li.active {
     position: relative;
     z-index: 2;
-    color: #fffc00;
-    background-color: rgba(154, 102, 2, 0.2);
-    border-color: #fffc00;
+    color: #fff;
+    box-shadow: 0 0 6px #3fc0ff inset;
+    -webkit-box-shadow: 0 0 6px #3fc0ff inset;
+    -moz-box-shadow: 0 0 6px #3fc0ff inset;
 }
 
 .axisleft,

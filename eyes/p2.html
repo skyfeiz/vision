@@ -11,7 +11,7 @@
     <script type="text/javascript" src="libs/worldcloud.js"></script>
     <script type="text/javascript" src="libs/jquery_scrollBar.js"></script>
     <script type="text/javascript" src="js/component/screen.js"></script>
-    <script type="text/javascript" src="js/Controller00.js"></script>
+    <script type="text/javascript" src="js/Controller.js"></script>
     <script type="text/javascript" src="js/component/timeline2.js"></script>
     <script type="text/javascript" src="chart/chart4.js"></script>
     <script type="text/javascript" src="chart/chart5.js"></script>
@@ -33,9 +33,9 @@
     <div class="root">
         <header class="clearfix" id="header"></header>
         <!-- search input -->
-        <section class="searchbox">
-            <input type="text" class="searchinput" />
-            <span class="searchbtn" autocomplete="off">搜索</span>
+        <section class="searchbox clearfix">
+            <input type="text" class="searchinput fl" />
+            <span class="searchbtn fl" autocomplete="off">搜索</span>
         </section>
         <section class="element-div chart4div">
             <div class="element-title-div">
@@ -45,13 +45,6 @@
             </div>
             <div class="element-content">
                 <div class="chart4" id="chart4"></div>
-                <!-- <ul class="chart4news" id="chart4news"></ul> -->
-                <a class="chart4news" href="javascript:;">中央气象台：北方霾持续&nbsp;27日减弱消散</a>
-                <a class="chart4news" href="javascript:;">全国雾霾天气进入第六天京津冀地区污染最重</a>
-                <a class="chart4news" href="javascript:;">阿拉善经济开发区环保局多举措推进大气、水污染等等</a>
-                <a class="chart4news" href="javascript:;">专家：中国每年水污染造成经济损失2400亿元</a>
-                <a class="chart4news" href="javascript:;">“核污染”食品侵袭中国背后：跨境电商错在哪儿</a>
-                
             </div>
         </section>
         <section class="element-div chart5div">
@@ -77,7 +70,7 @@
         </section>
         <section class="element-div chart7div">
             <div class="element-title-div">
-                <p class="element-title-text">来源媒体分布</p>
+                <p class="element-title-text">媒体发热度排名</p>
                 <span class="divleft"></span>
                 <span class="divright"></span>
             </div>
@@ -94,8 +87,6 @@
             <div class="element-content">
                 <div class="chart8" id="chart8"></div>
                 <p class="pietip" id="pietip">
-                    <span class="piecn">舆情总数</span>
-                    <span class="pienum">5000000</span>
                 </p>
             </div>
         </section>
@@ -117,8 +108,8 @@
         <section class="timeaxis timeaxis2" id="timeaxis">
             <ul class="timebtns clearfix">
                 <li data-type="now" style="display: none;">最近七天</li>
-                <li data-type="month">月</li>
-                <li class="active" data-type="year">年</li>
+                <li data-type="month">按月查看</li>
+                <li class="active" data-type="year" style="color:#666;">按年查看</li>
             </ul>
             <div class="timelimitbox">
                 <div class="timecontent">

@@ -14,10 +14,6 @@ this.WbstChart = this.WbstChart || {};
 	var p = Chart9.prototype;
 
 	p.init = function() {
-		$(this._dom).css({
-			width: 390,
-			height: 308
-		});
 
 		this._myChart = echarts.init(this._dom);
 
@@ -39,7 +35,6 @@ this.WbstChart = this.WbstChart || {};
 		});
 
 		_this._myChart.on('click', function(param) {
-			console.log(param.name);
 			_this.EventDispatcher.trigger('click', param.name);
 		});
 	};
@@ -58,6 +53,11 @@ this.WbstChart = this.WbstChart || {};
 		if (this._config == null || this._dataProvider == null) {
 			return;
 		}
+		if (this._dataProvider.length == 0) {
+			this._myChart.clear();
+			return;
+		}
+		this._dataProvider = this._dataProvider.splice(0,24);
 		var data = [];
 		for (var i = 0, len = this._dataProvider.length; i < len; i++) {
 			data.push({
@@ -67,15 +67,16 @@ this.WbstChart = this.WbstChart || {};
 		}
 		var size = 1;
 		
-		if (len<=30) {
+		if (len<=20) {
 			size = 8;
-		}else if (len<=40) {
+		}else if (len<=25) {
 			size = 6
-		}else if (len<=50) {
+		}else if (len<=30) {
 			size = 4
-		}else if (len<=60) {
+		}else if (len<=35) {
 			size = 2
 		}
+		console.log(size);
 		var json = {
 			type: 'wordCloud',
 			shape: 'circle',
@@ -86,9 +87,10 @@ this.WbstChart = this.WbstChart || {};
 			height: '90%',
 			right: null,
 			bottom: null,
-			sizeRange: [12, 30],
+			sizeRange: [12, 24],
 			rotationRange: [0, 0],
 			rotationStep: 45,
+			gridSize: size,
 			textStyle: {
 				normal: {
 					fontFamily: 'Microsoft yahei',
@@ -108,7 +110,7 @@ this.WbstChart = this.WbstChart || {};
 
 		this._myChart.setOption(option);
 
-		this.toScalc();
+		// this.toScalc();
 	};
 
 	p.toScalc = function() {

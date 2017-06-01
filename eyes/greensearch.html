@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>绿色搜索</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css"></link>
+    <link rel="stylesheet" type="text/css" href="css/details.css"></link>
+    <script type="text/javascript" src="libs/jquery-3.1.1.min.js"></script>
+    <script type="text/javascript" src="libs/jquery_scrollBar.js"></script>
+    <script type="text/javascript" src="libs/laydate/laydate.js"></script>
+    <script type="text/javascript" src="js/component/screen.js"></script>
+    <script type="text/javascript" src="js/Controller.js"></script>
+    <script type="text/javascript" src="js/component/header.js"></script>
+    <!-- <script type="text/javascript" src="js/details.js"></script> -->
+</head>
+
+<body>
+    <div class="root">
+        <header class="clearfix" id="header"></header>
+        <div class="main" style="top:200px; height:300px;">
+            <div class="searchbox clearfix">
+			<img src="images/details/d_logo.gif" style="margin-left:180px; margin-bottom:58px;">
+                <input class="fl" type="text"/>
+                <span class="fl" onclick="search()">搜索</span>
+            </div>
+        </div>
+		<div style=" height:60px;clear:both;"></div>
+				<div style="position:absolute;height:30px; bottom:20px; text-align:center; width:100%; color:#3fc1fd;">由北京绿色东方数据技术有限公司提供服务</div>
+    </div>
+</body>
+<script type="text/javascript">
+		$(function(){
+			new EE.Header(4);
+			//new EE.Details();
+		})
+		function search(){
+			var eventName=$("input[class=fl]").val();
+			window.location.href ="details.html?&eventName="+eventName;
+		}
+		$("input[class=fl]").bind('keypress',function(event){    
+            if(event.keyCode == "13")      
+            {	
+            	search();
+            }
+        });
+	</script>
+</html>

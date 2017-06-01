@@ -16,6 +16,7 @@
 this.EE = this.EE || {};
 (function() {
 	var mapViewSwitch = function(opt) {
+		console.log(opt);
 		var cur = this;
 		var stage, radiusX = 0,
 			radiusY = 0,
@@ -263,16 +264,12 @@ this.EE = this.EE || {};
 
 		// 添加点， 取最大值  positive:正方， neutral：中立  negative:负方 
 		var addDots = function(dotCoors) {
+			console.log(dotCoors);
 			cur.dotBox.removeAllChildren();
 			for (var i = 0; i < dotCoors.length; i++) {
 				if(!isNaN(dotCoors[i].num) && dotCoors[i].num!=0){
 					var img, light;
 					var max = Math.max(Math.max(dotCoors[i].numJust, dotCoors[i].numIn), dotCoors[i].numNegative);
-					if (dotCoors[i].numJust == max) {
-						img = opt.imgAry.getResult("positive");
-						light = opt.imgAry.getResult("positiveL");
-						dotCoors[i].type = "positive";
-					}
 					if (dotCoors[i].numIn == max) {
 						img = opt.imgAry.getResult("neutral");
 						light = opt.imgAry.getResult("neutralL");
@@ -282,6 +279,11 @@ this.EE = this.EE || {};
 						img = opt.imgAry.getResult("negative");
 						light = opt.imgAry.getResult("negativeL");
 						dotCoors[i].type = "negative";
+					}
+					if (dotCoors[i].numJust == max) {
+						img = opt.imgAry.getResult("positive");
+						light = opt.imgAry.getResult("positiveL");
+						dotCoors[i].type = "positive";
 					}
 
 					var dot = new createjs.Bitmap(img);

@@ -1,15 +1,17 @@
 this.EE = this.EE || {};
 (function(win, doc) {
-	// var hostUrl = "http://" + win.location.host + "/eems/sys/jsp/eyes/";
-	var hostUrl = "http://" + win.location.host + "/vision/eyes/";
+	var hostUrl = "http://" + win.location.host + "/eems/sys/jsp/eyes/";
+	// var hostUrl = "http://" + win.location.host + "/vision/eyes/";
 
 	var P1Map = function() {
 		this.c = new EE.Controller();
 
 		this._mapKIdVChart = {};
 
+		this.timer = null;
+
 		this.startDate = '2017-04-01';
-		this.endDate = '2017-04-30';
+		
 
 		this.ready();
 	};
@@ -31,8 +33,12 @@ this.EE = this.EE || {};
 				// 情感默认为总数
 				_this.emotion = 'sum';
 				_this.sign = 1;
-				_this.init();
-				_this.initDom();
+
+				_this.c.getNowTime({},function(result){
+					_this.endDate = result;
+					_this.init();
+					_this.initDom();
+				});
 			})
 		});
 	};
@@ -40,7 +46,7 @@ this.EE = this.EE || {};
 	p.init = function() {
 		var _this = this;
 		_this.s = new WBST.CitySelect(_this.viewName, _this.viewId);
-		_this.t = new WbstChart.TimeLine('2010-08-08');
+		_this.t = new WbstChart.TimeLine(this.startDate,_this.endDate);
 
 		// 信息预处理
 		_this.initData(function(event) {
@@ -65,6 +71,7 @@ this.EE = this.EE || {};
 
 			//			选择城市改变地图
 			_this.s.cityChange = function(obj) {
+				console.log(obj);
 				_this.viewName = obj.name;
 				_this.viewId = obj.id;
 				_this.map.clickCity(obj, function() {
@@ -129,7 +136,7 @@ this.EE = this.EE || {};
 
 	p.initData = function(fn) {
 		var _this = this;
-
+		console.log(_this.viewId);
 		if (_this.viewId.indexOf(_this.region) == -1) {
 			_this.viewId = _this.region;
 		}
@@ -143,6 +150,17 @@ this.EE = this.EE || {};
 			_this.events = json.data;
 			fn && fn(json.data);
 		})
+	};
+
+	p.autoRefresh = function() {
+		var _this = this;
+		clearInterval(_this.timer);
+		_this.timer = setInterval(function(){
+			console.log('自动刷新了');
+			_this.initData(function() {
+				_this.changeData();
+			});
+		},7200000);
 	};
 
 	p.changeData = function(event) {
@@ -167,7 +185,7 @@ this.EE = this.EE || {};
 	p.changeData2 = function(event) {
 		var _this = this;
 		_this.events = event || _this.events;
-
+		_this.autoRefresh();
 		if (_this.viewId.indexOf(_this.region) == -1) {
 			_this.viewId = _this.region;
 		}
@@ -226,7 +244,18 @@ this.EE = this.EE || {};
 
 		_this._hearLineChart.EventDispatcher.on('click', function(evt, item) {
 			// 事件id，情感 视角，视角区域id		通过url传递
-			win.location.href = encodeURI(hostUrl + 'p3.html?&eventId=' + item + '&emotion=' + _this.emotion + '&angle=' + _this.viewName + '&regin=' + _this.viewId);
+			var arr = _this.endDate.split('-');
+			var sDate, eDate;
+			if (arr.length == 2) {
+				var oDate = new Date();
+				oDate.setMonth(arr[1]+1,-1);
+				sDate = _this.startDate + '-01';
+				eDate = _this.endDate + '-'+ (oDate.getDate());
+			} else {
+				sDate = _this.startDate;
+				eDate = _this.endDate;
+			}
+			win.location.href = encodeURI(hostUrl + 'p3.html?header=0&eventId=' + item + '&emotion=' + _this.emotion + '&angle=' + _this.viewName + '&regin=' + _this.viewId + '&startDate=' + sDate + '&endDate=' + eDate);
 
 		});
 		// _this.getLeft2Data();

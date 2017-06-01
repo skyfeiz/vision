@@ -140,8 +140,8 @@
 		"title":"",
 		"config":{
 			"title": "seriesTitle",
-			"scatterName": "startName",
-			"scatterCoord": "startCoor",
+			"scatterName": "areaName",
+			"scatterCoord": "endCoor",
 			"scatterNum": "startNum",
 			"endNum":"endNum",
 			"endCoord":"endCoor"

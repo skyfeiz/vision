@@ -11,7 +11,7 @@
     <script type="text/javascript" src="libs/laydate/laydate.js"></script>
     <script type="text/javascript" src="js/component/screen.js"></script>
     <script type="text/javascript" src="debug/city.js"></script>
-    <script type="text/javascript" src="js/Controller00.js"></script>
+    <script type="text/javascript" src="js/Controller.js"></script>
     <script type="text/javascript" src="js/component/header.js"></script>
     <script type="text/javascript" src="js/details.js"></script>
     <script>
@@ -57,7 +57,7 @@
                 <div class="areabox fl">
                     <span class="choosetitle">按地区</span>
                     <div class="dropbox" id="province">
-                        <span class="textname">全国</span>
+                        <span class="textname">请选择</span>
                         <div class="droplist">
                             <ul>
                             </ul>
@@ -71,11 +71,11 @@
                         </div>
                     </div>
                 </div>
-                <input class="fl submsg" type="button" value="提交筛选" />
-                <p class="resulttext fr">找到相关结果约<b id="resultnum">100,000,000</b>个</p>
+                <input class="fl submsg" type="button" id="submsg" value="提交筛选" />
+                <p class="resulttext fr">找到相关结果约<b id="resultnum">0</b>个</p>
             </div>
             <ul class="ullist" id="ullist">
-                <li>
+                <!-- <li>
                     <a href="javascript:;" class="atitle">哇噻-奇奇奇！环保侠士“格问”</a>
                     <p class="textinfo">
                         <a href="javascript:;">来源：百度贴吧</a>
@@ -85,24 +85,14 @@
                     </p>
                     <span class="textline"></span>
                     <p class="listcontent">光明网评论员：环保部对京津冀及周边地区18个城市开展的2017年第一季度空气质量专项督查正在进行。在所发现的问题中，“济南市政府2016年未按照《济南市大气污染防治工作督查考核办法》对各责任单位和区县政府进行大气污染防治工作考核”，相较于应急减排管控标准不统一，燃煤锅炉改造进度滞后等问题而言无疑算是一个“新问题”，尤其值得审视。</p>
-                </li>
+                </li> -->
             </ul>
             <div class="pagebox">
                 <span class="prevpage" id="prevpage">上一页</span>
                 <ul class="pagelist" id="pagelist">;
-                    <li class="active">1</li>
-                    <li>2</li>
-                    <li>3</li>
-                    <li>4</li>
-                    <li>5</li>
-                    <li>6</li>
-                    <li>7</li>
-                    <li>8</li>
-                    <li>9</li>
-                    <li>10</li>
                 </ul>
                 <span class="nextpage" id="nextpage">下一页</span>
-                <span class="totalnum" id="totalnum">共 100 页</span>
+                <span class="totalnum" id="totalnum">共 0 页</span>
                 <div class="gotopage" id="gotopage">
                     到第
                     <input class="gonum" type="text" id="pagenum" oninput="this.value=this.value.replace(/\D/g,'')" /> 页

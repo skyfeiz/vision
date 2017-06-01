@@ -6,6 +6,7 @@ this.WbstChart = this.WbstChart || {};
 
 		this.numData = [];
 		this.init();
+		this.initDom();
 	};
 
 	var p = ChartP3_1.prototype;
@@ -30,6 +31,9 @@ this.WbstChart = this.WbstChart || {};
 		});
 	};
 
+	p.initDom = function(){
+		this.$timeRange = $('#timeRange');
+	};
 
 	p.setConfig = function(value) {
 		this._config = value;
@@ -187,6 +191,11 @@ this.WbstChart = this.WbstChart || {};
 		};
 
 		this._myChart.setOption(option);
+
+		// 得到时间区间
+		var sArr = this._dataProvider[0].name.split('-');
+		var eArr = this._dataProvider[this._dataProvider.length-1].name.split('-');
+		this.$timeRange.html(sArr[1]+'月'+sArr[2]+'日-'+eArr[1]+'月'+eArr[2]+'日');
 	};
 
 	WbstChart.ChartP3_1 = ChartP3_1;

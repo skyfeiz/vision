@@ -3,6 +3,8 @@ this.WbstChart = this.WbstChart || {};
 	var iScale = 1;
 	/*传入的start和end的格式为2008-08-08*/
 	var TimeLine = function(json) {
+		// 是否沉默
+		this.silent = false;
 		// 是否包括 当年 当月;
 		this.bNow = json.now;
 		// 1某月 2某年
@@ -68,7 +70,7 @@ this.WbstChart = this.WbstChart || {};
 			this.endTime = json.end;
 			var endArr = this.endTime.split('-');
 			this.endYear = endArr[0];
-			this.endMonth = Math.floor(endArr[1]);
+			this.endMonth = Math.floor(endArr[1])-1;
 		} else {
 			var oDate = new Date();
 			this.endYear = oDate.getFullYear();
@@ -92,6 +94,7 @@ this.WbstChart = this.WbstChart || {};
 		this.defaultYear = this.endYear;
 		if (json.now) {
 			this.defaultYear++;
+			this.endMonth++;
 		}
 		
 
@@ -243,6 +246,7 @@ this.WbstChart = this.WbstChart || {};
 			overWidth = false;
 
 		_this.areaBox.mousedown(function(ev) {
+			if(_this.silent){return;};
 			limitWidth = _this.limitbox.width() / iScale;
 			limitLeft = _this.limitbox.offset().left / iScale;
 			nLeft = _this.contentBox.offset().left / iScale;
@@ -525,8 +529,16 @@ this.WbstChart = this.WbstChart || {};
 	p.btnEvent = function() {
 		var _this = this,
 			sign = 'year',
+			bNot = false,
 			firstClick = true;
+
 		_this.timeBtn.click(function(ev) {
+			// 第一次转换状态 让点 之后 不让
+			if (_this.silent && bNot) {return};
+			bNot = true;
+			// 限制年不能点
+			if ($(this).index()==2) {return;}
+
 			$(this).addClass('active').siblings().removeClass('active');
 			_this.canvas.hide();
 			_this.getTime = true;
@@ -668,17 +680,22 @@ this.WbstChart = this.WbstChart || {};
 	p.canvasClick = function(){
 		var _this = this;
 		_this.yearCanvas.click(function(ev){
+			if (_this.silent) {return;};
 			fn(ev)
 			ev.stopPropagation();
 		});
 
 		_this.monthCanvas.click(function(ev){
+			if (_this.silent) {return;};
 			fn(ev)
 			ev.stopPropagation();
 		})
 
 		function fn(ev){
-			var x = ev.pageX;
+			var x = ev.pageX - _this.xSpace/2;
+			if (x>=_this.limitbox.offset().left + _this.limitbox.width() - _this.xSpace - 5) {
+				x=_this.limitbox.offset().left + _this.limitbox.width() - _this.xSpace - 5
+			}
 			var y = ev.pageY - _this.limitbox.offset().top / iScale;
 			if (y<=56 && y>=18) {
 				var l = _this.areabox.offset().left / iScale;

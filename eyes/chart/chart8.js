@@ -57,7 +57,7 @@ this.WbstChart = this.WbstChart || {};
 		if (this._config == null || this._dataProvider == null) {
 			return;
 		}
-
+		console.log(this._dataProvider);
 
 		var seriesData = [];
 		var legendData = [];
@@ -79,7 +79,12 @@ this.WbstChart = this.WbstChart || {};
 			}
 		}
 
-		this.$pietip.html('<span class="piecn">舆情总数</span><span class="pienum">' + total.value + '</span>');
+		if (this._dataProvider.length == 0) {
+			this.$pietip.html('');
+		}else{
+			this.$pietip.html('<span class="piecn">舆情总数</span><span class="pienum">' + (total.value || '') + '</span>');
+		}
+		
 
 		var option = {
 			animationDuration: 3000,

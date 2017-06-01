@@ -44,16 +44,28 @@ this.WbstChart = this.WbstChart || {};
 		if (this._config == null || this._dataProvider == null) {
 			return;
 		}
+		if (this._dataProvider.length == 0) {
+			this._myChart.clear();
+			return;
+		}
 
 		var legendJson = {};
 		var cateJson = {};
+		var cateData = [];
 
 		var maxNum = 0;
 
 		this.numData = {};
 		for (var i = 0, len = this._dataProvider.length; i < len; i++) {
+			var dateName = this._dataProvider[i].name;
 			legendJson[this._dataProvider[i].seriesTitle] = 1;
-			cateJson[this._dataProvider[i].name] = 1;
+
+			if (cateJson[dateName] != 1) {
+				cateJson[dateName] = 1;
+				var iArr = dateName.split('-');
+				cateData.push(iArr[iArr.length - 1]);
+			}
+			
 			this.numData[this._dataProvider[i].seriesTitle] =  [];
 			if (maxNum < 1*this._dataProvider[i].num) {
 				maxNum = 1*this._dataProvider[i].num
@@ -113,12 +125,6 @@ this.WbstChart = this.WbstChart || {};
 			series.push(json);
 		}
 
-		var cateData = [];
-		for (var item in cateJson) {
-			var iArr = item.split('_');
-			cateData.push(iArr[iArr.length - 1]);
-		}
-
 		var option = {
 			animationDuration: 3000,
 			color: ['#024de7', '#0bc8ff', '#d43853', '#f19504', '#fffc00'],
@@ -141,6 +147,9 @@ this.WbstChart = this.WbstChart || {};
 				itemHeight: 3,
 				data: legendData,
 				padding: 2,
+				formatter: function(param) {
+					return param.substring(0, 4) + '..'
+				}
 			},
 			grid: {
 				left: '3%',

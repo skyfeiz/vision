@@ -157,11 +157,11 @@ this.WbstChart = this.WbstChart || {};
 			});
 		}
 		data = data.sort(function(n1, n2) {
+			if (n2.value === ' ') {return 1;}
 			return n1.value - n2.value
 		});
 
 		this.data = data;
-
 
 		this.creationText(this._dataProvider);
 
@@ -209,14 +209,7 @@ this.WbstChart = this.WbstChart || {};
 					normal: {
 						show: true,
 						position: 'right',
-						offset: [0, -2],
-						formatter:function(param){
-							if(param.value && param.value!=0){
-								return param.value;
-							}else{
-								return '';
-							}
-						}
+						offset: [0, -2]
 					},
 					emphasis: {
 						textStyle: {
@@ -227,7 +220,7 @@ this.WbstChart = this.WbstChart || {};
 				data: this.data
 			}]
 		};
-		// console.log(option);
+		console.log(option);
 		this._myChart.setOption(option);
 	};
 

@@ -133,15 +133,15 @@ this.WbstChart = this.WbstChart || {};
 		this.mark2 = warnObj.s2 / this.numScale;
 		this.mark3 = warnObj.s1 / this.numScale;
 		for (var i = 0, len = this._dataProvider.length; i < len; i++) {
-			var realNum = this._dataProvider[i].num;
+			var realNum = 1 * this._dataProvider[i].num;
 			var index;
-			if (realNum <= warnObj.s3) {
+			if (realNum < warnObj.s3) {
 				index = 3;
-			}else if (realNum <= warnObj.s2) {
+			} else if (realNum < warnObj.s2) {
 				index = 2
-			}else if (realNum <= warnObj.s1) {
+			} else if (realNum < warnObj.s1) {
 				index = 1
-			}else {
+			} else {
 				index = 0;
 			}
 			var num = realNum / this.numScale;
@@ -209,11 +209,38 @@ this.WbstChart = this.WbstChart || {};
 					},
 					margin: 15,
 					formatter: function(params) {
-						if (params.length<10) {
+						if (params.length < 10) {
 							return params;
 						}
 						var mid = Math.floor(params.length / 2);
-						return params.substring(0, mid) + '\n ' + params.substring(mid);
+						return params.substring(0, mid);
+					}
+				}
+			}, {
+				type: 'category',
+				position: 'bottom',
+				data: this.titleData,
+				axisLine: {
+					lineStyle: {
+						color: '#1c4581',
+					}
+				},
+				axisTick: {
+					show: false,
+					alignWithLabel: true
+				},
+				axisLabel: {
+					textStyle: {
+						color: "#fff",
+						fontSize: 16
+					},
+					margin: 30,
+					formatter: function(params) {
+						if (params.length < 10) {
+							return '';
+						}
+						var mid = Math.floor(params.length / 2);
+						return params.substring(mid);
 					}
 				}
 			}, {
@@ -234,7 +261,7 @@ this.WbstChart = this.WbstChart || {};
 						color: "#3fc0ff",
 						fontSize: 16
 					},
-					margin: 50
+					margin: 55
 				}
 			}],
 			yAxis: [{
@@ -262,7 +289,7 @@ this.WbstChart = this.WbstChart || {};
 					}
 				},
 				splitLine: {
-					show:false
+					show: false
 				}
 			}],
 			series: [{
@@ -288,7 +315,7 @@ this.WbstChart = this.WbstChart || {};
 				markLine: {
 					silent: true,
 					symbolSize: 0,
-					
+
 					label: {
 						normal: {
 							show: false
@@ -298,7 +325,7 @@ this.WbstChart = this.WbstChart || {};
 						name: '标线1',
 						yAxis: this.mark1,
 						lineStyle: {
-							normal:{
+							normal: {
 								color: colorData[2]
 							}
 						},
@@ -306,7 +333,7 @@ this.WbstChart = this.WbstChart || {};
 						name: '标线2',
 						yAxis: this.mark2,
 						lineStyle: {
-							normal:{
+							normal: {
 								color: colorData[1]
 							}
 						},
@@ -314,7 +341,7 @@ this.WbstChart = this.WbstChart || {};
 						name: '标线3',
 						yAxis: this.mark3,
 						lineStyle: {
-							normal:{
+							normal: {
 								color: colorData[0]
 							}
 						},

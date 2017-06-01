@@ -11,8 +11,8 @@
     <script type="text/javascript" src="libs/worldcloud.js"></script>
     <script type="text/javascript" src="libs/jquery_scrollBar.js"></script>
     <script type="text/javascript" src="js/component/screen.js"></script>
-    <script type="text/javascript" src="js/Controller00.js"></script>
-    <script type="text/javascript" src="js/component/timeline2.js"></script>
+    <script type="text/javascript" src="js/Controller.js"></script>
+    <script type="text/javascript" src="js/component/timeline.js"></script>
     <script type="text/javascript" src="chart/chart4.js"></script>
     <script type="text/javascript" src="chart/left3.js"></script>
     <script type="text/javascript" src="chart/chart6.js"></script>
@@ -34,24 +34,17 @@
         <header class="clearfix" id="header"></header>
         <!-- search input -->
         <section class="mediabox clearfix" id="mediabox">
-            <span class="sinaMedia active fl">新浪微博</span>
-            <span class="wenxinMedia fl">微信公众号</span>
+            <span class="sinaMedia active fl">官方微博舆情分析</span>
+            <span class="wenxinMedia fl">微博泛舆情分析</span>
         </section>
         <section class="element-div chart4div">
             <div class="element-title-div">
-                <p class="element-title-text">舆情头条</p>
+                <p class="element-title-text">官微头条</p>
                 <span class="divleft"></span>
                 <span class="divright"></span>
             </div>
             <div class="element-content">
                 <div class="chart4" id="micro4"></div>
-                <!-- <ul class="chart4news" id="chart4news"></ul> -->
-                <a class="chart4news" href="javascript:;">中央气象台：北方霾持续&nbsp;27日减弱消散</a>
-                <a class="chart4news" href="javascript:;">全国雾霾天气进入第六天京津冀地区污染最重</a>
-                <a class="chart4news" href="javascript:;">阿拉善经济开发区环保局多举措推进大气、水污染等等</a>
-                <a class="chart4news" href="javascript:;">专家：中国每年水污染造成经济损失2400亿元</a>
-                <a class="chart4news" href="javascript:;">“核污染”食品侵袭中国背后：跨境电商错在哪儿</a>
-                
             </div>
         </section>
         <section class="element-div chart5div">
@@ -83,16 +76,6 @@
             <div class="element-content">
                 <div class="chart7" id="micro7">
                     <ul class="commentUl" id="commentUl">
-                        <li>
-                            <h4 class="p_title">李开复</h4>
-                            <p class="p_time">2016-03-22 21:58</p>
-                            <p class="p_content">【转发微博】世卫组织表示，中国扩大免疫规划使用的疫苗是安全有效的，且通过这种疫苗已经消灭了脊髓灰质炎和新生儿破伤风，并使中国的疫苗可预防疾病处于较低的水平。世卫组织鼓励中国的父母继续通过常规的预防接种来保护儿童受疫苗可预防疾病的伤害。</p>
-                        </li>
-                        <li>
-                            <h4 class="p_title">联合国</h4>
-                            <p class="p_time">2016-03-23 00:21</p>
-                            <p class="p_content">【转发微博】世卫组织表示，中国扩大免疫规划使用的疫苗是安全有效的，且通过这种疫苗已经消灭了脊髓灰质炎和新生儿破伤风，并使中国的疫苗可预防疾病处于较低的水平。世卫组织鼓励中国的父母继续通过常规的预防接种来保护儿童受疫苗可预防疾病的伤害。</p>
-                        </li>
                     </ul>
                 </div>
             </div>
@@ -106,14 +89,14 @@
             <div class="element-content">
                 <div class="chart8" id="micro8"></div>
                 <p class="pietip" id="pietip">
-                    <span class="piecn">舆情总数</span>
-                    <span class="pienum">5000000</span>
+                    <span class="piecn"></span>
+                    <span class="pienum"></span>
                 </p>
             </div>
         </section>
         <section class="element-div chart9div">
             <div class="element-title-div">
-                <p class="element-title-text">关键词</p>
+                <p class="element-title-text">热点用户</p>
                 <span class="divleft"></span>
                 <span class="divright"></span>
             </div>
@@ -129,8 +112,8 @@
         <section class="timeaxis timeaxis2" id="timeaxis">
             <ul class="timebtns clearfix">
                 <li data-type="now" style="display: none;">最近七天</li>
-                <li data-type="month">月</li>
-                <li class="active" data-type="year">年</li>
+                <li data-type="month">按天查看</li>
+                <li class="active" data-type="year">按月查看</li>
             </ul>
             <div class="timelimitbox">
                 <div class="timecontent">

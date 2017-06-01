@@ -14,7 +14,7 @@
     <script type="text/javascript" src="libs/preloadjs-0.4.1.min.js"></script>
     <script type="text/javascript" src="libs/TweenMax.min.js"></script>
     <script type="text/javascript" src="js/component/screen.js"></script>
-    <script type="text/javascript" src="js/Controller00.js"></script>
+    <script type="text/javascript" src="js/Controller.js"></script>
     <script type="text/javascript" src="debug/city.js"></script>
     <script type="text/javascript" src="chart/left3.js"></script>
     <script type="text/javascript" src="chart/left1.js"></script>
@@ -26,7 +26,6 @@
     <script type="text/javascript" src="js/p3.js"></script>
     <script>
     $(function() {
-        new EE.Header(1);
         new EE.P3Chart();
     })
     </script>
@@ -36,8 +35,12 @@
     <div class="root">
         <header class="clearfix" id="header"></header>
         
+        <ul class="rightkeybox" id="rightkeybox">
+            <li>导出报告</li>
+        </ul>
+
         <div class="pagetitle">
-            <p>研究报告</p>
+            <p id="rightBtn">研究报告</p>
             <span class="titleline up"></span>
             <span class="titleline down"></span>
         </div>
@@ -58,8 +61,9 @@
         </div>
 
         <section class="element-content p3chart1">
+            <p class="timeRange" id="timeRange"></p>
             <div id="p3Chart1">
-              
+            
             </div>
         </section>
         <section class="element-div p3chart2">
@@ -113,7 +117,7 @@
                <span class="divright"></span>
            </div>
            <div class="element-content">
-               <p></p>
+               <p class="limitPoints"></p>
            </div>
        </section>
        <section class="element-div p3chart4">
@@ -136,18 +140,19 @@
                <div id="p3Chart5" data-bselft="1"></div>
            </div>
        </section>
-    </div>
-    <div id="tooltip">
-        <div class="tooltip_left3">
-            <p class="blockyellow">参考消息</p>
-            <p class="tooltiptext">
-                <span class="valuename">17日</span>
-                <span class="valuenum">980000</span>
-                <span class="fffpoint_lt"></span>
-                <span class="fffpoint_rb"></span>
-            </p>
+       <div id="tooltip">
+          <div class="tooltip_left3">
+                <p class="blockyellow">参考消息</p>
+                <p class="tooltiptext">
+                    <span class="valuename">17日</span>
+                    <span class="valuenum">980000</span>
+                    <span class="fffpoint_lt"></span>
+                    <span class="fffpoint_rb"></span>
+                </p>
+            </div>
         </div>
     </div>
+    
 </body>
 
 </html>

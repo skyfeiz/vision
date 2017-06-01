@@ -337,7 +337,8 @@
 }
 
 .pagelist li {
-    width: 0.33rem;
+    min-width: 0.33rem;
+    padding: 0 2px;
     height: 0.3rem;
     line-height: 0.3rem;
     border: 1px solid #3fc0ff;

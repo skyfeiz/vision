@@ -5,7 +5,8 @@ this.WbstChart = this.WbstChart || {};
 	var TimeLine = function(start, end) {
 		// 开启计算时间的开关
 		this.getTime = true;
-
+		// 1某月 2某年
+		this.type = 2;
 		// 下标的间距
 		this.xSpace = 40;
 
@@ -621,7 +622,8 @@ this.WbstChart = this.WbstChart || {};
 
 		return {
 			startDate: startDate,
-			endDate: endDate
+			endDate: endDate,
+			type:this.type
 		};
 
 		// 补零函数
@@ -682,6 +684,7 @@ this.WbstChart = this.WbstChart || {};
 					_this.setArea();
 					break;
 				case 'month':
+					_this.type = 1;
 					_this.moveOnly = false;
 					_this.bMonth = true;
 					_this.xArr = _this.setMonthxArr();
@@ -726,6 +729,7 @@ this.WbstChart = this.WbstChart || {};
 					_this.setArea();
 					break;
 				case 'year':
+					_this.type = 2;
 					_this.moveOnly = false;
 					if (sign == 'year') {
 						_this.getTime = false;
@@ -894,8 +898,10 @@ this.WbstChart = this.WbstChart || {};
 		})
 
 		function fn(ev){
-			var x = ev.pageX;
-			var y = ev.pageY - _this.limitbox.offset().top / iScale;
+			var x = ev.pageX - _this.xSpace/2;
+			if (x>=_this.limitbox.offset().left + _this.limitbox.width() - _this.xSpace - 5) {
+				x=_this.limitbox.offset().left + _this.limitbox.width() - _this.xSpace - 5
+			}			var y = ev.pageY - _this.limitbox.offset().top / iScale;
 			if (y<=56 && y>=18) {
 				var l = _this.areabox.offset().left / iScale;
 				_this.aL += x - l;

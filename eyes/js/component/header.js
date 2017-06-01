@@ -1,6 +1,6 @@
 this.EE = this.EE || {};
 (function() {
-	var hostUrl = "http://" + window.location.host + "/vision/eyes/";
+	var hostUrl = "http://" + window.location.host + "/eems/sys/jsp/eyes/";
 
 	var Header = function(n) {
 		this.c = new EE.Controller();
@@ -22,7 +22,7 @@ this.EE = this.EE || {};
 			month = oDate.getMonth() + 1,
 			day = oDate.getDate();
 
-		var strHtml = '<h1 class="fl">环保舆情辅助管理系统</h1>'
+		var strHtml = '<h1 class="fl">环保舆情大数据平台</h1>'
 		+'<nav class="headernav fl" id="headernav">'
 		+' <a href="p1.html">舆情地图</a>'
 		+' <a href="p2.html">舆情分析'
@@ -34,10 +34,10 @@ this.EE = this.EE || {};
 		+'<a href="traces.html">领导绿迹'
 		+'<span class="pointbg"></span>'
 		+'</a>'
-		+'<a>绿色搜索'
+		+'<a href="greensearch.html">绿色搜索'
 		+'<span class="pointbg"></span>'
 		+'</a>'
-		+'<a href="anreport.html">微眼观察'
+		+'<a href="micro.html">微眼观察'
 		+'<span class="pointbg"></span>'
 		+'</a>'
 		+'<span class="navlight"></span>'

@@ -1,7 +1,7 @@
 this.EE = this.EE || {};
 (function(win, doc) {
 	// var hostUrl = "http://" + win.location.host + "/eems/opinionStudy/";
-	var hostUrl = "http://" + win.location.host + "/vision/eyes/";
+	var hostUrl = "http://" + win.location.host + "/eems/sys/jsp/eyes/"; 
 
 	var P2Chart = function() {
 		this.c = new EE.Controller();
@@ -16,6 +16,8 @@ this.EE = this.EE || {};
 
 		this.emotion = 2;
 
+		this.startDate = '2008-08-08';
+
 		this.nRandom = new Date().getTime();
 
 		this.ready();
@@ -27,15 +29,18 @@ this.EE = this.EE || {};
 		var _this = this;
 		_this.c.ready(function(region) {
 			_this.region = region;
-			_this.init();
-			_this.initDom();
+			_this.c.getNowTime({},function(result){
+				console.log("系统时间: "+result);
+				_this.endDate = result;
+				_this.init();
+				_this.initDom();
+			});
 		});
 	};
 
 	p.init = function() {
 		var _this = this;
-		_this.t = new WbstChart.TimeLine({start:'2008-08-08'});
-		_this.t.silent = true;
+		_this.t = new WbstChart.TimeLine({start:_this.startDate,end:_this.endDate});
 
 		_this.c.getChartConfig('', function(data) {
 			_this._config = data;
@@ -45,20 +50,12 @@ this.EE = this.EE || {};
 		_this.t.toChange = function(json) {
 			_this.date = json.date;
 			_this.type = json.type;
+			_this.nRandom = new Date().getTime();
 			_this.changeData();
 		};
 
-		_this.c.getChart9Data({
-			num: '30',
-			dateType: _this.type,
-			date: _this.date,
-			articleEmotion: _this.emotion,
-			batchFlag: _this.nRandom
-		}, function(result) {
-			_this._mapKIdVChart['chart9'].setDataProvider(result.data);
-		});
-
 		$(document).trigger('mouseup');
+		$('.timebtns').find('li').eq(1).trigger('click');
 	};
 
 	p.initDom = function() {
@@ -75,8 +72,19 @@ this.EE = this.EE || {};
 
 		_this._Chart4.EventDispatcher.on('click', function(evt, item) {
 			// 需要的参数 事件id，视角，视角区域id，情感
-			win.location.href = encodeURI(hostUrl + 'p3.html?eventId=' + item + '&emotion=' + _this.emotion);
+			var arr = _this.date.split('-');
+			var sDate,eDate;
+			if (arr.length == 1) {
+				sDate = _this.date+'-01'+'-01';
+				eDate = _this.date+'-12'+'-31';
+			}else if (arr.length == 2) {
+				sDate = _this.date+'-01';
+				var oDate = new Date();
+				oDate.setMonth(arr[1]+1,-1);
+				eDate = _this.date+'-'+oDate.getDate();
+			}
 
+			win.location.href = encodeURI(hostUrl + 'p3.html?header=1&eventId=' + item + '&emotion=' + _this.emotion + '&startDate='+sDate+'&endDate='+eDate);
 		});
 
 		// 事件省份排名 chart5
@@ -118,12 +126,14 @@ this.EE = this.EE || {};
 			var str = item.name;
 			switch (str) {
 				case '正方':
+				case '正面':
 					_this.emotion = 1;
 					break;
 				case '中立':
 					_this.emotion = 0;
 					break;
 				case '负方':
+				case '负面':
 					_this.emotion = -1;
 					break;
 				default:
@@ -173,9 +183,19 @@ this.EE = this.EE || {};
 	p.changeData = function() {
 		var _this = this;
 
+		_this.c.getChart9Data({
+			num: '30',
+			dateType: _this.type,
+			date: _this.date,
+			articleEmotion: _this.emotion,
+			batchFlag: _this.nRandom
+		}, function(result) {
+			_this._mapKIdVChart['chart9'].setDataProvider(result.data);
+		});
+
 		_this.c.getChart8Data({
-			type: _this.type,
-			date: _this.startDate,
+			dateType: _this.type,
+			date: _this.date,
 			batchFlag: _this.nRandom
 		}, function(result) {
 			_this._mapKIdVChart['chart8'].setDataProvider(result.data);

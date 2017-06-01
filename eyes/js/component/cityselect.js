@@ -127,6 +127,8 @@ this.WBST = this.WBST || {};
 			// 加载视图
 			_this.cityChange({
 				name: name,
+				id:id,
+				pid:pid,
 				pName: pname
 			});
 

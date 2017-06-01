@@ -10,7 +10,8 @@
     padding-top: 54px;
 }
 
-span.searchbtn {
+.root span.searchbtn {
+    top: 0;
     font-size: 0.18rem;
     cursor: pointer;
     line-height: 28px;
@@ -69,7 +70,7 @@ span.searchbtn {
     text-overflow: ellipsis;
     height: 100%;
     color: #84d5ff;
-    height: 14px;
+    height: 16px;
     line-height: 1;
     font-size: 14px;
     cursor: pointer;
@@ -237,8 +238,8 @@ span.searchbtn {
     padding: 0 0.36rem;
 }
 .commentUl li{
-    height: 1.28rem;
     padding-top: 0.18rem;
+    padding-bottom: 0.1rem;
     border-bottom: 1px solid #034462; 
 }
 .commentUl .p_title{
@@ -267,6 +268,7 @@ span.searchbtn {
     font-size: 12px;
 }
 .tooltip_left3 .blockyellow{
+    padding-left: 5px;
     width: 100%;
     height: 20px;
     line-height: 20px;
@@ -291,4 +293,83 @@ span.searchbtn {
     text-align: center;
     background-color: rgba(27,57,119,0.9);
     position: relative;
+}
+
+/* weibo8canvas */
+#weibo8canvas{
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: -1;
+}
+
+.commentWeibo{
+    padding-left: 0.6rem;
+}
+.commentWeibo li{
+    width: 7.06rem;
+    color: #5fcbff;
+    font-size: 0.14rem;
+    position: relative;
+    padding-bottom: 0.2rem;
+    border-bottom: 1px solid #034462;
+}
+
+.commentImgBox{
+    position: absolute;
+    width: 0.32rem;
+    top: 0.2rem;
+    left: -0.4rem;
+    height: 0.32rem;
+    border-radius: 50%;
+    overflow: hidden;
+}
+.commentImgBox img{
+    width: 100%;
+    height: 100%;
+}
+.commentWeibo .p_title{
+    color: #fff;
+}
+.commentWeibo .p_content{
+    font-size: 0.14rem;
+    line-height: 1.46;
+    padding-bottom: 0.1rem;
+}
+.commentWeibo .p_titleBox{
+    height: 0.28rem;
+    line-height: 0.28rem;
+    padding-top: 0.22rem;
+}
+.commentWeibo .p_info{
+    height: 12px;
+    font-size: 12px;
+    line-height: 1;
+}
+.commentWeibo .p_infoname{
+    color: #1389dc;
+    padding-left: 0.1rem;
+    padding-right: 0.05rem;
+    border-left: 1px solid #034462;
+}
+.commentWeibo .p_infovalue{
+    padding-right: 0.1rem;
+}
+.commentWeibo .p_infoname:first-child{
+    padding-left: 0;
+    border-left: none;
+}
+.chart7 .barBox{
+    position: absolute;
+    right: 5px;
+    top: 0;
+    width: 5px;
+    height: 100%;
+    background-color: rgba(0,198,255,0.2);
+}
+.chart7 .barItem{
+    position: absolute;
+    right: 0;
+    width: 5px;
+    background-color: #00c6ff;
 }

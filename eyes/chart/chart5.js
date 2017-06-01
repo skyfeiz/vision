@@ -50,6 +50,19 @@ this.WbstChart = this.WbstChart || {};
 		if (this._config == null || this._dataProvider == null) {
 			return;
 		}
+		if (this._dataProvider.length == 0) {
+			this._myChart.clear();
+			this.$unittitle.html('');
+			/*this._myChart.showLoading({
+				color:'#3fc0ff',
+				text:"暂无数据",
+				textColor:'#3fc0ff',
+				maskColor:"none"
+			});*/
+			return;
+		}
+		this._myChart.hideLoading();
+		console.log(this._dataProvider);
 		
 		var rankArr = []; 		// 存排序的数组
 		var legendJson = {};	// 存 ，雾霾，酸雨，核污染...
@@ -168,16 +181,13 @@ this.WbstChart = this.WbstChart || {};
 					color: '#81d6ff',
 					fontSize: 12
 				},
-				orient: 'horizontal',
-				width: '100%',
 				data: legend,
-				left: 0,
-				top: '3%',
+				top:'3%',
 				padding: 0,
 				itemWidth: 7,
 				itemHeight: 3,
 				formatter: function(param) {
-					return param.substring(0, 2) + '..'
+					return param.substring(0, 3) + '..';
 				}
 			},
 			grid: {
