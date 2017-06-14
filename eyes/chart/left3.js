@@ -144,7 +144,8 @@ this.WbstChart = this.WbstChart || {};
 				},
 				axisLabel: {
 					textStyle: {
-						color: '#3fc0ff'
+						color: '#3fc0ff',
+						fontFamily:'DIN Medium'
 					}
 				},
 				axisTick: {

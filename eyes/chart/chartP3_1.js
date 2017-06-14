@@ -150,7 +150,8 @@ this.WbstChart = this.WbstChart || {};
 					interval: 1,
 					textStyle: {
 						color: '#3fc0ff',
-						fontSize: 10
+						fontSize: 10,
+						fontFamily:'DIN Medium'
 					}
 				},
 				splitLine: {
@@ -178,7 +179,8 @@ this.WbstChart = this.WbstChart || {};
 				},
 				axisLabel: {
 					textStyle: {
-						color: '#3fc0ff'
+						color: '#3fc0ff',
+						fontFamily:'DIN Medium'
 					}
 				},
 				splitLine: {
@@ -195,7 +197,7 @@ this.WbstChart = this.WbstChart || {};
 		// 得到时间区间
 		var sArr = this._dataProvider[0].name.split('-');
 		var eArr = this._dataProvider[this._dataProvider.length-1].name.split('-');
-		this.$timeRange.html(sArr[1]+'月'+sArr[2]+'日-'+eArr[1]+'月'+eArr[2]+'日');
+		this.$timeRange.html('<b>'+sArr[1]+'</b>月<b>'+sArr[2]+'</b>日-<b>'+eArr[1]+'</b>月<b>'+eArr[2]+'</b>日');
 	};
 
 	WbstChart.ChartP3_1 = ChartP3_1;

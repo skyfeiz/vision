@@ -101,12 +101,12 @@ this.EE = this.EE || {};
 
 		function initLoadTween(){
 			loadAnimation = TweenMax.to(loadTween,0.6,{
-				time: 96,
+				time: 180,
 				ease: Linear.easeNone,
 				paused: true,
 				onUpdate: function(){
 					$("#loadSprite").css({
-						"background-position": "0px "+(-128*Math.floor(loadTween.time/6))+"px"
+						"background-position": "0px "+(-64*Math.floor(loadTween.time/6))+"px"
 					});
 				},
 				repeat: -1

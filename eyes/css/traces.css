@@ -37,9 +37,14 @@
 	text-overflow: ellipsis;
 }
 .dttime,.ddtime{
+    font-family: 'DIN Medium';
 	width: 1.08rem;
 }
+.ddabout {
+    font-family: 'DIN Medium';
+}
 .textline{
+    font-family: 'DIN Medium';
 	width: 5.3rem;
 	position: absolute;
 	left: 0;
@@ -184,6 +189,7 @@
 p.bluenum{
     font-size: 0.24rem;
     color: #00c6ff;
+    font-family: 'DIN Medium';
 }
 p.bluelight.bluenum{
     color: #fff;
@@ -245,21 +251,23 @@ p.bluelight.bluenum{
 }
 .left1textitem .totalnum{
     cursor: pointer;
-    text-indent: 0.7rem;
+    text-indent: 0.3rem;
     width: 100%;
     height: 100%;
     line-height: 1;
     font-size: 0;
     color:#84d5ff;
     background: url(../images/p1/totalnumbg.png);
-}
-.left1textitem .totalnum{
     font-size: 0.14rem;
 }
+.left1textitem .totalnum span{
+    display: inline-block;
+    vertical-align: middle;
+}
 .left1textitem .totalnum .bluenum{
+    font-family: 'DIN Medium';
     font-size: 0.24rem;
     color: #00c6ff;
-    margin-left: 0.16rem;
 }
 .left1textitem .totalnum .bluenum:hover{
     color: #fff;

@@ -1,7 +1,7 @@
-this.EE = this.EE || {};
+﻿this.EE = this.EE || {};
 (function(win, doc) {
-	var hostUrl = "http://" + win.location.host + "/eems/sys/jsp/eyes/"; 
-	// var hostUrl = "http://" + win.location.host + "/vision/eyes/";
+	var hostUrl = "http://" + win.location.host + "/eems/eyes/"; 
+	// var hostUrl = "http://" + win.location.host + "/eems/sys/jsp/eyes/"; 
 
 	var Micro = function() {
 		this.c = new EE.Controller();
@@ -55,14 +55,17 @@ this.EE = this.EE || {};
 		_this.c.getChartConfig('', function(data) {
 			_this._config = data;
 			_this.initChart();
+			// $(document).trigger('mouseup');
+			$('.timebtns').find('li').eq(1).trigger('click');
 		});
 
 		_this.t.toChange = function(json) {
 			_this.date = json.startDate;
 			_this.type = json.type;
+			_this.nRandom = new Date().getTime();
+			_this._micro8.EventDispatcher.trigger('click', {type:'全部'});
 			_this.changeData();
 		};
-		$(document).trigger('mouseup');
 	};
 
 	p.initDom = function() {
@@ -73,6 +76,10 @@ this.EE = this.EE || {};
 
 		this.$micro7 = $('#micro7');
 		this.$commentUl = $('#commentUl');
+
+		this.$noData5 = $('#noData5');
+		this.$noData7 = $('#noData7');
+		this.$noData9 = $('#noData9');
 	};
 
 	p.initChart = function() {
@@ -84,6 +91,7 @@ this.EE = this.EE || {};
 
 		_this._micro4.EventDispatcher.on('click', function(evt, item) {
 			// 需要的参数 事件id，视角，视角区域id，情感
+			return;
 			win.location.href = encodeURI(hostUrl + 'anreport.html?eventId=' + item + '&emotion=' + _this.emotion);
 
 		});
@@ -172,7 +180,6 @@ this.EE = this.EE || {};
 
 	p.changeData = function() {
 		var _this = this;
-		_this.nRandom = new Date().getTime();
 
 		// 情感类型 请求数据
 		_this.c.getMicro8Data({
@@ -194,7 +201,11 @@ this.EE = this.EE || {};
 			// articleEmotion: _this.emotion,
 			batchFlag: _this.nRandom
 		}, function(result) {
+			_this.$noData9.show();
 			_this._mapKIdVChart['micro9'].setDataProvider(result.data);
+			if (result.data && result.data.length) {
+				_this.$noData9.hide();
+			}
 		});
 
 		// 发热度排名 请求数据
@@ -206,10 +217,14 @@ this.EE = this.EE || {};
 			num: _this.rankNum,
 			batchFlag: _this.nRandom
 		}, function(result) {
+			_this.$noData5.show();
 			_this._mapKIdVChart['micro5'].setDataProvider(result.data);
+			if (result.data && result.data.length) {
+				_this.$noData5.hide();
+			}
 		});
 
-		_this.changeData2();
+		// _this.changeData2();  // 触发了点击情感事件  从而 执行 changeData2
 	};
 
 	p.changeData2 = function() {
@@ -248,19 +263,31 @@ this.EE = this.EE || {};
 			articleEmotion: _this.emotion,
 			batchFlag: _this.nRandom
 		}, function(result) {
+			_this.$noData7.show();
 			_this.createComment(result.data);
+			if (result.data && result.data.length) {
+				_this.$noData7.hide();
+			}
 		});
 	};
 
 	p.baseEvent = function() {
 		var _this = this;
+		var	isBlog = _this.getCookie('microBlog');
+		var	isWeChat = _this.getCookie('weChat');
+
+		if (!isBlog) {
+			_this.$medias.eq(0).addClass('btnsilent');
+		}
+		if (!isWeChat) {
+			_this.$medias.eq(1).addClass('btnsilent');
+		}
 
 		_this.$medias.click(function(){
 			// 重复点自己时不刷新
-			if ($(this).hasClass('active')) {return;}
-			_this.sourceType = $(this).index() + 1;
-			$(this).addClass('active').siblings().removeClass('active');
-			_this.changeData();
+			if ($(this).hasClass('active') || $(this).hasClass('btnsilent')) {return;}
+			var href = $(this).attr('go');
+			window.location.href=href;
 		})
 
 		_this.$commentUl.mouseenter(function(){
@@ -359,7 +386,17 @@ this.EE = this.EE || {};
 
 	p.n2d = function(n) {
 		return n < 10 ? '0' + n : '' + n;
-	}
+	};
+
+	p.getCookie = function(name){
+		var arr = document.cookie.split('; ');
+		for (var i = 0; i < arr.length; i++) {
+			arr2 = arr[i].split('=');
+			if (name==arr2[0]){
+				return arr2[1];
+			}
+		}
+	};
 
 	EE.Micro = Micro;
 })(window, document);

@@ -209,11 +209,15 @@ this.WbstChart = this.WbstChart || {};
 					normal: {
 						show: true,
 						position: 'right',
-						offset: [0, -2]
+						offset: [0, -2],
+						textStyle:{
+							fontFamily:'DIN Medium'
+						}
 					},
 					emphasis: {
 						textStyle: {
-							color: '#fffe00'
+							color: '#fffe00',
+							fontFamily:'DIN Medium'
 						}
 					}
 				},

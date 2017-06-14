@@ -39,17 +39,17 @@ this.WbstChart = this.WbstChart || {};
 			}
 			if (i < len/2) {
 				htmlStr1 += '<tr>' +
-					'<td>' + (i + 1) + '</td>' +
+					'<td style="font-family:DIN Medium;">' + (i + 1) + '</td>' +
 					'<td>' + name + '</td>' +
-					'<td>' + item.num + '</td>' +
+					'<td style="font-family:DIN Medium;">' + item.num + '</td>' +
 					'<td>' + item.regionName + '</td>' +
 					'<td>' + item.level + '</td>' +
 					'</tr>';
 			} else if (i < 10) {
 				htmlStr2 += '<tr>' +
-					'<td>' + (i + 1) + '</td>' +
+					'<td style="font-family:DIN Medium;">' + (i + 1) + '</td>' +
 					'<td>' + name + '</td>' +
-					'<td>' + item.num + '</td>' +
+					'<td style="font-family:DIN Medium;">' + item.num + '</td>' +
 					'<td>' + item.regionName + '</td>' +
 					'<td>' + item.level + '</td>' +
 					'</tr>';

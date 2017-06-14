@@ -1,0 +1,77 @@
+{
+  "data": [
+    {
+      "num": 259,
+      "coordinate": "[116.3979471,39.9081726]",
+      "numJust": 1,
+      "name": "北京",
+      "numIn": 251,
+      "seriesTitle": "区域热点",
+      "numNegative": 7
+    },
+    {
+      "num": 15,
+      "coordinate": "[117.2523808,39.1038561]",
+      "numJust": 0,
+      "name": "天津",
+      "numIn": 15,
+      "seriesTitle": "区域热点",
+      "numNegative": 0
+    },
+    {
+      "num": 10,
+      "coordinate": "[114.4897766,38.0451279]",
+      "numJust": 0,
+      "name": "河北省",
+      "numIn": 10,
+      "seriesTitle": "区域热点",
+      "numNegative": 0
+    },
+    {
+      "num": 1,
+      "coordinate": "[117.2757034,31.8632545]",
+      "numJust": 0,
+      "name": "浙江省",
+      "numIn": 1,
+      "seriesTitle": "区域热点",
+      "numNegative": 0
+    },
+    {
+      "num": 2,
+      "coordinate": "[120.1592484,30.265995]",
+      "numJust": 0,
+      "name": "安徽省",
+      "numIn": 1,
+      "seriesTitle": "区域热点",
+      "numNegative": 1
+    },
+    {
+      "num": 5,
+      "coordinate": "[119.2978134,26.0785904]",
+      "numJust": 0,
+      "name": "福建省",
+      "numIn": 5,
+      "seriesTitle": "区域热点",
+      "numNegative": 0
+    },
+    {
+      "num": 31,
+      "coordinate": "[117.0056,36.6670723]",
+      "numJust": 0,
+      "name": "山东省",
+      "numIn": 31,
+      "seriesTitle": "区域热点",
+      "numNegative": 0
+    },
+    {
+      "num": 30,
+      "coordinate": "[113.6500473,34.7570343]",
+      "numJust": 1,
+      "name": "河南省",
+      "numIn": 29,
+      "seriesTitle": "区域热点",
+      "numNegative": 0
+    }
+  ],
+  "success": true
+}

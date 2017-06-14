@@ -57,7 +57,6 @@ this.WbstChart = this.WbstChart || {};
 		if (this._config == null || this._dataProvider == null) {
 			return;
 		}
-		console.log(this._dataProvider);
 
 		var seriesData = [];
 		var legendData = [];
@@ -176,6 +175,9 @@ this.WbstChart = this.WbstChart || {};
 				label: {
 					normal: {
 						show: true,
+						textStyle:{
+							fontFamily:'DIN Medium'
+						},
 						formatter: function(param) {
 							return param.name + '\n' + param.value + '\n' + Math.round(param.percent) + '%';
 						}
@@ -209,7 +211,7 @@ this.WbstChart = this.WbstChart || {};
 
 	p.baseEvent = function() {
 		var _this = this;
-		_this.$pietip.click(function(){
+		_this.$pietip.click(function(ev){
 			_this.toSelect(-1);
 			_this._myChart.setOption(_this.option);
 			_this.EventDispatcher.trigger('click', {type:'全部'});

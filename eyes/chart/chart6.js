@@ -44,8 +44,8 @@ this.WbstChart = this.WbstChart || {};
 		if (this._config == null || this._dataProvider == null) {
 			return;
 		}
+		this._myChart.clear();
 		if (this._dataProvider.length == 0) {
-			this._myChart.clear();
 			return;
 		}
 
@@ -88,7 +88,8 @@ this.WbstChart = this.WbstChart || {};
 		var series = [];
 		var legendData = [];
 		var m = 0;
-		var colorData = ['rgba(2,77,231,0.08)', 'rgba(11,200,255,0.08)', 'rgba(212,56,83,0.08)', 'rgba(241,149,4,0.08)', 'rgba(255,252,0,0.08)'];
+		//0.08
+		var colorData = ['rgba(2,77,231,0.2)', 'rgba(11,200,255,0.2)', 'rgba(212,56,83,0.2)', 'rgba(241,149,4,0.2)', 'rgba(255,252,0,0.2)'];
 
 		for (var item in legendJson) {
 			var color = colorData[m++];
@@ -176,7 +177,8 @@ this.WbstChart = this.WbstChart || {};
 				},
 				axisLabel: {
 					textStyle: {
-						color: '#3fc0ff'
+						color: '#3fc0ff',
+						fontFamily:'DIN Medium'
 					},
 					interval: 0
 				},
@@ -205,7 +207,8 @@ this.WbstChart = this.WbstChart || {};
 				},
 				axisLabel: {
 					textStyle: {
-						color: '#3fc0ff'
+						color: '#3fc0ff',
+						fontFamily:'DIN Medium'
 					}
 				},
 				splitLine: {

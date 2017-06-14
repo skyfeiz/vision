@@ -43,60 +43,130 @@ this.WbstChart = this.WbstChart || {};
 			return;
 		}
 
-		var pName = this._config.pName;
-		var name = this._config.name;
-
 		var dataArr = [];
 		var edgesArr = [];
 		var n = 0;
-		for (var i = 0,len = this._dataProvider.length; i < len; i++) {
-			var item = this._dataProvider[i];
-			var json = {
-				name:item[name],
-				value: 1,
-				category: 4,
-				label:{
-					normal:{
-						show:false
-					}
-				},
-				itemStyle:{
-					normal:{
-						color:'#67ffe1'
-					}
-				},
-				symbolSize:22
-			};
-			// 父级id不为0的情况
-			if (item[pName]) {
-				edgesArr.push({
-					source:item[pName],
-					target:item[name],
-				})
-			}
+		var colorArr = ['#007dff','#5999e2','#00c6ff','#67ffe1'];
+		var bOk = true;
 
-			dataArr.push(json);
+		var arr1 = [];	//没有父级的节点 
+		var arr2 = [];	//只有1级父级节点的
+		var arr3 = [];	//只有两级父级节点的
+
+		//找到arr1的元素
+		n = 0;
+		for (var i = 0; i < this._dataProvider.length; i++) {
+			for (var j = 0; j < this._dataProvider[i].length; j++) {
+				n++;
+				if (n>500) {break;}
+				var item = this._dataProvider[i][j];
+				if (item.parentStatusId == item.statusId) {
+					arr1.push(item.statusId);
+				}
+			}
+		}
+		//找到arr2的元素
+		n = 0;
+		for (var i = 0; i < this._dataProvider.length; i++) {
+			for (var j = 0; j < this._dataProvider[i].length; j++) {
+				n++;
+				if (n>500) {break;}
+				var item = this._dataProvider[i][j];
+				if (item.parentStatusId!=item.statusId) {
+					if(this.findInArr(item.parentStatusId,arr1)){
+						arr2.push(item.statusId);
+					}
+				}
+			}
+		}
+		//找到arr3的元素
+		n = 0;
+		for (var i = 0; i < this._dataProvider.length; i++) {
+			for (var j = 0; j < this._dataProvider[i].length; j++) {
+				n++;
+				if (n>500) {break;}
+				var item = this._dataProvider[i][j];
+				if (item.parentStatusId!=item.statusId) {
+					if(this.findInArr(item.parentStatusId,arr2)){
+						arr3.push(item.statusId);
+					}
+				}
+			}
 		}
 
-		var newData = this.nestingData(this._dataProvider,pName,name);
+		n = 0;
+		for (var i = 0,len = this._dataProvider.length; i < len; i++) {
+			for (var j = 0; j < this._dataProvider[i].length; j++) {
+				n++;
+				if (n>500) {break;}
+				var item = this._dataProvider[i][j];
+				var json;
+				if (item.parentStatusId != item.statusId) {
 
-		for (var i = 0,len = dataArr.length; i < len; i++) {
-			for (var j = 0,len1 = newData.length; j < len1; j++) {
-				if (dataArr[i].name == newData[j].mdata[name]) {
-					dataArr[i].symbolSize = 35;
-					dataArr[i].itemStyle.normal.color = '#0084ff';
-				}
-				if (newData[j].son.length) {
-					for (var k = 0; k < newData[j].son.length; k++) {
-						if (dataArr[i].name ==  newData[j].son[k].mdata[name]) {
-							dataArr[i].symbolSize = 28;
-							dataArr[i].itemStyle.normal.color = '#00c6ff';
+					edgesArr.push({
+						source:item.parentStatusId,
+						target:item.statusId
+					});
+
+					json = {
+						name:item.userScreenName,
+						id:item.statusId,
+						value: 1,
+						category: 4,
+						label:{
+							normal:{
+								show:false
+							}
+						},
+						itemStyle:{
+							normal:{
+								color:'#67ffe1'
+							}
+						},
+						symbolSize:12
+					};
+					if (this.findInArr(item.parentStatusId,arr2)) {
+						json.itemStyle = {
+							normal:{
+								color:colorArr[1]
+							}
+						}
+					}else if (this.findInArr(item.parentStatusId,arr3)){
+						json.itemStyle = {
+							normal:{
+								color:colorArr[2]
+							}
+						}
+					}else{
+						json.itemStyle = {
+							normal:{
+								color:colorArr[3]
+							}
 						}
 					}
+				}else{
+					json = {
+						name:item.userScreenName,
+						id:item.statusId,
+						value: 1,
+						category: 4,
+						label:{
+							normal:{
+								show:false
+							}
+						},
+						itemStyle:{
+							normal:{
+								color:colorArr[0]
+							}
+						},
+						symbolSize:20
+					};
 				}
+				dataArr.push(json);
 			}
 		}
-
+		console.log(n);
 		var option = {
 			tooltip:{
 				show:false
@@ -113,24 +183,24 @@ this.WbstChart = this.WbstChart || {};
 				}
 			},
 			hoverAnimation:false,
+				animation: false,
 			series: [{
 				type: 'graph',
 				layout: 'force',
-				animation: false,
-				draggable: true,
-				// categories: webkitDep.categories,
 				data:dataArr,
+				roam: true,
+				focusNodeAdjacency:true,
 				lineStyle:{
 					normal:{
 						color:'rgba(21,82,112,1)'
 					}
 				},
 				force: {
-					// initLayout: 'circular'
+					// initLayout: 'circular',
 					// repulsion: 20,
 					// edgeLength:50,
 					initLayout:'circular',
-					repulsion: 100,
+					repulsion: 50,
 					gravity: 0.2
 				},
 				links: edgesArr
@@ -140,45 +210,14 @@ this.WbstChart = this.WbstChart || {};
 		this._myChart.setOption(option);
 	};
 
-	// 数据转换成嵌套格式
-
-	p.nestingData = function(data,pname,name){
-		var pArr = [],//存pName == ''的数组
-			sArr = [],//存pName != ''的数组
-			dataArr = [];//存转换后嵌套的数据
-		
-		for (var i = 0; i < data.length; i++) {
-			if (data[i][pname] == 0) {
-				pArr.push(data[i]);
-			}else{
-				sArr.push(data[i]);
+	p.findInArr = function(id,arr){
+		for (var i = 0; i < arr.length; i++) {
+			if (arr[i] == id) {
+				return true;
 			}
 		}
-		
-		var len = sArr.length;
-		for (var i = 0; i < pArr.length; i++) {
-			var json = {};
-			json.mdata = pArr[i];
-			json.son = [];
-			rabitData(pArr[i],json,len);
-			dataArr.push(json);
-		}
-
-		function rabitData(json,json2){
-			for (var i = 0; i < len; i++) {
-				if (sArr[i][pname] == json[name]) {
-					var jsonBlank = {};
-					jsonBlank.mdata = sArr[i];
-					jsonBlank.son = [];
-					rabitData(sArr[i],jsonBlank);
-					json2.son.push(jsonBlank);
-				}
-			}
-		}
-
-		return dataArr;
-	};
-
+		return false;
+	}
 
 	WbstChart.Wbreport0 = Wbreport0;
 })();

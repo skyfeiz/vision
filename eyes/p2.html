@@ -34,8 +34,8 @@
         <header class="clearfix" id="header"></header>
         <!-- search input -->
         <section class="searchbox clearfix">
-            <input type="text" class="searchinput fl" />
-            <span class="searchbtn fl" autocomplete="off">搜索</span>
+            <input type="text" class="searchinput fl" id="searchinput" />
+            <span class="searchbtn fl" autocomplete="off" id="searchbtn">搜索</span>
         </section>
         <section class="element-div chart4div">
             <div class="element-title-div">
@@ -101,8 +101,16 @@
             </div>
         </section>
         
+        <div id="tooltip"></div>
+
+        <div class="dialogbox" id="dialogbox">
+            <div class="diaopa"></div>
+            <div class="diacontainer">
+                <p class="diacontent">请输入要搜索的词</p>
+                <span class="diabtn" id="diabtn">确定</span>
+            </div>
+        </div>
     </div>
-    <div id="tooltip"></div>
 
     <!-- timeline -->
         <section class="timeaxis timeaxis2" id="timeaxis">

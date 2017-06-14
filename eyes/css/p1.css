@@ -322,6 +322,7 @@
     color: #fff;
 }
 p.bluenum{
+    font-family: 'DIN Medium';
     font-size: 0.24rem;
     color: #00c6ff;
 }
@@ -396,10 +397,14 @@ p.bluelight.bluenum{
 .left1textitem .totalnum{
     font-size: 0.14rem;
 }
+.left1textitem .totalnum span{
+    display: inline-block;
+    vertical-align: middle;
+}
 .left1textitem .totalnum .bluenum{
+    font-family: 'DIN Medium';
     font-size: 0.24rem;
     color: #00c6ff;
-    margin-left: 0.06rem;
 }
 .left1textitem .totalnum .bluenum:hover{
     color: #fff;
@@ -621,11 +626,15 @@ p.bluelight.bluenum{
     background: rgba(0,0,0,0.5);
 }
 .toolTip .totalNum span{
+    font-size: 24px;
     color: #fff;
     text-shadow: #0072ff 0px 0px 3px;
+    font-family: 'DIN Medium';
 }
 .toolTip .tipBox div span{
     color: #00c6ff;
+    font-size: 18px;
+    font-family: 'DIN Medium';
 }
 
 .toolShow{
@@ -649,14 +658,30 @@ p.bluelight.bluenum{
     background-color: rgba(0,0,0,0.3);
     display: none;
 }
+#waitbox{
+    position: absolute;
+    width: 450px;
+    height: 160px;
+    left: 50%;
+    top: 50%;
+    margin-top: -80px;
+    margin-left: -120px;
+    background-color: rgba(0,0,0,0.75);
+}
+#waitinfo{
+    color: #fff;
+    font-size: 16px;
+    padding-top: 25px;
+    line-height: 28px;
+    text-align: center;
+}
 #loadSprite{
     position: absolute;
-    top: 50%;
     left: 50%;
-    width: 128px;
-    height: 128px;
-    margin-top: -64px;
-    margin-left: 80px;
+    top: 76px;
+    width: 64px;
+    height: 64px;
+    margin-left: -32px;
     overflow: hidden;
     background: url("../images/Preloader_2.png") no-repeat 0px 0px;
 }
@@ -692,4 +717,5 @@ p.bluelight.bluenum{
     text-align: center;
     background-color: rgba(27,57,119,0.9);
     position: relative;
+    font-family: 'DIN Medium';
 }

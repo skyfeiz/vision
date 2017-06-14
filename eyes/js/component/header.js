@@ -1,10 +1,12 @@
 this.EE = this.EE || {};
 (function() {
-	var hostUrl = "http://" + window.location.host + "/eems/sys/jsp/eyes/";
+	var hostUrl = "http://" + window.location.host + "/eems/eyes/";
+	// var hostUrl = "http://" + win.location.host + "/eems/sys/jsp/eyes/"; 
 
 	var Header = function(n) {
 		this.c = new EE.Controller();
 		this.iNow = n || 0;
+		this.bNot = false;
 		this.init();
 	};
 
@@ -17,11 +19,15 @@ this.EE = this.EE || {};
 	};
 
 	p.createHtml = function(){
-		var oDate = new Date(),
-			year = oDate.getFullYear(),
-			month = oDate.getMonth() + 1,
-			day = oDate.getDate();
-
+		var sClass = '';
+		var goPage = 'micro.html';
+		if (!this.getCookie('microBlog')&&!this.getCookie('weChat')) {
+			this.bNot = true;
+			sClass = 'navsilent';
+		}
+		if (!this.getCookie('microBlog')) {
+			goPage = 'weibo.html';
+		}
 		var strHtml = '<h1 class="fl">环保舆情大数据平台</h1>'
 		+'<nav class="headernav fl" id="headernav">'
 		+' <a href="p1.html">舆情地图</a>'
@@ -37,7 +43,7 @@ this.EE = this.EE || {};
 		+'<a href="greensearch.html">绿色搜索'
 		+'<span class="pointbg"></span>'
 		+'</a>'
-		+'<a href="micro.html">微眼观察'
+		+'<a href="'+goPage+'" class="'+sClass+'">微眼观察'
 		+'<span class="pointbg"></span>'
 		+'</a>'
 		+'<span class="navlight"></span>'
@@ -77,6 +83,11 @@ this.EE = this.EE || {};
 		});
 
 		_this.$navA.click(function() {
+			var index = $(this).index();
+			if (index == 5 && _this.bNot) {
+				alert('用户没有关联微博');
+				return false;
+			}
 			_this.$navA.removeClass('active');
 			$(this).addClass('active');
 			iNow = $(this).index('a');
@@ -84,7 +95,11 @@ this.EE = this.EE || {};
 
 		_this.$navA.eq(_this.iNow).trigger('click').trigger('mouseover');
 		// 设置登录用户名
-		_this.$showuser.html(window.localStorage.userName);
+		var uName = window.localStorage.userName;
+		if (uName == 'undefined') {
+			uName = 'admin';
+		}
+		_this.$showuser.html(uName);
 
 		$('#signout').click(function(){
 			_this.c.logout('',function(){
@@ -94,9 +109,15 @@ this.EE = this.EE || {};
 
 	};
 
-	p.n2d = function(n){
-		return n<10?'0'+n:''+n;
-	}
+	p.getCookie = function(name){
+		var arr = document.cookie.split('; ');
+		for (var i = 0; i < arr.length; i++) {
+			arr2 = arr[i].split('=');
+			if (name==arr2[0]){
+				return arr2[1];
+			}
+		}
+	};
 
 	EE.Header = Header;
 })();

@@ -191,6 +191,7 @@ this.WbstChart = this.WbstChart || {};
 
 			// 下标字
 			ctx.fillStyle = '#3fc0ff';
+			ctx.font="14px DIN Medium";
 			ctx.fillText(xName, i + 12, 55);
 			// 下标线
 			ctx.beginPath();
@@ -203,6 +204,7 @@ this.WbstChart = this.WbstChart || {};
 			if (xName == 1) {
 				yText = _this.bMonth ? baseY + '月' : baseY + '年';
 				ctx.fillStyle = '#fff';
+				ctx.font="14px DIN Medium";
 				ctx.fillText(yText, i + 4, 13);
 				ctx.fillStyle = '#3fc0ff';
 				ctx.fillRect(i - 4, 15, 1, 4);

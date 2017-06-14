@@ -67,7 +67,7 @@ this.WbstChart = this.WbstChart || {};
 		var stage = new createjs.Stage(this.$canvas[0]);
 
 		var shape1 = new createjs.Shape();
-		var text1 = new createjs.Text(obj1.name+'\n'+obj2.value,14,'#00c6ff');
+		var text1 = new createjs.Text(obj1.name+'\n'+obj2.value,'normal 14px DIN Medium','#00c6ff');
 		text1.x = w*0.41+h/4+40+10;
 		text1.y = h/4-14 - 15;
 		shape1.graphics.setStrokeStyle(2)
@@ -77,7 +77,7 @@ this.WbstChart = this.WbstChart || {};
 						.arc(w*0.41+h/4+40+2,h/4-14,2,0,Math.PI*2)
 
 		var shape2 = new createjs.Shape();
-		var text2 = new createjs.Text(obj2.name+'\n'+obj1.value,14,'#fffc00');
+		var text2 = new createjs.Text(obj2.name+'\n'+obj1.value,'normal 14px DIN Medium','#fffc00');
 		text2.x = w*0.41+h/4+2+10;
 		text2.y = h*0.75+6 - 15;
 
@@ -108,6 +108,7 @@ this.WbstChart = this.WbstChart || {};
 					name:data2.name,
 					value:data2.num
 				}];
+		this.$pietip.html('<span class="piecn">舆情总数</span><span class="pienum">' + ((1*data1.num+1*data2.num) || '') + '</span>')
 		var option = {
 			color:['#00c6ff','#fffc00'],
 			grid:{
@@ -125,7 +126,8 @@ this.WbstChart = this.WbstChart || {};
 				left: '7%',
 				padding: 2,
 				textStyle: {
-					color: '#81d6ff'
+					color: '#81d6ff',
+					fontFamily:'DIN Medium'
 				}
 			},
 

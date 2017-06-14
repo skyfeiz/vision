@@ -14,6 +14,49 @@ this.WbstChart = this.WbstChart || {};
 
 		this.EventDispatcher = $({});
 
+		this.colorJson = {
+			red: [{
+				rgba: 'rgba(255,43,62,0.3)',
+				hex:'#e12b3e'
+			}, {
+				rgba:'rgba(238,74,41,0.3)',
+				hex:'#ee4a29'
+			}, {
+				rgba:'rgba(241,140,32,0.3)',
+				hex: '#f18c20'
+			}],
+			yellow: [{
+				rgba:'rgba(242,154,1,0.3)',
+				hex: '#f29a01'
+			}, {
+				rgba:'rgba(255,210,0,0.3)',
+				hex: '#ffd200'
+			}, {
+				rgba:'rgba(248,255,59,0.3)',
+				hex: '#f8ff3b'
+			}],
+			blue: [{
+				rgba:'rgba(0,111,181,0.3)',
+				hex: '#006fb5'
+			}, {
+				rgba:'rgba(1,162,255,0.3)',
+				hex: '#01a2ff'
+			}, {
+				rgba:'rgba(1,228,255,0.3)',
+				hex: '#01e4ff'
+			}],
+			green: [{
+				rgba:'rgba(3,133,46,0.3)',
+				hex: '#03852e'
+			}, {
+				rgba:'rgba(1,175,66,0.3)',
+				hex: '#01af42'
+			}, {
+				rgba:'rgba(41,252,105,0.3)',
+				hex: '#29fc69'
+			}]
+		};
+
 		this.init();
 	};
 
@@ -61,20 +104,20 @@ this.WbstChart = this.WbstChart || {};
 			var item = this.warning[i];
 			switch (item.name) {
 				case '紧急':
-					warnObj.s1 = item.num;
+					warnObj.s1 = item.num*1;
 					break;
 				case '高':
-					warnObj.s2 = item.num;
+					warnObj.s2 = item.num*1;
 					break;
 				case '中':
-					warnObj.s3 = item.num;
+					warnObj.s3 = item.num*1;
 					break;
 				default:
 					console.log('低');
 					break;
 			}
 		}
-
+		console.log(warnObj);
 		var _this = this;
 		var data1 = [];
 		var data2 = [];
@@ -107,7 +150,7 @@ this.WbstChart = this.WbstChart || {};
 			}
 		}];
 
-		var colorArr = ['#e12b3e', '#f1b420', '#00a6f5', '#01b057'];
+		var colorArr = ['#e12b3e', '#f29a01', '#006fb5', '#03852e'];
 
 		var maxNum = 0;
 		for (var i = 0, len = this._dataProvider.length; i < len; i++) {
@@ -128,27 +171,50 @@ this.WbstChart = this.WbstChart || {};
 		}
 		this.numLen = numLen;
 
-		// 表现数据
+		// 标线数据
 		this.mark1 = warnObj.s3 / this.numScale;
 		this.mark2 = warnObj.s2 / this.numScale;
 		this.mark3 = warnObj.s1 / this.numScale;
+		//颜色数组
+		var rArr = [],yArr = [],bArr = [],gArr = [];
 		for (var i = 0, len = this._dataProvider.length; i < len; i++) {
 			var realNum = 1 * this._dataProvider[i].num;
-			var index;
 			if (realNum < warnObj.s3) {
-				index = 3;
+				gArr.push(this._dataProvider[i]);
 			} else if (realNum < warnObj.s2) {
-				index = 2
+				bArr.push(this._dataProvider[i]);
 			} else if (realNum < warnObj.s1) {
-				index = 1
+				yArr.push(this._dataProvider[i]);
 			} else {
-				index = 0;
+				rArr.push(this._dataProvider[i]);
 			}
-			var num = realNum / this.numScale;
+		}
+		rArr.sort(function(b,a){
+			return a.num - b.num;
+		});
+		yArr.sort(function(b,a){
+			return a.num - b.num;
+		});
+		bArr.sort(function(b,a){
+			return a.num - b.num;
+		});
+		gArr.sort(function(b,a){
+			return a.num - b.num;
+		});
+
+		for (var i = 0; i < rArr.length; i++) {
+			var realNum = 1 * rArr[i].num;
 			this.numData.push(realNum);
+			var num = realNum / this.numScale;
 			data1.push({
 				value: num,
-				itemStyle: item1Arr[index],
+				itemStyle: {
+					normal: {
+						color: this.colorJson.red[i].rgba,
+						borderWidth: 1,
+						borderColor: this.colorJson.red[i].hex
+					}
+				},
 			})
 			data2.push({
 				value: num,
@@ -164,14 +230,118 @@ this.WbstChart = this.WbstChart || {};
 				},
 				itemStyle: {
 					normal: {
-						color: colorArr[index]
+						color: this.colorJson.red[i].hex
 					}
 				}
 			});
-			titleData.push(this._dataProvider[i].eventName);
-			cityData.push(this._dataProvider[i].regionName);
+			titleData.push(rArr[i].eventName);
+			cityData.push(rArr[i].regionName);
 		}
-
+		for (var i = 0; i < yArr.length; i++) {
+			var realNum = 1 * yArr[i].num;
+			this.numData.push(realNum);
+			var num = realNum / this.numScale;
+			data1.push({
+				value: num,
+				itemStyle: {
+					normal: {
+						color: this.colorJson.yellow[i].rgba,
+						borderWidth: 1,
+						borderColor: this.colorJson.yellow[i].hex
+					}
+				},
+			})
+			data2.push({
+				value: num,
+				symbol: 'rect',
+				symbolRepeat: true,
+				symbolSize: ['98%', '15'],
+				symbolOffset: [0, 0],
+				symbolMargin: '1',
+				symbolBoundingData: num,
+				animationEasing: 'line',
+				animationDelay: function(dataIndex, params) {
+					return params.index * 200;
+				},
+				itemStyle: {
+					normal: {
+						color: this.colorJson.yellow[i].hex
+					}
+				}
+			});
+			titleData.push(yArr[i].eventName);
+			cityData.push(yArr[i].regionName);
+		}
+		for (var i = 0; i < bArr.length; i++) {
+			var realNum = 1 * bArr[i].num;
+			this.numData.push(realNum);
+			var num = realNum / this.numScale;
+			data1.push({
+				value: num,
+				itemStyle: {
+					normal: {
+						color: this.colorJson.blue[i].rgba,
+						borderWidth: 1,
+						borderColor: this.colorJson.blue[i].hex
+					}
+				},
+			})
+			data2.push({
+				value: num,
+				symbol: 'rect',
+				symbolRepeat: true,
+				symbolSize: ['98%', '15'],
+				symbolOffset: [0, 0],
+				symbolMargin: '1',
+				symbolBoundingData: num,
+				animationEasing: 'line',
+				animationDelay: function(dataIndex, params) {
+					return params.index * 200;
+				},
+				itemStyle: {
+					normal: {
+						color: this.colorJson.blue[i].hex
+					}
+				}
+			});
+			titleData.push(bArr[i].eventName);
+			cityData.push(bArr[i].regionName);
+		}
+		for (var i = 0; i < gArr.length; i++) {
+			var realNum = 1 * gArr[i].num;
+			this.numData.push(realNum);
+			var num = realNum / this.numScale;
+			data1.push({
+				value: num,
+				itemStyle: {
+					normal: {
+						color: this.colorJson.green[i].rgba,
+						borderWidth: 1,
+						borderColor: this.colorJson.green[i].hex
+					}
+				},
+			})
+			data2.push({
+				value: num,
+				symbol: 'rect',
+				symbolRepeat: true,
+				symbolSize: ['98%', '15'],
+				symbolOffset: [0, 0],
+				symbolMargin: '1',
+				symbolBoundingData: num,
+				animationEasing: 'line',
+				animationDelay: function(dataIndex, params) {
+					return params.index * 200;
+				},
+				itemStyle: {
+					normal: {
+						color: this.colorJson.green[i].hex
+					}
+				}
+			});
+			titleData.push(gArr[i].eventName);
+			cityData.push(gArr[i].regionName);
+		}
 		this.titleData = titleData;
 		this.data1 = data1;
 		this.data2 = data2;
@@ -182,7 +352,7 @@ this.WbstChart = this.WbstChart || {};
 	p.setOption = function() {
 		var _this = this;
 		clearTimeout(this.timer);
-		var colorData = ['rgba(255,42,62,0.8)', 'rgba(241,180,32,0.8)', 'rgba(0,166,245,0.8)', 'rgba(1,176,87,0.8)'];
+		var colorData = ['rgba(255,43,62,0.8)', 'rgba(241,180,32,0.8)', 'rgba(0,166,245,0.8)', 'rgba(1,176,87,0.8)'];
 		var option = {
 			grid: {
 				left: '0%',
@@ -211,6 +381,8 @@ this.WbstChart = this.WbstChart || {};
 					formatter: function(params) {
 						if (params.length < 10) {
 							return params;
+						} else if (params.length > 20) {
+							params = params.substring(0, 20);
 						}
 						var mid = Math.floor(params.length / 2);
 						return params.substring(0, mid);
@@ -232,12 +404,14 @@ this.WbstChart = this.WbstChart || {};
 				axisLabel: {
 					textStyle: {
 						color: "#fff",
-						fontSize: 16
+						fontSize: 14
 					},
 					margin: 30,
 					formatter: function(params) {
 						if (params.length < 10) {
 							return '';
+						} else if (params.length > 20) {
+							params = params.substring(0, 20);
 						}
 						var mid = Math.floor(params.length / 2);
 						return params.substring(mid);
@@ -285,7 +459,8 @@ this.WbstChart = this.WbstChart || {};
 				},
 				axisLabel: {
 					textStyle: {
-						color: '#3fc0ff'
+						color: '#3fc0ff',
+						fontFamily: 'DIN Medium'
 					}
 				},
 				splitLine: {
@@ -297,6 +472,7 @@ this.WbstChart = this.WbstChart || {};
 				type: 'bar',
 				barMaxWidth: 80,
 				data: this.data1,
+				silent:true,
 				label: {
 					normal: {
 						show: true,
@@ -308,7 +484,8 @@ this.WbstChart = this.WbstChart || {};
 						offset: [0, -10],
 						textStyle: {
 							color: '#fff',
-							fontSize: 26
+							fontSize: 26,
+							fontFamily: 'DIN Medium'
 						}
 					}
 				},
@@ -351,6 +528,7 @@ this.WbstChart = this.WbstChart || {};
 				name: '直接访问2',
 				type: 'pictorialBar',
 				barMaxWidth: 80,
+				silent:true,
 				data: this.data2
 			}]
 		};

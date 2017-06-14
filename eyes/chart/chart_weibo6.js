@@ -176,7 +176,8 @@ this.WbstChart = this.WbstChart || {};
 				},
 				axisLabel: {
 					textStyle: {
-						color: '#3fc0ff'
+						color: '#3fc0ff',
+						fontFamily:'DIN Medium'
 					},
 					interval: 1,
 					formatter:function(n){
@@ -208,7 +209,8 @@ this.WbstChart = this.WbstChart || {};
 				},
 				axisLabel: {
 					textStyle: {
-						color: '#3fc0ff'
+						color: '#3fc0ff',
+						fontFamily:'DIN Medium'
 					}
 				},
 				splitLine: {

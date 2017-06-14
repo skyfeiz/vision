@@ -57,7 +57,7 @@
                 <div class="areabox fl">
                     <span class="choosetitle">按地区</span>
                     <div class="dropbox" id="province">
-                        <span class="textname">请选择</span>
+                        <span class="textname">全国</span>
                         <div class="droplist">
                             <ul>
                             </ul>
@@ -71,27 +71,32 @@
                         </div>
                     </div>
                 </div>
+                <div class="areabox fl">
+                    <span class="choosetitle">按情感</span>
+                    <div class="dropbox" id="emotion">
+                        <span class="textname">请选择</span>
+                        <div class="droplist">
+                            <ul>
+                                <li data-id="">全部</li>
+                                <li data-id="1">正面</li>
+                                <li data-id="0">中立</li>
+                                <li data-id="-1">负面</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
                 <input class="fl submsg" type="button" id="submsg" value="提交筛选" />
                 <p class="resulttext fr">找到相关结果约<b id="resultnum">0</b>个</p>
             </div>
             <ul class="ullist" id="ullist">
-                <!-- <li>
-                    <a href="javascript:;" class="atitle">哇噻-奇奇奇！环保侠士“格问”</a>
-                    <p class="textinfo">
-                        <a href="javascript:;">来源：百度贴吧</a>
-                        <a href="javascript:;">用户：女儿侠山</a>
-                        <a>发布时间：2016-10-02</a>
-                        <a href="javascript:;">http://tieba.baidu.com/p/4988156669</a>
-                    </p>
-                    <span class="textline"></span>
-                    <p class="listcontent">光明网评论员：环保部对京津冀及周边地区18个城市开展的2017年第一季度空气质量专项督查正在进行。在所发现的问题中，“济南市政府2016年未按照《济南市大气污染防治工作督查考核办法》对各责任单位和区县政府进行大气污染防治工作考核”，相较于应急减排管控标准不统一，燃煤锅炉改造进度滞后等问题而言无疑算是一个“新问题”，尤其值得审视。</p>
-                </li> -->
+                <li class="noInfo">没有搜到相关舆情信息</li>
             </ul>
             <div class="pagebox">
+                <span class="prevpage" id="firstpage">首页</span>
                 <span class="prevpage" id="prevpage">上一页</span>
-                <ul class="pagelist" id="pagelist">;
-                </ul>
+                <ul class="pagelist" id="pagelist"></ul>
                 <span class="nextpage" id="nextpage">下一页</span>
+                <span class="lastpage" id="lastpage">尾页</span>
                 <span class="totalnum" id="totalnum">共 0 页</span>
                 <div class="gotopage" id="gotopage">
                     到第

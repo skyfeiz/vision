@@ -18,7 +18,7 @@ this.WbstChart = this.WbstChart || {};
 
 		_this._myChart.on('mouseover', function(param) {
 			var item = {};
-			item.seriesName = param.name;
+			item.seriesName = param.seriesName;
 			item.xAxisValue = _this.numData[param.seriesName][param.dataIndex].value;
 			var evt = param.event.event;
 			_this.EventDispatcher.trigger('chartmouseover', {
@@ -187,7 +187,11 @@ this.WbstChart = this.WbstChart || {};
 				itemWidth: 7,
 				itemHeight: 3,
 				formatter: function(param) {
-					return param.substring(0, 3) + '..';
+					if (param && param.length>3) {
+						return param.substring(0, 3) + '..';
+					}else{
+						return param || ''
+					}
 				}
 			},
 			grid: {
@@ -212,7 +216,8 @@ this.WbstChart = this.WbstChart || {};
 				},
 				axisLabel: {
 					textStyle: {
-						color: '#3fc0ff'
+						color: '#3fc0ff',
+						fontFamily:'DIN Medium'
 					}
 				},
 				splitLine: {

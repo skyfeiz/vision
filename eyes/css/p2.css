@@ -147,9 +147,10 @@
 .pietip{
     width: 2rem;
     height: 0.44rem;
+    line-height: 0.44rem;
     position: absolute;
     left: 50%;
-    top:6%;
+    top:0;
     margin-left: -1rem;
     text-align: center;
     cursor: pointer;
@@ -158,10 +159,10 @@
     color: #fff;
 }
 .pietip .pienum{
+    font-family: 'DIN Medium';
     display: inline-block;
     vertical-align: middle;
     font-size: 0.24rem;
-    line-height: 1;
     color: #00c6ff;
 }
 .pietip .piecn{
@@ -169,7 +170,6 @@
     display: inline-block;
     vertical-align: middle;
     font-size: 0.14rem;
-    line-height: 0.2rem;
     color: #3fc0ff;
 }
 /*---------------------------------------- 头条正中负面 ----------------------------------------------*/
@@ -207,10 +207,10 @@
     font-size: 0.16rem;
     width: 50%;
     height: 0.34rem;
-    border: 1px solid #a0a0a0;
+    border: 1px solid #3fc0ff;
     line-height: 0.34rem;
-    color: #a0a0a0;
-    background-color: rgba(160,160,160,0.2);
+    color: #fff;
+    background-color: rgba(0,166,245,0.2);
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
@@ -221,13 +221,14 @@
     margin-left: -1px;
 }
 .mediabox span.active{
-    z-index: 2;
-    border-color: #3fc0ff;
-    color: #fff;
-    background-color: rgba(0,166,245,0.2);
+    border-color: #fffc00;
+    color: #fffc00;
+    background-color: rgba(154,102,2,0.2);
 }
-
-
+.mediabox span.btnsilent{
+    color: #666;
+}
+   
 /* comment */
 #micro7{
     height: calc(100% - 0.3rem);
@@ -254,6 +255,7 @@
     line-height: 0.14rem;
     padding-top: 0.05rem;
     padding-bottom: 0.1rem;
+    font-family: 'Arial';
 }
 .commentUl .p_content{
     color: #5fcbff;
@@ -286,6 +288,7 @@
     background-color: #fffe00;
 }
 .tooltip_left3 .tooltiptext{
+    font-family: 'DIN MEDIUM';
     font-size: 18px;
     color: #fff;
     height: 20px;
@@ -353,6 +356,7 @@
     border-left: 1px solid #034462;
 }
 .commentWeibo .p_infovalue{
+    font-family:'Arial';
     padding-right: 0.1rem;
 }
 .commentWeibo .p_infoname:first-child{

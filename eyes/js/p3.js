@@ -1,6 +1,6 @@
 this.EE = this.EE || {};
 (function(win, doc) {
-	var hostUrl = "http://" + win.location.host + "/eems/sys/jsp/eyes/";
+	var hostUrl = "http://" + win.location.host + "/eems/eyes/";
 
 	var P3Chart = function() {
 		this.c = new EE.Controller();
@@ -34,11 +34,15 @@ this.EE = this.EE || {};
 		$p3ulList.on('click', 'h6', function(ev) {
 			var html = $(this).find('span').html();
 			ev.stopPropagation();
-			win.location.href = encodeURI(hostUrl + 'details.html?type=3&eventName=' + html + '&emotion=' + _this.emotion);
+			if (_this.regin.indexOf(_this.region) == -1) {
+				_this.regin = _this.region;
+			}
+			win.location.href = (encodeURI(hostUrl + 'details.html?type=3&eventName=' + html + '&emotion=' + _this.emotion+'&startDate='+_this.startDate+'&endDate='+_this.endDate+'&regin='+_this.regin));
 		})
 
 		$p3ulList.on('click', 'button', function(ev) {
-			$(this).parent().parent().find('h6').trigger('click');
+			var url = $(this).attr('_url');
+			win.open(url)
 			ev.stopPropagation();
 		})
 
@@ -232,7 +236,7 @@ this.EE = this.EE || {};
 			_this.hideToolTip();
 		});
 		_this.p3Chart5.EventDispatcher.on('click', function(evt, item) {
-			win.location.href = encodeURI(hostUrl + 'details.html?type=4&eventName=' + item + '&emotion=' + _this.emotion);
+			win.location.href = encodeURI(hostUrl + 'details.html?type=4&eventName=' + item + '&emotion=' + _this.emotion+'&startDate='+_this.startDate+'&endDate='+_this.endDate+'&regin='+_this.regin);
 		});
 
 		// 媒体发热度排名
@@ -321,18 +325,19 @@ this.EE = this.EE || {};
 			$(".p3chart2Text ul").empty();
 			var strHtml = '';
 			for (var i=0;i<result.data.length;i++) {
+				var strArticle = result.data[i].articleAbstract || '';
 				strHtml += "<li>" +
 					"<h6>事件：<span>" + result.data[i].articleTitle + "</span></h6>" +
-					"<p class='tips'>作者：<span>" + result.data[i].articleAuthor+"</span>";
+					"<p class='tips'>"+(result.data[i].articleAuthor==undefined?'':("作者：<span>" + result.data[i].articleAuthor+"</span>"));
 				if (result.data[i].articleSource) {
 					strHtml += "来源：<span>" + result.data[i].articleSource + "</span>";
 				}
 				strHtml += "</p><p class='tips'>时间：<span>" + result.data[i].articlePubtime + "</span></p>" +
 					"<div class='abstract'>" +
 					"<p>" +
-					"简评：<span>" + (result.data[i].articleAbstract.length > 30 ? (result.data[i].articleAbstract.substring(0, 30) + '...') : result.data[i].articleAbstract) + "</span>" +
+					"简评：<span>" + (strArticle.length > 30 ? (strArticle.substring(0, 30) + '...') : strArticle) + "</span>" +
 					"</p>" +
-					"<button>查看评论＞</button>" +
+					"<button _url='"+result.data[i].articleUrl+"'>查看评论＞</button>" +
 					"</div>" +
 					"</li>";
 

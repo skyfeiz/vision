@@ -16,7 +16,7 @@ this.WbstChart = this.WbstChart || {};
 
 		_this._myChart.on('mouseover', function(param) {
 			var item = {};
-			item.seriesName = param.name + '日';
+			item.seriesName = param.name + '时';
 			item.xAxisValue = _this.numData[param.dataIndex];
 			var evt = param.event.event;
 			_this.EventDispatcher.trigger('chartmouseover', {
@@ -95,7 +95,7 @@ this.WbstChart = this.WbstChart || {};
 		for (var i = 0, len = this._dataProvider.length; i < len; i++) {
 			json.data.push(this._dataProvider[i].num/this.numScale);
 			this.numData.push(this._dataProvider[i].num);
-			cateData.push(this._dataProvider[i].name.split("-")[2]);
+			cateData.push(this._dataProvider[i].name);
 
 			if (1*this._dataProvider[i].num > maxNum) {
 				maxNum = 1*this._dataProvider[i].num;
@@ -144,10 +144,14 @@ this.WbstChart = this.WbstChart || {};
 					}
 				},
 				axisLabel: {
-					interval: 1,
+					interval: 3,
 					textStyle: {
 						color: '#3fc0ff',
-						fontSize: 10
+						fontSize: 10,
+						fontFamily:'DIN Medium'
+					},
+					formatter:function(n){
+						return n.split(' ')[1];
 					}
 				},
 				splitLine: {
@@ -170,12 +174,13 @@ this.WbstChart = this.WbstChart || {};
 				},
 				axisLine: {
 					lineStyle: {
-						color: '#1c4581',
+						color: '#1c4581'
 					}
 				},
 				axisLabel: {
 					textStyle: {
-						color: '#3fc0ff'
+						color: '#3fc0ff',
+						fontFamily:'DIN Medium'
 					}
 				},
 				splitLine: {

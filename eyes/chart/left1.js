@@ -68,7 +68,8 @@ this.WbstChart = this.WbstChart || {};
 							show:true,
 							textStyle: {
 								fontSize: 16,
-								color: '#01b5e9'
+								color: '#01b5e9',
+								fontFamily:'DIN Medium'
 							},
 							formatter: function(param) {
 								return Math.round(param.percent) + '%';
@@ -150,7 +151,8 @@ this.WbstChart = this.WbstChart || {};
 								},
 								textStyle: {
 									fontSize: 16,
-									color: '#01b5e9'
+									color: '#01b5e9',
+									fontFamily:'DIN Medium'
 								}
 							}
 						},
@@ -183,9 +185,9 @@ this.WbstChart = this.WbstChart || {};
 
 	p.creationText = function(data) {
 		this.$pNums.eq(0).html('<span>舆情总数</span><span class="bluenum">' + data[3].num + '</span>');
-		this.$pNums.eq(1).html('<span>正方总数</span><span class="bluenum">' + data[0].num + '</span>');
+		this.$pNums.eq(1).html('<span>正面总数</span><span class="bluenum">' + data[0].num + '</span>');
 		this.$pNums.eq(2).html('<span>中立总数</span><span class="bluenum">' + data[1].num + '</span>');
-		this.$pNums.eq(3).html('<span>负方总数</span><span class="bluenum">' + data[2].num + '</span>');
+		this.$pNums.eq(3).html('<span>负面总数</span><span class="bluenum">' + data[2].num + '</span>');
 		var nA = this._key - 1;
 		if (nA==-1) {
 			nA=3;

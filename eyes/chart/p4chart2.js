@@ -6,6 +6,49 @@ this.WbstChart = this.WbstChart || {};
 		this.numData = {};
 		this.warning = [];
 		this.EventDispatcher = $({});
+		this.option = null;
+		this.colorJson = {
+			red: [{
+				rgba: 'rgba(255,43,62,0.8)',
+				hex:'#e12b3e'
+			}, {
+				rgba:'rgba(238,74,41,0.8)',
+				hex:'#ee4a29'
+			}, {
+				rgba:'rgba(241,140,32,0.8)',
+				hex: '#f18c20'
+			}],
+			yellow: [{
+				rgba:'rgba(242,154,1,0.8)',
+				hex: '#f29a01'
+			}, {
+				rgba:'rgba(255,210,0,0.8)',
+				hex: '#ffd200'
+			}, {
+				rgba:'rgba(248,255,59,0.8)',
+				hex: '#f8ff3b'
+			}],
+			blue: [{
+				rgba:'rgba(0,111,181,0.8)',
+				hex: '#006fb5'
+			}, {
+				rgba:'rgba(1,162,255,0.8)',
+				hex: '#01a2ff'
+			}, {
+				rgba:'rgba(1,228,255,0.8)',
+				hex: '#01e4ff'
+			}],
+			green: [{
+				rgba:'rgba(3,133,46,0.8)',
+				hex: '#03852e'
+			}, {
+				rgba:'rgba(1,175,66,0.8)',
+				hex: '#01af42'
+			}, {
+				rgba:'rgba(41,252,105,0.8)',
+				hex: '#29fc69'
+			}]
+		};
 		this.init();
 	};
 
@@ -20,13 +63,29 @@ this.WbstChart = this.WbstChart || {};
 			item.seriesName = param.name + '日';
 			item.xAxisValue = _this.numData[param.seriesName][param.dataIndex];
 			var evt = param.event.event;
+
+			var index = param.seriesIndex;
+			_this.option.series[index].lineStyle = {
+				normal:{
+					color:'#fff'
+				}
+			}
+			_this._myChart.setOption(_this.option);
+
 			_this.EventDispatcher.trigger('chartmouseover', {
 				item: item,
 				event: evt
 			});
 		});
 
-		_this._myChart.on('mouseout', function() {
+		_this._myChart.on('mouseout', function(param) {
+			var index = param.seriesIndex;
+			_this.option.series[index].lineStyle = {
+				normal:{
+					color:_this.option.series[index].itemStyle.normal.color
+				}
+			}
+			_this._myChart.setOption(_this.option);
 			_this.EventDispatcher.trigger('chartmouseout');
 		});
 	};
@@ -50,13 +109,13 @@ this.WbstChart = this.WbstChart || {};
 			var item = this.warning[i];
 			switch (item.name) {
 				case '紧急':
-					warnObj.s1 = item.num;
+					warnObj.s1 = item.num*1;
 					break;
 				case '高':
-					warnObj.s2 = item.num;
+					warnObj.s2 = item.num*1;
 					break;
 				case '中':
-					warnObj.s3 = item.num;
+					warnObj.s3 = item.num*1;
 					break;
 				default:
 					console.log('低');
@@ -106,6 +165,7 @@ this.WbstChart = this.WbstChart || {};
 		var colorData = ['rgba(255,42,62,0.8)', 'rgba(241,180,32,0.8)', 'rgba(0,166,245,0.8)', 'rgba(1,176,87,0.8)'];
 		var itemColor = ['#e12b3e', '#f1b420', '#00a6f5', '#01b057'];
 
+		var rArr = [],yArr = [],bArr = [],gArr = [];
 		for (var item in legendJson) {
 			var lastNum = 0;
 			var json = {
@@ -131,7 +191,7 @@ this.WbstChart = this.WbstChart || {};
 							}
 						},
 					}, {
-						name: '标线1终点',
+						name: '标线2起点',
 						yAxis: mark2,
 						lineStyle: {
 							normal:{
@@ -139,7 +199,7 @@ this.WbstChart = this.WbstChart || {};
 							}
 						},
 					}, {
-						name: '标线1终点',
+						name: '标线3起点',
 						yAxis: mark3,
 						lineStyle: {
 							normal:{
@@ -160,42 +220,141 @@ this.WbstChart = this.WbstChart || {};
 				if (this._dataProvider[i].eventName == item) {
 					lastNum = this._dataProvider[i].num;
 					this.numData[item].push(lastNum);
-					json.data.push(lastNum / this.numScale)
+					lastNum /= this.numScale;
+					json.data.push(lastNum);
 				}
 			}
-			var index;
-			if (lastNum < warnObj.s3) {
-				index = 3;
-			} else if (lastNum < warnObj.s2) {
-				index = 2
-			} else if (lastNum < warnObj.s1) {
-				index = 1
+			if (lastNum < (warnObj.s3/this.numScale)) {
+				gArr.push({
+					name:item,
+					num:lastNum
+				});
+			} else if (lastNum < (warnObj.s2/this.numScale)) {
+				bArr.push({
+					name:item,
+					num:lastNum
+				});
+			} else if (lastNum < (warnObj.s1/this.numScale)) {
+				yArr.push({
+					name:item,
+					num:lastNum
+				});
 			} else {
-				index = 0;
+				rArr.push({
+					name:item,
+					num:lastNum
+				});
 			}
-			json.itemStyle = {
-				normal: {
-					color: itemColor[index]
-				}
-			};
-			var color = colorData[index];
-			json.areaStyle = {
-				normal: {
-					color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
-						offset: 0,
-						color: color
-					}, {
-						offset: 1,
-						color: color.substring(0, color.lastIndexOf('.')) + ')'
-					}], false),
-					shadowColor: 'rgba(0,0,0,0.1)',
-					shadowBlur: 10
-				}
-			};
+			
 			series.push(json);
 		}
-
-		var option = {
+		rArr.sort(function(a,b){
+			return b.num = a.num;
+		});
+		yArr.sort(function(a,b){
+			return b.num = a.num;
+		});
+		bArr.sort(function(a,b){
+			return b.num = a.num;
+		});
+		gArr.sort(function(a,b){
+			return b.num = a.num;
+		});
+		for (var i = 0; i < series.length; i++) {
+			for (var j = 0; j < rArr.length; j++) {
+				if (series[i].name == rArr[j].name) {
+					var color = this.colorJson.red[j].rgba;
+					series[i].itemStyle = {
+						normal: {
+							color: this.colorJson.red[j].hex
+						}
+					}
+					series[i].areaStyle = {
+						normal: {
+							color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+								offset: 0,
+								color: color
+							}, {
+								offset: 1,
+								color: color.substring(0, color.lastIndexOf('.')) + ')'
+							}], false),
+							shadowColor: 'rgba(0,0,0,0.1)',
+							shadowBlur: 10
+						}
+					}
+				}
+			}
+			for (var j = 0; j < yArr.length; j++) {
+				if (series[i].name == yArr[j].name) {
+					var color = this.colorJson.yellow[j].rgba;
+					series[i].itemStyle = {
+						normal: {
+							color: this.colorJson.yellow[j].hex
+						}
+					}
+					series[i].areaStyle = {
+						normal: {
+							color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+								offset: 0,
+								color: color
+							}, {
+								offset: 1,
+								color: color.substring(0, color.lastIndexOf('.')) + ')'
+							}], false),
+							shadowColor: 'rgba(0,0,0,0.1)',
+							shadowBlur: 10
+						}
+					}
+				}
+			}
+			for (var j = 0; j < bArr.length; j++) {
+				if (series[i].name == bArr[j].name) {
+					var color = this.colorJson.blue[j].rgba;
+					series[i].itemStyle = {
+						normal: {
+							color: this.colorJson.blue[j].hex
+						}
+					}
+					series[i].areaStyle = {
+						normal: {
+							color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+								offset: 0,
+								color: color
+							}, {
+								offset: 1,
+								color: color.substring(0, color.lastIndexOf('.')) + ')'
+							}], false),
+							shadowColor: 'rgba(0,0,0,0.1)',
+							shadowBlur: 10
+						}
+					}
+				}
+			}
+			for (var j = 0; j < gArr.length; j++) {
+				if (series[i].name == gArr[j].name) {
+					var color = this.colorJson.green[j].rgba;
+					series[i].itemStyle = {
+						normal: {
+							color: this.colorJson.green[j].hex
+						}
+					}
+					series[i].areaStyle = {
+						normal: {
+							color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+								offset: 0,
+								color: color
+							}, {
+								offset: 1,
+								color: color.substring(0, color.lastIndexOf('.')) + ')'
+							}], false),
+							shadowColor: 'rgba(0,0,0,0.1)',
+							shadowBlur: 10
+						}
+					}
+				}
+			}
+		}
+		this.option = {
 			animationDuration: 3000,
 			tooltip: {
 				trigger: 'axis',
@@ -215,6 +374,9 @@ this.WbstChart = this.WbstChart || {};
 				itemWidth: 7,
 				itemHeight: 3,
 				data: legendData,
+				formatter:function(n){
+					return n.substring(0,14);
+				},
 				padding: 2
 			},
 			grid: {
@@ -241,7 +403,8 @@ this.WbstChart = this.WbstChart || {};
 				},
 				axisLabel: {
 					textStyle: {
-						color: '#00c6ff'
+						color: '#00c6ff',
+						fontFamily:'DIN Medium'
 					},
 					interval: 0
 				},
@@ -283,7 +446,8 @@ this.WbstChart = this.WbstChart || {};
 				},
 				axisLabel: {
 					textStyle: {
-						color: '#00c6ff'
+						color: '#00c6ff',
+						fontFamily:'DIN Medium'
 					}
 				},
 				splitLine: {
@@ -293,7 +457,7 @@ this.WbstChart = this.WbstChart || {};
 			series: series
 		};
 
-		this._myChart.setOption(option);
+		this._myChart.setOption(this.option);
 	};
 
 	WbstChart.P4Chart2 = P4Chart2;

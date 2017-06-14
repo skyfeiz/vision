@@ -35,8 +35,11 @@
 			//new EE.Details();
 		})
 		function search(){
-			var eventName=$("input[class=fl]").val();
-			window.location.href ="details.html?&eventName="+eventName;
+			var eventName=$("input[class=fl]").val().trim();
+            if (eventName!= '') {
+                eventName = eventName.replace(/#/g,'[~%23~]');
+			    window.location.href ="details.html?&eventName="+eventName;
+            }
 		}
 		$("input[class=fl]").bind('keypress',function(event){    
             if(event.keyCode == "13")      

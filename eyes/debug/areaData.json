@@ -1,0 +1,2891 @@
+{
+  "data": [
+    {
+      "C0014_ORG_NAME": "全国",
+      "C0014_ORG_UPID": "0",
+      "C0014_ORG_LEVEL_TYPE": "0",
+      "C0014_ORG_NO": "101"
+    },
+    {
+      "C0014_ORG_NAME": "北京",
+      "C0014_ORG_UPID": "101",
+      "C0014_ORG_LEVEL_TYPE": "1",
+      "C0014_ORG_NO": "101_001"
+    },
+    {
+      "C0014_ORG_NAME": "北京市",
+      "C0014_ORG_UPID": "101_001",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_001_001"
+    },
+    {
+      "C0014_ORG_NAME": "天津",
+      "C0014_ORG_UPID": "101",
+      "C0014_ORG_LEVEL_TYPE": "1",
+      "C0014_ORG_NO": "101_002"
+    },
+    {
+      "C0014_ORG_NAME": "天津市",
+      "C0014_ORG_UPID": "101_002",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_002_001"
+    },
+    {
+      "C0014_ORG_NAME": "上海",
+      "C0014_ORG_UPID": "101",
+      "C0014_ORG_LEVEL_TYPE": "1",
+      "C0014_ORG_NO": "101_003"
+    },
+    {
+      "C0014_ORG_NAME": "上海市",
+      "C0014_ORG_UPID": "101_003",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_003_001"
+    },
+    {
+      "C0014_ORG_NAME": "重庆",
+      "C0014_ORG_UPID": "101",
+      "C0014_ORG_LEVEL_TYPE": "1",
+      "C0014_ORG_NO": "101_004"
+    },
+    {
+      "C0014_ORG_NAME": "重庆市",
+      "C0014_ORG_UPID": "101_004",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_004_001"
+    },
+    {
+      "C0014_ORG_NAME": "香港",
+      "C0014_ORG_UPID": "101",
+      "C0014_ORG_LEVEL_TYPE": "1",
+      "C0014_ORG_NO": "101_005"
+    },
+    {
+      "C0014_ORG_NAME": "香港市",
+      "C0014_ORG_UPID": "101_005",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_005_001"
+    },
+    {
+      "C0014_ORG_NAME": "澳门",
+      "C0014_ORG_UPID": "101",
+      "C0014_ORG_LEVEL_TYPE": "1",
+      "C0014_ORG_NO": "101_006"
+    },
+    {
+      "C0014_ORG_NAME": "澳门市",
+      "C0014_ORG_UPID": "101_006",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_006_001"
+    },
+    {
+      "C0014_ORG_NAME": "河北省",
+      "C0014_ORG_UPID": "101",
+      "C0014_ORG_LEVEL_TYPE": "1",
+      "C0014_ORG_NO": "101_007"
+    },
+    {
+      "C0014_ORG_NAME": "石家庄市",
+      "C0014_ORG_UPID": "101_007",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_007_001"
+    },
+    {
+      "C0014_ORG_NAME": "秦皇岛市",
+      "C0014_ORG_UPID": "101_007",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_007_002"
+    },
+    {
+      "C0014_ORG_NAME": "邯郸市",
+      "C0014_ORG_UPID": "101_007",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_007_003"
+    },
+    {
+      "C0014_ORG_NAME": "邢台市",
+      "C0014_ORG_UPID": "101_007",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_007_004"
+    },
+    {
+      "C0014_ORG_NAME": "保定市",
+      "C0014_ORG_UPID": "101_007",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_007_005"
+    },
+    {
+      "C0014_ORG_NAME": "张家口市",
+      "C0014_ORG_UPID": "101_007",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_007_006"
+    },
+    {
+      "C0014_ORG_NAME": "承德市",
+      "C0014_ORG_UPID": "101_007",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_007_007"
+    },
+    {
+      "C0014_ORG_NAME": "唐山市",
+      "C0014_ORG_UPID": "101_007",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_007_008"
+    },
+    {
+      "C0014_ORG_NAME": "沧州市",
+      "C0014_ORG_UPID": "101_007",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_007_009"
+    },
+    {
+      "C0014_ORG_NAME": "廊坊市",
+      "C0014_ORG_UPID": "101_007",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_007_010"
+    },
+    {
+      "C0014_ORG_NAME": "衡水市",
+      "C0014_ORG_UPID": "101_007",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_007_011"
+    },
+    {
+      "C0014_ORG_NAME": "晋州市",
+      "C0014_ORG_UPID": "101_007",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_007_012"
+    },
+    {
+      "C0014_ORG_NAME": "遵化市",
+      "C0014_ORG_UPID": "101_007",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_007_015"
+    },
+    {
+      "C0014_ORG_NAME": "南宫市",
+      "C0014_ORG_UPID": "101_007",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_007_018"
+    },
+    {
+      "C0014_ORG_NAME": "高碑店市",
+      "C0014_ORG_UPID": "101_007",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_007_031"
+    },
+    {
+      "C0014_ORG_NAME": "泊头市",
+      "C0014_ORG_UPID": "101_007",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_007_033"
+    },
+    {
+      "C0014_ORG_NAME": "黄骅市",
+      "C0014_ORG_UPID": "101_007",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_007_035"
+    },
+    {
+      "C0014_ORG_NAME": "三河市",
+      "C0014_ORG_UPID": "101_007",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_007_038"
+    },
+    {
+      "C0014_ORG_NAME": "深州市",
+      "C0014_ORG_UPID": "101_007",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_007_039"
+    },
+    {
+      "C0014_ORG_NAME": "山西省",
+      "C0014_ORG_UPID": "101",
+      "C0014_ORG_LEVEL_TYPE": "1",
+      "C0014_ORG_NO": "101_008"
+    },
+    {
+      "C0014_ORG_NAME": "太原市",
+      "C0014_ORG_UPID": "101_008",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_008_001"
+    },
+    {
+      "C0014_ORG_NAME": "大同市",
+      "C0014_ORG_UPID": "101_008",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_008_002"
+    },
+    {
+      "C0014_ORG_NAME": "阳泉市",
+      "C0014_ORG_UPID": "101_008",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_008_003"
+    },
+    {
+      "C0014_ORG_NAME": "长治市",
+      "C0014_ORG_UPID": "101_008",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_008_004"
+    },
+    {
+      "C0014_ORG_NAME": "晋中市",
+      "C0014_ORG_UPID": "101_008",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_008_005"
+    },
+    {
+      "C0014_ORG_NAME": "晋城市",
+      "C0014_ORG_UPID": "101_008",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_008_006"
+    },
+    {
+      "C0014_ORG_NAME": "朔州市",
+      "C0014_ORG_UPID": "101_008",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_008_007"
+    },
+    {
+      "C0014_ORG_NAME": "运城市",
+      "C0014_ORG_UPID": "101_008",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_008_008"
+    },
+    {
+      "C0014_ORG_NAME": "忻州市",
+      "C0014_ORG_UPID": "101_008",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_008_009"
+    },
+    {
+      "C0014_ORG_NAME": "临汾市",
+      "C0014_ORG_UPID": "101_008",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_008_010"
+    },
+    {
+      "C0014_ORG_NAME": "吕梁市",
+      "C0014_ORG_UPID": "101_008",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_008_011"
+    },
+    {
+      "C0014_ORG_NAME": "潞城市",
+      "C0014_ORG_UPID": "101_008",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_008_013"
+    },
+    {
+      "C0014_ORG_NAME": "侯马市",
+      "C0014_ORG_UPID": "101_008",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_008_019"
+    },
+    {
+      "C0014_ORG_NAME": "霍州市",
+      "C0014_ORG_UPID": "101_008",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_008_020"
+    },
+    {
+      "C0014_ORG_NAME": "河津市",
+      "C0014_ORG_UPID": "101_008",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_008_021"
+    },
+    {
+      "C0014_ORG_NAME": "内蒙古",
+      "C0014_ORG_UPID": "101",
+      "C0014_ORG_LEVEL_TYPE": "1",
+      "C0014_ORG_NO": "101_009"
+    },
+    {
+      "C0014_ORG_NAME": "呼和浩特市",
+      "C0014_ORG_UPID": "101_009",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_009_001"
+    },
+    {
+      "C0014_ORG_NAME": "包头市",
+      "C0014_ORG_UPID": "101_009",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_009_002"
+    },
+    {
+      "C0014_ORG_NAME": "乌海市",
+      "C0014_ORG_UPID": "101_009",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_009_003"
+    },
+    {
+      "C0014_ORG_NAME": "赤峰市",
+      "C0014_ORG_UPID": "101_009",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_009_004"
+    },
+    {
+      "C0014_ORG_NAME": "鄂尔多斯市",
+      "C0014_ORG_UPID": "101_009",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_009_005"
+    },
+    {
+      "C0014_ORG_NAME": "通辽市",
+      "C0014_ORG_UPID": "101_009",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_009_006"
+    },
+    {
+      "C0014_ORG_NAME": "呼伦贝尔市",
+      "C0014_ORG_UPID": "101_009",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_009_007"
+    },
+    {
+      "C0014_ORG_NAME": "巴彦淖尔市",
+      "C0014_ORG_UPID": "101_009",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_009_008"
+    },
+    {
+      "C0014_ORG_NAME": "乌兰察布市",
+      "C0014_ORG_UPID": "101_009",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_009_009"
+    },
+    {
+      "C0014_ORG_NAME": "兴安盟",
+      "C0014_ORG_UPID": "101_009",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_009_010"
+    },
+    {
+      "C0014_ORG_NAME": "锡林郭勒盟",
+      "C0014_ORG_UPID": "101_009",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_009_011"
+    },
+    {
+      "C0014_ORG_NAME": "阿拉善盟",
+      "C0014_ORG_UPID": "101_009",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_009_012"
+    },
+    {
+      "C0014_ORG_NAME": "二连浩特市",
+      "C0014_ORG_UPID": "101_009",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_009_022"
+    },
+    {
+      "C0014_ORG_NAME": "锡林浩特市",
+      "C0014_ORG_UPID": "101_009",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_009_023"
+    },
+    {
+      "C0014_ORG_NAME": "辽宁省",
+      "C0014_ORG_UPID": "101",
+      "C0014_ORG_LEVEL_TYPE": "1",
+      "C0014_ORG_NO": "101_010"
+    },
+    {
+      "C0014_ORG_NAME": "沈阳市",
+      "C0014_ORG_UPID": "101_010",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_010_001"
+    },
+    {
+      "C0014_ORG_NAME": "大连市",
+      "C0014_ORG_UPID": "101_010",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_010_002"
+    },
+    {
+      "C0014_ORG_NAME": "鞍山市",
+      "C0014_ORG_UPID": "101_010",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_010_003"
+    },
+    {
+      "C0014_ORG_NAME": "抚顺市",
+      "C0014_ORG_UPID": "101_010",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_010_004"
+    },
+    {
+      "C0014_ORG_NAME": "丹东市",
+      "C0014_ORG_UPID": "101_010",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_010_005"
+    },
+    {
+      "C0014_ORG_NAME": "本溪市",
+      "C0014_ORG_UPID": "101_010",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_010_006"
+    },
+    {
+      "C0014_ORG_NAME": "锦州市",
+      "C0014_ORG_UPID": "101_010",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_010_007"
+    },
+    {
+      "C0014_ORG_NAME": "阜新市",
+      "C0014_ORG_UPID": "101_010",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_010_008"
+    },
+    {
+      "C0014_ORG_NAME": "营口市",
+      "C0014_ORG_UPID": "101_010",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_010_009"
+    },
+    {
+      "C0014_ORG_NAME": "盘锦市",
+      "C0014_ORG_UPID": "101_010",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_010_010"
+    },
+    {
+      "C0014_ORG_NAME": "辽阳市",
+      "C0014_ORG_UPID": "101_010",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_010_011"
+    },
+    {
+      "C0014_ORG_NAME": "朝阳市",
+      "C0014_ORG_UPID": "101_010",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_010_012"
+    },
+    {
+      "C0014_ORG_NAME": "铁岭市",
+      "C0014_ORG_UPID": "101_010",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_010_013"
+    },
+    {
+      "C0014_ORG_NAME": "葫芦岛市",
+      "C0014_ORG_UPID": "101_010",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_010_014"
+    },
+    {
+      "C0014_ORG_NAME": "凌海市",
+      "C0014_ORG_UPID": "101_010",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_010_021"
+    },
+    {
+      "C0014_ORG_NAME": "灯塔市",
+      "C0014_ORG_UPID": "101_010",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_010_025"
+    },
+    {
+      "C0014_ORG_NAME": "调兵山市",
+      "C0014_ORG_UPID": "101_010",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_010_026"
+    },
+    {
+      "C0014_ORG_NAME": "凌源市",
+      "C0014_ORG_UPID": "101_010",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_010_028"
+    },
+    {
+      "C0014_ORG_NAME": "吉林省",
+      "C0014_ORG_UPID": "101",
+      "C0014_ORG_LEVEL_TYPE": "1",
+      "C0014_ORG_NO": "101_011"
+    },
+    {
+      "C0014_ORG_NAME": "长春市",
+      "C0014_ORG_UPID": "101_011",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_011_001"
+    },
+    {
+      "C0014_ORG_NAME": "吉林市",
+      "C0014_ORG_UPID": "101_011",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_011_002"
+    },
+    {
+      "C0014_ORG_NAME": "辽源市",
+      "C0014_ORG_UPID": "101_011",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_011_003"
+    },
+    {
+      "C0014_ORG_NAME": "白山市",
+      "C0014_ORG_UPID": "101_011",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_011_004"
+    },
+    {
+      "C0014_ORG_NAME": "通化市",
+      "C0014_ORG_UPID": "101_011",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_011_005"
+    },
+    {
+      "C0014_ORG_NAME": "延边朝鲜族自治州",
+      "C0014_ORG_UPID": "101_011",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_011_006"
+    },
+    {
+      "C0014_ORG_NAME": "四平市",
+      "C0014_ORG_UPID": "101_011",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_011_007"
+    },
+    {
+      "C0014_ORG_NAME": "松原市",
+      "C0014_ORG_UPID": "101_011",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_011_008"
+    },
+    {
+      "C0014_ORG_NAME": "白城市",
+      "C0014_ORG_UPID": "101_011",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_011_009"
+    },
+    {
+      "C0014_ORG_NAME": "德惠市",
+      "C0014_ORG_UPID": "101_011",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_011_010"
+    },
+    {
+      "C0014_ORG_NAME": "集安市",
+      "C0014_ORG_UPID": "101_011",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_011_018"
+    },
+    {
+      "C0014_ORG_NAME": "梅河口市",
+      "C0014_ORG_UPID": "101_011",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_011_019"
+    },
+    {
+      "C0014_ORG_NAME": "洮南市",
+      "C0014_ORG_UPID": "101_011",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_011_021"
+    },
+    {
+      "C0014_ORG_NAME": "扶余市",
+      "C0014_ORG_UPID": "101_011",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_011_023"
+    },
+    {
+      "C0014_ORG_NAME": "黑龙江省",
+      "C0014_ORG_UPID": "101",
+      "C0014_ORG_LEVEL_TYPE": "1",
+      "C0014_ORG_NO": "101_012"
+    },
+    {
+      "C0014_ORG_NAME": "哈尔滨市",
+      "C0014_ORG_UPID": "101_012",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_012_001"
+    },
+    {
+      "C0014_ORG_NAME": "齐齐哈尔市",
+      "C0014_ORG_UPID": "101_012",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_012_002"
+    },
+    {
+      "C0014_ORG_NAME": "鸡西市",
+      "C0014_ORG_UPID": "101_012",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_012_003"
+    },
+    {
+      "C0014_ORG_NAME": "双鸭山市",
+      "C0014_ORG_UPID": "101_012",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_012_004"
+    },
+    {
+      "C0014_ORG_NAME": "鹤岗市",
+      "C0014_ORG_UPID": "101_012",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_012_005"
+    },
+    {
+      "C0014_ORG_NAME": "大庆市",
+      "C0014_ORG_UPID": "101_012",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_012_006"
+    },
+    {
+      "C0014_ORG_NAME": "伊春市",
+      "C0014_ORG_UPID": "101_012",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_012_007"
+    },
+    {
+      "C0014_ORG_NAME": "佳木斯市",
+      "C0014_ORG_UPID": "101_012",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_012_008"
+    },
+    {
+      "C0014_ORG_NAME": "七台河市",
+      "C0014_ORG_UPID": "101_012",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_012_009"
+    },
+    {
+      "C0014_ORG_NAME": "牡丹江市",
+      "C0014_ORG_UPID": "101_012",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_012_010"
+    },
+    {
+      "C0014_ORG_NAME": "黑河市",
+      "C0014_ORG_UPID": "101_012",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_012_011"
+    },
+    {
+      "C0014_ORG_NAME": "绥化市",
+      "C0014_ORG_UPID": "101_012",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_012_012"
+    },
+    {
+      "C0014_ORG_NAME": "大兴安岭地区",
+      "C0014_ORG_UPID": "101_012",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_012_013"
+    },
+    {
+      "C0014_ORG_NAME": "讷河市",
+      "C0014_ORG_UPID": "101_012",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_012_016"
+    },
+    {
+      "C0014_ORG_NAME": "东宁市",
+      "C0014_ORG_UPID": "101_012",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_012_018"
+    },
+    {
+      "C0014_ORG_NAME": "绥芬河市",
+      "C0014_ORG_UPID": "101_012",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_012_019"
+    },
+    {
+      "C0014_ORG_NAME": "穆棱市",
+      "C0014_ORG_UPID": "101_012",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_012_020"
+    },
+    {
+      "C0014_ORG_NAME": "北安市",
+      "C0014_ORG_UPID": "101_012",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_012_022"
+    },
+    {
+      "C0014_ORG_NAME": "抚远市",
+      "C0014_ORG_UPID": "101_012",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_012_023"
+    },
+    {
+      "C0014_ORG_NAME": "富锦市",
+      "C0014_ORG_UPID": "101_012",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_012_024"
+    },
+    {
+      "C0014_ORG_NAME": "同江市",
+      "C0014_ORG_UPID": "101_012",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_012_025"
+    },
+    {
+      "C0014_ORG_NAME": "铁力市",
+      "C0014_ORG_UPID": "101_012",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_012_026"
+    },
+    {
+      "C0014_ORG_NAME": "江苏省",
+      "C0014_ORG_UPID": "101",
+      "C0014_ORG_LEVEL_TYPE": "1",
+      "C0014_ORG_NO": "101_013"
+    },
+    {
+      "C0014_ORG_NAME": "南京市",
+      "C0014_ORG_UPID": "101_013",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_013_001"
+    },
+    {
+      "C0014_ORG_NAME": "无锡市",
+      "C0014_ORG_UPID": "101_013",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_013_002"
+    },
+    {
+      "C0014_ORG_NAME": "常州市",
+      "C0014_ORG_UPID": "101_013",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_013_003"
+    },
+    {
+      "C0014_ORG_NAME": "徐州市",
+      "C0014_ORG_UPID": "101_013",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_013_004"
+    },
+    {
+      "C0014_ORG_NAME": "苏州市",
+      "C0014_ORG_UPID": "101_013",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_013_005"
+    },
+    {
+      "C0014_ORG_NAME": "南通市",
+      "C0014_ORG_UPID": "101_013",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_013_006"
+    },
+    {
+      "C0014_ORG_NAME": "淮安市",
+      "C0014_ORG_UPID": "101_013",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_013_007"
+    },
+    {
+      "C0014_ORG_NAME": "连云港市",
+      "C0014_ORG_UPID": "101_013",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_013_008"
+    },
+    {
+      "C0014_ORG_NAME": "盐城市",
+      "C0014_ORG_UPID": "101_013",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_013_009"
+    },
+    {
+      "C0014_ORG_NAME": "扬州市",
+      "C0014_ORG_UPID": "101_013",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_013_010"
+    },
+    {
+      "C0014_ORG_NAME": "镇江市",
+      "C0014_ORG_UPID": "101_013",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_013_011"
+    },
+    {
+      "C0014_ORG_NAME": "泰州市",
+      "C0014_ORG_UPID": "101_013",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_013_012"
+    },
+    {
+      "C0014_ORG_NAME": "宿迁市",
+      "C0014_ORG_UPID": "101_013",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_013_013"
+    },
+    {
+      "C0014_ORG_NAME": "泰兴市",
+      "C0014_ORG_UPID": "101_013",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_013_032"
+    },
+    {
+      "C0014_ORG_NAME": "浙江省",
+      "C0014_ORG_UPID": "101",
+      "C0014_ORG_LEVEL_TYPE": "1",
+      "C0014_ORG_NO": "101_014"
+    },
+    {
+      "C0014_ORG_NAME": "杭州市",
+      "C0014_ORG_UPID": "101_014",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_014_001"
+    },
+    {
+      "C0014_ORG_NAME": "温州市",
+      "C0014_ORG_UPID": "101_014",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_014_002"
+    },
+    {
+      "C0014_ORG_NAME": "宁波市",
+      "C0014_ORG_UPID": "101_014",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_014_003"
+    },
+    {
+      "C0014_ORG_NAME": "嘉兴市",
+      "C0014_ORG_UPID": "101_014",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_014_004"
+    },
+    {
+      "C0014_ORG_NAME": "湖州市",
+      "C0014_ORG_UPID": "101_014",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_014_005"
+    },
+    {
+      "C0014_ORG_NAME": "绍兴市",
+      "C0014_ORG_UPID": "101_014",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_014_006"
+    },
+    {
+      "C0014_ORG_NAME": "衢州市",
+      "C0014_ORG_UPID": "101_014",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_014_007"
+    },
+    {
+      "C0014_ORG_NAME": "舟山市",
+      "C0014_ORG_UPID": "101_014",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_014_008"
+    },
+    {
+      "C0014_ORG_NAME": "金华市",
+      "C0014_ORG_UPID": "101_014",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_014_009"
+    },
+    {
+      "C0014_ORG_NAME": "台州市",
+      "C0014_ORG_UPID": "101_014",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_014_010"
+    },
+    {
+      "C0014_ORG_NAME": "丽水市",
+      "C0014_ORG_UPID": "101_014",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_014_011"
+    },
+    {
+      "C0014_ORG_NAME": "建德市",
+      "C0014_ORG_UPID": "101_014",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_014_012"
+    },
+    {
+      "C0014_ORG_NAME": "临安市",
+      "C0014_ORG_UPID": "101_014",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_014_013"
+    },
+    {
+      "C0014_ORG_NAME": "余姚市",
+      "C0014_ORG_UPID": "101_014",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_014_014"
+    },
+    {
+      "C0014_ORG_NAME": "慈溪市",
+      "C0014_ORG_UPID": "101_014",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_014_015"
+    },
+    {
+      "C0014_ORG_NAME": "瑞安市",
+      "C0014_ORG_UPID": "101_014",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_014_016"
+    },
+    {
+      "C0014_ORG_NAME": "乐清市",
+      "C0014_ORG_UPID": "101_014",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_014_017"
+    },
+    {
+      "C0014_ORG_NAME": "诸暨市",
+      "C0014_ORG_UPID": "101_014",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_014_018"
+    },
+    {
+      "C0014_ORG_NAME": "嵊州市",
+      "C0014_ORG_UPID": "101_014",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_014_019"
+    },
+    {
+      "C0014_ORG_NAME": "海宁市",
+      "C0014_ORG_UPID": "101_014",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_014_020"
+    },
+    {
+      "C0014_ORG_NAME": "平湖市",
+      "C0014_ORG_UPID": "101_014",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_014_021"
+    },
+    {
+      "C0014_ORG_NAME": "桐乡市",
+      "C0014_ORG_UPID": "101_014",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_014_022"
+    },
+    {
+      "C0014_ORG_NAME": "兰溪市",
+      "C0014_ORG_UPID": "101_014",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_014_023"
+    },
+    {
+      "C0014_ORG_NAME": "义乌市",
+      "C0014_ORG_UPID": "101_014",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_014_024"
+    },
+    {
+      "C0014_ORG_NAME": "东阳市",
+      "C0014_ORG_UPID": "101_014",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_014_025"
+    },
+    {
+      "C0014_ORG_NAME": "永康市",
+      "C0014_ORG_UPID": "101_014",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_014_026"
+    },
+    {
+      "C0014_ORG_NAME": "温岭市",
+      "C0014_ORG_UPID": "101_014",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_014_028"
+    },
+    {
+      "C0014_ORG_NAME": "龙泉市",
+      "C0014_ORG_UPID": "101_014",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_014_030"
+    },
+    {
+      "C0014_ORG_NAME": "安徽省",
+      "C0014_ORG_UPID": "101",
+      "C0014_ORG_LEVEL_TYPE": "1",
+      "C0014_ORG_NO": "101_015"
+    },
+    {
+      "C0014_ORG_NAME": "合肥市",
+      "C0014_ORG_UPID": "101_015",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_015_001"
+    },
+    {
+      "C0014_ORG_NAME": "阜阳市",
+      "C0014_ORG_UPID": "101_015",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_015_002"
+    },
+    {
+      "C0014_ORG_NAME": "池州市",
+      "C0014_ORG_UPID": "101_015",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_015_003"
+    },
+    {
+      "C0014_ORG_NAME": "宣城市",
+      "C0014_ORG_UPID": "101_015",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_015_004"
+    },
+    {
+      "C0014_ORG_NAME": "芜湖市",
+      "C0014_ORG_UPID": "101_015",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_015_006"
+    },
+    {
+      "C0014_ORG_NAME": "宿州市",
+      "C0014_ORG_UPID": "101_015",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_015_007"
+    },
+    {
+      "C0014_ORG_NAME": "安庆市",
+      "C0014_ORG_UPID": "101_015",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_015_008"
+    },
+    {
+      "C0014_ORG_NAME": "铜陵市",
+      "C0014_ORG_UPID": "101_015",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_015_009"
+    },
+    {
+      "C0014_ORG_NAME": "六安市",
+      "C0014_ORG_UPID": "101_015",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_015_010"
+    },
+    {
+      "C0014_ORG_NAME": "黄山市",
+      "C0014_ORG_UPID": "101_015",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_015_011"
+    },
+    {
+      "C0014_ORG_NAME": "蚌埠市",
+      "C0014_ORG_UPID": "101_015",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_015_013"
+    },
+    {
+      "C0014_ORG_NAME": "滁州市",
+      "C0014_ORG_UPID": "101_015",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_015_014"
+    },
+    {
+      "C0014_ORG_NAME": "亳州市",
+      "C0014_ORG_UPID": "101_015",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_015_015"
+    },
+    {
+      "C0014_ORG_NAME": "马鞍山市",
+      "C0014_ORG_UPID": "101_015",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_015_016"
+    },
+    {
+      "C0014_ORG_NAME": "淮北市",
+      "C0014_ORG_UPID": "101_015",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_015_017"
+    },
+    {
+      "C0014_ORG_NAME": "福建省",
+      "C0014_ORG_UPID": "101",
+      "C0014_ORG_LEVEL_TYPE": "1",
+      "C0014_ORG_NO": "101_016"
+    },
+    {
+      "C0014_ORG_NAME": "福州市",
+      "C0014_ORG_UPID": "101_016",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_016_001"
+    },
+    {
+      "C0014_ORG_NAME": "厦门市",
+      "C0014_ORG_UPID": "101_016",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_016_002"
+    },
+    {
+      "C0014_ORG_NAME": "三明市",
+      "C0014_ORG_UPID": "101_016",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_016_003"
+    },
+    {
+      "C0014_ORG_NAME": "莆田市",
+      "C0014_ORG_UPID": "101_016",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_016_004"
+    },
+    {
+      "C0014_ORG_NAME": "漳州市",
+      "C0014_ORG_UPID": "101_016",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_016_005"
+    },
+    {
+      "C0014_ORG_NAME": "泉州市",
+      "C0014_ORG_UPID": "101_016",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_016_006"
+    },
+    {
+      "C0014_ORG_NAME": "南平市",
+      "C0014_ORG_UPID": "101_016",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_016_007"
+    },
+    {
+      "C0014_ORG_NAME": "龙岩市",
+      "C0014_ORG_UPID": "101_016",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_016_008"
+    },
+    {
+      "C0014_ORG_NAME": "宁德市",
+      "C0014_ORG_UPID": "101_016",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_016_009"
+    },
+    {
+      "C0014_ORG_NAME": "江西省",
+      "C0014_ORG_UPID": "101",
+      "C0014_ORG_LEVEL_TYPE": "1",
+      "C0014_ORG_NO": "101_017"
+    },
+    {
+      "C0014_ORG_NAME": "南昌市",
+      "C0014_ORG_UPID": "101_017",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_017_001"
+    },
+    {
+      "C0014_ORG_NAME": "景德镇市",
+      "C0014_ORG_UPID": "101_017",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_017_002"
+    },
+    {
+      "C0014_ORG_NAME": "九江市",
+      "C0014_ORG_UPID": "101_017",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_017_003"
+    },
+    {
+      "C0014_ORG_NAME": "鹰潭市",
+      "C0014_ORG_UPID": "101_017",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_017_004"
+    },
+    {
+      "C0014_ORG_NAME": "萍乡市",
+      "C0014_ORG_UPID": "101_017",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_017_005"
+    },
+    {
+      "C0014_ORG_NAME": "吉安市",
+      "C0014_ORG_UPID": "101_017",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_017_006"
+    },
+    {
+      "C0014_ORG_NAME": "新余市",
+      "C0014_ORG_UPID": "101_017",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_017_007"
+    },
+    {
+      "C0014_ORG_NAME": "赣州市",
+      "C0014_ORG_UPID": "101_017",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_017_008"
+    },
+    {
+      "C0014_ORG_NAME": "宜春市",
+      "C0014_ORG_UPID": "101_017",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_017_009"
+    },
+    {
+      "C0014_ORG_NAME": "抚州市",
+      "C0014_ORG_UPID": "101_017",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_017_010"
+    },
+    {
+      "C0014_ORG_NAME": "上饶市",
+      "C0014_ORG_UPID": "101_017",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_017_011"
+    },
+    {
+      "C0014_ORG_NAME": "庐山市",
+      "C0014_ORG_UPID": "101_017",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_017_020"
+    },
+    {
+      "C0014_ORG_NAME": "贵溪市",
+      "C0014_ORG_UPID": "101_017",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_017_022"
+    },
+    {
+      "C0014_ORG_NAME": "山东省",
+      "C0014_ORG_UPID": "101",
+      "C0014_ORG_LEVEL_TYPE": "1",
+      "C0014_ORG_NO": "101_018"
+    },
+    {
+      "C0014_ORG_NAME": "济南市",
+      "C0014_ORG_UPID": "101_018",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_018_001"
+    },
+    {
+      "C0014_ORG_NAME": "青岛市",
+      "C0014_ORG_UPID": "101_018",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_018_002"
+    },
+    {
+      "C0014_ORG_NAME": "淄博市",
+      "C0014_ORG_UPID": "101_018",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_018_003"
+    },
+    {
+      "C0014_ORG_NAME": "东营市",
+      "C0014_ORG_UPID": "101_018",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_018_004"
+    },
+    {
+      "C0014_ORG_NAME": "枣庄市",
+      "C0014_ORG_UPID": "101_018",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_018_005"
+    },
+    {
+      "C0014_ORG_NAME": "潍坊市",
+      "C0014_ORG_UPID": "101_018",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_018_006"
+    },
+    {
+      "C0014_ORG_NAME": "烟台市",
+      "C0014_ORG_UPID": "101_018",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_018_007"
+    },
+    {
+      "C0014_ORG_NAME": "威海市",
+      "C0014_ORG_UPID": "101_018",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_018_008"
+    },
+    {
+      "C0014_ORG_NAME": "济宁市",
+      "C0014_ORG_UPID": "101_018",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_018_009"
+    },
+    {
+      "C0014_ORG_NAME": "泰安市",
+      "C0014_ORG_UPID": "101_018",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_018_010"
+    },
+    {
+      "C0014_ORG_NAME": "日照市",
+      "C0014_ORG_UPID": "101_018",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_018_011"
+    },
+    {
+      "C0014_ORG_NAME": "莱芜市",
+      "C0014_ORG_UPID": "101_018",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_018_012"
+    },
+    {
+      "C0014_ORG_NAME": "临沂市",
+      "C0014_ORG_UPID": "101_018",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_018_013"
+    },
+    {
+      "C0014_ORG_NAME": "德州市",
+      "C0014_ORG_UPID": "101_018",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_018_014"
+    },
+    {
+      "C0014_ORG_NAME": "聊城市",
+      "C0014_ORG_UPID": "101_018",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_018_015"
+    },
+    {
+      "C0014_ORG_NAME": "滨州市",
+      "C0014_ORG_UPID": "101_018",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_018_016"
+    },
+    {
+      "C0014_ORG_NAME": "菏泽市",
+      "C0014_ORG_UPID": "101_018",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_018_017"
+    },
+    {
+      "C0014_ORG_NAME": "莱阳市",
+      "C0014_ORG_UPID": "101_018",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_018_024"
+    },
+    {
+      "C0014_ORG_NAME": "安丘市",
+      "C0014_ORG_UPID": "101_018",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_018_032"
+    },
+    {
+      "C0014_ORG_NAME": "河南省",
+      "C0014_ORG_UPID": "101",
+      "C0014_ORG_LEVEL_TYPE": "1",
+      "C0014_ORG_NO": "101_019"
+    },
+    {
+      "C0014_ORG_NAME": "郑州市",
+      "C0014_ORG_UPID": "101_019",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_019_001"
+    },
+    {
+      "C0014_ORG_NAME": "开封市",
+      "C0014_ORG_UPID": "101_019",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_019_002"
+    },
+    {
+      "C0014_ORG_NAME": "洛阳市",
+      "C0014_ORG_UPID": "101_019",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_019_003"
+    },
+    {
+      "C0014_ORG_NAME": "平顶山市",
+      "C0014_ORG_UPID": "101_019",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_019_004"
+    },
+    {
+      "C0014_ORG_NAME": "焦作市",
+      "C0014_ORG_UPID": "101_019",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_019_005"
+    },
+    {
+      "C0014_ORG_NAME": "鹤壁市",
+      "C0014_ORG_UPID": "101_019",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_019_006"
+    },
+    {
+      "C0014_ORG_NAME": "新乡市",
+      "C0014_ORG_UPID": "101_019",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_019_007"
+    },
+    {
+      "C0014_ORG_NAME": "安阳市",
+      "C0014_ORG_UPID": "101_019",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_019_008"
+    },
+    {
+      "C0014_ORG_NAME": "濮阳市",
+      "C0014_ORG_UPID": "101_019",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_019_009"
+    },
+    {
+      "C0014_ORG_NAME": "许昌市",
+      "C0014_ORG_UPID": "101_019",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_019_010"
+    },
+    {
+      "C0014_ORG_NAME": "漯河市",
+      "C0014_ORG_UPID": "101_019",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_019_011"
+    },
+    {
+      "C0014_ORG_NAME": "三门峡市",
+      "C0014_ORG_UPID": "101_019",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_019_012"
+    },
+    {
+      "C0014_ORG_NAME": "南阳市",
+      "C0014_ORG_UPID": "101_019",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_019_013"
+    },
+    {
+      "C0014_ORG_NAME": "信阳市",
+      "C0014_ORG_UPID": "101_019",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_019_014"
+    },
+    {
+      "C0014_ORG_NAME": "商丘市",
+      "C0014_ORG_UPID": "101_019",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_019_015"
+    },
+    {
+      "C0014_ORG_NAME": "周口市",
+      "C0014_ORG_UPID": "101_019",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_019_016"
+    },
+    {
+      "C0014_ORG_NAME": "驻马店市",
+      "C0014_ORG_UPID": "101_019",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_019_017"
+    },
+    {
+      "C0014_ORG_NAME": "登封市",
+      "C0014_ORG_UPID": "101_019",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_019_020"
+    },
+    {
+      "C0014_ORG_NAME": "偃师市",
+      "C0014_ORG_UPID": "101_019",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_019_023"
+    },
+    {
+      "C0014_ORG_NAME": "舞钢市",
+      "C0014_ORG_UPID": "101_019",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_019_024"
+    },
+    {
+      "C0014_ORG_NAME": "辉县市",
+      "C0014_ORG_UPID": "101_019",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_019_028"
+    },
+    {
+      "C0014_ORG_NAME": "沁阳市",
+      "C0014_ORG_UPID": "101_019",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_019_029"
+    },
+    {
+      "C0014_ORG_NAME": "禹州市",
+      "C0014_ORG_UPID": "101_019",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_019_031"
+    },
+    {
+      "C0014_ORG_NAME": "长葛市",
+      "C0014_ORG_UPID": "101_019",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_019_032"
+    },
+    {
+      "C0014_ORG_NAME": "灵宝市",
+      "C0014_ORG_UPID": "101_019",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_019_034"
+    },
+    {
+      "C0014_ORG_NAME": "邓州市",
+      "C0014_ORG_UPID": "101_019",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_019_037"
+    },
+    {
+      "C0014_ORG_NAME": "济源市",
+      "C0014_ORG_UPID": "101_019",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_019_038"
+    },
+    {
+      "C0014_ORG_NAME": "湖北省",
+      "C0014_ORG_UPID": "101",
+      "C0014_ORG_LEVEL_TYPE": "1",
+      "C0014_ORG_NO": "101_020"
+    },
+    {
+      "C0014_ORG_NAME": "武汉市",
+      "C0014_ORG_UPID": "101_020",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_020_001"
+    },
+    {
+      "C0014_ORG_NAME": "黄石市",
+      "C0014_ORG_UPID": "101_020",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_020_002"
+    },
+    {
+      "C0014_ORG_NAME": "十堰市",
+      "C0014_ORG_UPID": "101_020",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_020_003"
+    },
+    {
+      "C0014_ORG_NAME": "襄樊市",
+      "C0014_ORG_UPID": "101_020",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_020_004"
+    },
+    {
+      "C0014_ORG_NAME": "宜昌市",
+      "C0014_ORG_UPID": "101_020",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_020_005"
+    },
+    {
+      "C0014_ORG_NAME": "荆门市",
+      "C0014_ORG_UPID": "101_020",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_020_006"
+    },
+    {
+      "C0014_ORG_NAME": "荆州市",
+      "C0014_ORG_UPID": "101_020",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_020_007"
+    },
+    {
+      "C0014_ORG_NAME": "孝感市",
+      "C0014_ORG_UPID": "101_020",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_020_008"
+    },
+    {
+      "C0014_ORG_NAME": "鄂州市",
+      "C0014_ORG_UPID": "101_020",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_020_009"
+    },
+    {
+      "C0014_ORG_NAME": "黄冈市",
+      "C0014_ORG_UPID": "101_020",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_020_010"
+    },
+    {
+      "C0014_ORG_NAME": "咸宁市",
+      "C0014_ORG_UPID": "101_020",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_020_011"
+    },
+    {
+      "C0014_ORG_NAME": "随州市",
+      "C0014_ORG_UPID": "101_020",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_020_012"
+    },
+    {
+      "C0014_ORG_NAME": "恩施土家族苗族自治州",
+      "C0014_ORG_UPID": "101_020",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_020_013"
+    },
+    {
+      "C0014_ORG_NAME": "仙桃市",
+      "C0014_ORG_UPID": "101_020",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_020_014"
+    },
+    {
+      "C0014_ORG_NAME": "天门市",
+      "C0014_ORG_UPID": "101_020",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_020_015"
+    },
+    {
+      "C0014_ORG_NAME": "潜江市",
+      "C0014_ORG_UPID": "101_020",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_020_016"
+    },
+    {
+      "C0014_ORG_NAME": "神农架林区",
+      "C0014_ORG_UPID": "101_020",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_020_017"
+    },
+    {
+      "C0014_ORG_NAME": "襄阳市",
+      "C0014_ORG_UPID": "101_020",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_020_039"
+    },
+    {
+      "C0014_ORG_NAME": "湖南省",
+      "C0014_ORG_UPID": "101",
+      "C0014_ORG_LEVEL_TYPE": "1",
+      "C0014_ORG_NO": "101_021"
+    },
+    {
+      "C0014_ORG_NAME": "长沙市",
+      "C0014_ORG_UPID": "101_021",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_021_001"
+    },
+    {
+      "C0014_ORG_NAME": "株洲市",
+      "C0014_ORG_UPID": "101_021",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_021_002"
+    },
+    {
+      "C0014_ORG_NAME": "湘潭市",
+      "C0014_ORG_UPID": "101_021",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_021_003"
+    },
+    {
+      "C0014_ORG_NAME": "邵阳市",
+      "C0014_ORG_UPID": "101_021",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_021_004"
+    },
+    {
+      "C0014_ORG_NAME": "衡阳市",
+      "C0014_ORG_UPID": "101_021",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_021_005"
+    },
+    {
+      "C0014_ORG_NAME": "岳阳市",
+      "C0014_ORG_UPID": "101_021",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_021_006"
+    },
+    {
+      "C0014_ORG_NAME": "常德市",
+      "C0014_ORG_UPID": "101_021",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_021_007"
+    },
+    {
+      "C0014_ORG_NAME": "郴州市",
+      "C0014_ORG_UPID": "101_021",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_021_008"
+    },
+    {
+      "C0014_ORG_NAME": "张家界市",
+      "C0014_ORG_UPID": "101_021",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_021_009"
+    },
+    {
+      "C0014_ORG_NAME": "益阳市",
+      "C0014_ORG_UPID": "101_021",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_021_010"
+    },
+    {
+      "C0014_ORG_NAME": "永州市",
+      "C0014_ORG_UPID": "101_021",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_021_011"
+    },
+    {
+      "C0014_ORG_NAME": "怀化市",
+      "C0014_ORG_UPID": "101_021",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_021_012"
+    },
+    {
+      "C0014_ORG_NAME": "娄底市",
+      "C0014_ORG_UPID": "101_021",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_021_013"
+    },
+    {
+      "C0014_ORG_NAME": "湘西土家族苗族自治州",
+      "C0014_ORG_UPID": "101_021",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_021_014"
+    },
+    {
+      "C0014_ORG_NAME": "广东省",
+      "C0014_ORG_UPID": "101",
+      "C0014_ORG_LEVEL_TYPE": "1",
+      "C0014_ORG_NO": "101_022"
+    },
+    {
+      "C0014_ORG_NAME": "广州市",
+      "C0014_ORG_UPID": "101_022",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_022_001"
+    },
+    {
+      "C0014_ORG_NAME": "珠海市",
+      "C0014_ORG_UPID": "101_022",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_022_002"
+    },
+    {
+      "C0014_ORG_NAME": "深圳市",
+      "C0014_ORG_UPID": "101_022",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_022_003"
+    },
+    {
+      "C0014_ORG_NAME": "韶关市",
+      "C0014_ORG_UPID": "101_022",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_022_004"
+    },
+    {
+      "C0014_ORG_NAME": "汕头市",
+      "C0014_ORG_UPID": "101_022",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_022_005"
+    },
+    {
+      "C0014_ORG_NAME": "湛江市",
+      "C0014_ORG_UPID": "101_022",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_022_006"
+    },
+    {
+      "C0014_ORG_NAME": "肇庆市",
+      "C0014_ORG_UPID": "101_022",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_022_007"
+    },
+    {
+      "C0014_ORG_NAME": "佛山市",
+      "C0014_ORG_UPID": "101_022",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_022_008"
+    },
+    {
+      "C0014_ORG_NAME": "茂名市",
+      "C0014_ORG_UPID": "101_022",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_022_009"
+    },
+    {
+      "C0014_ORG_NAME": "惠州市",
+      "C0014_ORG_UPID": "101_022",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_022_010"
+    },
+    {
+      "C0014_ORG_NAME": "江门市",
+      "C0014_ORG_UPID": "101_022",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_022_011"
+    },
+    {
+      "C0014_ORG_NAME": "清远市",
+      "C0014_ORG_UPID": "101_022",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_022_012"
+    },
+    {
+      "C0014_ORG_NAME": "汕尾市",
+      "C0014_ORG_UPID": "101_022",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_022_013"
+    },
+    {
+      "C0014_ORG_NAME": "梅州市",
+      "C0014_ORG_UPID": "101_022",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_022_014"
+    },
+    {
+      "C0014_ORG_NAME": "河源市",
+      "C0014_ORG_UPID": "101_022",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_022_015"
+    },
+    {
+      "C0014_ORG_NAME": "东莞市",
+      "C0014_ORG_UPID": "101_022",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_022_016"
+    },
+    {
+      "C0014_ORG_NAME": "阳江市",
+      "C0014_ORG_UPID": "101_022",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_022_017"
+    },
+    {
+      "C0014_ORG_NAME": "潮州市",
+      "C0014_ORG_UPID": "101_022",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_022_018"
+    },
+    {
+      "C0014_ORG_NAME": "中山市",
+      "C0014_ORG_UPID": "101_022",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_022_019"
+    },
+    {
+      "C0014_ORG_NAME": "揭阳市",
+      "C0014_ORG_UPID": "101_022",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_022_020"
+    },
+    {
+      "C0014_ORG_NAME": "云浮市",
+      "C0014_ORG_UPID": "101_022",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_022_021"
+    },
+    {
+      "C0014_ORG_NAME": "广西",
+      "C0014_ORG_UPID": "101",
+      "C0014_ORG_LEVEL_TYPE": "1",
+      "C0014_ORG_NO": "101_023"
+    },
+    {
+      "C0014_ORG_NAME": "南宁市",
+      "C0014_ORG_UPID": "101_023",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_023_001"
+    },
+    {
+      "C0014_ORG_NAME": "柳州市",
+      "C0014_ORG_UPID": "101_023",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_023_002"
+    },
+    {
+      "C0014_ORG_NAME": "桂林市",
+      "C0014_ORG_UPID": "101_023",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_023_003"
+    },
+    {
+      "C0014_ORG_NAME": "北海市",
+      "C0014_ORG_UPID": "101_023",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_023_004"
+    },
+    {
+      "C0014_ORG_NAME": "梧州市",
+      "C0014_ORG_UPID": "101_023",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_023_005"
+    },
+    {
+      "C0014_ORG_NAME": "防城港市",
+      "C0014_ORG_UPID": "101_023",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_023_006"
+    },
+    {
+      "C0014_ORG_NAME": "钦州市",
+      "C0014_ORG_UPID": "101_023",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_023_007"
+    },
+    {
+      "C0014_ORG_NAME": "贵港市",
+      "C0014_ORG_UPID": "101_023",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_023_008"
+    },
+    {
+      "C0014_ORG_NAME": "玉林市",
+      "C0014_ORG_UPID": "101_023",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_023_009"
+    },
+    {
+      "C0014_ORG_NAME": "百色市",
+      "C0014_ORG_UPID": "101_023",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_023_010"
+    },
+    {
+      "C0014_ORG_NAME": "贺州市",
+      "C0014_ORG_UPID": "101_023",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_023_011"
+    },
+    {
+      "C0014_ORG_NAME": "河池市",
+      "C0014_ORG_UPID": "101_023",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_023_012"
+    },
+    {
+      "C0014_ORG_NAME": "来宾市",
+      "C0014_ORG_UPID": "101_023",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_023_013"
+    },
+    {
+      "C0014_ORG_NAME": "崇左市",
+      "C0014_ORG_UPID": "101_023",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_023_014"
+    },
+    {
+      "C0014_ORG_NAME": "靖西市",
+      "C0014_ORG_UPID": "101_023",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_023_019"
+    },
+    {
+      "C0014_ORG_NAME": "海南省",
+      "C0014_ORG_UPID": "101",
+      "C0014_ORG_LEVEL_TYPE": "1",
+      "C0014_ORG_NO": "101_024"
+    },
+    {
+      "C0014_ORG_NAME": "海口市",
+      "C0014_ORG_UPID": "101_024",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_024_001"
+    },
+    {
+      "C0014_ORG_NAME": "三亚市",
+      "C0014_ORG_UPID": "101_024",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_024_002"
+    },
+    {
+      "C0014_ORG_NAME": "三沙市",
+      "C0014_ORG_UPID": "101_024",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_024_003"
+    },
+    {
+      "C0014_ORG_NAME": "儋州市",
+      "C0014_ORG_UPID": "101_024",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_024_004"
+    },
+    {
+      "C0014_ORG_NAME": "五指山市",
+      "C0014_ORG_UPID": "101_024",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_024_005"
+    },
+    {
+      "C0014_ORG_NAME": "文昌市",
+      "C0014_ORG_UPID": "101_024",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_024_006"
+    },
+    {
+      "C0014_ORG_NAME": "万宁市",
+      "C0014_ORG_UPID": "101_024",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_024_007"
+    },
+    {
+      "C0014_ORG_NAME": "琼海市",
+      "C0014_ORG_UPID": "101_024",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_024_008"
+    },
+    {
+      "C0014_ORG_NAME": "四川省",
+      "C0014_ORG_UPID": "101",
+      "C0014_ORG_LEVEL_TYPE": "1",
+      "C0014_ORG_NO": "101_025"
+    },
+    {
+      "C0014_ORG_NAME": "成都市",
+      "C0014_ORG_UPID": "101_025",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_025_001"
+    },
+    {
+      "C0014_ORG_NAME": "自贡市",
+      "C0014_ORG_UPID": "101_025",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_025_002"
+    },
+    {
+      "C0014_ORG_NAME": "攀枝花市",
+      "C0014_ORG_UPID": "101_025",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_025_003"
+    },
+    {
+      "C0014_ORG_NAME": "德阳市",
+      "C0014_ORG_UPID": "101_025",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_025_004"
+    },
+    {
+      "C0014_ORG_NAME": "泸州市",
+      "C0014_ORG_UPID": "101_025",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_025_005"
+    },
+    {
+      "C0014_ORG_NAME": "绵阳市",
+      "C0014_ORG_UPID": "101_025",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_025_006"
+    },
+    {
+      "C0014_ORG_NAME": "广元市",
+      "C0014_ORG_UPID": "101_025",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_025_007"
+    },
+    {
+      "C0014_ORG_NAME": "遂宁市",
+      "C0014_ORG_UPID": "101_025",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_025_008"
+    },
+    {
+      "C0014_ORG_NAME": "内江市",
+      "C0014_ORG_UPID": "101_025",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_025_009"
+    },
+    {
+      "C0014_ORG_NAME": "乐山市",
+      "C0014_ORG_UPID": "101_025",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_025_010"
+    },
+    {
+      "C0014_ORG_NAME": "南充市",
+      "C0014_ORG_UPID": "101_025",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_025_011"
+    },
+    {
+      "C0014_ORG_NAME": "宜宾市",
+      "C0014_ORG_UPID": "101_025",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_025_012"
+    },
+    {
+      "C0014_ORG_NAME": "广安市",
+      "C0014_ORG_UPID": "101_025",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_025_013"
+    },
+    {
+      "C0014_ORG_NAME": "眉山市",
+      "C0014_ORG_UPID": "101_025",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_025_014"
+    },
+    {
+      "C0014_ORG_NAME": "达州市",
+      "C0014_ORG_UPID": "101_025",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_025_015"
+    },
+    {
+      "C0014_ORG_NAME": "雅安市",
+      "C0014_ORG_UPID": "101_025",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_025_016"
+    },
+    {
+      "C0014_ORG_NAME": "巴中市",
+      "C0014_ORG_UPID": "101_025",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_025_017"
+    },
+    {
+      "C0014_ORG_NAME": "资阳市",
+      "C0014_ORG_UPID": "101_025",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_025_018"
+    },
+    {
+      "C0014_ORG_NAME": "阿坝藏族羌族自治州",
+      "C0014_ORG_UPID": "101_025",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_025_019"
+    },
+    {
+      "C0014_ORG_NAME": "凉山彝族自治州",
+      "C0014_ORG_UPID": "101_025",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_025_020"
+    },
+    {
+      "C0014_ORG_NAME": "甘孜藏族自治州",
+      "C0014_ORG_UPID": "101_025",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_025_021"
+    },
+    {
+      "C0014_ORG_NAME": "华蓥市",
+      "C0014_ORG_UPID": "101_025",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_025_034"
+    },
+    {
+      "C0014_ORG_NAME": "康定市",
+      "C0014_ORG_UPID": "101_025",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_025_036"
+    },
+    {
+      "C0014_ORG_NAME": "马尔康市",
+      "C0014_ORG_UPID": "101_025",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_025_037"
+    },
+    {
+      "C0014_ORG_NAME": "贵州省",
+      "C0014_ORG_UPID": "101",
+      "C0014_ORG_LEVEL_TYPE": "1",
+      "C0014_ORG_NO": "101_026"
+    },
+    {
+      "C0014_ORG_NAME": "贵阳市",
+      "C0014_ORG_UPID": "101_026",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_026_001"
+    },
+    {
+      "C0014_ORG_NAME": "六盘水市",
+      "C0014_ORG_UPID": "101_026",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_026_002"
+    },
+    {
+      "C0014_ORG_NAME": "遵义市",
+      "C0014_ORG_UPID": "101_026",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_026_003"
+    },
+    {
+      "C0014_ORG_NAME": "铜仁市",
+      "C0014_ORG_UPID": "101_026",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_026_004"
+    },
+    {
+      "C0014_ORG_NAME": "安顺市",
+      "C0014_ORG_UPID": "101_026",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_026_005"
+    },
+    {
+      "C0014_ORG_NAME": "毕节市",
+      "C0014_ORG_UPID": "101_026",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_026_006"
+    },
+    {
+      "C0014_ORG_NAME": "黔西南布依族苗族自治州",
+      "C0014_ORG_UPID": "101_026",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_026_007"
+    },
+    {
+      "C0014_ORG_NAME": "黔东南苗族侗族自治州",
+      "C0014_ORG_UPID": "101_026",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_026_008"
+    },
+    {
+      "C0014_ORG_NAME": "黔南布依族苗族自治州",
+      "C0014_ORG_UPID": "101_026",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_026_009"
+    },
+    {
+      "C0014_ORG_NAME": "西藏",
+      "C0014_ORG_UPID": "101",
+      "C0014_ORG_LEVEL_TYPE": "1",
+      "C0014_ORG_NO": "101_027"
+    },
+    {
+      "C0014_ORG_NAME": "拉萨市",
+      "C0014_ORG_UPID": "101_027",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_027_001"
+    },
+    {
+      "C0014_ORG_NAME": "日喀则市",
+      "C0014_ORG_UPID": "101_027",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_027_002"
+    },
+    {
+      "C0014_ORG_NAME": "昌都市",
+      "C0014_ORG_UPID": "101_027",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_027_003"
+    },
+    {
+      "C0014_ORG_NAME": "那曲地区",
+      "C0014_ORG_UPID": "101_027",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_027_004"
+    },
+    {
+      "C0014_ORG_NAME": "山南市",
+      "C0014_ORG_UPID": "101_027",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_027_005"
+    },
+    {
+      "C0014_ORG_NAME": "林芝市",
+      "C0014_ORG_UPID": "101_027",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_027_006"
+    },
+    {
+      "C0014_ORG_NAME": "阿里地区",
+      "C0014_ORG_UPID": "101_027",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_027_007"
+    },
+    {
+      "C0014_ORG_NAME": "云南省",
+      "C0014_ORG_UPID": "101",
+      "C0014_ORG_LEVEL_TYPE": "1",
+      "C0014_ORG_NO": "101_028"
+    },
+    {
+      "C0014_ORG_NAME": "昆明市",
+      "C0014_ORG_UPID": "101_028",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_028_001"
+    },
+    {
+      "C0014_ORG_NAME": "曲靖市",
+      "C0014_ORG_UPID": "101_028",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_028_002"
+    },
+    {
+      "C0014_ORG_NAME": "玉溪市",
+      "C0014_ORG_UPID": "101_028",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_028_003"
+    },
+    {
+      "C0014_ORG_NAME": "保山市",
+      "C0014_ORG_UPID": "101_028",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_028_004"
+    },
+    {
+      "C0014_ORG_NAME": "昭通市",
+      "C0014_ORG_UPID": "101_028",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_028_005"
+    },
+    {
+      "C0014_ORG_NAME": "丽江市",
+      "C0014_ORG_UPID": "101_028",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_028_006"
+    },
+    {
+      "C0014_ORG_NAME": "普洱市",
+      "C0014_ORG_UPID": "101_028",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_028_007"
+    },
+    {
+      "C0014_ORG_NAME": "临沧市",
+      "C0014_ORG_UPID": "101_028",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_028_008"
+    },
+    {
+      "C0014_ORG_NAME": "文山壮族苗族自治州",
+      "C0014_ORG_UPID": "101_028",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_028_009"
+    },
+    {
+      "C0014_ORG_NAME": "红河哈尼族彝族自治州",
+      "C0014_ORG_UPID": "101_028",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_028_010"
+    },
+    {
+      "C0014_ORG_NAME": "迪庆藏族自治州",
+      "C0014_ORG_UPID": "101_028",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_028_011"
+    },
+    {
+      "C0014_ORG_NAME": "西双版纳傣族自治州",
+      "C0014_ORG_UPID": "101_028",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_028_012"
+    },
+    {
+      "C0014_ORG_NAME": "楚雄彝族自治州",
+      "C0014_ORG_UPID": "101_028",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_028_013"
+    },
+    {
+      "C0014_ORG_NAME": "大理白族自治州",
+      "C0014_ORG_UPID": "101_028",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_028_014"
+    },
+    {
+      "C0014_ORG_NAME": "德宏傣族景颇族自治州",
+      "C0014_ORG_UPID": "101_028",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_028_015"
+    },
+    {
+      "C0014_ORG_NAME": "怒江傈僳族自治州",
+      "C0014_ORG_UPID": "101_028",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_028_016"
+    },
+    {
+      "C0014_ORG_NAME": "腾冲市",
+      "C0014_ORG_UPID": "101_028",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_028_019"
+    },
+    {
+      "C0014_ORG_NAME": "大理市",
+      "C0014_ORG_UPID": "101_028",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_028_027"
+    },
+    {
+      "C0014_ORG_NAME": "香格里拉市",
+      "C0014_ORG_UPID": "101_028",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_028_030"
+    },
+    {
+      "C0014_ORG_NAME": "泸水市",
+      "C0014_ORG_UPID": "101_028",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_028_031"
+    },
+    {
+      "C0014_ORG_NAME": "陕西省",
+      "C0014_ORG_UPID": "101",
+      "C0014_ORG_LEVEL_TYPE": "1",
+      "C0014_ORG_NO": "101_029"
+    },
+    {
+      "C0014_ORG_NAME": "西安市",
+      "C0014_ORG_UPID": "101_029",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_029_001"
+    },
+    {
+      "C0014_ORG_NAME": "铜川市",
+      "C0014_ORG_UPID": "101_029",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_029_002"
+    },
+    {
+      "C0014_ORG_NAME": "宝鸡市",
+      "C0014_ORG_UPID": "101_029",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_029_003"
+    },
+    {
+      "C0014_ORG_NAME": "咸阳市",
+      "C0014_ORG_UPID": "101_029",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_029_004"
+    },
+    {
+      "C0014_ORG_NAME": "渭南市",
+      "C0014_ORG_UPID": "101_029",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_029_005"
+    },
+    {
+      "C0014_ORG_NAME": "延安市",
+      "C0014_ORG_UPID": "101_029",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_029_006"
+    },
+    {
+      "C0014_ORG_NAME": "汉中市",
+      "C0014_ORG_UPID": "101_029",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_029_007"
+    },
+    {
+      "C0014_ORG_NAME": "榆林市",
+      "C0014_ORG_UPID": "101_029",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_029_008"
+    },
+    {
+      "C0014_ORG_NAME": "安康市",
+      "C0014_ORG_UPID": "101_029",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_029_009"
+    },
+    {
+      "C0014_ORG_NAME": "商洛市",
+      "C0014_ORG_UPID": "101_029",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_029_010"
+    },
+    {
+      "C0014_ORG_NAME": "甘肃省",
+      "C0014_ORG_UPID": "101",
+      "C0014_ORG_LEVEL_TYPE": "1",
+      "C0014_ORG_NO": "101_030"
+    },
+    {
+      "C0014_ORG_NAME": "兰州市",
+      "C0014_ORG_UPID": "101_030",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_030_001"
+    },
+    {
+      "C0014_ORG_NAME": "嘉峪关市",
+      "C0014_ORG_UPID": "101_030",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_030_002"
+    },
+    {
+      "C0014_ORG_NAME": "金昌市",
+      "C0014_ORG_UPID": "101_030",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_030_003"
+    },
+    {
+      "C0014_ORG_NAME": "白银市",
+      "C0014_ORG_UPID": "101_030",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_030_004"
+    },
+    {
+      "C0014_ORG_NAME": "天水市",
+      "C0014_ORG_UPID": "101_030",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_030_005"
+    },
+    {
+      "C0014_ORG_NAME": "张掖市",
+      "C0014_ORG_UPID": "101_030",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_030_006"
+    },
+    {
+      "C0014_ORG_NAME": "武威市",
+      "C0014_ORG_UPID": "101_030",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_030_007"
+    },
+    {
+      "C0014_ORG_NAME": "酒泉市",
+      "C0014_ORG_UPID": "101_030",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_030_008"
+    },
+    {
+      "C0014_ORG_NAME": "平凉市",
+      "C0014_ORG_UPID": "101_030",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_030_009"
+    },
+    {
+      "C0014_ORG_NAME": "庆阳市",
+      "C0014_ORG_UPID": "101_030",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_030_010"
+    },
+    {
+      "C0014_ORG_NAME": "定西市",
+      "C0014_ORG_UPID": "101_030",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_030_011"
+    },
+    {
+      "C0014_ORG_NAME": "陇南市",
+      "C0014_ORG_UPID": "101_030",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_030_012"
+    },
+    {
+      "C0014_ORG_NAME": "临夏回族自治州",
+      "C0014_ORG_UPID": "101_030",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_030_013"
+    },
+    {
+      "C0014_ORG_NAME": "甘南藏族自治州",
+      "C0014_ORG_UPID": "101_030",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_030_014"
+    },
+    {
+      "C0014_ORG_NAME": "青海省",
+      "C0014_ORG_UPID": "101",
+      "C0014_ORG_LEVEL_TYPE": "1",
+      "C0014_ORG_NO": "101_031"
+    },
+    {
+      "C0014_ORG_NAME": "西宁市",
+      "C0014_ORG_UPID": "101_031",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_031_001"
+    },
+    {
+      "C0014_ORG_NAME": "海东市",
+      "C0014_ORG_UPID": "101_031",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_031_002"
+    },
+    {
+      "C0014_ORG_NAME": "海北藏族自治州",
+      "C0014_ORG_UPID": "101_031",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_031_003"
+    },
+    {
+      "C0014_ORG_NAME": "黄南藏族自治州",
+      "C0014_ORG_UPID": "101_031",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_031_004"
+    },
+    {
+      "C0014_ORG_NAME": "果洛藏族自治州",
+      "C0014_ORG_UPID": "101_031",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_031_005"
+    },
+    {
+      "C0014_ORG_NAME": "海南藏族自治州",
+      "C0014_ORG_UPID": "101_031",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_031_006"
+    },
+    {
+      "C0014_ORG_NAME": "玉树藏族自治州",
+      "C0014_ORG_UPID": "101_031",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_031_007"
+    },
+    {
+      "C0014_ORG_NAME": "海西蒙古族藏族自治州",
+      "C0014_ORG_UPID": "101_031",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_031_008"
+    },
+    {
+      "C0014_ORG_NAME": "玉树市",
+      "C0014_ORG_UPID": "101_031",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_031_009"
+    },
+    {
+      "C0014_ORG_NAME": "宁夏",
+      "C0014_ORG_UPID": "101",
+      "C0014_ORG_LEVEL_TYPE": "1",
+      "C0014_ORG_NO": "101_032"
+    },
+    {
+      "C0014_ORG_NAME": "银川市",
+      "C0014_ORG_UPID": "101_032",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_032_001"
+    },
+    {
+      "C0014_ORG_NAME": "石嘴山市",
+      "C0014_ORG_UPID": "101_032",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_032_002"
+    },
+    {
+      "C0014_ORG_NAME": "吴忠市",
+      "C0014_ORG_UPID": "101_032",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_032_003"
+    },
+    {
+      "C0014_ORG_NAME": "固原市",
+      "C0014_ORG_UPID": "101_032",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_032_004"
+    },
+    {
+      "C0014_ORG_NAME": "中卫市",
+      "C0014_ORG_UPID": "101_032",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_032_005"
+    },
+    {
+      "C0014_ORG_NAME": "灵武市",
+      "C0014_ORG_UPID": "101_032",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_032_006"
+    },
+    {
+      "C0014_ORG_NAME": "新疆",
+      "C0014_ORG_UPID": "101",
+      "C0014_ORG_LEVEL_TYPE": "1",
+      "C0014_ORG_NO": "101_033"
+    },
+    {
+      "C0014_ORG_NAME": "乌鲁木齐市",
+      "C0014_ORG_UPID": "101_033",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_033_001"
+    },
+    {
+      "C0014_ORG_NAME": "克拉玛依市",
+      "C0014_ORG_UPID": "101_033",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_033_002"
+    },
+    {
+      "C0014_ORG_NAME": "吐鲁番市",
+      "C0014_ORG_UPID": "101_033",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_033_003"
+    },
+    {
+      "C0014_ORG_NAME": "和田地区",
+      "C0014_ORG_UPID": "101_033",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_033_004"
+    },
+    {
+      "C0014_ORG_NAME": "哈密市",
+      "C0014_ORG_UPID": "101_033",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_033_005"
+    },
+    {
+      "C0014_ORG_NAME": "克孜勒苏柯尔克孜自治州",
+      "C0014_ORG_UPID": "101_033",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_033_006"
+    },
+    {
+      "C0014_ORG_NAME": "喀什地区",
+      "C0014_ORG_UPID": "101_033",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_033_007"
+    },
+    {
+      "C0014_ORG_NAME": "阿克苏地区",
+      "C0014_ORG_UPID": "101_033",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_033_008"
+    },
+    {
+      "C0014_ORG_NAME": "巴音郭楞蒙古自治州",
+      "C0014_ORG_UPID": "101_033",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_033_009"
+    },
+    {
+      "C0014_ORG_NAME": "昌吉回族自治州",
+      "C0014_ORG_UPID": "101_033",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_033_010"
+    },
+    {
+      "C0014_ORG_NAME": "博尔塔拉蒙古自治州",
+      "C0014_ORG_UPID": "101_033",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_033_011"
+    },
+    {
+      "C0014_ORG_NAME": "伊犁哈萨克自治州",
+      "C0014_ORG_UPID": "101_033",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_033_012"
+    },
+    {
+      "C0014_ORG_NAME": "塔城地区",
+      "C0014_ORG_UPID": "101_033",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_033_013"
+    },
+    {
+      "C0014_ORG_NAME": "阿勒泰地区",
+      "C0014_ORG_UPID": "101_033",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_033_014"
+    },
+    {
+      "C0014_ORG_NAME": "阿勒泰市",
+      "C0014_ORG_UPID": "101_033",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_033_017"
+    },
+    {
+      "C0014_ORG_NAME": "阿克苏市",
+      "C0014_ORG_UPID": "101_033",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_033_018"
+    },
+    {
+      "C0014_ORG_NAME": "和田市",
+      "C0014_ORG_UPID": "101_033",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_033_020"
+    },
+    {
+      "C0014_ORG_NAME": "博乐市",
+      "C0014_ORG_UPID": "101_033",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_033_023"
+    },
+    {
+      "C0014_ORG_NAME": "阿拉山口市",
+      "C0014_ORG_UPID": "101_033",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_033_024"
+    },
+    {
+      "C0014_ORG_NAME": "伊宁市",
+      "C0014_ORG_UPID": "101_033",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_033_025"
+    },
+    {
+      "C0014_ORG_NAME": "霍尔果斯市",
+      "C0014_ORG_UPID": "101_033",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_033_027"
+    },
+    {
+      "C0014_ORG_NAME": "阿图什市",
+      "C0014_ORG_UPID": "101_033",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_033_029"
+    },
+    {
+      "C0014_ORG_NAME": "石河子市",
+      "C0014_ORG_UPID": "101_033",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_033_031"
+    },
+    {
+      "C0014_ORG_NAME": "图木舒克市",
+      "C0014_ORG_UPID": "101_033",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_033_032"
+    },
+    {
+      "C0014_ORG_NAME": "五家渠市",
+      "C0014_ORG_UPID": "101_033",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_033_033"
+    },
+    {
+      "C0014_ORG_NAME": "北屯市",
+      "C0014_ORG_UPID": "101_033",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_033_034"
+    },
+    {
+      "C0014_ORG_NAME": "铁门关市",
+      "C0014_ORG_UPID": "101_033",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_033_035"
+    },
+    {
+      "C0014_ORG_NAME": "可克达拉市",
+      "C0014_ORG_UPID": "101_033",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_033_037"
+    },
+    {
+      "C0014_ORG_NAME": "昆玉市",
+      "C0014_ORG_UPID": "101_033",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_033_038"
+    },
+    {
+      "C0014_ORG_NAME": "台湾省",
+      "C0014_ORG_UPID": "101",
+      "C0014_ORG_LEVEL_TYPE": "1",
+      "C0014_ORG_NO": "101_034"
+    },
+    {
+      "C0014_ORG_NAME": "台北市",
+      "C0014_ORG_UPID": "101_034",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_034_001"
+    },
+    {
+      "C0014_ORG_NAME": "高雄市",
+      "C0014_ORG_UPID": "101_034",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_034_002"
+    },
+    {
+      "C0014_ORG_NAME": "基隆市",
+      "C0014_ORG_UPID": "101_034",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_034_003"
+    },
+    {
+      "C0014_ORG_NAME": "台中市",
+      "C0014_ORG_UPID": "101_034",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_034_004"
+    },
+    {
+      "C0014_ORG_NAME": "台南市",
+      "C0014_ORG_UPID": "101_034",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_034_005"
+    },
+    {
+      "C0014_ORG_NAME": "新竹市",
+      "C0014_ORG_UPID": "101_034",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_034_006"
+    },
+    {
+      "C0014_ORG_NAME": "嘉义市",
+      "C0014_ORG_UPID": "101_034",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_034_007"
+    },
+    {
+      "C0014_ORG_NAME": "新北市",
+      "C0014_ORG_UPID": "101_034",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_034_008"
+    },
+    {
+      "C0014_ORG_NAME": "桃园市",
+      "C0014_ORG_UPID": "101_034",
+      "C0014_ORG_LEVEL_TYPE": "2",
+      "C0014_ORG_NO": "101_034_009"
+    }
+  ],
+  "success": true
+}

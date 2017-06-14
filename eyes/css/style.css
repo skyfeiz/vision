@@ -11,6 +11,10 @@ body {
 body{
     font-size: 16px;
 }
+@font-face{
+    font-family: 'DIN MEDIUM';
+    src:url('DIN MEDIUM.TTF');
+}
 p,
 h1,
 ul,
@@ -27,7 +31,7 @@ dd{
     margin: 0;
     padding: 0
 }
-b{font-weight: normal;}
+b{font-weight: normal;font-family: 'DIN Medium';}
 ul,
 li {
     list-style: none;
@@ -111,7 +115,12 @@ header h1 {
     position: relative;
     cursor: pointer;
 }
-
+.headernav a.navsilent{
+    color: #999;
+}
+.headernav a.navsilent:hover{
+    color:#999;
+}
 .headernav a.active {
     color: #fff;
 }
@@ -455,8 +464,82 @@ header h1 {
     margin-right: 4px;
 }
 .valuenum{
+    font-family: 'DIN MEDIUM';
     display: inline-block;
     vertical-align: middle;
     font-size: 18px;
     color: #fff;
+}
+
+/* 暂无数据 */
+.noData{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: none;
+}
+.noData p{
+    width: 100%;
+    position: absolute;
+    top: 50%;
+    margin-top: -15px;
+    height: 30px;
+    line-height: 30px;
+    font-size: 24px;
+    text-align: center;
+    color: #3fc0ff;
+}
+
+/* dialog */
+.dialogbox{
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    left: 0;
+    top: 0;
+    display: none;
+    z-index: 999;
+}
+.diaopa{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.3);
+}
+.diacontainer{
+    width: 300px;
+    padding: 20px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    border-radius: 4px;
+    background-color: rgba(0,0,0,0.9);
+}
+.diacontent{
+    line-height: 1.5;
+    margin-bottom: 20px;
+    color: #fff;
+    text-align: center;
+}
+.diabtn{
+    color: #fff;
+    display: block;
+    margin: 0 auto;
+    width: 120px;
+    height: 30px;
+    line-height: 30px;
+    border-radius: 4px;
+    background-color: rgba(0,155,254,0.2);
+    text-align: center;
+    border: 1px solid #00c6ff;
+    cursor: pointer;
+}
+.diabtn:hover{
+    color: #fffc00;
+    border-color: #fffc00;
+    background-color: rgba(154,102,2,0.2);
+}
+.diainner{
+    color: #5fcbff;
 }

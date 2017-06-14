@@ -202,6 +202,7 @@ this.WbstChart = this.WbstChart || {};
 
 			// 下标字
 			ctx.fillStyle = '#3fc0ff';
+			ctx.font="14px DIN Medium";
 			ctx.fillText(xName, i + 12, 55);
 			// 下标线
 			ctx.beginPath();
@@ -214,6 +215,7 @@ this.WbstChart = this.WbstChart || {};
 			if (xName == 1 && _this.bMonth) {
 				yText = endYear + '年';
 				ctx.fillStyle = '#fff';
+				ctx.font="14px DIN Medium";
 				ctx.fillText(yText, i + 4, 13);
 				ctx.fillStyle = '#3fc0ff';
 				ctx.fillRect(i - 4, 15, 1, 4);
@@ -497,9 +499,10 @@ this.WbstChart = this.WbstChart || {};
 	p.getRangeTime = function() {
 		// 距离最末端的 距离格数  总间隔数
 		var l = (this.axisLength - this.aL - 4) / this.xSpace | 0, // 取整
-			// endlined的间隔数
-			w = l - this.aW / this.xSpace + 1,
 			date = '';
+			// endlined的间隔数
+		if (!this.bNow) {l+=1}
+		var w = l - this.aW / this.xSpace + 1;
 		if (this.bMonth) {
 			// 月时间轴
 

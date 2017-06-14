@@ -124,6 +124,7 @@ this.WbstChart = this.WbstChart || {};
 				name:'头条',
 				type: 'bar',
 				barWidth: 8,
+				barMinHeight:10,
 				barCategoryGap: '40%',
 				itemStyle: {
 					normal:{
@@ -145,12 +146,14 @@ this.WbstChart = this.WbstChart || {};
 						position: 'right',
 						offset: [0, -2],
 						textStyle:{
-							color:'#fff'
+							color:'#fff',
+							fontFamily:'DIN Medium'
 						}
 					},
 					emphasis: {
 						textStyle: {
-							color: '#fffe00'
+							color: '#fffe00',
+							fontFamily:'DIN Medium'
 						}
 					}
 				},
@@ -167,7 +170,7 @@ this.WbstChart = this.WbstChart || {};
 		$('a').remove('.chart4news');
 		if (data.length) {
 			for (var i = 0; i < data.length; i++) {
-				strHtml += '<a class="chart4news anew' + i + '" eventid="' + (data[i].eventId||data[i].eventId.id) + '">' + data[i].name + '</a>'
+				strHtml += '<a class="chart4news anew' + i + '" eventid="' + (data[i].eventId||data[i].id||0) + '">' + data[i].name + '</a>'
 			}
 			this.$parent.append(strHtml);
 		}

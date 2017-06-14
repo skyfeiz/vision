@@ -48,8 +48,8 @@
     width: 19.8%;
     position: absolute;
     left: 0.7rem;
-    top: 16.3%;
-    height: 22.2%;
+    top: 15.926%;
+    height: 21%;
     z-index: 300;
 }
 /*------------------- p3chart2 -------------------------*/
@@ -169,6 +169,7 @@
     position: relative;
 }
 .p3chart3 .element-content p{
+    text-indent: 2em;
     padding-top: 0.2rem;
     width: 3.3rem;
     font-size: 0.14rem;
@@ -335,14 +336,30 @@
     height: 100%;
     display: none;
 }
+#waitbox{
+    position: absolute;
+    width: 450px;
+    height: 160px;
+    left: 50%;
+    top: 50%;
+    margin-top: -80px;
+    margin-left: -120px;
+    background-color: rgba(0,0,0,0.75);
+}
+#waitinfo{
+    color: #fff;
+    font-size: 16px;
+    padding-top: 25px;
+    line-height: 28px;
+    text-align: center;
+}
 #loadSprite{
     position: absolute;
-    top: 50%;
     left: 50%;
-    width: 128px;
-    height: 128px;
-    margin-top: -64px;
-    margin-left: -64px;
+    top: 76px;
+    width: 64px;
+    height: 64px;
+    margin-left: -32px;
     overflow: hidden;
     background: url("../images/Preloader_2.png") no-repeat 0px 0px;
 }
@@ -378,6 +395,7 @@
     text-align: center;
     background-color: rgba(27,57,119,0.9);
     position: relative;
+    font-family: 'DIN Medium';
 }
 /*----------------------------------------dashboard Panel----------------------------------------------*/
 #left1{
@@ -406,6 +424,7 @@ p.bluenum{
 }
 p.bluelight.bluenum{
     color: #fff;
+    font-family: 'DIN Medium';
 }
 .left1text{
     width: 52%;
@@ -475,10 +494,14 @@ p.bluelight.bluenum{
 .left1textitem .totalnum{
     font-size: 0.14rem;
 }
+.left1textitem .totalnum span{
+    display: inline-block;
+    vertical-align: middle;
+}
 .left1textitem .totalnum .bluenum{
     font-size: 0.24rem;
     color: #00c6ff;
-    margin-left: 0.06rem;
+    font-family: 'DIN Medium';
 }
 .left1textitem .shiftNum .bluenum:hover{
     color: #fff;
@@ -515,9 +538,9 @@ p.bluelight.bluenum{
 .p8chart1{
     position: absolute;
     left: 4.5rem;
-    top: 14.63%;
+    top: 12.04%;
     width: 10.1rem;
-    height: 80.93%
+    height: 84%
 }
 #p8chart1{
     width: 100%;
@@ -535,10 +558,14 @@ p.bluelight.bluenum{
     color: #84d5ff;
     font-size: 12px;
     line-height: 14px;
+    font-family: 'DIN Medium';
 }
 
 .rightkeybox{
     position: absolute;
+    left: -100px;
+    top: -100px;
+    z-index: 401;
     background-color: #000;
     color: #fff;
     font-size: 16px;
@@ -546,6 +573,7 @@ p.bluelight.bluenum{
 .rightkeybox li{
     text-align: center;
     padding: 0 10px;
+    cursor: pointer;
 }
 .rightkeybox li:hover{
     color:#fffc00;
@@ -595,7 +623,7 @@ p.bluelight.bluenum{
 }
 .commentWeibo .p_title{
     font-size: 14px;
-    max-width: 0.78rem;
+    max-width: 2.2rem;
     text-overflow:ellipsis;
     overflow: hidden;
     white-space: nowrap;
@@ -608,6 +636,7 @@ p.bluelight.bluenum{
     white-space: nowrap;
     font-size: 0.14rem;
     line-height: 1.46;
+    cursor: pointer;
 }
 .commentWeibo .p_titleBox{
     font-size: 0;
@@ -615,9 +644,16 @@ p.bluelight.bluenum{
     line-height: 0.28rem;
     padding-top: 0.12rem;
 }
+.commentWeibo .p_titleBox.w056{
+    font-size: 0;
+    height: 0.56rem;
+    line-height: 0.28rem;
+    padding-top: 0.12rem;
+}
 .commentWeibo .p_info{
-    height: 12px;
     font-size: 12px;
+    height: 0.28rem;
+    line-height: 0.28rem;
 }
 .commentWeibo .p_infoname{
     color: #1389dc;
@@ -626,6 +662,7 @@ p.bluelight.bluenum{
     border-left: 1px solid #034462;
 }
 .commentWeibo .p_infovalue{
+    font-family: Arial;
     padding-right: 0.05rem;
 }
 .commentWeibo .p_infoname:first-child{
@@ -656,13 +693,16 @@ p.bluelight.bluenum{
     top:70.47%;
     width: 3.8rem;
     height: 23.32%;
-    overflow: hidden;
 }
 .wbreport_com2 .p_time{
+    font-family: Arial;
     font-size: 12px;
 }
 .wbreport_com2 .p_content{
     font-size: 0.14rem;
     line-height: 1.46;
-    padding-bottom: 0.1rem;
+}
+
+.wbreport_com1 .element-title-div,.wbreport_com2 .element-title-div{
+    height: 15.2%;
 }

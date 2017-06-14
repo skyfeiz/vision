@@ -1,6 +1,6 @@
 this.EE = this.EE || {};
 (function(win, doc) {
-	var hostUrl = "http://" + win.location.host + "/eems/sys/jsp/eyes/";
+	var hostUrl = "http://" + win.location.host + "/eems/eyes/";
 	// var hostUrl = "http://" + win.location.host + "/vision/eyes/";
 
 	var P1Map = function() {
@@ -247,8 +247,8 @@ this.EE = this.EE || {};
 			var arr = _this.endDate.split('-');
 			var sDate, eDate;
 			if (arr.length == 2) {
-				var oDate = new Date();
-				oDate.setMonth(arr[1]+1,-1);
+				var oDate = new Date(_this.endDate);
+				oDate.setMonth(arr[1],0);
 				sDate = _this.startDate + '-01';
 				eDate = _this.endDate + '-'+ (oDate.getDate());
 			} else {

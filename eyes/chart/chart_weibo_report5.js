@@ -89,7 +89,7 @@ this.WbstChart = this.WbstChart || {};
 			item.value = this._dataProvider[i][this._config.valueField]/this.numScale;
 			data.push(item);
 			titleData.push(item.name);
-			dataShadow.push(maxNum*1.1/this.numScale);
+			dataShadow.push(Math.round(maxNum*1.1/this.numScale));
 		}
 		
 		var xAxis = {
@@ -137,7 +137,7 @@ this.WbstChart = this.WbstChart || {};
 				type: 'value',
 				name: '单位/' + ['条', '千', '万', '十万', '百万', '千万', '亿', '十亿', '百亿', '千亿', '万亿'][numLen] + ' ',
 				nameGap: 8,
-				max:maxNum*1.1/this.numScale,
+				max:Math.round(maxNum*1.1/this.numScale),
 				splitNumber: 5,
 				nameTextStyle: {
 					color: '#3fc0ff'
@@ -149,7 +149,8 @@ this.WbstChart = this.WbstChart || {};
 				},
 				axisLabel: {
 					textStyle: {
-						color: '#3fc0ff'
+						color: '#3fc0ff',
+						fontFamily:'DIN Medium'
 					}
 				},
 				axisTick: {
@@ -173,7 +174,7 @@ this.WbstChart = this.WbstChart || {};
 	            animation:false
 			},{
 				type: 'bar',
-				barWidth:14,
+				barWidth:12,
 				barMinHeight:10,
 				name: '来源媒体',
 				data: data,

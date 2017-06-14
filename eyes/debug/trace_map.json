@@ -1,0 +1,87 @@
+{
+    "success": true,
+    "isBigScreen": false,
+    "data": [
+        {
+            "seriesTitle": "领导绿迹",
+            "startName": "上海",
+            "startNum": 20,
+            "startCoor": [31.2891,121.4648],
+            "endName": "北京",
+            "endNum": 50,
+            "endCoor": [40.2539,116.4551]
+        },{
+            "seriesTitle": "领导绿迹",
+            "startName": "丹东",
+            "startNum": 10,
+            "startCoor": [40.4242,124.541],
+            "endName": "北京",
+            "endNum": 50,
+            "endCoor": [40.2539,116.4551]
+        },{
+            "seriesTitle": "领导绿迹",
+            "startName": "保定",
+            "startNum": 12,
+            "startCoor": [39.0948,115.0488],
+            "endName": "北京",
+            "endNum": 50,
+            "endCoor": [40.2539,116.4551]
+        },{
+            "seriesTitle": "领导绿迹",
+            "startName": "南昌",
+            "startNum": 10,
+            "startCoor": [28.6633,116.0046],
+            "endName": "北京",
+            "endNum": 50,
+            "endCoor": [40.2539,116.4551]
+        },{
+            "seriesTitle": "领导绿迹",
+            "startName": "厦门",
+            "startNum": 40,
+            "startCoor": [24.6478,118.1689],
+            "endName": "北京",
+            "endNum": 50,
+            "endCoor": [40.2539,116.4551]
+        },{
+            "seriesTitle": "领导绿迹",
+            "startName": "哈尔滨",
+            "startNum": 23,
+            "startCoor": [45.368,127.9688],
+            "endName": "北京",
+            "endNum": 50,
+            "endCoor": [40.2539,116.4551]
+        },{
+            "seriesTitle": "领导绿迹",
+            "startName": "延安",
+            "startNum": 31,
+            "startCoor": [36.4252,109.1052],
+            "endName": "北京",
+            "endNum": 50,
+            "endCoor": [40.2539,116.4551]
+        },{
+            "seriesTitle": "领导绿迹",
+            "startName": "成都",
+            "startNum": 14,
+            "startCoor": [30.7617,103.9526],
+            "endName": "北京",
+            "endNum": 50,
+            "endCoor": [40.2539,116.4551]
+        },{
+            "seriesTitle": "领导绿迹",
+            "startName": "湘潭",
+            "startNum": 8,
+            "startCoor": [27.7075,112.5439],
+            "endName": "北京",
+            "endNum": 50,
+            "endCoor": [40.2539,116.4551]
+        },{
+            "seriesTitle": "领导绿迹",
+            "startName": "西宁",
+            "startNum": 10,
+            "startCoor": [36.8207,101.4038],
+            "endName": "北京",
+            "endNum": 50,
+            "endCoor": [40.2539,116.4551]
+        }
+    ]
+}

@@ -1,6 +1,6 @@
 this.EE = this.EE || {};
 (function(win, doc) {
-	var hostUrl = "http://" + win.location.host + "/eems/sys/jsp/eyes/"; 
+	var hostUrl = "http://" + win.location.host + "/eems/eyes/"; 
 	var P4Chart = function() {
 		this.c = new EE.Controller();
 

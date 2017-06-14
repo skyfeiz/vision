@@ -2,63 +2,113 @@ this.EE = this.EE || {};
 (function(win) {
 	var Controller = function() {
 		var baseUrl = ""; //	请求域名头部
-		var hostUrl = "http://" + win.location.host + "/eems/sys/jsp/eyes/"; //	主机地址
+		var hostUrl = "http://" + win.location.host + "/eems/eyes/"; //	主机地址
 
-		var homeUrl =  "http://" + win.location.host + "/eems";
+		// var homeUrl =  "http://" + win.location.host + "/eems";  //接口的地址
 
 		var storage = win.localStorage; //	离线缓存登录状态
 		//	接口列表
 		var api = {
-			"getNowTime":homeUrl + "/publicOpinionMap/getSystime.action",
-			//	============== p1 =================================
-			"login": homeUrl + "/rbac/foregroundLogin.action",
-			"logout": "",
-			"chartConfig": "../eyes/asset/config.json",
-			"initPage": homeUrl + "/publicOpinionMap/regionalInformation.action",
-			"left1": homeUrl + "/publicOpinionMap/currentView.action",
-			"left2": homeUrl + "/publicOpinionMap/rankingEventsOne.action",
-			"left3": homeUrl + "/publicOpinionMap/rankingEventsSix.action",
-			"p1_mapData": homeUrl + "/publicOpinionMap/mapToData.action",
-			"initHeadlines": homeUrl + "/publicOpinionMap/rankingEventsPretreatment.action",
+			// "getNowTime":homeUrl + "/publicOpinionMap/getSystime.action", //请求系统时间接口
+			"getNowTime": "../eyes/debug/getSystime.txt", //请求系统时间接口
 
-			"chart4": homeUrl + "/opinionStudy/getHottestEvent.action", //舆情头条
-			"chart5": homeUrl + "/opinionStudy/getEventProvinceRank.action", //舆情省份排名
-			"chart6": homeUrl + "/opinionStudy/getPublicOpinionLine.action", //舆情走势
-			"chart7": homeUrl + "/opinionStudy/getMediaTypeSource.action", //来源媒体分布
-			"chart8": homeUrl + "/opinionStudy/getHeadline.action", //头条正中负面
-			"chart9": homeUrl + "/opinionStudy/getKeywordsCloud.action", //关键词
+			/*============== p1 舆情地图=================================*/
 
-			//=================== p3 =====================================
-			"p3_mapData": homeUrl + "/researchReport/loadMap.action", 	
-			"eventBrief_p3": homeUrl + "/researchReport/eventInfo.action", 		// 雾霾详情
-			"mediaRange_p3": homeUrl + "/researchReport/mediaHeat.action",			// 最热事件排行
-			"worldCloud_p3": homeUrl + "/researchReport/keywords.action",		// 词云
-			"opinions_p3": homeUrl + "/researchReport/emotionDistribution.action",			// 情感类型
-			"opinionsList_p3": homeUrl + "/researchReport/articleEmotion.action",	//	情感事件列表
-			"eventCurve_p3": homeUrl + "/researchReport/eventHeatLine.action",			//	30天事件曲线
+			// "login": homeUrl + "/rbac/foregroundLogin.action", 		// 登录接口
+			"login": "../eyes/debug/login1.json", 		// 登录接口
+			"logout": "",			
+			"chartConfig": "../eyes/asset/config.json", 		// 图表配置接口 为内接口。
+			// "initPage": homeUrl + "/publicOpinionMap/regionalInformation.action", 	//获取权限接口
+			"initPage": "../eyes/debug/initPage.json",	//获取权限接口
+			// "left1": homeUrl + "/publicOpinionMap/currentView.action", 		// 舆情仪表盘 接口
+			"left1": "../eyes/debug/left1.json", 		// 舆情仪表盘 接口
+			// "left2": homeUrl + "/publicOpinionMap/rankingEventsOne.action", 	// 舆情头条接口
+			"left2": "../eyes/debug/left2.json", 	//舆情头条接口
+			// "left3": homeUrl + "/publicOpinionMap/rankingEventsSix.action", 	// 来源网站
+			"left3": "../eyes/debug/left3.json", 	// 来源网站
+			// "p1_mapData": homeUrl + "/publicOpinionMap/mapToData.action", 	//地图数据
+			"p1_mapData": "../eyes/debug/map.json", 			//地图数据
+			// "initHeadlines": homeUrl + "/publicOpinionMap/rankingEventsPretreatment.action", 	//获得 头条的请求参数 的接口
+			"initHeadlines": "../eyes/debug/initHeadlines.json", 	//获得 头条的请求参数 的接口
 
-			"warninglevel": homeUrl + "/crisisEarlyWarning/warningLevel.action",
-			"p4chart1": homeUrl + "/crisisEarlyWarning/warningHistogram.action",
-			"p4chart2": homeUrl + "/crisisEarlyWarning/warningChart.action",
-			"p4list": homeUrl + "/crisisEarlyWarning/warningList.action",
+			/*=================== p2 舆情分析=====================================*/
 
-			"detailsList": homeUrl + "/detailsListSolr/searchDetails.action",
-			"wordsData": homeUrl + "/detailsList/getSubjectName.action",
-			"areaData": homeUrl + "/area/getAreaByAreaNo.action",
-			// "detailsList": "../eyes/debug/detailsList.json",
-			// "wordsData": "../eyes/debug/wordsData.json",
+			// "chart4": homeUrl + "/opinionStudy/getHottestEvent.action", //舆情头条
+			"chart4": "../eyes/debug/chart4.json", //舆情头条
+			// "chart5": homeUrl + "/opinionStudy/getEventProvinceRank.action", //舆情省份排名
+			// "chart5": homeUrl + "/opinionStudy/getEventProvinceRank.action", //舆情省份排名
+			"chart5": "../eyes/debug/chart5.json", //舆情省份排名
+			// "chart6": homeUrl + "/opinionStudy/getPublicOpinionLine.action", //舆情走势
+			"chart6": "../eyes/debug/chart6.json", //舆情走势
+			// "chart7": homeUrl + "/opinionStudy/getMediaTypeSource.action", //来源媒体分布
+			"chart7": "../eyes/debug/chart7.json", //来源媒体分布
+			// "chart8": homeUrl + "/opinionStudy/getHeadline.action", //头条正中负面
+			"chart8": "../eyes/debug/chart8.json", //头条正中负面
+			// "chart9": homeUrl + "/opinionStudy/getKeywordsCloud.action", //关键词
+			"chart9": "../eyes/debug/chart9.json", //关键词
 
-			"tracesChart1": homeUrl + "/leaderSpecialColumn/leaderInfo.action",
-			"tracesLeft1": homeUrl + "/leaderSpecialColumn/leaderEventEmotion.action",
-			"tracesEvent": homeUrl + "/leaderSpecialColumn/getArticleList.action",
-			"chartP6": homeUrl + "/leaderSpecialColumn/leaderMap.action",
+			/*=================== p3 舆情报告=====================================*/
 
-			"micro4": homeUrl + "/microblogAnalysis/getOpinionHeadline.action",		//舆情头条
-			"micro5": homeUrl + "/microblogAnalysis/getMediaTypeSource.action",		//舆情省份排名
-			"micro6": homeUrl + "/microblogAnalysis/getPublicOpinionLine.action",		//舆情走势
-			"micro7": homeUrl + "/microblogAnalysis/getHotUserReply.action",		//来源媒体分布
-			"micro8": homeUrl + "/microblogAnalysis/getHeadline.action",		//头条正中负面
-			"micro9": homeUrl + "/microblogAnalysis/getReplyUser.action",		//关键词
+			// "p3_mapData": homeUrl + "/researchReport/loadMap.action", 		//地图
+			"p3_mapData": "../eyes/debug/p3_map.json", 		//地图
+			// "eventCurve_p3": homeUrl + "/researchReport/eventHeatLine.action",			//	30天事件曲线
+			"eventCurve_p3": "../eyes/debug/p3_1.json",			//	30天事件曲线
+			// "opinions_p3": homeUrl + "/researchReport/emotionDistribution.action",			// 情感类型
+			"opinions_p3": "../eyes/debug/p3_2.json",			// 情感类型
+			// "opinionsList_p3": homeUrl + "/researchReport/articleEmotion.action",	//	情感事件列表
+			"opinionsList_p3": "../eyes/debug/p3_2List.json",	//	情感事件列表
+			// "eventBrief_p3": homeUrl + "/researchReport/eventInfo.action", 		// 事件详情
+			"eventBrief_p3": "../eyes/debug/p3_3.json", 		// 事件详情
+			// "mediaRange_p3": homeUrl + "/researchReport/mediaHeat.action",			// 最热事件排行
+			"mediaRange_p3": "../eyes/debug/p3_4.json",			// 最热事件排行
+			// "worldCloud_p3": homeUrl + "/researchReport/keywords.action",		// 词云
+			"worldCloud_p3": "../eyes/debug/p3_5.json",		// 词云
+
+			/*=================== p4 危机预警=====================================*/
+
+			// "warninglevel": homeUrl + "/crisisEarlyWarning/warningLevel.action",  // 危机级别数据
+			"warninglevel": "../eyes/debug/warninglevel.json",  // 危机级别数据
+			// "p4chart1": homeUrl + "/crisisEarlyWarning/warningHistogram.action",
+			"p4chart1": "../eyes/debug/p4chart1.json",
+			// "p4chart2": homeUrl + "/crisisEarlyWarning/warningChart.action",
+			"p4chart2": "../eyes/debug/p4chart2.json",
+			// "p4list": homeUrl + "/crisisEarlyWarning/warningList.action", 	//事件列表
+			"p4list": "../eyes/debug/p4list.json", 	//事件列表
+
+			/*=================== details 详情页=====================================*/
+
+			// "detailsList": homeUrl + "/detailsListSolr/searchDetails.action", 	//搜索列表
+			"detailsList": "../eyes/debug/detailsList.json", 	// 搜索列表
+			// "wordsData": homeUrl + "/detailsList/getSubjectName.action", 	//关键词
+			"wordsData": "../eyes/debug/wordsData.json", 	//关键词
+			// "areaData": homeUrl + "/area/getAreaByAreaNo.action",	//地区
+			"areaData": "../eyes/debug/areaData.json",	//地区
+
+			/*=================== trace 领导绿迹=====================================*/
+
+			// "tracesChart1": homeUrl + "/leaderSpecialColumn/leaderInfo.action", 	// 领导信息
+			"tracesChart1": "../eyes/debug/tracesInfo.json", 	// 领导信息
+			// "tracesLeft1": homeUrl + "/leaderSpecialColumn/leaderEventEmotion.action", 	//正中负
+			"tracesLeft1": "../eyes/debug/tracesEmotion.json", 	//正中负
+			// "tracesEvent": homeUrl + "/leaderSpecialColumn/getArticleList.action", 		// 事件列表
+			"tracesEvent": "../eyes/debug/traces.json", 		// 事件列表
+			// "chartP6": homeUrl + "/leaderSpecialColumn/leaderMap.action",  //地图
+			"chartP6": "../eyes/debug/trace_map.json",  //地图
+
+			/*=================== micro 微眼观察 官方微博舆情分析=====================================*/
+
+			// "micro4": homeUrl + "/microblogAnalysis/getOpinionHeadline.action",		//舆情头条
+			"micro4": "../eyes/debug/micro4.json",		//舆情头条
+			// "micro5": homeUrl + "/microblogAnalysis/getMediaTypeSource.action",		//舆情省份排名
+			"micro5": "../eyes/debug/micro5.json",		//舆情省份排名
+			// "micro6": homeUrl + "/microblogAnalysis/getPublicOpinionLine.action",		//舆情走势
+			"micro6": "../eyes/debug/micro6.json",		//舆情走势
+			// "micro7": homeUrl + "/microblogAnalysis/getHotUserReply.action",		//热点用户评论
+			"micro7": "../eyes/debug/micro7.json",		//热点用户评论
+			// "micro8": homeUrl + "/microblogAnalysis/getHeadline.action",		//头条正中负面
+			"micro8": "../eyes/debug/micro8.json",		//头条正中负面
+			// "micro9": homeUrl + "/microblogAnalysis/getReplyUser.action",		//关键词
+			"micro9": "../eyes/debug/micro9.json",		//关键词
 
 			"p8chart1":"../eyes/debug/p8chart1.json",
 			"p8chart2":"../eyes/debug/p8chart2.json",
@@ -68,28 +118,36 @@ this.EE = this.EE || {};
 			"p8explain":"../eyes/debug/p8explain.json",
 			"worldCloud_p8": "debug/chart9.json",
 
-			"weibo4": homeUrl + "/sina/getSinaData.action",			//舆情头条
-			"weibo5": homeUrl + "/sina/getSinaData.action",			//转发地域分布
-			// "weibo5": "../eyes/debug/source.json",				//转发地域分布
-			// "weibo6": "../eyes/debug/chart6.json",				//舆情走势
-			"weibo6": homeUrl + "/sina/getSinaData.action",			//舆情走势
-			// "weibo7": "../eyes/debug/weibo7.json",				//转发微博详情
-			"weibo7": homeUrl + "/sina/getSinaData.action",			//转发微博详情
-			// "weibo8": "../eyes/debug/weibo8.json",				//头条正中负面
-			"weibo8": homeUrl + "/sina/getSinaData.action",			//头条正中负面
-			// "weibo9": "../eyes/debug/chart9.json",				//关键词
-			"weibo9": homeUrl + "/sina/getSinaData.action",			//关键词
+			/*=================== micro 微眼观察 微博泛舆情分析=====================================*/
 
-			"wbreport0":"../eyes/debug/wbreport0.json",
+			// "weibo4": homeUrl + "/sina/getSinaData.action",			//舆情头条
+			"weibo4": "../eyes/debug/weibo4.json",			//舆情头条
+			// "weibo5": homeUrl + "/sina/getSinaData.action",			//转发地域分布
+			"weibo5": "../eyes/debug/weibo5.json",				//转发地域分布
+			// "weibo6": homeUrl + "/sina/getSinaData.action",			//舆情走势
+			"weibo6": "../eyes/debug/weibo6.json",				//舆情走势
+			// "weibo7": homeUrl + "/sina/getSinaData.action",			//转发微博详情
+			"weibo7": "../eyes/debug/weibo7.json",			//转发微博详情
+			// "weibo8": homeUrl + "/sina/getSinaData.action",			//头条正中负面
+			"weibo8": "../eyes/debug/weibo8.json",			//头条正中负面
+			"weibo9": "../eyes/debug/weibo9.json",			//关键词
+
 			// "wbreport0": homeUrl + "/sina/getSinaData.action",
-			"wbreport1": homeUrl + "/sina/getSinaData.action",
-			"wbreport2":"../eyes/debug/wbreport2.json",
-			"wbreport3":"../eyes/debug/wbreport3.json",
-			"wbreport4":"../eyes/debug/p8explain.json",
-			"wbreport5":"../eyes/debug/source.json",
-			"wbreport6":"../eyes/debug/chart9.json"
+			"wbreport0":"../eyes/debug/wbreport0.json", 	// 蒲公英
+			// "wbreport1": homeUrl + "/sina/getSinaData.action", 	
+			"wbreport1":"../eyes/debug/wbreport1.json", 	//30天走势
+			// "wbreport2": homeUrl + "/sina/getSinaData.action",
+			"wbreport2":"../eyes/debug/wbreport2.json", 	//意见领袖
+			// "wbreport3": homeUrl + "/sina/getSinaData.action",
+			"wbreport3":"../eyes/debug/wbreport3.json", 	//转发微博详情
+			// "wbreport4": homeUrl + "/sina/getSinaData.action",
+			"wbreport4":"../eyes/debug/wbreport4.json", 	//事件详情
+			// "wbreport5": homeUrl + "/sina/getSinaData.action",
+			"wbreport5":"../eyes/debug/wbreport5.json", 	//转发地域分布
+			// "wbreport6": homeUrl + "/sina/getSinaData.action",
+			"wbreport6":"../eyes/debug/wbreport6.json" 		//关键词云
 		};
-
+		
 		//	异步请求方法
 		var requestAsk = function(opt) { 
 			$.ajax({
@@ -148,6 +206,17 @@ this.EE = this.EE || {};
 			fn(storage.region);
 		};
 
+		//设置cookie
+		function setCookie(name,value,iDay){
+			if (iDay){
+				var oDate = new Date();
+				oDate.setDate(oDate.getDate()+iDay);
+				document.cookie = name+'='+value+';path=/;expires='+oDate;
+			}else{
+				document.cookie = name+'='+value+';path=/';
+			}
+		}
+
 		this.ready = function(fn) {
 			if (fn instanceof Function)
 				isLogin(fn);
@@ -178,6 +247,8 @@ this.EE = this.EE || {};
 						} else {
 							storage.region = json.region;
 							storage.userName = json.userName;
+							// setCookie('microBlog','1');
+							setCookie('weChat','1');
 							win.location.href = hostUrl + 'p1.html';
 						}
 					}
@@ -301,7 +372,9 @@ this.EE = this.EE || {};
 				data: data,
 				callback: function(json) {
 					if (callback instanceof Function) {
-						var json = eval('('+json+')');
+						if((typeof json) != 'object'){
+							var json = eval('('+json+')');
+						}
 						callback(json);
 					}
 				}
@@ -313,8 +386,10 @@ this.EE = this.EE || {};
 				url: api.chart5,
 				data: data,
 				callback: function(json) {
-					var json = eval('('+json+')');
 					if (callback instanceof Function) {
+						if((typeof json) != 'object'){
+							var json = eval('('+json+')');
+						}
 						callback(json);
 					}
 				}
@@ -327,7 +402,9 @@ this.EE = this.EE || {};
 				data: data,
 				callback: function(json) {
 					if (callback instanceof Function) {
-						var json = eval('('+json+')');
+						if((typeof json) != 'object'){
+							var json = eval('('+json+')');
+						}
 						callback(json);
 					}
 				}
@@ -340,7 +417,9 @@ this.EE = this.EE || {};
 				data: data,
 				callback: function(json) {
 					if (callback instanceof Function) {
-						var json = eval('('+json+')');
+						if((typeof json) != 'object'){
+							var json = eval('('+json+')');
+						}
 						callback(json);
 					}
 				}
@@ -353,7 +432,9 @@ this.EE = this.EE || {};
 				data: data,
 				callback: function(json) {
 					if (callback instanceof Function) {
-						var json = eval('('+json+')');
+						if((typeof json) != 'object'){
+							var json = eval('('+json+')');
+						}
 						callback(json);
 					}
 				}
@@ -366,7 +447,9 @@ this.EE = this.EE || {};
 				data: data,
 				callback: function(json) {
 					if (callback instanceof Function) {
-						var json = eval('('+json+')');
+						if((typeof json) != 'object'){
+							var json = eval('('+json+')');
+						}
 						callback(json);
 					}
 				}
@@ -623,7 +706,9 @@ this.EE = this.EE || {};
 				data: data,
 				callback: function(json) {
 					if (callback instanceof Function) {
-						var json = eval('('+json+')');
+						if((typeof json) != 'object'){
+							var json = eval('('+json+')');
+						}
 						callback(json);
 					}
 				}
@@ -636,7 +721,9 @@ this.EE = this.EE || {};
 				data: data,
 				callback: function(json) {
 					if (callback instanceof Function) {
-						var json = eval('('+json+')');
+						if((typeof json) != 'object'){
+							var json = eval('('+json+')');
+						}
 						callback(json);
 					}
 				}
@@ -649,7 +736,9 @@ this.EE = this.EE || {};
 				data: data,
 				callback: function(json) {
 					if (callback instanceof Function) {
-						var json = eval('('+json+')');
+						if((typeof json) != 'object'){
+							var json = eval('('+json+')');
+						}
 						callback(json);
 					}
 				}
@@ -662,7 +751,9 @@ this.EE = this.EE || {};
 				data: data,
 				callback: function(json) {
 					if (callback instanceof Function) {
-						var json = eval('('+json+')');
+						if((typeof json) != 'object'){
+							var json = eval('('+json+')');
+						}
 						callback(json);
 					}
 				}
@@ -675,7 +766,9 @@ this.EE = this.EE || {};
 				data: data,
 				callback: function(json) {
 					if (callback instanceof Function) {
-						var json = eval('('+json+')');
+						if((typeof json) != 'object'){
+							var json = eval('('+json+')');
+						}
 						callback(json);
 					}
 				}
@@ -688,7 +781,9 @@ this.EE = this.EE || {};
 				data: data,
 				callback: function(json) {
 					if (callback instanceof Function) {
-						var json = eval('('+json+')');
+						if((typeof json) != 'object'){
+							var json = eval('('+json+')');
+						}
 						callback(json);
 					}
 				}
@@ -789,7 +884,9 @@ this.EE = this.EE || {};
 				data: data,
 				callback: function(json) {
 					if (callback instanceof Function) {
-						var json = eval('('+json+')');
+						if((typeof json) != 'object'){
+							var json = eval('('+json+')');
+						}
 						callback(json);
 					}
 				}
@@ -909,9 +1006,10 @@ this.EE = this.EE || {};
 				data: data,
 				callback: function(json) {
 					if (callback instanceof Function) {
-						if (json.success) {
-							callback(json);
+						if((typeof json) != 'object'){
+							var json = eval('('+json+')');
 						}
+						callback(json);
 					}
 				}
 			});
@@ -923,9 +1021,10 @@ this.EE = this.EE || {};
 				data: data,
 				callback: function(json) {
 					if (callback instanceof Function) {
-						if (json.success) {
-							callback(json);
+						if((typeof json) != 'object'){
+							var json = eval('('+json+')');
 						}
+						callback(json);
 					}
 				}
 			});
@@ -937,9 +1036,10 @@ this.EE = this.EE || {};
 				data: data,
 				callback: function(json) {
 					if (callback instanceof Function) {
-						if (json.success) {
-							callback(json);
+						if((typeof json) != 'object'){
+							var json = eval('('+json+')');
 						}
+						callback(json);
 					}
 				}
 			});
@@ -951,9 +1051,10 @@ this.EE = this.EE || {};
 				data: data,
 				callback: function(json) {
 					if (callback instanceof Function) {
-						if (json.success) {
-							callback(json);
+						if((typeof json) != 'object'){
+							var json = eval('('+json+')');
 						}
+						callback(json);
 					}
 				}
 			});
@@ -965,9 +1066,10 @@ this.EE = this.EE || {};
 				data: data,
 				callback: function(json) {
 					if (callback instanceof Function) {
-						if (json.success) {
-							callback(json);
+						if((typeof json) != 'object'){
+							var json = eval('('+json+')');
 						}
+						callback(json);
 					}
 				}
 			});

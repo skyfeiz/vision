@@ -1,7 +1,7 @@
 this.EE = this.EE || {};
 (function(win, doc) {
-	var hostUrl = "http://" + win.location.host + "/eems/sys/jsp/eyes/";
-	// var hostUrl = "http://" + win.location.host + "/vision/eyes/";
+	var hostUrl = "http://" + win.location.host + "/eems/eyes/";
+	// var hostUrl = "http://" + win.location.host + "/eems/sys/jsp/eyes/"; 
 
 	var Weibo = function() {
 		this.c = new EE.Controller();
@@ -45,9 +45,7 @@ this.EE = this.EE || {};
 
 	p.init = function() {
 		var _this = this;
-		_this.t = new WbstChart.TimeLine({
-			start: '2008-08-08'
-		});
+		_this.t = new WbstChart.TimeLine('1900-08-08');
 		_this.t.silent = true;
 
 		_this.c.getChartConfig('', function(data) {
@@ -60,7 +58,8 @@ this.EE = this.EE || {};
 			_this.type = json.type;
 			_this.changeData();
 		};
-		$(document).trigger('mouseup');
+		// $(document).trigger('mouseup');
+		$('.timebtns').find('li').eq(1).trigger('click');
 	};
 
 	p.initDom = function() {
@@ -82,7 +81,7 @@ this.EE = this.EE || {};
 
 		_this._micro4.EventDispatcher.on('click', function(evt, item) {
 			// 需要的参数 事件id，视角，视角区域id，情感
-			win.location.href = encodeURI(hostUrl + 'weibo_report.html?eventId=' + item + '&emotion=' + _this.emotion);
+			win.location.href = encodeURI(hostUrl + 'weibo_report.html?index=' + item);
 
 		});
 
@@ -172,14 +171,13 @@ this.EE = this.EE || {};
 		_this.c.getWeibo8Data({
 			sina:'https://api-open-beta.51wyq.cn/dscar/api/environmental/sentimentDistribution'
 		}, function(result) {
-
+			
 			_this._mapKIdVChart['micro8'].setDataProvider(result.statList);
 		});
 
 		_this.c.getWeibo9Data({
 			sina:'https://api-open-beta.51wyq.cn/dscar/api/environmental/forwardUser'
 		}, function(result) {
-			console.log(result);
 			var data = [];
 			for (var i = 0; i < result.statList.length; i++) {
 				var json = {
@@ -204,7 +202,7 @@ this.EE = this.EE || {};
 			var data = [];
 			for (var i = 0; i < result.statList.length; i++) {
 				var json = {
-					eventId : i+1,
+					eventId : i,
 					name : result.statList[i].name,
 					num : result.statList[i].num
 				};	
@@ -267,7 +265,6 @@ this.EE = this.EE || {};
 		_this.c.getWeibo7Data({
 			sina:'https://api-open-beta.51wyq.cn/dscar/api/environmental/forwardDetail'
 		}, function(result) {
-			console.log(result);
 			var data = [];
 			for (var i = 0; i < result.icontentCommonNetList.length; i++) {
 				var json = {
@@ -315,12 +312,21 @@ this.EE = this.EE || {};
 	p.baseEvent = function() {
 		var _this = this;
 
+		var	isBlog = _this.getCookie('microBlog');
+		var	isWeChat = _this.getCookie('weChat');
+
+		if (!isBlog) {
+			_this.$medias.eq(0).addClass('btnsilent');
+		}
+		if (!isWeChat) {
+			_this.$medias.eq(1).addClass('btnsilent');
+		}
+
 		_this.$medias.click(function(){
 			// 重复点自己时不刷新
-			if ($(this).hasClass('active')) {return;}
-			_this.sourceType = $(this).index() + 1;
-			$(this).addClass('active').siblings().removeClass('active');
-			_this.changeData();
+			if ($(this).hasClass('active') || $(this).hasClass('btnsilent') ) {return;}
+			var href = $(this).attr('go');
+			win.location.href = href;
 		})
 
 	};
@@ -397,7 +403,17 @@ this.EE = this.EE || {};
 
 	p.n2d = function(n) {
 		return n < 10 ? '0' + n : '' + n;
-	}
+	};
+
+	p.getCookie = function(name){
+		var arr = document.cookie.split('; ');
+		for (var i = 0; i < arr.length; i++) {
+			arr2 = arr[i].split('=');
+			if (name==arr2[0]){
+				return arr2[1];
+			}
+		}
+	};
 
 	EE.Weibo = Weibo;
 })(window, document);

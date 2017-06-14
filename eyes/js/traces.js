@@ -1,6 +1,6 @@
 this.EE = this.EE || {};
 (function(win, doc) {
-    var hostUrl = "http://" + win.location.host + "/eems/sys/jsp/eyes/";
+    var hostUrl = "http://" + win.location.host + "/eems/eyes/";
     var Traces = function() {
         this.c = new EE.Controller();
 
@@ -84,7 +84,8 @@ this.EE = this.EE || {};
             ev.stopPropagation();
             var eventId = $(this).attr('eventId');
             var eventName = $(this).attr('eventName');
-            win.location.href = encodeURI(hostUrl + "details.html?eventId=" + eventId + "&eventName="+eventName);
+            var timeObj = _this.handleTime(_this.date);
+            win.location.href = encodeURI(hostUrl + "details.html?eventId=" + eventId + "&eventName="+eventName+'&startDate='+timeObj.sDate+'&endDate='+timeObj.eDate);
         })
         _this.$op.mouseenter(function(){
             _this.chartP6.bPause = true;
@@ -99,7 +100,7 @@ this.EE = this.EE || {};
             '<img src="/eems/' + json.imge + '" alt="" />' +
             '<span class="triangle"></span>' +
             '</div>' +
-            '<p class="leadermsg">' + json.desc + '</p>';
+            '<p class="leadermsg">' + (json.desc || '') + '</p>';
         this.$leaderinfo.html(strHtml);
     };
 
@@ -198,6 +199,22 @@ this.EE = this.EE || {};
             }
             _this.hideToolTip();
         });
+    };
+
+    // 处理时间， 传入一个时间得到时间的范围 2016 ----->2016-01-01~2016-12-31;   2016-08------>2016-08-01~2016-08-31
+    p.handleTime = function(time){
+        var arr = time.split('-');
+        var sDate,eDate;
+        if (arr.length == 1) {
+            sDate = time+'-01'+'-01';
+            eDate = time+'-12'+'-31';
+        }else if (arr.length == 2) {
+            sDate = time+'-01';
+            var oDate = new Date(time);
+            oDate.setMonth(arr[1],0);
+            eDate = time+'-'+oDate.getDate();
+        }
+        return {sDate:sDate,eDate:eDate};
     };
 
     p.showToolTip = function(text, x, y) {

@@ -150,6 +150,10 @@ this.WbstChart = this.WbstChart || {};
 		if (this._config == null || this._dataProvider == null) {
 			return;
 		}
+		console.log(this._dataProvider);
+		this._dataProvider = this._dataProvider.sort(function(n1,n2){
+			return n2.num - n1.num
+		});
 		var data = [];
 		for (var i = 0; i < 5; i++) {
 			data.push({
@@ -161,6 +165,8 @@ this.WbstChart = this.WbstChart || {};
 		data = data.sort(function(n1, n2) {
 			return n1.value - n2.value
 		});
+
+		console.log(data);
 
 		this.data = data;
 
@@ -208,11 +214,15 @@ this.WbstChart = this.WbstChart || {};
 					normal: {
 						show: true,
 						position: 'right',
-						offset: [0, -2]
+						offset: [0, -2],
+						textStyle:{
+							fontFamily:'DIN Medium'
+						}
 					},
 					emphasis: {
 						textStyle: {
-							color: '#fffe00'
+							color: '#fffe00',
+							fontFamily:'DIN Medium'
 						}
 					}
 				},
