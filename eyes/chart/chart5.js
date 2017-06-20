@@ -168,7 +168,7 @@ this.WbstChart = this.WbstChart || {};
 				this.numData[item][i].name = listArr[i].name;
 				this.numData[item][i].value = listArr[i].value;
 
-				listArr[i].value = listArr[i].value/this.numScale;
+				listArr[i].value = (listArr[i].value/this.numScale).toFixed(2);
 			}
 			
 			series.push(json);
@@ -190,7 +190,7 @@ this.WbstChart = this.WbstChart || {};
 					if (param && param.length>3) {
 						return param.substring(0, 3) + '..';
 					}else{
-						return param || ''
+						return param || '';
 					}
 				}
 			},

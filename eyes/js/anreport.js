@@ -1,6 +1,5 @@
 this.EE = this.EE || {};
 (function(win, doc) {
-	var hostUrl = "http://" + win.location.host + "/eems/sys/jsp/eyes/"; 
 
 	var Anreport = function() {
 		this.c = new EE.Controller();
@@ -30,7 +29,7 @@ this.EE = this.EE || {};
 		$p3ulList.on('click','h6',function(ev){
 			var html = $(this).find('span').html();
 			ev.stopPropagation();
-			win.location.href = encodeURI(hostUrl+'details.html?type=3&eventName='+html+'&emotion='+_this.emotion);
+			win.location.href = encodeURI('details.html?type=3&eventName='+html+'&emotion='+_this.emotion);
 		})
 
 		$p3ulList.on('click','button',function(ev){
@@ -122,7 +121,7 @@ this.EE = this.EE || {};
 			_this.hideToolTip();
 		});
 		_this.p3Chart5.EventDispatcher.on('click', function(evt, item) {
-			win.location.href = encodeURI(hostUrl + 'details.html?type=4&eventName=' + item + '&emotion=' + _this.emotion);
+			win.location.href = encodeURI('details.html?type=4&eventName=' + item + '&emotion=' + _this.emotion);
 		});
 
 

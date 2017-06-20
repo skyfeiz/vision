@@ -168,6 +168,7 @@ this.EE = this.EE || {};
 			$.ajax({
 				type: "get",
 				url: "geojson/" + ID + ".json",
+				dataType:'json',
 				success: function(json) {
 					var range = getRange(json.features);
 					provinceMap = new EE.mapViewSwitch({

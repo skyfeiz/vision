@@ -1,586 +1,367 @@
 {
 	"success": true,
-	"data": [{
-		"seriesTitle": "全国",
-		"name": "北京",
-		"coordinate": [116.41667, 39.91667],
-		"num": 60380,
-		"numJust": "18483",
-		"numIn": "27523",
-		"numNegative": "14374",
-		"mapToDataSixsBean": [{
-			"name": "大气治理",
-			"num": "19772"
-		}, {
-			"name": "水治理",
-			"num": "6900"
-		}, {
-			"name": "固废修复",
-			"num": "21104"
-		}, {
-			"name": "环境修复",
-			"num": "11365"
-		}, {
-			"name": "人物",
-			"num": "166"
-		}, {
-			"name": "官方双微",
-			"num": "145"
-		}, {
-			"name": "环保类网站",
-			"num": "928"
-		}]
-	}, {
-		"seriesTitle": "全国",
-		"name": "上海",
-		"coordinate": [121.48, 31.22],
-		"num": 1000,
-		"numJust": "500",
-		"numIn": "200",
-		"numNegative": "300",
-		"mapToDataSixsBean": [{
-			"name": "大气污染",
-			"num": 1000
-		}, {
-			"name": "水体污染",
-			"num": 1000
-		}, {
-			"name": "土壤污染",
-			"num": 1000
-		}, {
-			"name": "核污染",
-			"num": 1000
-		}, {
-			"name": "固体废弃物",
-			"num": 1000
-		}]
-	}, {
-		"seriesTitle": "全国",
-		"name": "天津",
-		"coordinate": [117.20000, 39.13333],
-		"num": 1000,
-		"numJust": "300",
-		"numIn": "500",
-		"numNegative": "200",
-		"mapToDataSixsBean": [{
-			"name": "大气污染",
-			"num": 1000
-		}, {
-			"name": "水体污染",
-			"num": 1000
-		}, {
-			"name": "土壤污染",
-			"num": 1000
-		}, {
-			"name": "核污染",
-			"num": 1000
-		}, {
-			"name": "固体废弃物",
-			"num": 1000
-		}]
-	}, {
-		"seriesTitle": "全国",
-		"name": "广州",
-		"coordinate": [113.23333, 23.16667],
-		"num": 1000,
-		"numJust": "500",
-		"numIn": "200",
-		"numNegative": "300",
-		"mapToDataSixsBean": [{
-			"name": "大气污染",
-			"num": 1000
-		}, {
-			"name": "水体污染",
-			"num": 1000
-		}, {
-			"name": "土壤污染",
-			"num": 1000
-		}, {
-			"name": "核污染",
-			"num": 1000
-		}, {
-			"name": "固体废弃物",
-			"num": 1000
-		}]
-	}, {
-		"seriesTitle": "全国",
-		"name": "杭州",
-		"coordinate": [120.20000, 30.26667],
-		"num": 1000,
-		"numJust": "500",
-		"numIn": "200",
-		"numNegative": "300",
-		"mapToDataSixsBean": [{
-			"name": "大气污染",
-			"num": 1000
-		}, {
-			"name": "水体污染",
-			"num": 1000
-		}, {
-			"name": "土壤污染",
-			"num": 1000
-		}, {
-			"name": "核污染",
-			"num": 1000
-		}, {
-			"name": "固体废弃物",
-			"num": 1000
-		}]
-	}, {
-		"seriesTitle": "全国",
-		"name": "重庆",
-		"coordinate": [106.45000, 29.56667],
-		"num": 1000,
-		"numJust": "500",
-		"numIn": "200",
-		"numNegative": "300",
-		"mapToDataSixsBean": [{
-			"name": "大气污染",
-			"num": 1000
-		}, {
-			"name": "水体污染",
-			"num": 1000
-		}, {
-			"name": "土壤污染",
-			"num": 1000
-		}, {
-			"name": "核污染",
-			"num": 1000
-		}, {
-			"name": "固体废弃物",
-			"num": 1000
-		}]
-	}, {
-		"seriesTitle": "全国",
-		"name": "福州",
-		"coordinate": [119.30000, 26.08333],
-		"num": 1000,
-		"numJust": "500",
-		"numIn": "200",
-		"numNegative": "300",
-		"mapToDataSixsBean": [{
-			"name": "大气污染",
-			"num": 1000
-		}, {
-			"name": "水体污染",
-			"num": 1000
-		}, {
-			"name": "土壤污染",
-			"num": 1000
-		}, {
-			"name": "核污染",
-			"num": 1000
-		}, {
-			"name": "固体废弃物",
-			"num": 1000
-		}]
-	}, {
-		"seriesTitle": "全国",
-		"name": "兰州",
-		"coordinate": [103.73333, 36.03333],
-		"num": 1000,
-		"numJust": "200",
-		"numIn": "300",
-		"numNegative": "500",
-		"mapToDataSixsBean": [{
-			"name": "大气污染",
-			"num": 1000
-		}, {
-			"name": "水体污染",
-			"num": 1000
-		}, {
-			"name": "土壤污染",
-			"num": 1000
-		}, {
-			"name": "核污染",
-			"num": 1000
-		}, {
-			"name": "固体废弃物",
-			"num": 1000
-		}]
-	}, {
-		"seriesTitle": "全国",
-		"name": "贵阳",
-		"coordinate": [106.71667, 26.56667],
-		"num": 1000,
-		"numJust": "500",
-		"numIn": "200",
-		"numNegative": "300",
-		"mapToDataSixsBean": [{
-			"name": "大气污染",
-			"num": 1000
-		}, {
-			"name": "水体污染",
-			"num": 1000
-		}, {
-			"name": "土壤污染",
-			"num": 1000
-		}, {
-			"name": "核污染",
-			"num": 1000
-		}, {
-			"name": "固体废弃物",
-			"num": 1000
-		}]
-	}, {
-		"seriesTitle": "全国",
-		"name": "长沙",
-		"coordinate": [113.00000, 28.21667],
-		"num": 1000,
-		"numJust": "500",
-		"numIn": "200",
-		"numNegative": "300",
-		"mapToDataSixsBean": [{
-			"name": "大气污染",
-			"num": 1000
-		}, {
-			"name": "水体污染",
-			"num": 1000
-		}, {
-			"name": "土壤污染",
-			"num": 1000
-		}, {
-			"name": "核污染",
-			"num": 1000
-		}, {
-			"name": "固体废弃物",
-			"num": 1000
-		}]
-	}, {
-		"seriesTitle": "全国",
-		"name": "南京",
-		"coordinate": [118.78333, 32.05],
-		"num": 1000,
-		"numJust": "500",
-		"numIn": "200",
-		"numNegative": "300",
-		"mapToDataSixsBean": [{
-			"name": "大气污染",
-			"num": 1000
-		}, {
-			"name": "水体污染",
-			"num": 1000
-		}, {
-			"name": "土壤污染",
-			"num": 1000
-		}, {
-			"name": "核污染",
-			"num": 1000
-		}, {
-			"name": "固体废弃物",
-			"num": 1000
-		}]
-	}, {
-		"seriesTitle": "全国",
-		"name": "南昌",
-		"coordinate": [115.90000, 28.68333],
-		"num": 1000,
-		"numJust": "500",
-		"numIn": "200",
-		"numNegative": "300",
-		"mapToDataSixsBean": [{
-			"name": "大气污染",
-			"num": 1000
-		}, {
-			"name": "水体污染",
-			"num": 1000
-		}, {
-			"name": "土壤污染",
-			"num": 1000
-		}, {
-			"name": "核污染",
-			"num": 1000
-		}, {
-			"name": "固体废弃物",
-			"num": 1000
-		}]
-	}, {
-		"seriesTitle": "全国",
-		"name": "沈阳",
-		"coordinate": [123.38333, 41.8],
-		"num": 1000,
-		"numJust": "500",
-		"numIn": "200",
-		"numNegative": "300",
-		"mapToDataSixsBean": [{
-			"name": "大气污染",
-			"num": 1000
-		}, {
-			"name": "水体污染",
-			"num": 1000
-		}, {
-			"name": "土壤污染",
-			"num": 1000
-		}, {
-			"name": "核污染",
-			"num": 1000
-		}, {
-			"name": "固体废弃物",
-			"num": 1000
-		}]
-	}, {
-		"seriesTitle": "全国",
-		"name": "太原",
-		"coordinate": [112.53333, 37.86667],
-		"num": 1000,
-		"numJust": "500",
-		"numIn": "200",
-		"numNegative": "300",
-		"mapToDataSixsBean": [{
-			"name": "大气污染",
-			"num": 1000
-		}, {
-			"name": "水体污染",
-			"num": 1000
-		}, {
-			"name": "土壤污染",
-			"num": 1000
-		}, {
-			"name": "核污染",
-			"num": 1000
-		}, {
-			"name": "固体废弃物",
-			"num": 1000
-		}]
-	}, {
-		"seriesTitle": "全国",
-		"name": "成都",
-		"coordinate": [104.06667, 30.66667],
-		"num": 1000,
-		"numJust": "500",
-		"numIn": "200",
-		"numNegative": "300",
-		"mapToDataSixsBean": [{
-			"name": "大气污染",
-			"num": 1000
-		}, {
-			"name": "水体污染",
-			"num": 1000
-		}, {
-			"name": "土壤污染",
-			"num": 1000
-		}, {
-			"name": "核污染",
-			"num": 1000
-		}, {
-			"name": "固体废弃物",
-			"num": 1000
-		}]
-	}, {
-		"seriesTitle": "全国",
-		"name": "拉萨",
-		"coordinate": [91.00000, 29.6],
-		"num": 1000,
-		"numJust": "500",
-		"numIn": "200",
-		"numNegative": "300",
-		"mapToDataSixsBean": [{
-			"name": "大气污染",
-			"num": 1000
-		}, {
-			"name": "水体污染",
-			"num": 1000
-		}, {
-			"name": "土壤污染",
-			"num": 1000
-		}, {
-			"name": "核污染",
-			"num": 1000
-		}, {
-			"name": "固体废弃物",
-			"num": 1000
-		}]
-	}, {
-		"seriesTitle": "全国",
-		"name": "乌鲁木齐",
-		"coordinate": [87.68333, 43.76667],
-		"num": 1000,
-		"numJust": "500",
-		"numIn": "200",
-		"numNegative": "300",
-		"mapToDataSixsBean": [{
-			"name": "大气污染",
-			"num": 1000
-		}, {
-			"name": "水体污染",
-			"num": 1000
-		}, {
-			"name": "土壤污染",
-			"num": 1000
-		}, {
-			"name": "核污染",
-			"num": 1000
-		}, {
-			"name": "固体废弃物",
-			"num": 1000
-		}]
-	}, {
-		"seriesTitle": "全国",
-		"name": "昆明",
-		"coordinate": [102.73333, 25.05],
-		"num": 1000,
-		"numJust": "500",
-		"numIn": "200",
-		"numNegative": "300",
-		"mapToDataSixsBean": [{
-			"name": "大气污染",
-			"num": 1000
-		}, {
-			"name": "水体污染",
-			"num": 1000
-		}, {
-			"name": "土壤污染",
-			"num": 1000
-		}, {
-			"name": "核污染",
-			"num": 1000
-		}, {
-			"name": "固体废弃物",
-			"num": 1000
-		}]
-	}, {
-		"seriesTitle": "全国",
-		"name": "西安",
-		"coordinate": [108.95000, 34.26667],
-		"num": 1000,
-		"numJust": "500",
-		"numIn": "200",
-		"numNegative": "300",
-		"mapToDataSixsBean": [{
-			"name": "大气污染",
-			"num": 1000
-		}, {
-			"name": "水体污染",
-			"num": 1000
-		}, {
-			"name": "土壤污染",
-			"num": 1000
-		}, {
-			"name": "核污染",
-			"num": 1000
-		}, {
-			"name": "固体废弃物",
-			"num": 1000
-		}]
-	}, {
-		"seriesTitle": "全国",
-		"name": "哈尔滨",
-		"coordinate": [126.63333, 45.75],
-		"num": 1000,
-		"numJust": "500",
-		"numIn": "200",
-		"numNegative": "300",
-		"mapToDataSixsBean": [{
-			"name": "大气污染",
-			"num": 1000
-		}, {
-			"name": "水体污染",
-			"num": 1000
-		}, {
-			"name": "土壤污染",
-			"num": 1000
-		}, {
-			"name": "核污染",
-			"num": 1000
-		}, {
-			"name": "固体废弃物",
-			"num": 1000
-		}]
-	}, {
-		"seriesTitle": "全国",
-		"name": "长春",
-		"coordinate": [125.35000, 43.88333],
-		"num": 1000,
-		"numJust": "500",
-		"numIn": "200",
-		"numNegative": "300",
-		"mapToDataSixsBean": [{
-			"name": "大气污染",
-			"num": 1000
-		}, {
-			"name": "水体污染",
-			"num": 1000
-		}, {
-			"name": "土壤污染",
-			"num": 1000
-		}, {
-			"name": "核污染",
-			"num": 1000
-		}, {
-			"name": "固体废弃物",
-			"num": 1000
-		}]
-	}, {
-		"seriesTitle": "全国",
-		"name": "武汉",
-		"coordinate": [114.31667, 30.51667],
-		"num": 1000,
-		"numJust": "500",
-		"numIn": "200",
-		"numNegative": "300",
-		"mapToDataSixsBean": [{
-			"name": "大气污染",
-			"num": 1000
-		}, {
-			"name": "水体污染",
-			"num": 1000
-		}, {
-			"name": "土壤污染",
-			"num": 1000
-		}, {
-			"name": "核污染",
-			"num": 1000
-		}, {
-			"name": "固体废弃物",
-			"num": 1000
-		}]
-	}, {
-		"seriesTitle": "全国",
-		"name": "郑州",
-		"coordinate": [113.65000, 34.76667],
-		"num": 1000,
-		"numJust": "500",
-		"numIn": "200",
-		"numNegative": "300",
-		"mapToDataSixsBean": [{
-			"name": "大气污染",
-			"num": 1000
-		}, {
-			"name": "水体污染",
-			"num": 1000
-		}, {
-			"name": "土壤污染",
-			"num": 1000
-		}, {
-			"name": "核污染",
-			"num": 1000
-		}, {
-			"name": "固体废弃物",
-			"num": 1000
-		}]
-	}, {
-		"seriesTitle": "全国",
-		"name": "海口",
-		"coordinate": [110.35000, 20.01667],
-		"num": 1000,
-		"numJust": "500",
-		"numIn": "200",
-		"numNegative": "300",
-		"mapToDataSixsBean": [{
-			"name": "大气污染",
-			"num": 1000
-		}, {
-			"name": "水体污染",
-			"num": 1000
-		}, {
-			"name": "土壤污染",
-			"num": 1000
-		}, {
-			"name": "核污染",
-			"num": 1000
-		}, {
-			"name": "固体废弃物",
-			"num": 1000
-		}]
-	}]
+	"data": [
+		{
+			"seriesTitle": "全国",
+			"name": "北京",
+			"coordinate": [116.41667,39.91667],
+			"num": 390000,
+			"numJust":"500",
+			"numIn":"200",
+			"numNegative":"300",
+			"mapToDataSixsBean": [
+				{"name": "大气污染", "num": 1000},
+				{"name": "水体污染", "num": 1000},
+				{"name": "土壤污染", "num": 1000},
+				{"name": "核污染", "num": 1000},
+				{"name": "固体废弃物", "num": 1000}
+			]
+		},
+		{
+			"seriesTitle": "全国",
+			"name": "上海",
+			"coordinate": [121.48,31.22],
+			"num": 1000,
+			"numJust":"500",
+			"numIn":"200",
+			"numNegative":"300",
+			"mapToDataSixsBean": [
+				{"name": "大气污染", "num": 1000},
+				{"name": "水体污染", "num": 1000},
+				{"name": "土壤污染", "num": 1000},
+				{"name": "核污染", "num": 1000},
+				{"name": "固体废弃物", "num": 1000}
+			]
+		},{
+			"seriesTitle": "全国",
+			"name": "天津",
+			"coordinate": [117.20000,39.13333],
+			"num": 1000,
+			"numJust":"300",
+			"numIn":"500",
+			"numNegative":"200",
+			"mapToDataSixsBean": [
+				{"name": "大气污染", "num": 1000},
+				{"name": "水体污染", "num": 1000},
+				{"name": "土壤污染", "num": 1000},
+				{"name": "核污染", "num": 1000},
+				{"name": "固体废弃物", "num": 1000}
+			]
+		},{
+			"seriesTitle": "全国",
+			"name": "广州",
+			"coordinate": [113.23333,23.16667],
+			"num": 1000,
+			"numJust":"500",
+			"numIn":"200",
+			"numNegative":"300",
+			"mapToDataSixsBean": [
+				{"name": "大气污染", "num": 1000},
+				{"name": "水体污染", "num": 1000},
+				{"name": "土壤污染", "num": 1000},
+				{"name": "核污染", "num": 1000},
+				{"name": "固体废弃物", "num": 1000}
+			]
+		},{
+			"seriesTitle": "全国",
+			"name": "杭州",
+			"coordinate": [120.20000,30.26667],
+			"num": 1000,
+			"numJust":"500",
+			"numIn":"200",
+			"numNegative":"300",
+			"mapToDataSixsBean": [
+				{"name": "大气污染", "num": 1000},
+				{"name": "水体污染", "num": 1000},
+				{"name": "土壤污染", "num": 1000},
+				{"name": "核污染", "num": 1000},
+				{"name": "固体废弃物", "num": 1000}
+			]
+		},{
+			"seriesTitle": "全国",
+			"name": "重庆",
+			"coordinate": [106.45000,  29.56667],
+			"num": 1000,
+			"numJust":"500",
+			"numIn":"200",
+			"numNegative":"300",
+			"mapToDataSixsBean": [
+				{"name": "大气污染", "num": 1000},
+				{"name": "水体污染", "num": 1000},
+				{"name": "土壤污染", "num": 1000},
+				{"name": "核污染", "num": 1000},
+				{"name": "固体废弃物", "num": 1000}
+			]
+		},{
+			"seriesTitle": "全国",
+			"name": "福州",
+			"coordinate": [119.30000,26.08333],
+			"num": 1000,
+			"numJust":"500",
+			"numIn":"200",
+			"numNegative":"300",
+			"mapToDataSixsBean": [
+				{"name": "大气污染", "num": 1000},
+				{"name": "水体污染", "num": 1000},
+				{"name": "土壤污染", "num": 1000},
+				{"name": "核污染", "num": 1000},
+				{"name": "固体废弃物", "num": 1000}
+			]
+		},{
+			"seriesTitle": "全国",
+			"name": "兰州",
+			"coordinate": [103.73333,36.03333],
+			"num": 1000,
+			"numJust":"200",
+			"numIn":"300",
+			"numNegative":"500",
+			"mapToDataSixsBean": [
+				{"name": "大气污染", "num": 1000},
+				{"name": "水体污染", "num": 1000},
+				{"name": "土壤污染", "num": 1000},
+				{"name": "核污染", "num": 1000},
+				{"name": "固体废弃物", "num": 1000}
+			]
+		},{
+			"seriesTitle": "全国",
+			"name": "贵阳",
+			"coordinate": [106.71667,26.56667],
+			"num": 1000,
+			"numJust":"500",
+			"numIn":"200",
+			"numNegative":"300",
+			"mapToDataSixsBean": [
+				{"name": "大气污染", "num": 1000},
+				{"name": "水体污染", "num": 1000},
+				{"name": "土壤污染", "num": 1000},
+				{"name": "核污染", "num": 1000},
+				{"name": "固体废弃物", "num": 1000}
+			]
+		},{
+			"seriesTitle": "全国",
+			"name": "长沙",
+			"coordinate": [113.00000,28.21667],
+			"num": 1000,
+			"numJust":"500",
+			"numIn":"200",
+			"numNegative":"300",
+			"mapToDataSixsBean": [
+				{"name": "大气污染", "num": 1000},
+				{"name": "水体污染", "num": 1000},
+				{"name": "土壤污染", "num": 1000},
+				{"name": "核污染", "num": 1000},
+				{"name": "固体废弃物", "num": 1000}
+			]
+		},{
+			"seriesTitle": "全国",
+			"name": "南京",
+			"coordinate": [118.78333,32.05],
+			"num": 1000,
+			"numJust":"500",
+			"numIn":"200",
+			"numNegative":"300",
+			"mapToDataSixsBean": [
+				{"name": "大气污染", "num": 1000},
+				{"name": "水体污染", "num": 1000},
+				{"name": "土壤污染", "num": 1000},
+				{"name": "核污染", "num": 1000},
+				{"name": "固体废弃物", "num": 1000}
+			]
+		},{
+			"seriesTitle": "全国",
+			"name": "南昌",
+			"coordinate": [115.90000,28.68333],
+			"num": 1000,
+			"numJust":"500",
+			"numIn":"200",
+			"numNegative":"300",
+			"mapToDataSixsBean": [
+				{"name": "大气污染", "num": 1000},
+				{"name": "水体污染", "num": 1000},
+				{"name": "土壤污染", "num": 1000},
+				{"name": "核污染", "num": 1000},
+				{"name": "固体废弃物", "num": 1000}
+			]
+		},{
+			"seriesTitle": "全国",
+			"name": "沈阳",
+			"coordinate": [123.38333,41.8],
+			"num": 1000,
+			"numJust":"500",
+			"numIn":"200",
+			"numNegative":"300",
+			"mapToDataSixsBean": [
+				{"name": "大气污染", "num": 1000},
+				{"name": "水体污染", "num": 1000},
+				{"name": "土壤污染", "num": 1000},
+				{"name": "核污染", "num": 1000},
+				{"name": "固体废弃物", "num": 1000}
+			]
+		},{
+			"seriesTitle": "全国",
+			"name": "太原",
+			"coordinate": [112.53333,37.86667],
+			"num": 1000,
+			"numJust":"500",
+			"numIn":"200",
+			"numNegative":"300",
+			"mapToDataSixsBean": [
+				{"name": "大气污染", "num": 1000},
+				{"name": "水体污染", "num": 1000},
+				{"name": "土壤污染", "num": 1000},
+				{"name": "核污染", "num": 1000},
+				{"name": "固体废弃物", "num": 1000}
+			]
+		},{
+			"seriesTitle": "全国",
+			"name": "成都",
+			"coordinate": [104.06667,30.66667],
+			"num": 1000,
+			"numJust":"500",
+			"numIn":"200",
+			"numNegative":"300",
+			"mapToDataSixsBean": [
+				{"name": "大气污染", "num": 1000},
+				{"name": "水体污染", "num": 1000},
+				{"name": "土壤污染", "num": 1000},
+				{"name": "核污染", "num": 1000},
+				{"name": "固体废弃物", "num": 1000}
+			]
+		},{
+			"seriesTitle": "全国",
+			"name": "拉萨",
+			"coordinate": [91.00000,29.6],
+			"num": 1000,
+			"numJust":"500",
+			"numIn":"200",
+			"numNegative":"300",
+			"mapToDataSixsBean": [
+				{"name": "大气污染", "num": 1000},
+				{"name": "水体污染", "num": 1000},
+				{"name": "土壤污染", "num": 1000},
+				{"name": "核污染", "num": 1000},
+				{"name": "固体废弃物", "num": 1000}
+			]
+		},{
+			"seriesTitle": "全国",
+			"name": "乌鲁木齐",
+			"coordinate": [87.68333,43.76667],
+			"num": 1000,
+			"numJust":"500",
+			"numIn":"200",
+			"numNegative":"300",
+			"mapToDataSixsBean": [
+				{"name": "大气污染", "num": 1000},
+				{"name": "水体污染", "num": 1000},
+				{"name": "土壤污染", "num": 1000},
+				{"name": "核污染", "num": 1000},
+				{"name": "固体废弃物", "num": 1000}
+			]
+		},{
+			"seriesTitle": "全国",
+			"name": "昆明",
+			"coordinate": [102.73333,25.05],
+			"num": 1000,
+			"numJust":"500",
+			"numIn":"200",
+			"numNegative":"300",
+			"mapToDataSixsBean": [
+				{"name": "大气污染", "num": 1000},
+				{"name": "水体污染", "num": 1000},
+				{"name": "土壤污染", "num": 1000},
+				{"name": "核污染", "num": 1000},
+				{"name": "固体废弃物", "num": 1000}
+			]
+		},{
+			"seriesTitle": "全国",
+			"name": "西安",
+			"coordinate": [108.95000,34.26667],
+			"num": 1000,
+			"numJust":"500",
+			"numIn":"200",
+			"numNegative":"300",
+			"mapToDataSixsBean": [
+				{"name": "大气污染", "num": 1000},
+				{"name": "水体污染", "num": 1000},
+				{"name": "土壤污染", "num": 1000},
+				{"name": "核污染", "num": 1000},
+				{"name": "固体废弃物", "num": 1000}
+			]
+		},{
+			"seriesTitle": "全国",
+			"name": "哈尔滨",
+			"coordinate": [126.63333,45.75],
+			"num": 1000,
+			"numJust":"500",
+			"numIn":"200",
+			"numNegative":"300",
+			"mapToDataSixsBean": [
+				{"name": "大气污染", "num": 1000},
+				{"name": "水体污染", "num": 1000},
+				{"name": "土壤污染", "num": 1000},
+				{"name": "核污染", "num": 1000},
+				{"name": "固体废弃物", "num": 1000}
+			]
+		},{
+			"seriesTitle": "全国",
+			"name": "长春",
+			"coordinate": [125.35000,43.88333],
+			"num": 1000,
+			"numJust":"500",
+			"numIn":"200",
+			"numNegative":"300",
+			"mapToDataSixsBean": [
+				{"name": "大气污染", "num": 1000},
+				{"name": "水体污染", "num": 1000},
+				{"name": "土壤污染", "num": 1000},
+				{"name": "核污染", "num": 1000},
+				{"name": "固体废弃物", "num": 1000}
+			]
+		},{
+			"seriesTitle": "全国",
+			"name": "武汉",
+			"coordinate": [114.31667,30.51667],
+			"num": 1000,
+			"numJust":"500",
+			"numIn":"200",
+			"numNegative":"300",
+			"mapToDataSixsBean": [
+				{"name": "大气污染", "num": 1000},
+				{"name": "水体污染", "num": 1000},
+				{"name": "土壤污染", "num": 1000},
+				{"name": "核污染", "num": 1000},
+				{"name": "固体废弃物", "num": 1000}
+			]
+		},{
+			"seriesTitle": "全国",
+			"name": "郑州",
+			"coordinate": [113.65000,34.76667],
+			"num": 1000,
+			"numJust":"500",
+			"numIn":"200",
+			"numNegative":"300",
+			"mapToDataSixsBean": [
+				{"name": "大气污染", "num": 1000},
+				{"name": "水体污染", "num": 1000},
+				{"name": "土壤污染", "num": 1000},
+				{"name": "核污染", "num": 1000},
+				{"name": "固体废弃物", "num": 1000}
+			]
+		},{
+			"seriesTitle": "全国",
+			"name": "海口",
+			"coordinate": [110.35000,20.01667],
+			"num": 1000,
+			"numJust":"500",
+			"numIn":"200",
+			"numNegative":"300",
+			"mapToDataSixsBean": [
+				{"name": "大气污染", "num": 1000},
+				{"name": "水体污染", "num": 1000},
+				{"name": "土壤污染", "num": 1000},
+				{"name": "核污染", "num": 1000},
+				{"name": "固体废弃物", "num": 1000}
+			]
+		}
+	]
 }

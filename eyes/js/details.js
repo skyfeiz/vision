@@ -123,6 +123,11 @@ this.EE = this.EE || {};
 		this.$pagenum = $("#pagenum");
 		// 跳转按钮
 		this.$gotobtn = $("#gotobtn");
+
+		//弹出框
+		this.$dialogbox = $('#dialogbox');
+		this.$diacontent = $('#diacontent');
+		this.$diabtn = $('#diabtn');
 	};
 
 	p.createPageList = function() {
@@ -244,12 +249,17 @@ this.EE = this.EE || {};
 		}, function(result) {
 			var str = '';
 			if (result.leader) {
-				var item = result.leader[0];
+				var item = result.leader;
+				var reg = new RegExp(item.name,'g');
 				str += '<li class="leaderli">'
-                    +'<img src="images/leader.jpg" alt="" />'
+                    +'<img src="'+item.img+'" alt="" />'
                     +'<div class="infobox">'
-                    +    '<p class="leaderinfo">'+item.name+' '+(item.position||'')+'</p>'
-                    +    '<p class="leaderdetails">'+item.briefIntroduction+'</p>'
+                    +    '<p class="leaderinfo"><a onClick="util.jumpUrl(\''+item.jumpUrl+'\')">'+item.name+'</a> '+(item.position||'')+'</p>'
+                    +    '<p class="leaderdetails">'+item.briefIntroduction.replace(reg,'<a onClick="util.jumpUrl(\''+item.jumpUrl+'\')">'+item.name+'</a>')+'</p>'
+                    +	 '<p class="leaderaddress clearfix">'
+                    +	 	'<span class="leaderphone fl">电话 : '+(item.telephone || '')+'</span>'
+                    +	 	(item.address!=undefined?('<span class="leaderin fl">办公地点 : '+item.address+'</span>'):'')
+                    +	 '</p>'
                     +'</div>'
                 +'</li>';
 			}
@@ -261,7 +271,6 @@ this.EE = this.EE || {};
 			_this.pageTotal = number;
 			_this.$totalnum.html('共 <b>' + number + '</b> 页');
 			_this.createPageList(str);
-			
 		});
 	};
 
@@ -284,7 +293,7 @@ this.EE = this.EE || {};
 						content = content.substring(0, nLast+1);
 					}
 				}
-				htmlStr += '<li>' + '<a target="_blank" href="' + data[i].articleUrl + '" class="atitle">' + data[i].articleTitle.replace(/\<BR\/\>/,' ') + '</a>' + '<p class="textinfo">'+(data[i].articleSource==undefined?'':('<a href="javascript:;">来源：' + data[i].articleSource + '</a>') )+(data[i].articleAuthor==undefined?'':('<a href="javascript:;">用户：' + data[i].articleAuthor + '</a>')) + '<a>发布时间：' + data[i].articlePubtime + '</a>' + '<a target="_blank" class="hashref" href="' + data[i].articleUrl + '">' + urlArr[0] + '</a>' + '</p>' + '<span class="textline"></span>' + '<p class="listcontent">' + content + '</p>' + '</li>';
+				htmlStr += '<li>' + '<a onClick="util.jumpUrl(\''+data[i].articleUrl+'\')" class="atitle">' + data[i].articleTitle.replace(/\<BR\/\>/,' ') + '</a>' + '<p class="textinfo">'+(data[i].articleSource==undefined?'':('<a href="javascript:;">来源：' + data[i].articleSource + '</a>') )+(data[i].articleAuthor==undefined?'':('<a href="javascript:;">用户：' + data[i].articleAuthor + '</a>')) + '<a>发布时间：' + data[i].articlePubtime + '</a>' + '<a class="hashref" onClick="util.jumpUrl(\''+data[i].articleUrl+'\')">' + urlArr[0] + '</a>' + '</p>' + '<span class="textline"></span>' + '<p class="listcontent">' + content + '</p>' + '</li>';
 			}
 		}else{
 			switch(this.sStr ){
@@ -422,6 +431,29 @@ this.EE = this.EE || {};
 
 		$(doc).click(function() {
 			_this.$droplist.hide();
+		});
+
+
+		//列表点击 显示弹出框
+		_this.$ullist.on('click','.leaderdetails',function(ev){
+			ev.stopPropagation();
+			var height = $(this).height();
+			if (height<90) {
+				return;
+			}
+			var html = $(this).html();
+			_this.$diacontent.html(html);
+			_this.$dialogbox.show();
+ 	
+		});
+		_this.$diabtn.click(function(ev){
+			_this.$dialogbox.hide();
+			ev.stopPropagation();
+		});
+		$(doc).on('keypress',function(ev){
+			if (ev.keyCode == 13) {
+				_this.$diabtn.trigger('click');
+			}
 		});
 	};
 
@@ -647,13 +679,13 @@ this.EE = this.EE || {};
 			var str = '';
 			switch(this.emotion){
 				case '1':
-					str = '正方';
+					str = '正面';
 					break;
 				case '0':
 					str = '中立';
 					break;
 				case '-1':
-					str = '负方';
+					str = '负面';
 					break;
 				default:
 					str = '全部';

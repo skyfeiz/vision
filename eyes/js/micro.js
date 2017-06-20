@@ -1,7 +1,5 @@
 ﻿this.EE = this.EE || {};
 (function(win, doc) {
-	var hostUrl = "http://" + win.location.host + "/eems/eyes/"; 
-	// var hostUrl = "http://" + win.location.host + "/eems/sys/jsp/eyes/"; 
 
 	var Micro = function() {
 		this.c = new EE.Controller();
@@ -92,7 +90,7 @@
 		_this._micro4.EventDispatcher.on('click', function(evt, item) {
 			// 需要的参数 事件id，视角，视角区域id，情感
 			return;
-			win.location.href = encodeURI(hostUrl + 'anreport.html?eventId=' + item + '&emotion=' + _this.emotion);
+			win.location.href = encodeURI('anreport.html?eventId=' + item + '&emotion=' + _this.emotion);
 
 		});
 
@@ -154,7 +152,7 @@
 		});
 
 		_this._micro9.EventDispatcher.on('click', function(evt, item) {
-			// win.location.href = encodeURI(hostUrl + 'details.html?type=4&eventName=' + item + '&emotion=' + _this.emotion);
+			// win.location.href = encodeURI('details.html?type=4&eventName=' + item + '&emotion=' + _this.emotion);
 		});
 
 
@@ -202,10 +200,10 @@
 			batchFlag: _this.nRandom
 		}, function(result) {
 			_this.$noData9.show();
-			_this._mapKIdVChart['micro9'].setDataProvider(result.data);
 			if (result.data && result.data.length) {
 				_this.$noData9.hide();
 			}
+			_this._mapKIdVChart['micro9'].setDataProvider(result.data);
 		});
 
 		// 发热度排名 请求数据

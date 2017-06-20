@@ -1,285 +1,54 @@
 {
-  "data": [
-    {
-      "orderNo": 0,
-      "subjectCategoryId": 3,
-      "focusType": "M",
-      "entityType": "",
-      "parentSubjectCategoryId": 0,
-      "subjectCategoryName": "专题分析",
-      "clientId": 24,
-      "isEnabled": 1
-    },
-    {
-      "orderNo": 1,
-      "subjectCategoryId": 28,
-      "focusType": "M",
-      "entityType": "",
-      "parentSubjectCategoryId": 0,
-      "subjectCategoryName": "大气治理",
-      "clientId": 24,
-      "isEnabled": 1
-    },
-    {
-      "orderNo": 2,
-      "subjectCategoryId": 29,
-      "focusType": "M",
-      "entityType": "",
-      "parentSubjectCategoryId": 0,
-      "subjectCategoryName": "水治理",
-      "clientId": 24,
-      "isEnabled": 1
-    },
-    {
-      "orderNo": 3,
-      "subjectCategoryId": 30,
-      "focusType": "M",
-      "entityType": "",
-      "parentSubjectCategoryId": 0,
-      "subjectCategoryName": "固废修复",
-      "clientId": 24,
-      "isEnabled": 1
-    },
-    {
-      "orderNo": 4,
-      "subjectCategoryId": 31,
-      "focusType": "M",
-      "entityType": "",
-      "parentSubjectCategoryId": 0,
-      "subjectCategoryName": "环境修复",
-      "clientId": 24,
-      "isEnabled": 1
-    },
-    {
-      "orderNo": 5,
-      "subjectCategoryId": 32,
-      "focusType": "M",
-      "entityType": "",
-      "parentSubjectCategoryId": 0,
-      "subjectCategoryName": "人物",
-      "clientId": 24,
-      "isEnabled": 1
-    },
-    {
-      "orderNo": 1,
-      "subjectCategoryId": 34,
-      "focusType": "M",
-      "entityType": "C",
-      "parentSubjectCategoryId": 28,
-      "subjectCategoryName": "上市治污企业",
-      "clientId": 24,
-      "isEnabled": 1
-    },
-    {
-      "orderNo": 2,
-      "subjectCategoryId": 35,
-      "focusType": "M",
-      "entityType": "C",
-      "parentSubjectCategoryId": 28,
-      "subjectCategoryName": "上市排污企业",
-      "clientId": 24,
-      "isEnabled": 1
-    },
-    {
-      "orderNo": 3,
-      "subjectCategoryId": 36,
-      "focusType": "M",
-      "entityType": "P",
-      "parentSubjectCategoryId": 28,
-      "subjectCategoryName": "治污技术",
-      "clientId": 24,
-      "isEnabled": 1
-    },
-    {
-      "orderNo": 4,
-      "subjectCategoryId": 37,
-      "focusType": "M",
-      "entityType": "E",
-      "parentSubjectCategoryId": 28,
-      "subjectCategoryName": "污染事件",
-      "clientId": 24,
-      "isEnabled": 1
-    },
-    {
-      "orderNo": 1,
-      "subjectCategoryId": 38,
-      "focusType": "M",
-      "entityType": "C",
-      "parentSubjectCategoryId": 29,
-      "subjectCategoryName": "上市治污企业",
-      "clientId": 24,
-      "isEnabled": 1
-    },
-    {
-      "orderNo": 3,
-      "subjectCategoryId": 40,
-      "focusType": "M",
-      "entityType": "P",
-      "parentSubjectCategoryId": 29,
-      "subjectCategoryName": "治污技术",
-      "clientId": 24,
-      "isEnabled": 1
-    },
-    {
-      "orderNo": 4,
-      "subjectCategoryId": 41,
-      "focusType": "M",
-      "entityType": "E",
-      "parentSubjectCategoryId": 29,
-      "subjectCategoryName": "污染事件",
-      "clientId": 24,
-      "isEnabled": 1
-    },
-    {
-      "orderNo": 1,
-      "subjectCategoryId": 42,
-      "focusType": "M",
-      "entityType": "C",
-      "parentSubjectCategoryId": 30,
-      "subjectCategoryName": "上市治污企业",
-      "clientId": 24,
-      "isEnabled": 1
-    },
-    {
-      "orderNo": 2,
-      "subjectCategoryId": 44,
-      "focusType": "M",
-      "entityType": "P",
-      "parentSubjectCategoryId": 30,
-      "subjectCategoryName": "治污技术",
-      "clientId": 24,
-      "isEnabled": 1
-    },
-    {
-      "orderNo": 3,
-      "subjectCategoryId": 45,
-      "focusType": "M",
-      "entityType": "E",
-      "parentSubjectCategoryId": 30,
-      "subjectCategoryName": "污染事件",
-      "clientId": 24,
-      "isEnabled": 1
-    },
-    {
-      "orderNo": 1,
-      "subjectCategoryId": 46,
-      "focusType": "M",
-      "entityType": "C",
-      "parentSubjectCategoryId": 31,
-      "subjectCategoryName": "上市修复企业",
-      "clientId": 24,
-      "isEnabled": 1
-    },
-    {
-      "orderNo": 2,
-      "subjectCategoryId": 48,
-      "focusType": "M",
-      "entityType": "P",
-      "parentSubjectCategoryId": 31,
-      "subjectCategoryName": "治污技术",
-      "clientId": 24,
-      "isEnabled": 1
-    },
-    {
-      "orderNo": 3,
-      "subjectCategoryId": 49,
-      "focusType": "M",
-      "entityType": "E",
-      "parentSubjectCategoryId": 31,
-      "subjectCategoryName": "污染事件",
-      "clientId": 24,
-      "isEnabled": 1
-    },
-    {
-      "orderNo": 1,
-      "subjectCategoryId": 50,
-      "focusType": "M",
-      "entityType": "H",
-      "parentSubjectCategoryId": 32,
-      "subjectCategoryName": "领导",
-      "clientId": 24,
-      "isEnabled": 1
-    },
-    {
-      "orderNo": 2,
-      "subjectCategoryId": 51,
-      "focusType": "M",
-      "entityType": "H",
-      "parentSubjectCategoryId": 32,
-      "subjectCategoryName": "行业精英",
-      "clientId": 24,
-      "isEnabled": 1
-    },
-    {
-      "orderNo": 2,
-      "subjectCategoryId": 62,
-      "focusType": "M",
-      "entityType": "C",
-      "parentSubjectCategoryId": 29,
-      "subjectCategoryName": "上市排污企业",
-      "clientId": 24,
-      "isEnabled": 1
-    },
-    {
-      "orderNo": 6,
-      "subjectCategoryId": 63,
-      "focusType": "M",
-      "entityType": "",
-      "parentSubjectCategoryId": 0,
-      "subjectCategoryName": "官方双微",
-      "clientId": 24,
-      "isEnabled": 1
-    },
-    {
-      "orderNo": 1,
-      "subjectCategoryId": 64,
-      "focusType": "M",
-      "entityType": "",
-      "parentSubjectCategoryId": 63,
-      "subjectCategoryName": "新浪微博",
-      "clientId": 24,
-      "isEnabled": 1
-    },
-    {
-      "orderNo": 2,
-      "subjectCategoryId": 65,
-      "focusType": "M",
-      "entityType": "",
-      "parentSubjectCategoryId": 63,
-      "subjectCategoryName": "微信公众号",
-      "clientId": 24,
-      "isEnabled": 1
-    },
-    {
-      "orderNo": 10,
-      "subjectCategoryId": 70,
-      "focusType": "",
-      "entityType": "",
-      "parentSubjectCategoryId": 0,
-      "subjectCategoryName": "环保类网站",
-      "clientId": 24,
-      "isEnabled": 1
-    },
-    {
-      "orderNo": 10,
-      "subjectCategoryId": 71,
-      "focusType": "",
-      "entityType": "",
-      "parentSubjectCategoryId": 70,
-      "subjectCategoryName": "环保相关网站",
-      "clientId": 24,
-      "isEnabled": 1
-    },
-    {
-      "orderNo": 10,
-      "subjectCategoryId": 72,
-      "focusType": "",
-      "entityType": "",
-      "parentSubjectCategoryId": 70,
-      "subjectCategoryName": "环保官方网站",
-      "clientId": 24,
-      "isEnabled": 1
-    }
-  ],
-  "success": true
+	"success": true,
+	"error": "如果请求失败，返回页面的提示信息",
+	"data": [{
+			"parentSubjectCategoryId": 0,
+			"subjectCategoryId": 2,
+			"subjectCategoryName": "大气污染"
+		},{
+			"parentSubjectCategoryId": 0,
+			"subjectCategoryId": 3,
+			"subjectCategoryName": "大气污染"
+		},{
+			"parentSubjectCategoryId": 0,
+			"subjectCategoryId": 4,
+			"subjectCategoryName": "大气污染"
+		},{
+			"parentSubjectCategoryId": 0,
+			"subjectCategoryId": 5,
+			"subjectCategoryName": "大气污染"
+		},{
+			"parentSubjectCategoryId": 0,
+			"subjectCategoryId": 6,
+			"subjectCategoryName": "大气污染"
+		},{
+			"parentSubjectCategoryId": 0,
+			"subjectCategoryId": 7,
+			"subjectCategoryName": "大气污染"
+		},{
+			"parentSubjectCategoryId": 2,
+			"subjectCategoryId": 12,
+			"subjectCategoryName": "大气污染"
+		},{
+			"parentSubjectCategoryId": 3,
+			"subjectCategoryId": 13,
+			"subjectCategoryName": "大气污染"
+		},{
+			"parentSubjectCategoryId": 4,
+			"subjectCategoryId": 14,
+			"subjectCategoryName": "大气污染"
+		},{
+			"parentSubjectCategoryId": 5,
+			"subjectCategoryId": 15,
+			"subjectCategoryName": "大气污染"
+		},{
+			"parentSubjectCategoryId": 6,
+			"subjectCategoryId": 16,
+			"subjectCategoryName": "大气污染"
+		},{
+			"parentSubjectCategoryId": 7,
+			"subjectCategoryId": 17,
+			"subjectCategoryName": "大气污染"
+		}
+	]
 }

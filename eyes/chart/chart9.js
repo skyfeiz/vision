@@ -110,19 +110,7 @@ this.WbstChart = this.WbstChart || {};
 
 		this._myChart.setOption(option);
 
-		// this.toScalc();
 	};
-
-	p.toScalc = function() {
-		this.scalcW = this.wid / 390;
-		this.scalcH = this.heig / 308
-
-		$(this._dom).css({
-			transform: 'translate(' + (this.wid - 390) / 2 + 'px,' + (this.heig - 308) / 2 + 'px) scale(' + this.scalcW * 1.4 + ',' + this.scalcH * 1.4 + ')'
-		});
-
-	};
-
 
 	WbstChart.Chart9 = Chart9;
 })();

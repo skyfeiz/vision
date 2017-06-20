@@ -23,6 +23,8 @@
 </head>
 
 <body>
+    <iframe class="goiframe" id="goiframe" frameborder="0"></iframe>
+    <span class="goback" id="goback">返回</span>
     <div class="root">
         <header class="clearfix" id="header"></header>
         <div class="main">
@@ -103,6 +105,14 @@
                     <input class="gonum" type="text" id="pagenum" oninput="this.value=this.value.replace(/\D/g,'')" /> 页
                 </div>
                 <span class="gotobtn" id="gotobtn">确定</span>
+            </div>
+        </div>
+
+        <div class="dialogbox" id="dialogbox">
+            <div class="diaopa"></div>
+            <div class="diacontainer">
+                <p class="diacontent" id="diacontent">领导简介</p>
+                <span class="diabtn" id="diabtn">确定</span>
             </div>
         </div>
     </div>

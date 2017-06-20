@@ -23,4 +23,22 @@ this.EE = this.EE || {};
 
 $(function(){
     EE.Screen();
+
+    var $goback = $('#goback');
+    $goback.click(function(){
+        $('#goiframe').hide();
+        $('#goiframe').attr('src','');
+        $(this).hide();
+    })
 })
+// 跳转页面公共方法
+var util = {
+    jumpUrl:function(url){
+        var $goiframe = $('#goiframe');
+        if ($goiframe[0]) {
+            $goiframe.attr('src',url);
+            $goiframe.show();
+            $('#goback').show();
+        }
+    }
+}

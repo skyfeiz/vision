@@ -1,7 +1,5 @@
 this.EE = this.EE || {};
 (function(win, doc) {
-	var hostUrl = "http://" + win.location.host + "/eems/eyes/";
-	// var hostUrl = "http://" + win.location.host + "/vision/eyes/";
 
 	var P1Map = function() {
 		this.c = new EE.Controller();
@@ -255,7 +253,7 @@ this.EE = this.EE || {};
 				sDate = _this.startDate;
 				eDate = _this.endDate;
 			}
-			win.location.href = encodeURI(hostUrl + 'p3.html?header=0&eventId=' + item + '&emotion=' + _this.emotion + '&angle=' + _this.viewName + '&regin=' + _this.viewId + '&startDate=' + sDate + '&endDate=' + eDate);
+			win.location.href = encodeURI('p3.html?header=0&eventId=' + item + '&emotion=' + _this.emotion + '&angle=' + _this.viewName + '&regin=' + _this.viewId + '&startDate=' + sDate + '&endDate=' + eDate);
 
 		});
 		// _this.getLeft2Data();

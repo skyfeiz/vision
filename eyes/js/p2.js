@@ -1,7 +1,5 @@
 this.EE = this.EE || {};
 (function(win, doc) {
-	// var hostUrl = "http://" + win.location.host + "/eems/opinionStudy/";
-	var hostUrl = "http://" + win.location.host + "/eems/eyes/"; 
 
 	var P2Chart = function() {
 		this.c = new EE.Controller();
@@ -115,7 +113,7 @@ this.EE = this.EE || {};
 			// 需要的参数 事件id，视角，视角区域id，情感
 			var objTime = _this.handleTime(_this.date);
 
-			win.location.href = encodeURI(hostUrl + 'p3.html?header=1&eventId=' + item + '&emotion=' + _this.emotion + '&startDate='+objTime.sDate+'&endDate='+objTime.eDate);
+			win.location.href = encodeURI('p3.html?header=1&eventId=' + item + '&emotion=' + _this.emotion + '&startDate='+objTime.sDate+'&endDate='+objTime.eDate);
 		});
 
 		// 事件省份排名 chart5
@@ -196,7 +194,7 @@ this.EE = this.EE || {};
 
 		_this._Chart9.EventDispatcher.on('click', function(evt, item) {
 			var objTime = _this.handleTime(_this.date);
-			win.location.href = encodeURI(hostUrl + 'details.html?type=4&eventName=' + item + '&emotion=' + _this.emotion+'&startDate='+objTime.sDate+'&endDate='+objTime.eDate);
+			win.location.href = encodeURI('details.html?type=4&eventName=' + item + '&emotion=' + _this.emotion+'&startDate='+objTime.sDate+'&endDate='+objTime.eDate);
 		});
 
 

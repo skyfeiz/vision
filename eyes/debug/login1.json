@@ -1,4 +1,6 @@
 {
 	"success":true,
-	"region":"101"
+	"region":"101",
+	"microBlog":1,
+	"weChat":1
 }

@@ -1,6 +1,6 @@
 this.EE = this.EE || {};
+this.isTest = this.isTest || false;;
 (function(win, doc) {
-    var hostUrl = "http://" + win.location.host + "/eems/eyes/";
     var Traces = function() {
         this.c = new EE.Controller();
 
@@ -85,7 +85,7 @@ this.EE = this.EE || {};
             var eventId = $(this).attr('eventId');
             var eventName = $(this).attr('eventName');
             var timeObj = _this.handleTime(_this.date);
-            win.location.href = encodeURI(hostUrl + "details.html?eventId=" + eventId + "&eventName="+eventName+'&startDate='+timeObj.sDate+'&endDate='+timeObj.eDate);
+            win.location.href = encodeURI("details.html?eventId=" + eventId + "&eventName="+eventName+'&startDate='+timeObj.sDate+'&endDate='+timeObj.eDate+'&emotion='+_this.emotion);
         })
         _this.$op.mouseenter(function(){
             _this.chartP6.bPause = true;
@@ -96,8 +96,12 @@ this.EE = this.EE || {};
     };
 
     p.createLeaderInfo = function(json) {
+        var str = '/eems/';
+        if (isTest) {
+            str = '../';
+        }
         var strHtml = '<div class="leaderimg">' +
-            '<img src="/eems/' + json.imge + '" alt="" />' +
+            '<img src="'+str + json.imge + '" alt="" />' +
             '<span class="triangle"></span>' +
             '</div>' +
             '<p class="leadermsg">' + (json.desc || '') + '</p>';

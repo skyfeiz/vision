@@ -1,7 +1,6 @@
 this.EE = this.EE || {};
+this.isTest = this.isTest || false;
 (function(win, doc) {
-	var hostUrl = "http://" + win.location.host + "/eems/eyes/";
-	// var hostUrl = "http://" + win.location.host + "/eems/sys/jsp/eyes/"; 
 
 	var Weibo = function() {
 		this.c = new EE.Controller();
@@ -24,7 +23,12 @@ this.EE = this.EE || {};
 		this.bAuto = false;
 		this.auTimer = null;
 
-		this.nowTime = new Date();
+		if (isTest) {
+			this.nowTime = new Date('2017-06-13');
+		}else{
+			this.nowTime = new Date();
+		}
+		
 
 		this.nRandom = new Date().getTime();
 
@@ -81,7 +85,7 @@ this.EE = this.EE || {};
 
 		_this._micro4.EventDispatcher.on('click', function(evt, item) {
 			// 需要的参数 事件id，视角，视角区域id，情感
-			win.location.href = encodeURI(hostUrl + 'weibo_report.html?index=' + item);
+			win.location.href = encodeURI('weibo_report.html?index=' + item);
 
 		});
 
@@ -141,7 +145,7 @@ this.EE = this.EE || {};
 		});
 
 		_this._micro9.EventDispatcher.on('click', function(evt, item) {
-			win.location.href = encodeURI(hostUrl + 'details.html?type=4&eventName=' + item + '&emotion=' + _this.emotion);
+			win.location.href = encodeURI('details.html?type=4&eventName=' + item + '&emotion=' + _this.emotion);
 		});
 
 

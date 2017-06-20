@@ -1,36 +1,50 @@
 {
 	"code": "0000",
 	"message": "请求已正常响应",
-	"totalCount": 10,
+	"totalCount": 2,
 	"statList": [{
+		"name": "青海",
+		"key": null,
+		"num": 324,
+		"total": 0.0,
+		"percent": 58.8021778584392,
+		"percentStr": "59%",
+		"type": 1,
+		"funnelType": null,
+		"percentAverage": 0.0,
+		"percentAverageMinus": 0.0,
+		"iContentCommonNet": null,
+		"min": null,
+		"max": null,
+		"count": null,
+		"missing": null,
+		"sum": null,
+		"mean": null,
+		"stddev": null,
+		"keys": null,
+		"increment": 0,
+		"icontentCommonNetList": null
+	}, {
 		"name": "江苏",
-		"num": 119
-	}, {
-		"name": "山东",
-		"num": 88
-	}, {
-		"name": "四川",
-		"num": 69
-	}, {
-		"name": "江西",
-		"num": 50
-	}, {
-		"name": "河北",
-		"num": 46
-	}, {
-		"name": "山西",
-		"num": 26
-	}, {
-		"name": "北京",
-		"num": 25
-	}, {
-		"name": "黑龙江",
-		"num": 25
-	}, {
-		"name": "内蒙古",
-		"num": 24
-	}, {
-		"name": "湖北",
-		"num": 22
+		"key": null,
+		"num": 227,
+		"total": 0.0,
+		"percent": 41.1978221415608,
+		"percentStr": "41%",
+		"type": 2,
+		"funnelType": null,
+		"percentAverage": 0.0,
+		"percentAverageMinus": 0.0,
+		"iContentCommonNet": null,
+		"min": null,
+		"max": null,
+		"count": null,
+		"missing": null,
+		"sum": null,
+		"mean": null,
+		"stddev": null,
+		"keys": null,
+		"increment": 0,
+		"icontentCommonNetList": null
 	}]
 }

@@ -438,7 +438,7 @@ input.gonum {
     height: 80.3%;
 }
 .ullist .infobox{
-    width: 12.4rem;
+    width: calc(100% - 3rem);
     position: absolute;
     left:2.6rem;
     height: 100%;
@@ -446,20 +446,47 @@ input.gonum {
 .ullist .infobox .leaderinfo{
     color: #fff;
     position: absolute;
-    top: 15%;
+    top: 12%;
     font-size: 0.18rem;
     line-height: 1.5;
+}
+.ullist .infobox .leaderinfo a{
+    color: #fff;
 }
 .ullist .infobox .leaderdetails{
     color: #5fcbff;
     position: absolute;
-    top: 30%;
+    top: 26%;
     line-height: 1.5;
     font-size: 0.14rem;
     text-align: justify;
     margin: auto;
     display: -webkit-box;
-    -webkit-line-clamp: 6;
+    -webkit-line-clamp: 5;
     -webkit-box-orient: vertical;
     overflow: hidden;
+}
+.ullist .infobox .leaderdetails a{
+    color: #5fcbff;
+}
+.leaderaddress{
+    width: calc(100% - 3rem);
+    position: absolute;
+    left: 0;
+    bottom:0.4rem;
+    color: #1389dc;
+    font-size: 0.14rem;
+}
+.leaderaddress .leaderphone{
+    margin-right: 0.4rem;
+}
+/* dialog box */
+.diacontainer{
+    width: 9.6rem;
+    max-height: 7rem;
+    overflow-y:auto; 
+}
+.diacontent{
+    text-align: left;
+    color: #5fcbff;
 }

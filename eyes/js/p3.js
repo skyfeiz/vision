@@ -1,6 +1,5 @@
 this.EE = this.EE || {};
 (function(win, doc) {
-	var hostUrl = "http://" + win.location.host + "/eems/eyes/";
 
 	var P3Chart = function() {
 		this.c = new EE.Controller();
@@ -37,12 +36,12 @@ this.EE = this.EE || {};
 			if (_this.regin.indexOf(_this.region) == -1) {
 				_this.regin = _this.region;
 			}
-			win.location.href = (encodeURI(hostUrl + 'details.html?type=3&eventName=' + html + '&emotion=' + _this.emotion+'&startDate='+_this.startDate+'&endDate='+_this.endDate+'&regin='+_this.regin));
+			win.location.href = (encodeURI('details.html?type=3&eventName=' + html + '&emotion=' + _this.emotion+'&startDate='+_this.startDate+'&endDate='+_this.endDate+'&regin='+_this.regin));
 		})
 
 		$p3ulList.on('click', 'button', function(ev) {
-			var url = $(this).attr('_url');
-			win.open(url)
+			// var url = $(this).attr('_url');
+			// win.open(url)
 			ev.stopPropagation();
 		})
 
@@ -236,7 +235,7 @@ this.EE = this.EE || {};
 			_this.hideToolTip();
 		});
 		_this.p3Chart5.EventDispatcher.on('click', function(evt, item) {
-			win.location.href = encodeURI(hostUrl + 'details.html?type=4&eventName=' + item + '&emotion=' + _this.emotion+'&startDate='+_this.startDate+'&endDate='+_this.endDate+'&regin='+_this.regin);
+			win.location.href = encodeURI('details.html?type=4&eventName=' + item + '&emotion=' + _this.emotion+'&startDate='+_this.startDate+'&endDate='+_this.endDate+'&regin='+_this.regin);
 		});
 
 		// 媒体发热度排名
@@ -337,7 +336,7 @@ this.EE = this.EE || {};
 					"<p>" +
 					"简评：<span>" + (strArticle.length > 30 ? (strArticle.substring(0, 30) + '...') : strArticle) + "</span>" +
 					"</p>" +
-					"<button _url='"+result.data[i].articleUrl+"'>查看评论＞</button>" +
+					'<button onclick="util.jumpUrl(\''+(result.data[i].articleUrl)+'\')">查看评论＞</button>' +
 					"</div>" +
 					"</li>";
 

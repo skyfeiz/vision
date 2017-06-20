@@ -1,7 +1,5 @@
 this.EE = this.EE || {};
 (function() {
-	var hostUrl = "http://" + window.location.host + "/eems/eyes/";
-	// var hostUrl = "http://" + win.location.host + "/eems/sys/jsp/eyes/"; 
 
 	var Header = function(n) {
 		this.c = new EE.Controller();
@@ -103,7 +101,7 @@ this.EE = this.EE || {};
 
 		$('#signout').click(function(){
 			_this.c.logout('',function(){
-				window.location.href=hostUrl+'login.html';
+				window.location.href='login.html';
 			})
 		})
 
